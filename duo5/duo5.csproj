@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_\bin\**" />
+    <Compile Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\bin\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <None Remove="_\bin\**" />
+    <None Remove="_\obj\**" />
+  </ItemGroup>
+
+</Project>

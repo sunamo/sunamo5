@@ -1,0 +1,3 @@
+﻿Velmi dobrý klient
+Mnohem jednodušší na příkazy
+Nemusím chodit do složky kde potřebuji, stačí zadat celou cestu

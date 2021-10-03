@@ -1,0 +1,13 @@
+﻿t0038 create app for generate git checkout:
+Git.cs
+
+t0006 MedianAverage to find shop with best prices:
+GoogleSheets
+
+t0039 Search in and open RepairPhones sites:
+RepairPhonesSiteTypes
+
+move init method to FindRightFlyingTicket
+FindRightFlyingTicket
+
+git add ConsoleApp1/ConsoleApp1Research/Generate/* ConsoleApp1/ConsoleApp1Research/HowToEarn/* ConsoleApp1/ConsoleApp1Research/Parse/* ConsoleApp1/ConsoleApp1Research/* 

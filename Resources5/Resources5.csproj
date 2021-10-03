@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Resources</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.cs-CZ.xlf" Link="sunamo.cs-CZ.xlf" />
+    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.en-US.xlf" Link="sunamo.en-US.xlf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ResourcesDuo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourcesDuo.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ResourcesDuo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesDuo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

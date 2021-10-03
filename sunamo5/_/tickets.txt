@@ -1,0 +1,341 @@
+t0001 FindRightFlyingTicket
+t0002 ReplaceInAllFiles - replace name of class, keep name of class entity
+t0003 send cv
+t0004 repair opening of recycle bin
+t0005 ConsoleApp with user ask for action
+t0006 MedianAverage to find shop with best prices
+t0007 make app for automatically commit work
+t0008 parse user agents
+t0009 when I got to page which doesnt exists, show 404 which will explain what happened
+t0010 funny videos, edu docs, also with klarka in train and for transporting I'm tram and have fun 
+t0011 saving control's data and statepersistently d:\Documents\Visual Studio 2017\Projects\_otherDevelopers\, have several archives
+t0012 Create generic method Average
+t0013 restore photos, I need it to flat
+t0014 make CalculateDifferencesBetweenTwoDateTimes for use with any delimiter
+t0015 ClipboardWatcher show captured texts
+t0016 SunamoYaml
+t0017 ReplaceInAllFiles, because notepad++ saving all files. Is succifient save only changed. Automatically create script for git add. Then these changes is mixed with other changes. 
+t0018 GenerateCommandForGitAddSunamo
+t0019 Point git ignore to all solutions
+t0020 Make app for bundle ts file  webpack --mode development ./ts/Dev_ConvertHtmlToEntities.js --output-path=./ts/Developer --output-filename=ConvertHtmlToEntities.js
+t0021 download 50MB of files, write review and check what is in french and other language
+t0022 ConsoleApp1 GetLinesWithDiacritic as another user selected action.
+t0023 Find new work
+t0024 Allow use any delimiter in GenerateCommandForGitAdd
+t0025 vsts tasks.txt - jebat
+t0026 linux double sized printing - jebat   
+t0027 buy second bed
+t0028 add reference for d:\Documents\Visual Studio 2017\Projects\sunamo\sunamo.ruleset in csproj, is in sunamo.cz.csproj
+t0029 merge functionality of SunamoMasterPage and SunamoPage to single files.
+t0030 New home, nowadays use t0154 
+t0031 Refactor opening RepairPhones
+t0032 Advanced work with Enum
+t0033 WpfApp1/SearchInCodeElementsUC
+t0034 buy huawei battery + lcd 
+t0035 offer lcd parts https://www.aliexpress.com/item/Tested-Warranty-5-0-inch-1280x720-Display-For-XiaoMi-RedMi-4X-LCD-with-Touch-Screen-Digitizer/32817876150.html?spm=a2g0s.13010208.99999999.260.25363c001k9xVw, I have written whether Odnos service can be applied to that
+t0036 repair repair jpn encoding, e.g. GridView, ListView a ListBox, one text overlay another
+t0037 make working awesome font, need it for SearchInCode, have created solution AwesomeFontTests but to now without any code
+t0038 simple parser to html where I don't code in c#, will be enough enter plain text http://www.ceske-hospudky.cz/hudebni-kluby/ostrava
+t0039 tidy up sql solutions, after reduce every push to git, not done yet
+t0040 move sites to new sunamo.cz, need sth comment to compile, search in whole solution, it musnt be with TODO and so
+t0041 process recovered sources codes and find all regions
+t0042 tidy up solutions, make exactly description to avoid dupliciting
+t0043 Painting walls
+t0044 Selling
+t0045 Rent my flat, airbnb
+t0046 Masters of seduction
+t0047 Hornbach boards
+t0048 cars - karavan, dont pay any rent. most bad is internet
+t0049 sql code folding
+t0050 Buy uniform
+t0051 Find job
+t0052 Repair Grub
+t0053 Tether Wifi
+t0054 Instagram instant followers https://www.wikihow.cz/Jak-z%C3%ADskat-1000-followers-na-Instagramu
+t0055 Unicredit 30 partners 
+t0056 MoveClassElementIntoSharedFileUC
+t0057 tieto payslips
+t0058 publish ads to cd bonus, sell it, immediately my points is expired
+t0059 taxes
+t0060 C# formatting for one file
+t0061 how to use debt, I will become richer and richer
+t0062 uctenkovka iglobus 
+t0063 AllProjectsSearch\RemoveDuplicatedCodeElements
+t0064 Money from fraudsters
+t0065 find job in global gwi or other foreign company
+t0066 Roslyn
+t0067 denied decompiling of my code
+t0068 bumb keys
+t0069 xml namespaces with automatic parsing
+t0070 repair encoding of words
+t0071 find the best fotovoltaic panel
+t0072 create duplicated facebook profiles
+t0073 cast down middle seat
+t0074 books opel zafira
+t0075 mark all locations in flat
+t0076 BDSM, Sex with sub
+t0077 localize sunamo.cz
+t0078 oil check
+t0079 girl to dancing
+t0080 Restore photos
+t0081 restore source files
+t0082 repair jpn
+t0083 sandblasting glass
+t0084 Cosmetics - permanent makeup
+t0085 Sell MacBook and others
+t0086 Tattoo
+t0087 peaceful place to work
+t0089 amateri app
+t0090 git output parse errors
+t0091 numb cream
+t0092 app for events
+t0093 buy oil filter
+t0094 YouTuber
+t0095 power on travelling lte modem
+t0096 Time trackers
+t0097 comfort working on macbook
+t0098 get money from damaged car
+t0099 sell hair
+t0100 serial keys to protect my apps
+t0101 clickes to ruzovyslon
+t0102 parse events from esnvsb
+t0103 suggestion on addsong, its there awesomeplete
+t0104 opravit su.en, pak vzniká su.en(su.en(su.en(su.en("Minus"),
+t0105 app for learn english
+t0106 SearchCodeElementsUC
+t0107 propagate lyrics web,who has viewed, like it! <= propagate again lyrics with comments, instruction for checked comments from previous days, open maximum xx links and every day create new YouTube account 
+t0108 yi home
+t0109 parse from rande.cz who want sex
+t0110 parse from seznamka.cz erotic photos and location of these girls
+t0111 repair saving quicknote
+t0112 offer tattoo for remains
+t0113 add to wpfapp1 everyday, first: google trends
+t0114 financial support to sunamo.cz main page
+t0115 search engine optimalization (SEO)
+t0116 repair flats
+t0117 when first start or maximalized, its not set up any custom size of window
+t0118 sexual imagine ,search on net, in what you are look the most sexy ?
+t0119 google snippets in search results
+t0120 restore data from db
+t0121 repair lyrics data
+t0122 public static List<char> s_availableCharsInVarCharWithoutDiacriticLettersnew List<char>(new char[] { AllChars.space, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', AllChars.dash, AllChars.dot, AllChars.comma, AllChars.sc, AllChars.exclamation, '\u2013', '\u2014', '\u2026', '\u201E', '\u201C', '\u201A', '\u2018', '\u00BB', '\u00AB', '\u2019', AllChars.bs, AllChars.lb, AllChars.rb, AllChars.lsf, AllChars.rsf, AllChars.cbl, AllChars.cbr, '\u201D', '~', '\u00B0', AllChars.plus, '@', '#', '$', AllChars.modulo, '^', '&', '=', AllChars.us, '\u02C7', '\u00A8', '\u00A4', '\u00F7', '\u00D7', '\u02DD', AllChars.slash, AllChars.bs, AllChars.lt, AllChars.gt });
+t0123 microfrontends
+t0124 Find where is occuring in Columns Uri big columns, convert to small and ensure that will be use in right way
+t0125 selling apps, musím dát apps na apps web apps veškera moje práce kterou jsem do něj investoval byla zbytečná 
+t0126 download remain ic 
+t0127 Learn english of my recipes: kopr, pichnout, mandle, ...
+t0128 ReviewAspxPagesUC: columns to last check functionality / auto checking with code ,check for admin and not admin
+t0129 download all dr. who 
+t0130 social network which the most use chinese 
+t0131 Don't hotlinking!\nwww.sunamo.cz. And why?
+t0132 check every 10 minutes whether is running all webs
+t0133 video is playing despite .nomedia, amdroid math 
+t0134 write about tomas sykora bulk accusation
+t0135 download missing yt etc weekly
+t0136 try martin repos like https://github.com/Janiczek/math-n-canvas?files=1
+t0137 stack ask for framework .net which already exists 
+t0138 new battery, from kaufland I will recharge to full, after 3h of gps low batteries
+t0139 find plump in more groups
+t0140 crownfunding
+t0141 lawers to text file, repair damaged names!!!, jelínková is not named doleželová
+t0142 how to earn
+t0143 create nuget package for sunamo
+t0144 make regular shopping list , then app, every week check it and always buy in sale. In list only  každý tyden to kontrolovat a vzdy nakupovat ve slevě. mít tam jen durable foods
+t0145 app in which I will edit czech translate. keep data in app db. must have tables artist and songs. in song source (like karaoke and whether was already edited). its due to penalize from side of Google.
+t0146 sitemap for apps
+t0147 for vs code and opet through context menu only one instance!!!!
+t0148 webs of developers which is freelancers, theirs references.
+t0149 https://en.wikipedia.org/wiki/Swagger_(software)
+t0150 nowhere can be WindowState="Maximized"!!! when app have breakpoint stop whole app
+t0151 Find where all I'm joining without spaces (separate or on beginning / end of string)
+t0152 add watermark to all photos
+t0153 patrioti msk lectures
+t0154 silence in flat, for now I advertised only on sez, fb
+t0155 restore contacts
+t0156 compare math solvers
+t0157 1secnote dont react on click, compare similar
+t0158 download branky, body, kokoti bbk
+t0159 geocaching webview
+t0160 sentences for dating, then invite Alicja to coffee
+t0161 send mails to hairdressed
+t0162 GeoCachingTool compare my shitted app and function to know where was error.
+t0163 audio books about business in English, then to parents and mountains 
+t0164 stole instagram of rich, with cars and models
+t0165 app for download photos of actors, https://www.csfd.cz/film/23443-svetaci/prehled/, poznavat
+t0166 girl to which I could provide accomodation
+t0167 Explodes sports, high intensity workouts: resultruntastic, free lapix
+t0168 write stories
+t0169 backup everything in drives, also videos, which won't be backuped must put into separated folder to visible it on first look
+t0170 set up time period for checking func of whole web
+t0171 design patterns
+t0172 A well-formed URI implies conformance with certain RFCs. The local path in your example is not conformant with these. Read more in the IsWellFormedUriString documentation. method in SunamoCzAdmin
+t0173 horoscopes
+t0174 repair association of mediators
+t0175 feedback review about satified with sunamo.cz scz,smiles for rating, txt after click, questionairy 
+t0176 waterfall, brotli, work on page load time, it will be most important of seo in 2020 https://searchengineland.com/page-load-time-and-crawl-budget-rank-will-be-the-most-important-seo-indicators-in-2020-326847/amp print and highlight. I'm also telling to companies.
+t0177 https://lyrics.sunamo.cz/artist//album/lamour-toujour not working
+t0178 app for periodically testing functionality of my webs. now for example Watch here not working
+t0179 LinqExtension from CA when its generic
+t0180 aps checkout all ext - it shouldn't add folders with obj/ bin
+t0181 backup selected folder - when I backup large solution (sunamo, aps) is there many which I really backup dont have to (folders .git, dll etc)
+t0182 seznamka app - when I wrote someone, whether she like me
+t0183 google dev console, I have many mails about suspended yt: 3 of 172 Action required: Critical problem with your Google Cloud Platform / API project GDataYoutube7 (id: gdatayoutube7) (and many other)
+t0184 process Google analytics notifs for lyr, good and worse progress, safari is under below
+t0185 insert xlf keys which is not in cs but are in xlf
+t0186 Stopařův průvodce pujcit / stahnout mp3 skockova
+t0187 download other il camminos
+t0188 again kop, nebude už nikoho okrádat
+t0189 co uklidnuje a pomáhá na spani, v čem vsem je magnezium minerálky atd 
+t0190 write to drážní úřad
+t0191 join todo in OneDrive and Drive, comparing every file to avoid data loss!!
+t0192 calculator Android's for solving root of equation, 2.3.18
+t0193 aplikace se mi zavírají aniž by vyhodili jakoukoliv chybu
+t0194 RepairService site
+t0195 develop native apps with js: react native, not ember js 
+t0196 ID of source as column in db Song karaoke
+t0197 nodejs app for export Google play to online , now I have to, node.js find notes app with smallest size  920311201020953714, twelve root of 3^23
+t0198 blog interesting vehicles sssr 
+t0199 sunamo alarm for apps
+t0200 images generator grid for apps
+t0201 decode also encode 
+t0202 web to meme use template 
+t0203 calculate after photo because photomath solving steps is payed 
+t0204 https://sunamo.cz/statistic.aspx is not working
+t0205 https://ekonomickydenik.cz/ free , compare
+t0206 https://www.freecodecamp.org/news/a-complete-mongodb-tutorial/amp/
+t0207 kct and other events to uc, najít lidí se kterýma na hory fb
+t0208 vytvořit si účet jako horal seznamka a jít vyloženě po těchto babách 
+t0209 https://lyrics.sunamo.cz/song/zluty-pes- - nějaké úplně jeble 
+t0210 senkyrka still without video 
+t0211 translate engine repair, write unit tests, find all strings where was translAted badly 
+t0212 try in safari, iOS emulator 
+t0213 make songs with bad text only invisible, Iwill replace it later 
+t0214 lyrics don't show second column when is empty on mobile 
+t0215 robots txt to all sub domain 
+t0216 refresh lyrics site maps wm tools 
+t0217 Lighthouse
+t0218 blazor
+t0219 kubernetes
+t0220 .net core
+t0221 Amazon S3
+t0222 GraphQL 
+t0223 people for tourist
+t0224 vsb napsat do předmětů jak to se mnou vypadá 
+t0225 react app for flashcards 
+t0226 try all services https://bettersolutions.com/csharp/web-services/different-types.htm
+t0227 srovnat kontakty na kterém mám fb atd. odeslat všem z mého čísla SMS jestli mají facebook. když budou chtít odpoví z jakéhokoliv čísla 
+t0228 SamickaProZajicka
+t0229 u mě musí řvát nebude li spuštěna na vps 
+t0230 app na kontrolu zda se zálohuje db 
+t0231 photos.sunamo.cz
+t0232 affil
+t0233 Unicredit payments
+t0234 flowers to terrace
+t0235 tickets time working on task from to 
+t0236 funny images
+t0237 repairservices.sunamo.cz
+t0238 Pešatová (nepsat ji Susinne nic)
+t0239 liberty
+t0240 keylogger
+t0241 loans from friends
+t0242 checker pushing
+t0243 finding new to sport
+t0244 letter for tit
+t0245 letter for katie
+t0246 nastartujtese.cz
+t0247 nb for working outside
+t0248 brigade
+t0249 facebook download photos app
+t0250 cs2en sunamo
+t0251 sbalit janu
+t0252 repair phone signal
+t0253 colorful printer
+t0254 emergency state of Opel
+t0255 proof on income
+t0256 add starting to everyline
+t0257 add tickets to every app, name it tickets{nameApp}.txt. wathing time on it. inspiration from t0256
+t0258 replace rear headlights / zadní světlomět
+t0259 solve webmaster errors
+t0260 projít logy sql na vps, kde to trvá odladit, založit na to stejný soubor jako sczErrors abych viděl jestli ta pomalost trvá
+t0261 money from zafira new
+t0262 web services
+t0263 fleksy fast dating
+t0264 cottage from radim
+t0265 signing apps and stop false positives
+t0266 Life in Netherlands
+t0267 Update paths after move solutions
+t0268 GenerateReactComponents
+
+
+1) zpracovat si vyplatnice i z vp  
+2) wait for payslip - maybe take loans 
+3) process taked loans - amount of přeplácení, where is possible earlier payment without taxes 
+4) zdenka payments - define last month in which I have to pay 
+najít holku - ráno mezi 6-8 se fakt nedá najít ani na avizu ani ama.
+financial situation - kolik mam, kolik dostanu, kolik budu muset z platit a za co 
+disable all debug with pre processor (wrap debug classes into anothet if and delete to avoid use in deb rel 
+nsthovat doma obrázky pro dobrou náladu, něco už mám m každopádně sync s mobilem at mám co posílat 
+na dálku příkaz k restartu iis , restart iis při této chybě 
+odstranit servisy z kontaktů, ať tam m am jen amiky
+deník vděčnosti  
+dat si inzerát + profil jako gigolo 
+profil na havirovaka, joystar 
+opsat do mobilu zkratky co tu mam 
+write comm use app dispatcher and not wpfapp 
+staripram děcko způsob výroby vs dry gambrinus 
+půjčit česká cikanska rapsodie 
+najít kluka co nebude samponek, jeho fotky pro poslušná holka 
+jan co je to po tom do mobilu 
+zahrát karty, hledat na amatérech přátelé
+zjistit kdy mám platit heim. ať nejsem v prodlení a ne naskočí mi tam úroky 
+turn off all other browser before open new tabs 
+vytisknout znovu wAke up a sleep off.  to není možné abych chodil spát nejen oblečeny ale i s smradkavou drzkou 
+profil na havirovaka, joystar 
+consoleapp shrink images. next time I cannot install xnconvert
+Milá slečno, milá paní, je pro mě poměrně zvláštní a svým způsobem i vzrušující... opsat ze screenu
+dat si inzerát + profil jako gigolo 
+na konci února poledník - je v events a gcal? není
+lucka mám ji v events? nemam
+Zetko 23.2.
+nahrát písničky z Já Písnička YT které tam chybí https://www.youtube.com/watch?v=1hxzSNC66Vo&list=PLZA8tScd7Jkq6cad4EDpkx7Yb_IMZfTXq&index=3
+https://magazin.aktualne.cz/trezorove-filmy-komunismus-rezim-reziser-zakaz/r~i:gallery:31286/r~i:photo:564880/
+furt ten denik nemám predplaceny, v mobilu to padá a když nespadne nefunguje to s Fio 
+vyfiltrovat si nadpisy (názvy filmů), otevřít s postfoxrm hlášky a udělat z toho blog post https://happymag.cz/zabava/50-nejkrasnejsich-romantickych-filmu-ktere-musite-videt-alespon-za-zivot/
+svítilnu na hlavu, příště už si tu bundu nemůžu brát, se upeču 
+ero inz na varus, prvně béčko 
+http://auto.kataloge.cz/fiat-panda.php 
+
+komoda Smart 3b 999 
+taburet simona 2b 499 
+sedací pytel vivace 999
+
+starý chlap vrásčitý žít s Béčkem není žádný stres 
+Zajímavé zjištění přinesl i další výzkum, ukázal, že muž, který se lehce dotkl ramena ženy, snadněji získal její telefon. 
+
+zapomněl jsem na to že dotyky jsou en důležitější 
+i když mi holka nedá telefon, poprosit ji o objetí 
+až mi to pošle, skrýt citlivé údaje a dát to na web aby mi vrátili celé pojistné 
+zároveň se zeptat v jakých případech vrací jakou část pojistného. je mi jasné že rybníkář bude škodit abych dostal co nejmenší část z té pojistky .
+
+udělat něco s těmi viry. Windows Defender mi hlásí že můj vlastní program je zavirovaný
+nedávat do mailu cs.html ani en.html-musí to mít jiné názvy, takhle se to zobrazuje v náhledu HTML
+
+ 
+
+napsat Janě z čísla jež nezná jestli by mi ho vykourila 
+stejně tak všem na které jsem číslo získal 
+bazar
+hyperinzerce
+other dating
+---
+inzerát kopie béčka dtibe, tel na její matku 
+panda patrol  dopsat spotřebu klasické pandy 1.1
+cd vrátili mi o 150 Kč méně 
+graf akcie velké firmy nejhodnotnwjsi moje o 
+c:\Users\Administrator\AppData\Local\Programs\Opera\ 76.0.4017.107 75.0.3969.243 etc
+
+volat ji z neznámého čísla 
+garaze !!!
+řešit ty nepřevzuté objednávky
+
+4359910033 0800 3600
