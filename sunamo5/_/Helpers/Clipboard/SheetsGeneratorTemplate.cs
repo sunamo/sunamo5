@@ -32,6 +32,11 @@ Price for year subs
 Price for lifelong subs";
 
         DataTable dt = new DataTable();
+        dt.Columns.Add();
+        foreach (var item in spa)
+        {
+            dt.Columns.Add();
+        }
         var li = SH.GetLines(l);
 
         foreach (var item in li)
@@ -44,12 +49,25 @@ Price for lifelong subs";
             {
                 lo.Add(item2.GetValueForRow(item));
             }
+
+            if (item != string.Empty)
+            {
+                ob.Add(item, lo);
+            }
         }
 
         foreach (var item in li)
         {
             var row = dt.NewRow();
-            row.ItemArray = ob[item].ToArray();
+
+            if (item != string.Empty)
+            {
+                row.ItemArray = ob[item].ToArray();
+            }
+            else
+            {
+                row.ItemArray = new object[] { string.Empty };
+            }
             dt.Rows.Add(row);
         }
 

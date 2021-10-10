@@ -88,7 +88,15 @@ public static partial class CA
     #endregion
 
 
-
+    public static void RemoveLines(List<string> lines, List<int> removeLines)
+    {
+        removeLines.Sort();
+        for (int i = removeLines.Count - 1; i >= 0; i--)
+        {
+            var dx = removeLines[i];
+            lines.RemoveAt(dx);
+        }
+    }
 
 
 

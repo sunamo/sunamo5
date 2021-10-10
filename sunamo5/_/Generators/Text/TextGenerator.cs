@@ -13,12 +13,17 @@ using System.Threading.Tasks;
 /// </summary>
 public static class TextGenerator
 {
-    public static string GenerateListWithPercent(Dictionary<string, List<string>> p)
+    /// <summary>
+    /// Keep as IEnumerable, not List because to IEnumerable can be casted every List
+    /// </summary>
+    /// <param name="p"></param>
+    /// <returns></returns>
+    public static string GenerateListWithPercent(Dictionary<string, IEnumerable<string>> p)
     {
         return GenerateListWithPercent<string, string>(p);
     }
 
-    public static string GenerateListWithPercent<T, U>(Dictionary<T, List<U>> p)
+    public static string GenerateListWithPercent<T, U>(Dictionary<T, IEnumerable<U>> p)
     {
         int overall = 0;
 
@@ -36,7 +41,7 @@ public static class TextGenerator
         int p2 = 0;
         int p3 = 0;
 
-        KeyValuePair<T, List<U>> kvp = p.Last();
+        KeyValuePair<T, IEnumerable<U>> kvp = p.Last();
 
         Dictionary<T, int> percent2 = new Dictionary<T, int>();
 

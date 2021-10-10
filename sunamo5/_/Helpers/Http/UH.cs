@@ -259,8 +259,12 @@ public partial class UH
         return t;
     }
 
-    
 
+    /// <summary>
+    /// pass also for page:
+    /// </summary>
+    /// <param name="href"></param>
+    /// <returns></returns>
     public static bool IsUri(string href)
     {
         var uri = CreateUri(href);

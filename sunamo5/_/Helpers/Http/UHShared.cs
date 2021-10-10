@@ -293,6 +293,11 @@ public partial class UH
         return false;
     }
 
+    /// <summary>
+    /// create also for page:
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     public static Uri CreateUri(string s)
     {
         try

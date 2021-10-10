@@ -94,15 +94,7 @@ public static partial class CA
         }
         return result;
     }
-    public static void RemoveLines(List<string> lines, List<int> removeLines)
-    {
-        removeLines.Sort();
-        for (int i = removeLines.Count - 1; i >= 0; i--)
-        {
-            var dx = removeLines[i];
-            lines.RemoveAt(dx);
-        }
-    }
+    
     /// <summary>
     /// A1 are column names for ValuesTableGrid (not letter sorted a,b,.. but left column (Name, Rating, etc.)
     /// A2 are data
