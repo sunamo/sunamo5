@@ -15,7 +15,38 @@ using sunamo.Essential;
 /// </summary>
 public partial class XHelper
 {
-    
+    /// <summary>
+    /// If A1 is file, output will be save to file and return null
+    /// Otherwise return string
+    /// </summary>
+    /// <param name = "xml"></param>
+    public static string FormatXml(string xml)
+    {
+        var xmlFormat = xml;
+        if (FS.ExistsFile(xml))
+        {
+            xmlFormat = TF.ReadFile(xml);
+        }
+
+        XmlNamespacesHolder h = new XmlNamespacesHolder();
+        XDocument doc = h.ParseAndRemoveNamespacesXDocument(xmlFormat);
+
+
+        var formatted = doc.ToString();
+        formatted = SH.ReplaceAll2(formatted, string.Empty, " xmlns=\"\"");
+        if (FS.ExistsFile(xml))
+        {
+            TF.SaveFile(formatted, xml);
+            ThisApp.SetStatus(TypeOfMessage.Success, SunamoPageHelperSunamo.i18n(XlfKeys.ChangesSavedToFile));
+            return null;
+        }
+        else
+        {
+            ThisApp.SetStatus(TypeOfMessage.Success, SunamoPageHelperSunamo.i18n(XlfKeys.ChangesSavedToClipboard));
+            return formatted;
+        }
+    }
+
     public static string GetInnerXml(XElement parent)
     {
         var reader = parent.CreateReader();

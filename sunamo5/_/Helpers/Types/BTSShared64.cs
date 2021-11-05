@@ -346,7 +346,7 @@ public static partial class BTS
         return b;
     }
 
-    internal static T CastToByT<T>(string c, bool isChar)
+    public static T CastToByT<T>(string c, bool isChar)
     {
         if (isChar)
         {

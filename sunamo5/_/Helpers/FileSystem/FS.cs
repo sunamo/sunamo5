@@ -181,7 +181,13 @@ public partial class FS
         if (i == 0)     // Cannot make relative path, for example if resides on different drive
             return fromPath;
 
-        String r = String.Join(pathSep, Enumerable.Repeat("..", p2.Length - i).Concat(p1.Skip(i).Take(p1.Length - i)));
+        
+
+        var rep = Enumerable.Repeat("..", p2.Length - i);
+        i++;
+        var con = rep.Concat(p1.Skip(i));
+        var tak = con.Take(p1.Length - i);
+        String r = String.Join(pathSep, tak);
 
         if (addBs)
         {
@@ -342,7 +348,6 @@ public partial class FS
     {
         List<string> wasntExistsInFrom = null;
         bool mustExistsInTarget = false;
-        Dictionary<string, List<string>> files = null;
         CopyMoveFilesInList(f, basePathCjHtml1, basePathCjHtml2, wasntExistsInFrom, mustExistsInTarget, copy, null, false);
     }
 
@@ -514,18 +519,18 @@ public partial class FS
             }
 
             ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "from2", from2, "to2", to2);
-            ReplaceInAllFiles(from2, to2, t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.fasterMethodForReplacing);
+            ReplaceInAllFiles(from2, to2, t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.writeEveryWrittenFileAsStatus, t.fasterMethodForReplacing);
         }
         else
         {
-            ReplaceInAllFiles(CA.ToListString(t.from), CA.ToListString(t.to), t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.fasterMethodForReplacing);
+            ReplaceInAllFiles(CA.ToListString(t.from), CA.ToListString(t.to), t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.writeEveryWrittenFileAsStatus, t.fasterMethodForReplacing);
 
 
         }
     }
 
 
-    public static void ReplaceInAllFiles(string from, string to, List<string> files, bool pairLinesInFromAndTo, bool replaceWithEmpty, bool isMultilineWithVariousIndent, bool writeEveryReadedFileAsStatus, Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing)
+    public static void ReplaceInAllFiles(string from, string to, List<string> files, bool pairLinesInFromAndTo, bool replaceWithEmpty, bool isMultilineWithVariousIndent, bool writeEveryReadedFileAsStatus, bool isWriteEveryReadedFileAsStatus, Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing)
     {
         ReplaceInAllFilesArgs r = new ReplaceInAllFilesArgs();
         r.from = from;
@@ -535,6 +540,7 @@ public partial class FS
         r.replaceWithEmpty = replaceWithEmpty;
         r.isMultilineWithVariousIndent = isMultilineWithVariousIndent;
         r.writeEveryReadedFileAsStatus = writeEveryReadedFileAsStatus;
+        r.writeEveryWrittenFileAsStatus = isWriteEveryReadedFileAsStatus;
         r.fasterMethodForReplacing = fasterMethodForReplacing;
 
         Thread t = new Thread(new ParameterizedThreadStart(ReplaceInAllFilesWorker));
@@ -550,7 +556,7 @@ public partial class FS
         var files = FS.GetFiles(folder, FS.MascFromExtension(extension), SearchOption.AllDirectories);
         ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(),type, "ReplaceInAllFiles", "replaceFrom", replaceFrom, "replaceTo", replaceTo);
         Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing = null;
-        ReplaceInAllFiles(replaceFrom, replaceTo, files, isMultilineWithVariousIndent, false, fasterMethodForReplacing);
+        ReplaceInAllFiles(replaceFrom, replaceTo, files, isMultilineWithVariousIndent, false, false, fasterMethodForReplacing);
     }
     /// <summary>
     /// A4 - whether use s.Contains. A4 - SH.ReplaceAll2
@@ -559,7 +565,7 @@ public partial class FS
     /// <param name="replaceTo"></param>
     /// <param name="files"></param>
     /// <param name="dontReplaceAll"></param>
-    public static void ReplaceInAllFiles(IList<string> replaceFrom, IList<string> replaceTo, List<string> files, bool isMultilineWithVariousIndent, bool writeEveryReadedFileAsStatus, Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing)
+    public static void ReplaceInAllFiles(IList<string> replaceFrom, IList<string> replaceTo, List<string> files, bool isMultilineWithVariousIndent, bool writeEveryReadedFileAsStatus, bool writeEveryWrittenFileAsStatus, Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing)
     {
 
 
@@ -591,6 +597,11 @@ public partial class FS
                     ppk.Add(DateTime.Now.ToString() + " " + item);
                     
                     TF.SaveFile(content2, item);
+
+                    if (writeEveryReadedFileAsStatus)
+                    {
+                        SunamoTemplateLogger.Instance.SavedToDrive(item);
+                    }
                 }
             }
             else
@@ -764,6 +775,7 @@ public partial class FS
                 }
                 catch (Exception ex)
                 {
+                    ThrowExceptions.DummyNotThrow(ex);
                     File.Delete(item);
                     continue;
                 }
@@ -975,6 +987,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
+            ThrowExceptions.CannotMoveFolder(Exc.GetStackTrace(), type, Exc.CallingMethod(), item, nova, ex);
         }
         if (FS.IsDirectoryEmpty(item, true, true))
         {

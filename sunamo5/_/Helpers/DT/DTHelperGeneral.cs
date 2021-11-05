@@ -130,12 +130,12 @@ public partial class DTHelperGeneral
         {
             return new DateTime(y, m, d);
         }
-        catch (ArgumentOutOfRangeException)
+        catch (ArgumentOutOfRangeException ex)
         {
+            // because can return null, wont throw excepiton there 
+            ThrowExceptions.DummyNotThrow(ex);
             return null;
-
         }
-        return null;
     }
 
     public static DateTime Create(string day, string month, string hour, string minute)

@@ -12,7 +12,6 @@ public partial class FSXlf
 
 
     #region For easy copy
-    
 
     /// <summary>
     /// if A1 wont end with \, auto GetDirectoryName
@@ -46,7 +45,13 @@ public partial class FSXlf
         if (i == 0)     // Cannot make relative path, for example if resides on different drive
             return fromPath;
 
-        String r = String.Join(pathSep, Enumerable.Repeat("..", p2.Length - i).Concat(p1.Skip(i).Take(p1.Length - i)));
+
+
+        var rep = Enumerable.Repeat("..", p2.Length - i);
+        i++;
+        var con = rep.Concat(p1.Skip(i));
+        var tak = con.Take(p1.Length - i);
+        String r = String.Join(pathSep, tak);
 
         if (addBs)
         {

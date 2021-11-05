@@ -131,42 +131,10 @@ public static XElement MakeAllElementsWithDefaultNs(XElement settings)
         return vr;
     }
 
-/// <summary>
-    /// If A1 is file, output will be save to file and return null
-    /// Otherwise return string
-    /// </summary>
-    /// <param name = "xml"></param>
-    public static string FormatXml(string xml)
-    {
-        var xmlFormat = xml;
-        if (FS.ExistsFile(xml))
-        {
-            xmlFormat = TF.ReadFile(xml);
-        }
-
-        XmlNamespacesHolder h = new XmlNamespacesHolder();
-        XDocument doc =  h.ParseAndRemoveNamespacesXDocument(xmlFormat);
-
-        
-        var formatted = doc.ToString();
-        formatted = SH.ReplaceAll2(formatted, string.Empty, " xmlns=\"\"");
-        if (FS.ExistsFile(xml))
-        {
-            TF.SaveFile(formatted, xml);
-            ThisApp.SetStatus(TypeOfMessage.Success, SunamoPageHelperSunamo.i18n(XlfKeys.ChangesSavedToFile));
-            return null;
-        }
-        else
-        {
-            ThisApp.SetStatus(TypeOfMessage.Success, SunamoPageHelperSunamo.i18n(XlfKeys.ChangesSavedToClipboard));
-            return formatted;
-        }
-    }
 
 public static List<XElement> GetElementsOfName(XElement node, string nazev)
     {
         List<XElement> result = new List<XElement>();
-        string p, z;
         if (nazev.Contains(AllStrings.colon))
         {
             foreach (XElement item in node.Elements())
@@ -206,8 +174,6 @@ public static void AddXmlNamespaces(XmlNamespaceManager nsmgr)
             {
                 ns.Add(item, v);
             }
-
-            int o = 0;
         }
     }
 /// <summary>
@@ -320,7 +286,6 @@ public static bool IsRightTag(XElement xName, string localName, string namespace
     /// <param name = "namespaceName"></param>
     public static bool IsRightTag(XName xName, string localName, string namespaceName)
     {
-        string p, z;
         namespaceName = XHelper.ns[namespaceName];
         if (xName.LocalName == localName && xName.NamespaceName == namespaceName)
         {

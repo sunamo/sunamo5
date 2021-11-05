@@ -12,10 +12,14 @@ using System.Threading.Tasks;
 /// </summary>
 public class XmlAgilityHelper // : HtmlAgilityHelper - NO, see class comment
 {
+
+
     public static HtmlNode Node(HtmlNode node, bool recursive, string tag)
     {
+        
         return HtmlAgilityHelper.Node(node, recursive, tag);
     }
+
         public static List<HtmlNode> Nodes(HtmlNode node, bool recursive, string tag)
     {
         return HtmlAgilityHelper.Nodes(node, recursive, tag);

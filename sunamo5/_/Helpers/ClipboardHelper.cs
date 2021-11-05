@@ -63,7 +63,7 @@ public class ClipboardHelper
 
 
     /// <summary>
-    /// Cant be se or only whitespace => even with Clipboard.SetText(v); => content of clipboard will remain the same
+    /// Cant be se or only whitespace => even with ClipboardHelper.SetText(v); => content of clipboard will remain the same
     /// Must 
     /// </summary>
     /// <param name="s"></param>

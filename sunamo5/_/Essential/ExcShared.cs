@@ -7,6 +7,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+namespace SunamoExceptions
+{
+    public class Exc
+    {
+        public static bool aspnet = false;
+    }
+}
+
 public class Exc
 {
     public static bool aspnet

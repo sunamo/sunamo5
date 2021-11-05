@@ -5,10 +5,8 @@ using System.Collections.Generic;
 using System.Text;
 namespace sunamo.Essential
 {
-    public partial class TemplateLoggerBase
+    public abstract partial class TemplateLoggerBase
     {
-
-     
         public void SavedToDrive(string v)
         {
             WriteLine(TypeOfMessage.Success, SunamoPageHelperSunamo.i18n(XlfKeys.SavedToDrive)+": " + v);

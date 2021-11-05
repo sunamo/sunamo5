@@ -43,8 +43,7 @@ public partial class TF
     public static List<string> ReadConfigLines(string syncLocations)
     {
         var l = TF.ReadAllLines(syncLocations);
-        CA.Trim(l);
-        CA.RemoveStartingWith(AllStrings.num, l);
+        SF.RemoveComments(l);
         return l;
     }
 

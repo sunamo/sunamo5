@@ -15,13 +15,10 @@ public class TFXlf
         var b = File.ReadAllBytes(path).ToList();
         var to = b.Count > 5 ? 6 : b.Count;
 
-        var isUtf8TwoTimes = true;
-
         for (int i = 3; i < to; i++)
         {
             if (bomUtf8[i - 3] != b[i])
             {
-                isUtf8TwoTimes = false;
                 break;
             }
         }

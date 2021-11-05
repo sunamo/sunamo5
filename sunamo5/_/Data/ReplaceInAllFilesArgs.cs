@@ -13,6 +13,7 @@ public class ReplaceInAllFilesArgs
     public bool replaceWithEmpty;
     public bool isMultilineWithVariousIndent;
     public bool writeEveryReadedFileAsStatus;
+    public bool writeEveryWrittenFileAsStatus;
     /// <summary>
     /// 
     /// </summary>

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using HtmlAgilityPack;
 
 using System.Xml;
+using sunamo;
 
 /// <summary>
 /// Našel jsem ještě třídu DotXml ale ta umožňuje vytvářet jen dokumenty ke bude root ThisApp.Name
@@ -269,7 +270,7 @@ public class XmlGenerator
 
     public void WriteXmlDeclaration()
     {
-        sb.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+        sb.Append(XmlTemplates.xml);
     }
 
     public void WriteTagWith2Attrs(string p, string p_2, string p_3, string p_4, string p_5)

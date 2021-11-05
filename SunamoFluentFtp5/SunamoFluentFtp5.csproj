@@ -1,39 +1,40 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+   <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
 
   
     <ItemGroup>
-    <PackageReference Include="FluentFTP" Version="34.0.2" />
+    <PackageReference Include="FluentFTP" Version="34.0.2"></PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FluentFTP" Version="34.0.2" />
+    <PackageReference Include="FluentFTP" Version="34.0.2"></PackageReference>
   </ItemGroup>
 
 
   <ItemGroup>
-    <Compile Include="..\..\sunamo\SunamoFluentFtp\FtpClients\FluentFtpWrapper.cs" Link="FtpClients\FluentFtpWrapper.cs" />
-    <Compile Include="..\..\sunamo\SunamoFluentFtp\Other\FtpTest.cs" Link="Other\FtpTest.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\FileSystemType.cs" Link="Base\FileSystemType.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\FtpAbstract.cs" Link="Base\FtpAbstract.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\FtpBase.cs" Link="Base\FtpBase.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\FtpBaseNew.cs" Link="Base\FtpBaseNew.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\FtpHelper.cs" Link="Base\FtpHelper.cs" />
-    <Compile Include="..\..\sunamo\SunamoFtp\Base\PathSelector.cs" Link="Base\PathSelector.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj" />
-    <ProjectReference Include="..\shared5\shared5.csproj" />
-    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+    
+    
+    
+    
+    
+    
+    
+    
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
-    <Folder Include="FtpClients\" />
-    <Folder Include="Other\" />
+    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>
+    <ProjectReference Include="..\shared5\shared5.csproj"></ProjectReference>
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj"></ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\"></Folder>
+    <Folder Include="FtpClients\"></Folder>
+    <Folder Include="Other\"></Folder>
   </ItemGroup>
 
 </Project>

@@ -9,7 +9,7 @@ using System.Text;
     {
     public const string _3Asterisks = "***";
     public const string Test_ = "Test_";
-   
+    public const string se = "";
 
 
     public const string slashLocalhost = AllStrings.slash + Consts.localhost;
@@ -98,7 +98,8 @@ using System.Text;
         public const string bs = AllStrings.bs;
         public const string tab = "\t";
         public const string nl = "\n";
-        public const string cr = "\t";
+    public const string nl2 = "\r\n";
+    public const string cr = "\t";
         #endregion
 
         /// <summary>

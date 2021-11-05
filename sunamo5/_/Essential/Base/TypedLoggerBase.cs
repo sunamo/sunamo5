@@ -7,7 +7,7 @@ namespace sunamo.Essential
     /// <summary>
     /// In difference with LoggerBase take type of message as enum
     /// </summary>
-    public class TypedLoggerBase
+    public abstract class TypedLoggerBase
     {
         private static Type type = typeof(TypedLoggerBase);
         private Action<TypeOfMessage, string, object[]> _typedWriteLineDelegate;
@@ -23,6 +23,9 @@ public TypedLoggerBase ()
 
 }
 #endif
+
+
+        
 
         /// <summary>
         /// Only due to Old sfw apps

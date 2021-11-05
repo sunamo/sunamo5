@@ -21,42 +21,30 @@ public partial class ManageArtistDashTitle
         {
             if (ch[i] == AllChars.space)
             {
-                try
+                if (CA.IsThereAnotherIndex(ch, i))
                 {
                     ch[i + 1] = char.ToUpper(ch[i + 1]);
-                }
-                catch (Exception ex)
-                {
                 }
             }
             else if (ch[i] == AllChars.dash)
             {
-                try
+                if (CA.IsThereAnotherIndex(ch, i))
                 {
                     ch[i + 1] = char.ToUpper(ch[i + 1]);
-                }
-                catch (Exception ex)
-                {
                 }
             }
             else if (ch[i] == AllChars.rsqb)
             {
-                try
+                if (CA.IsThereAnotherIndex(ch, i))
                 {
                     ch[i + 1] = char.ToUpper(ch[i + 1]);
-                }
-                catch (Exception ex)
-                {
                 }
             }
             else if (ch[i] == AllChars.lb)
             {
-                try
+                if (CA.IsThereAnotherIndex(ch, i))
                 {
                     ch[i + 1] = char.ToUpper(ch[i + 1]);
-                }
-                catch (Exception ex)
-                {
                 }
             }
         }

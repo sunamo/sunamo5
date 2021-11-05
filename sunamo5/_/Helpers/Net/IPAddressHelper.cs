@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace sunamo.Helpers
 {
@@ -31,5 +32,31 @@ namespace sunamo.Helpers
             }
             return ip;
         }
+
+        /// <summary>
+        /// Find with everyline and insert
+        /// </summary>
+        /// <param name="httpRequest"></param>
+        /// <returns></returns>
+        public static byte[] GetIPAddressInArray(object httpRequest)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Find with everyline and insert
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        public static bool? IsIpAddress(string ip)
+        {
+            return false;
+        }
     }
 }
+
+// Must import System.Web, not creating this class
+//public class HttpRequest
+//{
+
+//}

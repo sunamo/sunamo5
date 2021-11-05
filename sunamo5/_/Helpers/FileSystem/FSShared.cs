@@ -1,4 +1,5 @@
-﻿using sunamo.Constants;
+﻿using sunamo;
+using sunamo.Constants;
 using sunamo.Data;
 using sunamo.Enums;
 using sunamo.Essential;
@@ -680,7 +681,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
-
+            ThrowExceptions.CustomWithStackTrace(ex);
         }
 
         if (dirs == null)
@@ -922,6 +923,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
+            ThrowExceptions.DummyNotThrow(ex);
             // Not throw exception, it's probably Access denied  on Documents and Settings etc
             //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"GetFoldersEveryFolder with path: " + folder, ex);
         }
@@ -956,6 +958,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
+            ThrowExceptions.DummyNotThrow(ex);
             // Not throw exception, it's probably Access denied  on Documents and Settings etc
             //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"GetFoldersEveryFolder with path: " + folder, ex);
         }
@@ -1076,6 +1079,7 @@ public partial class FS
             }
             catch (Exception ex)
             {
+                ThrowExceptions.DummyNotThrow(ex);
                 // Not throw exception, it's probably Access denied on Documents and Settings etc
                 //ThrowExceptions.FileSystemException(Exc.GetStackTrace(),type, Exc.CallingMethod(), ex);
             }

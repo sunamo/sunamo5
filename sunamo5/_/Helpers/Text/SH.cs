@@ -18,6 +18,93 @@ using System.Text.RegularExpressions;
 using System.Windows;
 public static partial class SH
 {
+    #region TrimStartingAndTrailingChars
+    /// <summary>
+    /// Return whether is whitespace or punctaction
+    /// </summary>
+    /// <param name="dx"></param>
+    /// <param name="s"></param>
+    /// <param name="ch"></param>
+    public static bool IsSpecialChar(int dx, ref string s, ref char ch, bool immediatelyRemove = false)
+    {
+        ch = s[dx];
+        return IsSpecialChar(ch, ref s, dx, immediatelyRemove);
+    }
+
+    
+
+    private static bool IsSpecialChar(char ch, ref string s, int dx = -1, bool immediatelyRemove = false)
+    {
+        if (ch == AllChars.lb || ch == AllChars.rb)
+        {
+            return false;
+        }
+
+        if (ch == '\\' || ch == AllChars.lcub || ch == AllChars.rcub)
+        {
+            return false;
+        }
+
+        if (ch == AllChars.dash)
+        {
+            return true;
+        }
+
+        if (char.IsWhiteSpace(ch))
+        {
+            if (immediatelyRemove && s != null)
+            {
+                s = s.Remove(dx, 1);
+            }
+
+            return true;
+        }
+        if (char.IsPunctuation(ch))
+        {
+            if (immediatelyRemove && s != null)
+            {
+                s = s.Remove(dx, 1);
+            }
+            return true;
+        }
+        return false;
+    }
+
+
+    public static string TrimStartingAndTrailingChars(string html, out StringBuilder fromStart, out StringBuilder fromEnd)
+    {
+        fromStart = new StringBuilder();
+        fromEnd = new StringBuilder();
+        char specialChar = 'a';
+
+        for (int i = 0; i < html.Length; i++)
+        {
+            if (IsSpecialChar(i, ref html, ref specialChar, true))
+            {
+                fromStart.Append(specialChar);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        for (int i = html.Length - 1; i >= 0; i--)
+        {
+            if (IsSpecialChar(i, ref html, ref specialChar, true))
+            {
+                fromEnd.Insert(0, specialChar);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return html;
+    }
+    #endregion
+
     public static string AddIfNotContains(string input, string s, string sLower = null)
     {
         if (sLower != null)
@@ -43,7 +130,7 @@ public static partial class SH
                 if (nameSolution[i] == n.ToString()[0])
                 {
                     replace = true;
-                    nameSolution = nameSolution.Substring(0, nameSolution.Length - 1);
+                    nameSolution = SubstringLength(nameSolution, 0, nameSolution.Length - 1);
                     break;
                 }
             }
@@ -54,34 +141,6 @@ public static partial class SH
             }
         }
         return nameSolution;
-    }
-    public static bool ContainsInShared(string item, string mustContains, string v)
-    {
-        var cs = AllExtensions.cs;
-        item = item.Replace(cs, v + cs);
-        if (File.Exists(item))
-        {
-            var c = TF.ReadAllText(item);
-            if (c.Contains(mustContains))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static int CountOf(string v1, char v2)
-    {
-        int c = 0;
-        foreach (var item in v1)
-        {
-            if (item == v2)
-            {
-                c++;
-            }
-        }
-
-        return c;
     }
 
     public static Dictionary<char, int> StatisticLetterChars(string between, StatisticLetterCharsStrategy s, params char[] charsToStrategy)
@@ -125,6 +184,27 @@ public static partial class SH
         return t;
         
     }
+
+    public static string ReplaceWithIndex(string n, string v, string empty, ref int dx)
+    {
+        if (ThisApp.check)
+        {
+
+        }
+        
+        if (dx == -1)
+        {
+            dx = n.IndexOf(v);
+            if (dx != -1)
+            {
+                n = n.Remove(dx, v.Length);
+                n = n.Insert(dx, empty);
+            }
+        }
+
+        return n;
+    }
+
     public static string ReplaceAll3(IList<string> replaceFrom, IList<string> replaceTo, bool isMultilineWithVariousIndent, string content)
     {
         if (isMultilineWithVariousIndent)
@@ -151,7 +231,7 @@ public static partial class SH
                 // všechny elementy z contentOneSpace namapované na content kde v něm začínají. 
                 // index z nt odkazuje na content
                 // proto musím vzít první a poslední index z equalRanges a k poslednímu přičíst contentOneSpace[last].Length
-                List<int> nt = new List<int>(contentOneSpace.Count());
+                List<int> nt = new List<int> (contentOneSpace.Count());
                 int startFrom = 0;
                 foreach (var item2 in contentOneSpace)
                 {
@@ -169,7 +249,7 @@ public static partial class SH
                 startDx = nt[startDx];
                 endDx = nt[endDx];
                 endDx += add;
-                var from2 = content.Substring(startDx, endDx - startDx);
+                var from2 = SubstringLength(content, startDx, endDx - startDx);
                 content = content.Replace(from2, replaceTo[i]);
             }
           
@@ -303,7 +383,6 @@ public static partial class SH
                                         }
                                         var txt = sb2.ToString();
                                         ClipboardHelper.SetText(txt);
-                                        int r = 0;
                                     }
                                     ls.AddOrSet(dx, before);
                                     dx++;
@@ -360,7 +439,7 @@ public static partial class SH
     private static bool IsEndOfSentence(int dxDot, string s1, out string delimitingChars)
     {
         delimitingChars = null;
-        var s = s1.Substring(dxDot);
+        var s = SubstringStart(s1, dxDot);
         var c0 = s[0];
         char c1, c2;
         c1 = '@';
@@ -371,7 +450,7 @@ public static partial class SH
         }
         else
         {
-            delimitingChars = s.Substring(0);
+            delimitingChars = SubstringStart(s, 0);
             Result = true;
         }
         if (s.Length > 2)
@@ -557,7 +636,6 @@ public static partial class SH
 ", AllStrings.comma);
             return true;
         }
-        return false;
     }
     public static string ReplaceWhiteSpacesAndTrim(string p)
     {
@@ -893,6 +971,8 @@ public static partial class SH
         var p = SH.SplitByWhiteSpaces(text, true);
         return SH.JoinString(" ", p);
     }
+
+
 
     /// <summary>
     /// Pokud je A1 true, bere se z A2,3 menší počet prvků
@@ -1742,25 +1822,7 @@ public static partial class SH
         }
         return -1;
     }
-    public static bool HasIndex(int p, string nahledy, bool throwExcWhenInvalidIndex = true)
-    {
-        if (p < 0)
-        {
-            if (throwExcWhenInvalidIndex)
-            {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Chybn\u00FD parametr ");
-            }
-            else
-            {
-                return false;
-            }
-        }
-        if (nahledy.Length > p)
-        {
-            return true;
-        }
-        return false;
-    }
+
     /// <summary>
     /// Return A1 if wont find A2
     /// </summary>
@@ -1870,17 +1932,9 @@ public static partial class SH
         string vr = sb.ToString();
         return SH.SubstringLength(vr, 0, vr.Length - 1);
     }
-    private static string SubstringLength(string vr, int from, int length)
-    {
-        if (HasIndex(from, vr))
-        {
-            if (HasIndex(length, vr))
-            {
-                return vr.Substring(from, length);
-            }
-        }
-        return string.Empty;
-    }
+    
+
+
     /// <summary>
     /// A1 won't be included
     /// </summary>

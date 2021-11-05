@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 public class TWithString<T>
 {
-   
+    public TWithString()
+    {
+
+    }
+
+    public TWithString(T t, string path)
+    {
+        this.t = t;
+        this.path = path;
+    }
+
         public T t = default(T);
         public string path = null;
     }

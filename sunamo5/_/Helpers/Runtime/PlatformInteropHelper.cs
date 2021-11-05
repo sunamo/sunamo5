@@ -6,6 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 public partial class PlatformInteropHelper
 {
+    #region For easy copy
+    public static bool IsSellingApp()
+    {
+        return RH.ExistsClass("SellingHelper");
+    }
+    #endregion
+
     /// <summary>
     /// Wpf.Tests = .NET Framework 4.8.4018.0
     /// ConsoleStandardApp2 = .NET Core 3.0.0

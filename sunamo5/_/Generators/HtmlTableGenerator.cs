@@ -60,13 +60,6 @@ namespace sunamo.Generators
             WriteElement(HtmlTags.td, item);
         }
 
-        private void WriteElement(string tag, string item)
-        {
-            WriteTag(tag);
-            WriteRaw(item);
-            TerminateTag(tag);
-        }
-
         public void WriteRow(string additionalQuestionCssClass, int count)
         {
             List<string> list = new List<string>(count);

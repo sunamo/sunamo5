@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sunamo;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -28,6 +29,7 @@ public partial class FS
             }
             catch (Exception ex)
             {
+                ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), repairedBlogPostsFolder, ex);
                 deleted = false;
             }
         }

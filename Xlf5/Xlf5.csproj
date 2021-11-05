@@ -1,40 +1,33 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version='1.0' encoding='utf-8'?>
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+   <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="_\bin\**" />
-    <Compile Remove="_\obj\**" />
-    <Compile Remove="_\Properties\**" />
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\MyPc.cs">
-      <Link>_\WinSec\MyPc.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\SczSecureCodesWinSec.cs">
-      <Link>_\WinSec\SczSecureCodesWinSec.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs">
-      <Link>_\WinSec\VpsHelperIsVps.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\WinSecHelper.cs">
-      <Link>_\WinSec\WinSecHelper.cs</Link>
-    </Compile>
-    <EmbeddedResource Remove="_\bin\**" />
-    <EmbeddedResource Remove="_\obj\**" />
-    <EmbeddedResource Remove="_\Properties\**" />
-    <None Remove="_\bin\**" />
-    <None Remove="_\obj\**" />
-    <None Remove="_\Properties\**" />
+    <Compile Remove="_\bin\**"></Compile>
+    <Compile Remove="_\obj\**"></Compile>
+    <Compile Remove="_\Properties\**"></Compile>
+    
+    
+    
+    
+    <EmbeddedResource Remove="_\bin\**"></EmbeddedResource>
+    <EmbeddedResource Remove="_\obj\**"></EmbeddedResource>
+    <EmbeddedResource Remove="_\Properties\**"></EmbeddedResource>
+    <None Remove="_\bin\**"></None>
+    <None Remove="_\obj\**"></None>
+    <None Remove="_\Properties\**"></None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj" />
-    <ProjectReference Include="..\Resources5\Resources5.csproj" />
+    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>
+    <ProjectReference Include="..\Resources5\Resources5.csproj"></ProjectReference>
   </ItemGroup>
 
   <ItemGroup>

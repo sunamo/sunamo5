@@ -405,7 +405,8 @@ public partial class FS
         }
         catch (Exception ex)
         {
-             var result = InvokePs(v);
+            ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), v, ex);
+            var result = InvokePs(v);
             if (result.Count > 0)
             {
                 return false;
@@ -1179,10 +1180,14 @@ public partial class FS
     /// <param name="selectedFile"></param>
     public static bool ExistsFile(string selectedFile, bool falseIfSizeZeroOrEmpty = true)
     {
+       
+
+#if DEBUG
         if (selectedFile.Contains("VS Code"))
         {
 
         }
+#endif
 
         if (selectedFile == Consts.UncLongPath || selectedFile == string.Empty)
         {

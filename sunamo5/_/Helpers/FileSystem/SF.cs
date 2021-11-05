@@ -6,6 +6,7 @@ using sunamo.Data;
 using System.Collections;
 using System.Linq;
 using sunamo.Constants;
+using sunamo;
 /// <summary>
 /// Is not allowed write empty elements - split of strings is running with StringSplitOptions.RemoveEmptyEntries
 /// Tato třída je zde pouze kvůli GetTablesInDatabaseExportHandler.ashx.cs a General/ImportTables.aspx.cs
@@ -94,13 +95,9 @@ public static int keyCodeSeparator
         return GetAllElementsLines(lines, ref firstLine);
     }
 
-    private static List<List<string>> GetAllElementsLines( List<string> lines, ref string firstLIne)
+    private static List<List<string>> GetAllElementsLines(List<string> lines, ref string firstLIne)
     {
-        
-
-        CA.RemoveStartingWith(AllStrings.num, lines);
-
-
+        SF.RemoveComments(lines);
 
         List<List<string>> vr = new List<List<string>>();
         foreach (string var in lines)

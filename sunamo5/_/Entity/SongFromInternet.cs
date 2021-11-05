@@ -22,9 +22,6 @@ namespace sunamo
         string _artistS = null;
         string _titleS = null;
         string _remixS = null;
-        private string item1;
-        private string item2;
-        private string item3;
 
         public string ArtistC
         {

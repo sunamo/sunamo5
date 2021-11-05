@@ -57,6 +57,12 @@ public static partial class SH
         return false;
     }
 
+    /// <summary>
+    /// Throw no exceptions => Dummy
+    /// </summary>
+    /// <param name="c"></param>
+    /// <param name="innerMain"></param>
+    /// <returns></returns>
     public static string Format34(string c, params object[] innerMain)
     {
         string formatted = null;
@@ -67,6 +73,7 @@ public static partial class SH
         }
         catch (Exception ex)
         {
+            ThrowExceptions.DummyNotThrow(ex);
         }
 
         try
@@ -75,6 +82,7 @@ public static partial class SH
         }
         catch (Exception ex)
         {
+            ThrowExceptions.DummyNotThrow(ex);
         }
 
         return formatted;
@@ -664,7 +672,6 @@ public static partial class SH
 
     public static string RemoveEndingPairCharsWhenDontHaveStarting(string vr, string cbl, string cbr)
     {
-        string result = null;
         List<int> removeOnIndexes = new List<int>();
 
         var sb = new StringBuilder(vr);
@@ -918,7 +925,6 @@ public static partial class SH
     public static string JoinSentences(bool addAfterLast, params string[] pDescription)
     {
         StringBuilder sb = new StringBuilder();
-        string args = null;
         foreach (var item in pDescription)
         {
             var t = item.Trim();
@@ -1871,7 +1877,15 @@ public static partial class SH
         return SH.JoinString(Environment.NewLine, parts);
     }
 
-    
+    public static string JoinNL(StringBuilder sb, List<string> l)
+    {
+        sb.Clear();
+        foreach (var item in l)
+        {
+            sb.AppendLine(item);
+        }
+        return sb.ToString();
+    }
 
     public static string JoinChars(params char[] ch)
     {
@@ -2544,7 +2558,7 @@ public static partial class SH
     public static string GetTextBetweenTwoChars(string p, char beginS, char endS, bool throwExceptionIfNotContains = true)
     {
         var begin = p.IndexOf(beginS);
-        var end = p.IndexOf(endS);
+        var end = p.IndexOf(endS, begin+1);
         if (begin == NumConsts.mOne || end == NumConsts.mOne)
         {
             if (throwExceptionIfNotContains)

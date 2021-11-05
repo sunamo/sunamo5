@@ -13,6 +13,10 @@ public static partial class NumConsts
     public const int MinAge = 18;
     public static short nDtMinVal = 10101;
     public static short nDtMaxVal = 32271;
+    /// <summary>
+    /// one thousand
+    /// </summary>
+    public static int to = 1000;
     public const long kB = 1024;
     public const double zeroDouble = 0;
     public const int zeroInt = 0;

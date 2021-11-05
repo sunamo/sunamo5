@@ -1,15 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <ProjectTypeGuids>9a19103f-16f7-4668-be54-9a1e7a4f7556</ProjectTypeGuids>
+    <ProjectGuid>F6F92307-B0B3-4D6C-BD9C-8B5FF5560DCF</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <OutputType>Library</OutputType>
     <RootNamespace>sunamo</RootNamespace>
     <AssemblyName>sunamo</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG;DEBUG2</DefineConstants>
+    <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
@@ -19,6 +26,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Diacritics">
@@ -40,41 +50,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\sunamo.web\webforms\converters\MySitesConverter.cs">
-      <Link>webforms\MySitesConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\..\sunamo.web\webforms\enums\MySites.cs">
-      <Link>webforms\MySites.cs</Link>
-    </Compile>
-    <Compile Include="..\..\sunamo.web\webforms\enums\MySitesShort.cs">
-      <Link>webforms\MySitesShort.cs</Link>
-    </Compile>
-    <Compile Include="..\..\sunamo.web\webforms\SubdomainHelperShared.cs">
-      <Link>webforms\SubdomainHelperShared.cs</Link>
-    </Compile>
+    <Content Include="_\Comparing\Text Editors Boxes.txt">
+    </Content>
+    <Content Include="_\Comparing\TextWriterList,TextBuilder,TextOutputGenerator,TextGenerator,InstantSB,HtmlSB.txt">
+    </Content>
+    <Content Include="git.txt">
+    </Content>
+    <Content Include="HTMLPage1.html">
+    </Content>
+    <Content Include="plain.txt">
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="_\Comparing\Text Editors Boxes.txt" />
-    <Content Include="_\Comparing\TextWriterList,TextBuilder,TextOutputGenerator,TextGenerator,InstantSB,HtmlSB.txt" />
-    <Content Include="git.txt" />
-    <Content Include="HTMLPage1.html" />
-    <Content Include="plain.txt" />
+    <Folder Include="_webforms\_NotPublish\" />
+    <Folder Include="_webforms\Converters\" />
+    <Folder Include="_webforms\Enums\" />
+    <Folder Include="Mixins\">
+    </Folder>
+    <Folder Include="MultilingualResources\CopyWhileMassAdding\">
+    </Folder>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mixins\" />
-    <Folder Include="MultilingualResources\CopyWhileMassAdding\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\duo\duo.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
-    <ProjectReference Include="..\Xlf\Xlf.csproj" />
+    <ProjectReference Include="..\Xlf\Xlf.csproj">
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-    <PackageReference Include="System.Management" Version="5.0.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
+    </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
+    </PackageReference>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2">
+    </PackageReference>
+    <PackageReference Include="System.Management" Version="5.0.0">
+    </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime">
       <Version>4.6.0</Version>
     </PackageReference>
@@ -86,6 +96,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Helpers\PHSystemManagement.cs" />
+    <Compile Remove="Helpers\PHSystemManagement.cs">
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\sunamo.web\webforms\_NotPublish\ColumnNames.cs" Link="_webforms\_NotPublish\ColumnNames.cs" />
+    <Compile Include="..\..\sunamo.web\webforms\Converters\MySitesConverter.cs" Link="_webforms\Converters\MySitesConverter.cs" />
+    <Compile Include="..\..\sunamo.web\webforms\Enums\MySites.cs" Link="_webforms\Enums\MySites.cs" />
+    <Compile Include="..\..\sunamo.web\webforms\Enums\MySitesShort.cs" Link="_webforms\MySitesShort.cs" />
+    <Compile Include="..\..\sunamo.web\webforms\SubdomainHelperShared.cs" Link="_webforms\SubdomainHelperShared.cs" />
   </ItemGroup>
 </Project>

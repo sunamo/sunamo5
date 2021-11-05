@@ -8,7 +8,12 @@ using System.Linq;
 /// </summary>
 public static class XmlTemplates
 {
+    /// <summary>
+    /// "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
+    /// VS apos instead of qm nevermind
+    /// </summary>
     public const string xml = "<?xml version='1.0' encoding='utf-8'?>";
+    
 
     public static string GetXml2(string n1, string n2)
     {

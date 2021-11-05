@@ -1,4 +1,5 @@
 ﻿
+using sunamo;
 using sunamo.Essential;
 using System;
 using System.Collections;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public partial class LoggerBase
+public abstract partial class LoggerBase
 {
     // TODO: Make logger public class as base and replace all occurences With Instance 
     private VoidStringParamsObjects _writeLineDelegate;
@@ -17,6 +18,13 @@ public partial class LoggerBase
     /// Because in sunamo is not any MessageBox
     /// </summary>
      //public static event VoidString ShowMessageBox;
+
+    protected LoggerBase()
+    {
+
+    }
+
+
     public void DumpObject(string name, object o, DumpProvider d, params string[] onlyNames)
     {
         var dump = RH.DumpAsString(new DumpAsStringArgs { name = name, o = o, d = d, onlyNames = onlyNames.ToList() });//  , o, d, onlyNames);
@@ -77,7 +85,7 @@ public partial class LoggerBase
         WriteList(list);
     }
 
-    internal void WriteListOneRow(List<string> item, string swd)
+    public void WriteListOneRow(List<string> item, string swd)
     {
 #if DEBUG
         _writeLineDelegate.Invoke(SH.JoinString(swd, item));
@@ -97,13 +105,14 @@ public partial class LoggerBase
         }
         catch (Exception ex)
         {
+            ThrowExceptions.CustomWithStackTrace(ex);
             return false;
         }
 
         return true;
     }
 
-    public void WriteLine(string text, params object[] args)
+    public  void WriteLine(string text, params object[] args)
     {
         if (IsActive)
         {

@@ -17,9 +17,6 @@ namespace sunamo.Helpers.DT
         /// <param name="dt"></param>
         public static string DateTimeToFileName(DateTime dt)
         {
-            string dDate = AllStrings.lowbar;
-            string dSpace = AllStrings.lowbar;
-            string dTime = AllStrings.lowbar;
             return DateTimeToFileName(dt, true);
         }
 

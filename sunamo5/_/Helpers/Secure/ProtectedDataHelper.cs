@@ -28,6 +28,7 @@ public static class ProtectedDataHelper
             }
             catch (Exception ex)
             {
+                ThrowExceptions.DummyNotThrow(ex);
                 return new SecureString();
             }
             return SecureStringHelper.ToSecureString(System.Text.Encoding.Unicode.GetString(decryptedData));

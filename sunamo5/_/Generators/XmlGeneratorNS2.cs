@@ -90,7 +90,7 @@ public class XmlGeneratorNS2
 
     public void WriteXmlDeclaration()
     {
-        sb.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+        sb.Append(XmlTemplates.xml);
     }
 
     public void WriteTagWith2Attrs(string p, string p_2, string p_3, string p_4, string p_5)

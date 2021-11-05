@@ -149,7 +149,7 @@ namespace sunamo.Xml
             }
             catch (Exception ex)
             {
-
+                ThrowExceptions.CustomWithStackTrace(ex);
                 return null;
             }
             return xd;
@@ -201,7 +201,7 @@ namespace sunamo.Xml
             }
             catch (XmlException ex)
             {
-                // Handle the exception
+                ThrowExceptions.CustomWithStackTrace(ex);
             }
 
             mStream.Close();

@@ -306,6 +306,7 @@ public partial class UH
         }
         catch (Exception ex)
         {
+            ThrowExceptions.DummyNotThrow(ex);
             return null;
         }
     }

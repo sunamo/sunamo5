@@ -1,4 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>9a19103f-16f7-4668-be54-9a1e7a4f7556</ProjectTypeGuids>
+    <ProjectGuid>00B76D22-B82F-43FD-AC48-4B1F56E6910F</ProjectGuid>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
@@ -17,40 +22,38 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="fmdev.XliffParser">
-      <HintPath>..\dll\net45\fmdev.XliffParser.dll</HintPath>
-    </Reference>
+    <Compile Include="..\..\CredentialsWithoutDep\WinSec\MyPcShared.cs" Link="_WinSec\MyPcShared.cs" />
+    <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs" Link="_WinSec\VpsHelperIsVps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\MyPc.cs">
-      <Link>WinSec\MyPc.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\SczSecureCodesWinSec.cs">
-      <Link>WinSec\SczSecureCodesWinSec.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs">
-      <Link>WinSec\VpsHelperIsVps.cs</Link>
-    </Compile>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\WinSecHelper.cs">
-      <Link>WinSec\WinSecHelper.cs</Link>
-    </Compile>
+    <Folder Include="_WinSec\" />
+    <Folder Include="Scz\">
+    </Folder>
+    <Folder Include="Values\">
+    </Folder>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WinSec\Readme.txt">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
+    </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0">
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
-    <ProjectReference Include="..\Resources\Resources.csproj" />
+    <ProjectReference Include="..\Resources\Resources.csproj">
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scz\" />
-    <Folder Include="Values\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="WinSec\Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
+    <Reference Include="fmdev.XliffParser">
+      <HintPath>..\dll\net45\fmdev.XliffParser.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

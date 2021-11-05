@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 public class GetFilesEveryFolderBgWorker
 {
     BackgroundWorker bgWorker = null;
-    GetFilesEveryFolder e = null;
     public event RunWorkerCompletedEventHandler RunWorkerCompleted;
 
-    public GetFilesEveryFolderBgWorker(GetFilesEveryFolder e)
+    public GetFilesEveryFolderBgWorker()
     {
         bgWorker = new BackgroundWorker();
         bgWorker.DoWork += BgWorker_DoWork;

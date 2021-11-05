@@ -1,16 +1,17 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+   <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="_\bin\**" />
-    <Compile Remove="_\obj\**" />
-    <EmbeddedResource Remove="_\bin\**" />
-    <EmbeddedResource Remove="_\obj\**" />
-    <None Remove="_\bin\**" />
-    <None Remove="_\obj\**" />
+    <Compile Remove="_\bin\**"></Compile>
+    <Compile Remove="_\obj\**"></Compile>
+    <EmbeddedResource Remove="_\bin\**"></EmbeddedResource>
+    <EmbeddedResource Remove="_\obj\**"></EmbeddedResource>
+    <None Remove="_\bin\**"></None>
+    <None Remove="_\obj\**"></None>
   </ItemGroup>
 
 </Project>

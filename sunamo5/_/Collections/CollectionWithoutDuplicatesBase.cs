@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sunamo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -32,10 +33,6 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
     }
 
     public static bool br = false;
-
-    bool _compareWithString = false;
-
-    
     int count = 10000;
 
     public CollectionWithoutDuplicatesBase()

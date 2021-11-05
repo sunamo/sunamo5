@@ -32,7 +32,6 @@ namespace sunamo.Storage
             List<string> lines = TF.GetLines(file);
             CA.Trim(lines);
             List<string> listString = new List<string>();
-            int i = 0;
 
             string actualSection = null;
 

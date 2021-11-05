@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
+using sunamo;
 using sunamo.Collections;
 using sunamo.Data;
 using sunamo.Helpers.Number;
@@ -13,7 +14,22 @@ using System.Text;
 using System.Text.RegularExpressions;
 public static partial class CA
 {
-
+    public static void RemoveEmptyLinesToFirstNonEmpty(List<string> content)
+    {
+        for (int i = 0; i < content.Count; i++)
+        {
+            var line = content[i];
+            if (line.Trim() == string.Empty)
+            {
+                content.RemoveAt(i);
+                i--;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
 
     //public static object FirstOrNull(IEnumerable e)
     //{

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sunamo;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -605,16 +606,14 @@ public static partial class CA
                 //}
                 //else
                 //{
-                try
-                {
-                    ;
+                //try
+                //{
                     result.Add((T)item);
-                }
-                catch (Exception ex)
-                {
-
-
-                }
+                //}
+                //catch (Exception ex)
+                //{
+                //    // Insert Here ThrowExceptions
+                //}
                 //}
             }
         }

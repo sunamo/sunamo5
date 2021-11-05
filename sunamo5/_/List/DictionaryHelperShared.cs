@@ -205,7 +205,6 @@ public partial class DictionaryHelper
     {
         List<Dictionary<Key, Value>> retur = new List<Dictionary<Key, Value>>();
         Dictionary<Key, Value> ds = new Dictionary<Key, Value>();
-        int i = 0;
 
         foreach (var item in dict)
         {

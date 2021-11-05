@@ -45,8 +45,8 @@ public class TranslateDictionary : IDictionary<string, string>
             }
 
             //ShowMb(_l + ": " + Count +" . Key was copied to clipboard");
-            ////Clipboard.SetText(Exc.GetStackTrace());
-            //Clipboard.SetText(SH.NullToStringOrDefault( key));
+            ////ClipboardHelper.SetText(Exc.GetStackTrace());
+            //ClipboardHelper.SetText(SH.NullToStringOrDefault( key));
 
             if (!_d.ContainsKey(key))
             {

@@ -24,9 +24,10 @@ namespace sunamo.Essential
             return TypedDebugLogger.Instance;
 #elif !DEBUG2
         // Is possible also use CmdApp.ConsoleOrDebugTyped
+        return TypedDummyLogger.Instance;
         //return TypedConsoleLogger.Instance;
 #endif
-            return TypedDummyLogger.Instance;
+
         }
 
 

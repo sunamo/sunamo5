@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sunamo.Essential
 {
-    public partial class TemplateLoggerBase
+    public abstract partial class TemplateLoggerBase
     {
         public TemplateLoggerBase(VoidTypeOfMessageStringParamsObject writeLineDelegate)
         {

@@ -10,7 +10,6 @@ namespace sunamo.Essential
 {
     public partial class ThisApp
     {
-        
         public static ResourcesHelper Resources;
     }
 }

@@ -1,10 +1,13 @@
-﻿using System;
+﻿using sunamo;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
 public partial class DTHelperEn
 {
+    static Type type = typeof(DTHelperEn);
+
     #region Parse
     #region Only Date
     /// <summary>
@@ -35,6 +38,7 @@ public partial class DTHelperEn
                     }
                     catch (Exception ex)
                     {
+                        ThrowExceptions.CannotCreateDateTime(Exc.GetStackTrace(), type, Exc.CallingMethod(), year, month, day, 0, 0, 0, ex);
                     }
                 }
             }

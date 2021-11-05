@@ -42,7 +42,6 @@ namespace shared.Crypting
             TripleDES
         }
 
-        private DataCrypt _data;
         private DataCrypt _key;
         private DataCrypt _iv;
         private SymmetricAlgorithm _crypto;
@@ -352,7 +351,7 @@ namespace shared.Crypting
             }
             catch (CryptographicException ex)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.UnableToDecryptDataTheProvidedKeyMayBeInvalid) + ".");
+                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.UnableToDecryptDataTheProvidedKeyMayBeInvalid) + "." + Exceptions.TextOfExceptions(ex));
             }
             finally
             {

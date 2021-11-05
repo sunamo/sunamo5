@@ -191,9 +191,18 @@ public static partial class CA
         }
         return -1;
     }
+
+    public static bool IsThereAnotherIndex(char[] ch, int i)
+    {
+        if (ch.Length >= i)
+        {
+            return true;
+        }
+        return false;
+    }
     #endregion
     #endregion
 
-    
+
 
 }

@@ -1,13 +1,14 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+   <TargetFramework>net5.0-windows</TargetFramework>
     <AssemblyName>Resources</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.cs-CZ.xlf" Link="sunamo.cs-CZ.xlf" />
-    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.en-US.xlf" Link="sunamo.en-US.xlf" />
+    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.cs-CZ.xlf" Link="sunamo.cs-CZ.xlf"></None>
+    <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.en-US.xlf" Link="sunamo.en-US.xlf"></None>
   </ItemGroup>
 
   <ItemGroup>
