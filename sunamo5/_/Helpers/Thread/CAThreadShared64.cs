@@ -13,6 +13,7 @@ public partial class CAThread
     {
         List<object> ls = new List<object>(e.Count());
 
+        
 
         foreach (var item in e)
         {

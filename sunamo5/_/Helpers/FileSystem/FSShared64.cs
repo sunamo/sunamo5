@@ -1244,9 +1244,15 @@ public partial class FS
     private static Type type = typeof(FS);
     public static string GetDirectoryName(string rp)
     {
-
-        ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
-        ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "rp", rp);
+        if (!string.IsNullOrEmpty(rp))
+        {
+            ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
+        }
+        if (!FS.IsWindowsPathFormat(rp))
+        {
+            ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "rp", rp);
+        }
+        
 
         rp = rp.TrimEnd(AllChars.bs);
         int dex = rp.LastIndexOf(AllChars.bs);

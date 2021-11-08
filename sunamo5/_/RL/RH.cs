@@ -114,16 +114,7 @@ public partial class RH
 
     
 
-    public static Assembly AssemblyWithName(string name)
-    {
-        var ass = AppDomain.CurrentDomain.GetAssemblies();
-        var result = ass.Where(d => d.GetName().Name == name);
-        if (result.Count() == 0)
-        {
-            result = ass.Where(d => d.FullName == name);
-        }
-        return result.FirstOrDefault();
-    }
+
 
     /// <summary>
     /// Perform a deep Copy of the object.
@@ -222,33 +213,9 @@ public partial class RH
 
     
 
-    /// <summary>
-    /// A1 can be Type of instance
-    /// All fields must be public
-    /// </summary>
-    /// <param name="carSAutoType"></param>
-    public static List<FieldInfo> GetFields(object carSAuto)
-    {
-        Type carSAutoType = null;
-        var t1 = carSAuto.GetType();
-        
-        if (RH.IsType(t1))
-        {
-            carSAutoType = carSAuto as Type;
-        }
-        else
-        {
-            carSAutoType = carSAuto.GetType();
-        }
-        var result = carSAutoType.GetFields().ToList();
-        return result;
-    }
+    
 
-    private static bool IsType(Type t1)
-    {
-        var t2 = typeof(Type);
-        return t1.FullName == "System.RuntimeType" || t1 == t2;
-    }
+
 
     /// <summary>
     /// Copy values of all readable properties

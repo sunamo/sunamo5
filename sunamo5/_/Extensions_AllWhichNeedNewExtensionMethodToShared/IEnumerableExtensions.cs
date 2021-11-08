@@ -17,12 +17,15 @@ namespace sunamo
 
 
         #region Must be two coz in some projects is not Dispatcher
+
         public static object FirstOrNull(this IEnumerable e)
         {
             if (e.Count() > 0)
             {
                 // Here cant call CA.ToList because in FirstOrNull is called in CA.ToList => StackOverflowException
-                var c = CAThread.ToList(e);
+                List<object> c = null;
+                
+                c = CAThread.ToList(e);
                 return c.FirstOrDefault();
             }
 

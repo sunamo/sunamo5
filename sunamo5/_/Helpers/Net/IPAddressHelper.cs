@@ -50,7 +50,7 @@ namespace sunamo.Helpers
         /// <returns></returns>
         public static bool? IsIpAddress(string ip)
         {
-            return false;
+            return true;
         }
     }
 }

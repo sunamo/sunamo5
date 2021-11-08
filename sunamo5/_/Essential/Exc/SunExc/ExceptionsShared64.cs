@@ -58,6 +58,13 @@ public partial class Exceptions
         return CheckBefore(before) + SunamoPageHelperSunamo.i18n(XlfKeys.NotImplementedCasePublicProgramErrorPleaseContactDeveloper) + ".";
     }
 
+    /// <summary>
+    /// !FS.IsWindowsPathFormat
+    /// </summary>
+    /// <param name="before"></param>
+    /// <param name="argName"></param>
+    /// <param name="argValue"></param>
+    /// <returns></returns>
     public static string IsNotWindowsPathFormat(string before, string argName, string argValue)
     {
         if (RaiseIsNotWindowsPathFormat)

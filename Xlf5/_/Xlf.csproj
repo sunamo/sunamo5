@@ -22,7 +22,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\MyPcShared.cs" Link="_WinSec\MyPcShared.cs" />
     <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs" Link="_WinSec\VpsHelperIsVps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -41,12 +40,14 @@
     </PackageReference>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
     </PackageReference>
+    <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0">
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CredentialsWithoutDep\WinSec\WinSec.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj">
     </ProjectReference>

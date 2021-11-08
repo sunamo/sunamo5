@@ -131,7 +131,8 @@ public partial class XlfResourcesH
 
             var fn = "sunamo_cs_CZ";
 
-            if (true) //PlatformInteropHelperXlf.IsSellingApp())
+            // Always true, in all apps I use _min. NEVER CHANGE IT!!!
+            if (true) // PlatformInteropHelperXlf.IsSellingApp())
             {
                 fn += "_min";
             }
@@ -151,6 +152,8 @@ public partial class XlfResourcesH
             TFXlf.RemoveDoubleBomUtf8(file);
 
             fn = "sunamo_en_US";
+
+            // Always true, in all apps I use _min. NEVER CHANGE IT!!!
 
             if (true) //PlatformInteropHelperXlf.IsSellingApp())
             {

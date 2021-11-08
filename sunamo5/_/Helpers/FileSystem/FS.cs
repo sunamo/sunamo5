@@ -148,14 +148,16 @@ public partial class FS
     }
 
     #region For easy copy
-    
+
+
+
     /// <summary>
     /// if A1 wont end with \, auto GetDirectoryName
     /// </summary>
     /// <param name="relativeTo"></param>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static string GetRelativePath(string relativeTo, string path)
+    public static string GetRelativePath2(string relativeTo, string path)
     {
         FileToDirectory(ref relativeTo);
 
@@ -181,11 +183,13 @@ public partial class FS
         if (i == 0)     // Cannot make relative path, for example if resides on different drive
             return fromPath;
 
-        
 
-        var rep = Enumerable.Repeat("..", p2.Length - i);
+
+        var r2 = p2.Length - i;
+        var rep = Enumerable.Repeat("..", r2);
         i++;
-        var con = rep.Concat(p1.Skip(i));
+        var p1Skip = p1.Skip(i);
+        var con = rep.Concat(p1Skip);
         var tak = con.Take(p1.Length - i);
         String r = String.Join(pathSep, tak);
 

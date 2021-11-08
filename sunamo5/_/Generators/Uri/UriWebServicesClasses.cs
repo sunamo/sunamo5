@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 public partial class UriWebServices
 {
-    public static class ITJobs
+    public static partial class ITJobs
     {
         public const string cooljobs = @"https://www.cooljobs.eu/cz/%s";
     }
 
-    public static class ChromeSearchShortcut
+    public static partial class ChromeSearchShortcut
     {
         public const string gp = "https://play.google.com/store/search?q=%s";
     }
 
 
-    public static class BatteryEshops
+    public static partial class BatteryEshops
     {
         #region Specialize on batteries
         public static readonly string wwwBatteryshopCz = "www.batteryshop.cz";
@@ -36,7 +36,7 @@ public partial class UriWebServices
         #endregion
     }
 
-    public static class FurnitureInOvaWithBestRating
+    public static partial class FurnitureInOvaWithBestRating
     {
         public static Type type = typeof(FurnitureInOvaWithBestRating);
 
@@ -47,7 +47,7 @@ public partial class UriWebServices
         //public const string wwwJechCz = "https://www.jech.cz/hledat?query=%s";
         public const string wwwIkeaCom = "https://www.ikea.com/cz/cs/search/products/?q=%s&sort=PRICE_LOW_TO_HIGH";
     }
-    public static class FurnitureInOvaPreffered
+    public static partial class FurnitureInOvaPreffered
     {
         public static Type type = typeof(FurnitureInOvaPreffered);
 
@@ -56,7 +56,7 @@ public partial class UriWebServices
         public const string wwwMoebelixCz = "https://www.moebelix.cz/s/?sort=priceAsc&s=%s";
     }
 
-        public static class FurnitureInOva
+        public static partial class FurnitureInOva
     {
         public static Type type = typeof(FurnitureInOva);
 
@@ -70,7 +70,7 @@ public partial class UriWebServices
         //public const string wwwIdeaNabytekCz = "https://www.idea-nabytek.cz/ulozne-prostory/%se/?ordertype=asc&Ordering=ProductPriceWithVat";
     }
 
-    public static class RepairMobile
+    public static partial class RepairMobile
     {
         public static void SearchInAll(string what)
         {
@@ -83,32 +83,12 @@ public partial class UriWebServices
         }
     }
 
-    public static class TechSitesRss
-    {
-        public static Type type = typeof(TechSitesRss);
-
-        public const string feedsFeedburnerCom = "http://feeds.feedburner.com/TechCrunch/";
-        public const string wwwEngadgetCom = "http://www.engadget.com/rss.xml";
-
-        /// <summary>
-        /// Unknown rss feed
-        /// </summary>
-        public const string wwwThevergeCom = "http://www.theverge.com/rss/index.xml";
-
-        public const string wwwSciencedailyCom = "https://www.sciencedaily.com/rss/all.xml";
-        public const string wwwTechradarCom = "https://www.techradar.com/rss";
-        public const string wwwWiredCom = "https://www.wired.com/feed/rss";
-        public const string feedsArstechnicaCom = "http://feeds.arstechnica.com/arstechnica/index";
-        public const string thenextwebCom = "https://thenextweb.com/feed/";
-        public const string wwwTomshardwareCom = "https://www.tomshardware.com/feeds/all";
-
-        public static List<string> haveImages = CA.ToList<string>("thenextwebCom", "wwwEngadgetCom");
-    }
+    
 
     /// <summary>
     /// For phones, etc. is better repas sites as mp.cz
     /// </summary>
-    public static class AdsWholeCR
+    public static partial class AdsWholeCR
     {
         /*
 Template for which I will find, have to be in derivates the same:
@@ -183,7 +163,7 @@ Template for which I will find, have to be in derivates the same:
         //}
     }
 
-    public static class SolarShops
+    public static partial class SolarShops
     {
         private static List<string> s_shops = new List<string>(CA.ToEnumerable("mulac.cz", "solar-eshop.cz", "karavan3nec.cz", "campi-shop.cz", "ges.cz", "dstechnik.cz", "emerx.cz", "vpcentrum.eu", "dexhal.cz"));
 
@@ -203,7 +183,7 @@ Template for which I will find, have to be in derivates the same:
         public static readonly List<string> All = CA.ToListString(mulacCz, solarEshop, karavan3nec, campiShopCz, gesCz, dstechnikCz, emerxCz);
     }
 
-    public static class Lyrics
+    public static partial class Lyrics
     {
         #region Space for %20, uri encoded
         public const string wwwMusixmatchCom = "https://www.musixmatch.com/search/%s";
@@ -222,7 +202,7 @@ Template for which I will find, have to be in derivates the same:
     /// <summary>
     /// Localhost due to easy convert with 
     /// </summary>
-    public static class SunamoCz
+    public static partial class SunamoCz
     {
         public const string lyricsScz = "https://lyr.localhost/search/%s";
         public const string appsHelp = "https://app.localhost/help/%s";
@@ -230,7 +210,7 @@ Template for which I will find, have to be in derivates the same:
         public const string appsApp = "https://app.localhost/app/%s";
     }
 
-    public static class SexShops
+    public static partial class SexShops
     {
         public const string wwwRuzovyslonCz = "https://www.ruzovyslon.cz/hledani?_submit=Hledat&s=%s&do=searchForm-submit";
         public const string wwwEroticcityCz = "https://www.eroticcity.cz/vyhledavani.html?q=%";
@@ -246,7 +226,7 @@ Template for which I will find, have to be in derivates the same:
 
         public static List<string> All = CA.ToListString(wwwRuzovyslonCz, wwwEroticcityCz, wwwSexshopikCz, wwwSexShopCz, intimmShopCz, wwwEroticstoreCz, wwwNejlevnejsierotickepomuckyCz, wwwWillistoreCz, wwwVibratoryOnlineCz, wwwLuxusnipradloCz, eKondomyCz);
     }
-    public static class SpiceMarks
+    public static partial class SpiceMarks
     {
         private static List<string> s_list = null;
 
@@ -263,7 +243,7 @@ Template for which I will find, have to be in derivates the same:
             }
         }
     }
-    public static class CashBack
+    public static partial class CashBack
     {
         public const string vratnepenize = "https://www.vratnepenize.cz/zbozi/hledej?g=%s";
         public const string tipli = "https://www.tipli.cz/hledat/%s";
@@ -272,7 +252,7 @@ Template for which I will find, have to be in derivates the same:
         public static readonly List<string> All = CA.ToListString(vratnepenize, tipli, plnapenezenka);
     }
 
-    public static class HorticultureWholeCzech
+    public static partial class HorticultureWholeCzech
     {
         public const string wwwZahradnictviFlosCz = "https://www.zahradnictvi-flos.cz/vyhledavani/%s?productFilter-s%5B13%5D=%s";
         public const string eshopStarklCom = "https://eshop.starkl.com/search/?q=%s";
@@ -282,7 +262,7 @@ Template for which I will find, have to be in derivates the same:
         public static readonly List<string> All = CA.ToListString(wwwZahradnictviFlosCz, eshopStarklCom, wwwHornbachCz, wwwObiCz);
     }
 
-    public static class HorticultureHavirovAndSurroundings
+    public static partial class HorticultureHavirovAndSurroundings
     {
         public const string wwwZahradnictviporubaCz = "https://www.zahradnictviporuba.cz/";
         public const string wwwKornerCz = "https://www.korner.cz";
@@ -303,7 +283,7 @@ Template for which I will find, have to be in derivates the same:
         }
     }
 
-    public static class EnglishMobileParts
+    public static partial class EnglishMobileParts
     {
         /// <summary>
         /// eb
@@ -398,7 +378,7 @@ Template for which I will find, have to be in derivates the same:
         }
     }
 
-    public static class Business
+    public static partial class Business
     {
         public const string wwwFirmoCz = "www.firmo.cz";
         public const string rejstrikPenizeCz = "rejstrik.penize.cz";
@@ -411,12 +391,12 @@ Template for which I will find, have to be in derivates the same:
         public static List<string> All = CA.ToListString(wwwFirmoCz, rejstrikPenizeCz, wwwFirmyCz, rejstrikFiremKurzyCz, wwwPodnikatelCz, rejstrikyFinanceCz);
     }
 
-    public static class MyBlogs
+    public static partial class MyBlogs
     {
         public const string jpnAdminAllPosts = @"https://jepsano.net/wp-admin/edit.php?s=%s&post_status=all&post_type=post&action=-1&m=0&cat=0&seo_filter&readability_filter&paged=1&action2=-1";
     }
 
-    public static class AutomotiveSpareParts
+    public static partial class AutomotiveSpareParts
     {
         public const string wwwAutokseftCz = "https://www.autokseft.cz/index.php?main_page=shop_search&keyword=%s";
         public const string wwwAutodocCz = "https://www.autodoc.cz/search?keyword=%";
@@ -425,7 +405,7 @@ Template for which I will find, have to be in derivates the same:
         public static List<string> All = CA.ToListString(wwwAutokseftCz, wwwAutodocCz, wwwNahradniDilyZhCz, wwwAutomobilovedilyCz);
     }
 
-    public static class UriShareService
+    public static partial class UriShareService
     {
         public static List<string> domains = null;
 
@@ -435,7 +415,7 @@ Template for which I will find, have to be in derivates the same:
         }
     }
 
-    public static class CdnProviders
+    public static partial class CdnProviders
     {
         //
         public const string cdnjs = "https://api.cdnjs.com/libraries?search=%";
@@ -452,7 +432,7 @@ Template for which I will find, have to be in derivates the same:
         public static readonly List<string> All = CA.ToListString(cdnjs, unpkg);
     }
 
-    public static class RemoteJobs
+    public static partial class RemoteJobs
     {
         public const string WwwFlexjobsCom = "https://www.flexjobs.com/search?search=%s&location=";
         public const string AngelCo = "https://angel.co/jobs#find/f!%7B%22remote%22%3Atrue%2C%22keywords%22%3A%5B%22%s%22%5D%7D";
@@ -476,7 +456,7 @@ Template for which I will find, have to be in derivates the same:
 
   
 
-    public static class Libraries
+    public static partial class Libraries
     {
         /// <summary>
         /// Narodni knihovna
@@ -498,7 +478,7 @@ Template for which I will find, have to be in derivates the same:
     /// <summary>
     /// Is possible user also OpenInBrowser.OpenCachesFromCacheList
     /// </summary>
-    public class GeoCachingComSite
+    public partial class GeoCachingComSite
     {
         public static string CacheDetails(string cacheGuid)
         {
@@ -526,7 +506,7 @@ Template for which I will find, have to be in derivates the same:
         }
     }
 
-    public partial class Facebook
+    public   partial class Facebook
     {
         
 
@@ -539,7 +519,7 @@ Template for which I will find, have to be in derivates the same:
     /// <summary>
     /// Summary description for YouTube
     /// </summary>
-    public static class YouTube
+    public  static partial class YouTube
     {
         public static void SearchYouTubeSerialSerie(int parts, int serie, string name)
         {
@@ -550,27 +530,17 @@ Template for which I will find, have to be in derivates the same:
             }
         }
 
-        public const string ytVideoStart = "https://www.youtube.com/watch?v=";
+        
 
-        public static string GetLinkToVideo(string kod)
-        {
-            return ytVideoStart + kod;
-        }
+        
 
-        public static string GetHtmlAnchor(string kod)
-        {
-            return "<a href='" + GetLinkToVideo(kod) + "'>" + kod + "</a>";
-        }
 
         public static string ReplaceOperators(string vstup)
         {
             return SH.ReplaceAll(vstup, "", "OR", "+", AllStrings.dash, AllStrings.qm, AllStrings.asterisk);
         }
 
-        public static string GetLinkToSearch(string co)
-        {
-            return "https://www.youtube.com/results?search_query=" + UH.UrlEncode(co);
-        }
+        
 
         /// <summary>
         /// G null pokud se YT kód nepodaří získat
@@ -582,7 +552,7 @@ Template for which I will find, have to be in derivates the same:
         }
     }
 
-    public static class CinemaMsk
+    public static partial class CinemaMsk
     {
         public const string k3bohumin = "https://www.k3bohumin.cz/cz/search/?search_string=s";
         public const string kosmos = "https://www.google.com/search?q=site%3Akinokosmos.cz+s";

@@ -312,6 +312,8 @@ namespace sunamo.Html
 
         public static List<HtmlNode> Nodes(HtmlNode node, bool recursive, bool single, string tag)
         {
+            tag = tag.ToLower();
+
             List<HtmlNode> vr = new List<HtmlNode>();
             RecursiveReturnTags(vr, node, recursive, false, tag);
             if (tag != textNode)

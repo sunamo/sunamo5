@@ -15,6 +15,12 @@ using System.Xml.Linq;
 public partial class FS
 {
     #region For easy shared
+    public static string GetFullPath(string vr)
+    {
+        var result = Path.GetFullPath(vr);
+        return result;
+    }
+
     public static void FileToDirectory(ref string dir)
     {
         if (!dir.EndsWith(AllStrings.bs))
@@ -432,11 +438,7 @@ public partial class FS
 
     
 
-    private static string GetFullPath(string vr)
-    {
-        var result = Path.GetFullPath(vr);
-        return result;
-    }
+    
 
     public static List<string> GetTokens(string relativePath)
     {

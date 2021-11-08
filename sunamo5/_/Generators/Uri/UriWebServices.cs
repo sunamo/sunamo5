@@ -13,8 +13,6 @@ using System.Web;
 /// </summary>
 public partial class UriWebServices
 {
-    
-
     static int opened = 0;
     public static string WikipediaEn = "https://en.wikipedia.org/w/index.php?search=%s";
     public const string karaokeTexty = "http://www.karaoketexty.cz/search?q=%s&sid=bbrpp&x=36&y=9";
@@ -107,20 +105,7 @@ public partial class UriWebServices
 
     //http://www.bdsluzby.cz/stavebni-cinnost/materialy.htm
 
-    public static string GoogleMaps(string coordsOrAddress, string center, string zoom)
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.Append("https://maps.google.com/maps?q=" + coordsOrAddress.Replace(AllStrings.space, "+") + "&hl=cs&ie=UTF8&t=h");
-        if (!string.IsNullOrEmpty(center))
-        {
-            sb.Append("&ll=" + center);
-        }
-        if (!string.IsNullOrEmpty(zoom))
-        {
-            sb.Append("&z=" + zoom);
-        }
-        return sb.ToString();
-    }
+    
 
     /// <summary>
     /// A1 už musí být escapováno

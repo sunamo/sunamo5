@@ -66,6 +66,14 @@ public partial class ThrowExceptions
         return true;
     }
 
+    /// <summary>
+    /// !FS.IsWindowsPathFormat
+    /// </summary>
+    /// <param name="stacktrace"></param>
+    /// <param name="type"></param>
+    /// <param name="methodName"></param>
+    /// <param name="argName"></param>
+    /// <param name="argValue"></param>
     public static void IsNotWindowsPathFormat(string stacktrace, object type, string methodName, string argName, string argValue)
     {
         ThrowIsNotNull(stacktrace, Exceptions.IsNotWindowsPathFormat(FullNameOfExecutedCode(type, methodName, true), argName, argValue));
