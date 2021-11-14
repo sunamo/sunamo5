@@ -589,7 +589,7 @@ public class XlfKeys
 	public const string YouGotThroughTheCollectionIndex = "YouGotThroughTheCollectionIndex"; 
 	public const string TryToAdjustThePPIfYouHaveItSetInBulk = "TryToAdjustThePPIfYouHaveItSetInBulk"; 
 	public const string Copyright2015 = "Copyright2015"; 
-	public const string ParameterDefValInMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum = "ParameterDefValInMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum"; 
+	public const string ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum = "ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum"; 
 	public const string AvailableShortcuts = "AvailableShortcuts"; 
 	public const string MainWindowMustBeIWindowOpenerDueToShowExceptions = "MainWindowMustBeIWindowOpenerDueToShowExceptions"; 
 	public const string customControlIsNotContentControlOrPanel = "customControlIsNotContentControlOrPanel"; 

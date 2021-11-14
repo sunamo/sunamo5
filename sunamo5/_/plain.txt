@@ -1,1 +1,3 @@
-﻿to se nedivím že 
+﻿miPushAllSolutionsForFirstTime
+miPushAllSolutionsCountinuousWithMerge
+PullAndPushSolutionsWhichAreBehindFastForward

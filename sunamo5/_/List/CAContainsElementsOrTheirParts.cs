@@ -149,6 +149,11 @@ public static partial class CA
         return result.c;
     }
 
+    /// <summary>
+    /// Remove from A1 which is already in A2
+    /// </summary>
+    /// <param name="l"></param>
+    /// <param name="ig"></param>
     public static void Remove(List<string> l, List<string> ig)
     {
         int dx = -1;

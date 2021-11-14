@@ -9,12 +9,13 @@ namespace sunamo.Html
     }
 }
 
-namespace desktop.Extensions
-{
-    public class _ns
-    {
-    }
-}
+// This could be in desktop
+//namespace desktop.Extensions
+//{
+//    public class _ns
+//    {
+//    }
+//}
 
 namespace desktop.Controls.Text
 {

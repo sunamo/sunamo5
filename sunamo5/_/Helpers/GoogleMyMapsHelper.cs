@@ -80,7 +80,7 @@ namespace sunamo
                 ThisApp.SetStatus(TypeOfMessage.Warning, "In clipboard must be two rows - name and address");
             }
 
-            return GoogleMyMapsHelper.CreateExportForGoogleMyMaps(abs);
+            return CreateExportForGoogleMyMaps(abs);
         }
     }
 }
