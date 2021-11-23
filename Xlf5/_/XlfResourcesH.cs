@@ -107,101 +107,80 @@ public partial class XlfResourcesH
 
         Type type = typeof(Resources.ResourcesDuo);
 
-        //ResourcesHelper rm = ResourcesHelper.Create("standard.Properties.Resources", type.Assembly);
         ResourcesHelperXlf rm = ResourcesHelperXlf.Create("Resources.ResourcesDuo", type.Assembly);
 
-        var exists = false;
+        #region 1) Loading direct from resources
+        var xlfContentCs = rm.GetByteArray(Fn(Langs.cs));
+        var xlfContentEn = rm.GetByteArray(Fn(Langs.en));
 
-        exists = MyPc.Instance.IsMyComputerOrVps();
+        ProcessXlfContent(Langs.cs, xlfContentCs);
+        ProcessXlfContent(Langs.en, xlfContentEn);
+        #endregion
+
+        #region 2) Loading from files - obsolete
+        //var exists = false;
+
+        //exists = MyPc.Instance.IsMyComputerOrVps();
 
 
-        if (appData == null)
-        {
-            // Is web app
-            exists = true;
-        }
+        //if (appData == null)
+        //{
+        //    // Is web app
+        //    exists = true;
+        //}
 
-        //exists = false;
+        ////exists = false;
 
-        // This is totally important
-        // Otherwise is loading in non UWP apps from resx
-        if (!exists)
-        {
-            String xlfContent = null;
+        //// Pokud je můj PC nebo appData existují, neukládám na disk abych z něho mohl číst. v opačném případě ukládám
 
-            var fn = "sunamo_cs_CZ";
+        //// This is totally important
+        //// Otherwise is loading in non UWP apps from resx
+        //if (!exists)
+        //{
+        //    var fn = "sunamo_cs_CZ";
 
-            // Always true, in all apps I use _min. NEVER CHANGE IT!!!
-            if (true) // PlatformInteropHelperXlf.IsSellingApp())
-            {
-                fn += "_min";
-            }
+        //    // Always true, in all apps I use _min. NEVER CHANGE IT!!!
+        //    if (true) // PlatformInteropHelperXlf.IsSellingApp())
+        //    {
+        //        fn += "_min";
+        //    }
 
-            var file = appData.GetFileCommonSettings(fn + ".xlf");
+        //    var file = appData.GetFileCommonSettings(fn + ".xlf");
 
-            // Cant use StorageFile.ToString - get only name of method
-            //pathFile = file.ToString();
+        //    // Cant use StorageFile.ToString - get only name of method
+        //    //pathFile = file.ToString();
 
-            var enc = Encoding.GetEncoding(65001);
+        //    var enc = Encoding.GetEncoding(65001);
 
-            xlfContent = rm.GetByteArrayAsString(fn);
+        //    string xlfContentCs = rm.GetByteArrayAsString(fn);
 
-            FS.CreateUpfoldersPsysicallyUnlessThere(file);
-            //xlfContent = xlfContent.Skip(3);
-            File.WriteAllText(file, xlfContent, enc);
-            TFXlf.RemoveDoubleBomUtf8(file);
+        //    FS.CreateUpfoldersPsysicallyUnlessThere(file);
+        //    //xlfContent = xlfContent.Skip(3);
+        //    File.WriteAllText(file, xlfContentCs, enc);
+        //    TFXlf.RemoveDoubleBomUtf8(file);
 
-            fn = "sunamo_en_US";
+        //    fn = "sunamo_en_US";
 
-            // Always true, in all apps I use _min. NEVER CHANGE IT!!!
+        //    // Always true, in all apps I use _min. NEVER CHANGE IT!!!
 
-            if (true) //PlatformInteropHelperXlf.IsSellingApp())
-            {
-                fn += "_min";
-            }
+        //    if (true) //PlatformInteropHelperXlf.IsSellingApp())
+        //    {
+        //        fn += "_min";
+        //    }
 
-            var file2 = appData.GetFileCommonSettings(fn + ".xlf");
+        //    var file2 = appData.GetFileCommonSettings(fn + ".xlf");
 
-            xlfContent = rm.GetByteArrayAsString(fn);
-            //xlfContent = xlfContent.Skip(3);
-            File.WriteAllText(file2, xlfContent, enc);
-            TFXlf.RemoveDoubleBomUtf8(file2);
+        //    string xlfContentEn = rm.GetByteArrayAsString(fn);
+        //    File.WriteAllText(file2, xlfContentEn, enc);
+        //    TFXlf.RemoveDoubleBomUtf8(file2);
 
-            path = Path.Combine(appData.RootFolderCommon(true), "Settings");
-            //path = appData.RootFolderCommon(false);
-        }
+        //    path = Path.Combine(appData.RootFolderCommon(true), "Settings");
+        //}
 
-        ProcessXlfFiles(path);
+        //ProcessXlfFiles(path); 
+        #endregion
 
         return key;
-    }
-
-    private static void ProcessXlfFiles(string path)
-    {
-        var files = FS.GetFiles(path, "*.xlf", SearchOption.TopDirectoryOnly);
-        files.RemoveAll(d => d.EndsWith(".min.xlf"));
-        foreach (var file3 in files)
-        {
-            var lang = XmlLocalisationInterchangeFileFormatXlf.GetLangFromFilename(file3);
-            ProcessXlfFile(path, lang.ToString(), file3);
-        }
-    }
-    #endregion
-    #endregion
-
-    public static string SaveResouresToRL(string VpsHelperSunamo_SunamoProject)
-    {
-        return XlfResourcesH.SaveResouresToRL<string, string>(null, VpsHelperSunamo_SunamoProject, FS.ExistsDirectoryNull);
-    }
-
-    public static string SaveResouresToRL<StorageFolder, StorageFile>(string key, string basePath, ExistsDirectory existsDirectory)
-    {
-        return SaveResouresToRL<StorageFolder, StorageFile>(key, basePath, existsDirectory, null);
-    }
-    public static Dictionary<string, string> LoadXlfDocument(string file)
-    {
-        var doc = new XlfDocument(file);
-        return GetTransUnits(doc);
     }
 
     public static Dictionary<string, string> GetTransUnits(XlfDocument doc)
@@ -237,15 +216,15 @@ public partial class XlfResourcesH
         return result;
     }
 
-    private static void ProcessXlfFile(string basePath, string lang, string file)
+    private static void ProcessXlfContent(Langs lang2, Byte[] content)
     {
-        var fn = Path.GetFileName(file).ToLower();
-        bool isCzech = fn.Contains("cs");
-        bool isEnglish = fn.Contains("en");
+        bool isCzech = lang2 == Langs.cs;
+        bool isEnglish = lang2 == Langs.en;
 
-        var doc = new XlfDocument(file);
+        var doc = new XlfDocument();
+        doc.LoadXml(content);
         //var doc = new XlfDocument(@"C:\Users\w\AppData\Local\Packages\31735sunamo.GeoCachingTool_q65n5amar4ntm\LocalState\sunamo.cs-CZ.xlf");
-        lang = lang.ToLower();
+        var lang = lang2.ToString().ToLower();
 
         var xlfFiles = doc.Files.Where(d => d.Original.ToLower().Contains(lang));
         if (xlfFiles.Count() != 0)
@@ -270,9 +249,66 @@ public partial class XlfResourcesH
                 }
                 else
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Invalid file " + file + ", please delete it");
+                    //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Invalid file " + file + ", please delete it");
                 }
             }
         }
     }
+
+    private static string Fn(Langs cs)
+    {
+        string fn = null;
+        switch (cs)
+        {
+            case Langs.cs:
+                fn = "sunamo_cs_CZ_min";
+                break;
+            case Langs.en:
+                fn = "sunamo_en_US_min";
+                break;
+            default:
+                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), cs);
+                break;
+        }
+
+        return fn;
+    }
+
+    #region Obsolete - loading from files
+    //private static void ProcessXlfFiles(string path)
+    //{
+    //    var files = FS.GetFiles(path, "*.xlf", SearchOption.TopDirectoryOnly);
+    //    files.RemoveAll(d => d.EndsWith(".min.xlf"));
+    //    foreach (var file3 in files)
+    //    {
+    //        var lang = XmlLocalisationInterchangeFileFormatXlf.GetLangFromFilename(file3);
+    //        ProcessXlfFile(path, lang, file3);
+    //    }
+    //}
+    //private static void ProcessXlfFile(string basePath, Langs lang, string file)
+    //{
+    //}
+
+    //public static Dictionary<string, string> LoadXlfDocument(string file)
+    //{
+    //    var doc = new XlfDocument(file);
+    //    return GetTransUnits(doc);
+    //} 
+    #endregion
+
+    #endregion
+    #endregion
+
+    public static string SaveResouresToRL(string VpsHelperSunamo_SunamoProject)
+    {
+        return XlfResourcesH.SaveResouresToRL<string, string>(null, VpsHelperSunamo_SunamoProject, FS.ExistsDirectoryNull);
+    }
+
+    public static string SaveResouresToRL<StorageFolder, StorageFile>(string key, string basePath, ExistsDirectory existsDirectory)
+    {
+        return SaveResouresToRL<StorageFolder, StorageFile>(key, basePath, existsDirectory, null);
+    }
+   
+
+    
 }

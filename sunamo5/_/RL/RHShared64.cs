@@ -20,7 +20,11 @@ public partial class RH
         {
             result = ass.Where(d => d.FullName == name);
         }
-        return result.FirstOrDefault();
+        if (result.Count() == 0)
+        {
+            result = ass.Where(d => d.FullName.Contains(name));
+        }
+            return result.FirstOrDefault();
     }
 
     /// <summary>

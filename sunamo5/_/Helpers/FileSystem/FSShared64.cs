@@ -113,7 +113,11 @@ public partial class FS
                 item = FS.MakeUncLongPath(item);
                 fileTo = FS.MakeUncLongPath(fileTo);
 
-                File.Move(item, fileTo);
+                if (co == FileMoveCollisionOption.DontManipulate && FS.ExistsFile(fileTo, false))
+                {
+                    return;
+                }
+                    File.Move(item, fileTo);
             }
             catch (Exception ex)
             {
@@ -272,8 +276,12 @@ public partial class FS
         {
             foreach (var item in files)
             {
-                if (SH.IsContained(item, ref mustContains))
+                if (SH.IsContained(item,  mustContains))
                 {
+                    if (item.Contains("node_modules"))
+                    {
+
+                    }
                     MoveOrCopy(p, to, co, move, item);
                 }
             }
@@ -308,7 +316,14 @@ public partial class FS
         var fileTo = fileTo2.ToString();
         if (CopyMoveFilePrepare(ref item, ref fileTo, co))
         {
-            File.Copy(item, fileTo);
+            if (co == FileMoveCollisionOption.DontManipulate && FS.ExistsFile(fileTo, false))
+            {
+                return;
+            }
+            
+                File.Copy(item, fileTo);
+            
+            
         }
     }
 
@@ -1244,7 +1259,7 @@ public partial class FS
     private static Type type = typeof(FS);
     public static string GetDirectoryName(string rp)
     {
-        if (!string.IsNullOrEmpty(rp))
+        if (string.IsNullOrEmpty(rp))
         {
             ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
         }

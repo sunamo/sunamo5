@@ -94,10 +94,10 @@ public partial class Exceptions
 
     public static string FileExists(string before, string fulLPath)
     {
-        if (FS.ExistsFile(fulLPath))
-        {
-            return null;
-        }
+        //if (FS.ExistsFile(fulLPath) || FS.)
+        //{
+        //    return null;
+        //}
         return CheckBefore(before) + " " + SunamoPageHelperSunamo.i18n(XlfKeys.DoesnTExists) + ": " + fulLPath;
     }
 

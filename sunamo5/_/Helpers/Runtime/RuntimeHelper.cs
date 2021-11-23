@@ -38,7 +38,7 @@ public partial class RuntimeHelper
     }
 
     /// <summary>
-    /// Nedokázal jsem zjistit zda MenuItem má registrovaný Click - reflexe u něj nenašla vlastnost Events
+    /// Nedokázal jsem zjistit zda SuMenuItem má registrovaný Click - reflexe u něj nenašla vlastnost Events
     /// Musel jsem kvůli toho vytvořit SuMenuItem
     /// 
     /// </summary>

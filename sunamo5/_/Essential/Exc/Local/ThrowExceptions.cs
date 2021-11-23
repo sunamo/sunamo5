@@ -21,6 +21,13 @@ public partial class ThrowExceptions
         ThrowIsNotNull(stacktrace, Exceptions.CannotCreateDateTime(FullNameOfExecutedCode(type, methodName, true), year, month, day, hour, minute, seconds, ex));
     }
 
+    /// <summary>
+    /// TODO: replace FileDoesntExists ->FileOrFolderDoesntExists
+    /// </summary>
+    /// <param name="stacktrace"></param>
+    /// <param name="type"></param>
+    /// <param name="methodName"></param>
+    /// <param name="fulLPath"></param>
     public static void FileDoesntExists(string stacktrace, object type, string methodName, string fulLPath)
     {
         ThrowIsNotNull(stacktrace, Exceptions.FileExists(FullNameOfExecutedCode(type, methodName, true), fulLPath));

@@ -116,11 +116,6 @@ namespace sunamo.Essential
             controlNameOrText = controlNameOrText.TrimEnd(AllChars.colon);
             WriteLine(TypeOfMessage.Appeal, controlNameOrText + " must have value");
         }
-
-        public static implicit operator TemplateLoggerBase(TypedLoggerBase v)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
     }
 }

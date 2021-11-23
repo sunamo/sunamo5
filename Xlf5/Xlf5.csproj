@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-   <TargetFramework>net5.0-windows</TargetFramework>
+   <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,12 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="fmdev.ResX">
-      <HintPath>..\..\sunamo\dll\net45\fmdev.ResX.dll</HintPath>
-    </Reference>
-    <Reference Include="fmdev.XliffParser">
-      <HintPath>..\..\sunamo\dll\net45\fmdev.XliffParser.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

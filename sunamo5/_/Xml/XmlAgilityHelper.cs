@@ -16,7 +16,6 @@ public class XmlAgilityHelper // : HtmlAgilityHelper - NO, see class comment
 
     public static HtmlNode Node(HtmlNode node, bool recursive, string tag)
     {
-        
         return HtmlAgilityHelper.Node(node, recursive, tag);
     }
 

@@ -1165,7 +1165,7 @@ public partial class FS
 
     public static void DeleteFoldersWhichNotContains(string v, string folder, IEnumerable<string> v2)
     {
-        throw new NotImplementedException();
+        
 
         //var f = FS.GetFolders(v, folder, SearchOption.AllDirectories);
         //for (int i = f.Count - 1; i >= 0; i--)

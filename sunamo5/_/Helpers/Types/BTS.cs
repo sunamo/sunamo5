@@ -38,10 +38,6 @@ public static partial class BTS
 
     
 
-    private static object BoolToString<T1>()
-    {
-        throw new NotImplementedException();
-    }
 
     public static string StringFromStream(Stream stream)
     {

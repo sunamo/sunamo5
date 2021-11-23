@@ -6,7 +6,7 @@ namespace sunamo.Constants
 {
     public class SourceCodePaths
     {
-        public const string CsProjects = @"e:\Documents\vs\";
+        public const string Csprojects = @"e:\Documents\vs\";
         public const string VisualStudio2017 = @"e:\Documents\vs\";
 
         public const string EaseUsRestored = @"c:\Users\n\";

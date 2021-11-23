@@ -23,10 +23,19 @@ public partial class PH
     {
         var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
 
-        var paths = enviromentPath.Split(';');
-        var exePath = paths.Select(x => Path.Combine(x, exe))
-                           .Where(x => FS.ExistsFile(x))
-                           .FirstOrDefault();
+        var paths = SH.Split( enviromentPath, ';');
+
+#if DEBUG
+        var wc = paths.Where(d => d.Contains("Code"));
+        paths.Reverse();
+#endif
+
+
+        var paths2 = paths.Select(x => Path.Combine(x, exe));
+        var files = paths2.Where(x => FS.ExistsFile(x));
+        var fi = files.FirstOrDefault();
+
+        var exePath = fi;
 
         if (!string.IsNullOrWhiteSpace(exePath))
         {

@@ -67,4 +67,14 @@ using System.Diagnostics;
         StopAndPrintElapsed(notTranslateAbleString);
         Start();
     }
+
+    public static StringBuilder sbElapsed = new StringBuilder();
+
+    public static void SaveElapsed(string v)
+    {
+        var l = sw.sw.ElapsedMilliseconds;
+        sw.Reset();
+        var m = v + StopwatchHelper.takes + l + "ms";
+        sbElapsed.AppendLine(m);
+    }
 }

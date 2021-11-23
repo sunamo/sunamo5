@@ -34,6 +34,13 @@ public class ResourcesHelperXlf
         return _rm.GetString(name);
     }
 
+    public Byte[] GetByteArray(string name)
+    {
+        var ba = _rm.GetObject(name);
+        //var ab = FS.StreamToArrayBytes((Stream)ba);
+        return (Byte[])ba;
+    }
+
     public string GetByteArrayAsString(string name)
     {
         var ba = _rm.GetObject(name);

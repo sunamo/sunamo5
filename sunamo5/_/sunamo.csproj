@@ -31,11 +31,19 @@
     <NoWarn>1701;1702;1998</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Mixins\**" />
+    <Compile Remove="_webforms\**" />
+    <Compile Remove="_\**" />
+    <EmbeddedResource Remove="Mixins\**" />
+    <EmbeddedResource Remove="_webforms\**" />
+    <EmbeddedResource Remove="_\**" />
+    <None Remove="Mixins\**" />
+    <None Remove="_webforms\**" />
+    <None Remove="_\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Diacritics">
       <HintPath>..\dll\netstandard2.0\Diacritics.dll</HintPath>
-    </Reference>
-    <Reference Include="fmdev.XliffParser">
-      <HintPath>..\dll\net45\fmdev.XliffParser.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.2.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -50,10 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="_\Comparing\Text Editors Boxes.txt">
-    </Content>
-    <Content Include="_\Comparing\TextWriterList,TextBuilder,TextOutputGenerator,TextGenerator,InstantSB,HtmlSB.txt">
-    </Content>
     <Content Include="git.txt">
     </Content>
     <Content Include="HTMLPage1.html">
@@ -62,15 +66,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="_webforms\_NotPublish\" />
-    <Folder Include="_webforms\Converters\" />
-    <Folder Include="_webforms\Enums\" />
-    <Folder Include="Mixins\">
-    </Folder>
     <Folder Include="MultilingualResources\CopyWhileMassAdding\">
     </Folder>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\duo\duo.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
     <ProjectReference Include="..\Xlf\Xlf.csproj">
@@ -99,12 +99,5 @@
   <ItemGroup>
     <Compile Remove="Helpers\PHSystemManagement.cs">
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\sunamo.web\webforms\_NotPublish\ColumnNames.cs" Link="_webforms\_NotPublish\ColumnNames.cs" />
-    <Compile Include="..\..\sunamo.web\webforms\Converters\MySitesConverter.cs" Link="_webforms\Converters\MySitesConverter.cs" />
-    <Compile Include="..\..\sunamo.web\webforms\Enums\MySites.cs" Link="_webforms\Enums\MySites.cs" />
-    <Compile Include="..\..\sunamo.web\webforms\Enums\MySitesShort.cs" Link="_webforms\MySitesShort.cs" />
-    <Compile Include="..\..\sunamo.web\webforms\SubdomainHelperShared.cs" Link="_webforms\SubdomainHelperShared.cs" />
   </ItemGroup>
 </Project>

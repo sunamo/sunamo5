@@ -114,7 +114,7 @@ namespace sunamo.Generators
             }
             else
             {
-                pathSearchForFiles = FS.Combine(SourceCodePaths.CsProjects, solution);
+                pathSearchForFiles = FS.Combine(SourceCodePaths.Csprojects, solution);
             }
 
             string pathRepository = pathSearchForFiles;

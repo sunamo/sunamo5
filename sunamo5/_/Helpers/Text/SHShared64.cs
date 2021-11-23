@@ -30,22 +30,45 @@ public static partial class SH
         return false;
     }
 
-    public static int CountOf(string v1, char v2)
+    
+    #region For easy copy from SH.cs
+    /// <summary>
+    /// Not auto remove empty
+    /// </summary>
+    /// <param name="p"></param>
+    public static List<string> GetLines(string p)
     {
-        int c = 0;
-        foreach (var item in v1)
+        List<string> vr = new List<string>();
+        StringReader sr = new StringReader(p);
+        string f = null;
+        while ((f = sr.ReadLine()) != null)
         {
-            if (item == v2)
+            vr.Add(f);
+        }
+        return vr;
+    }
+
+    /// <summary>
+    /// 2 of 2 method which call just BCL to use everywhere to disable message "IDE0057 Substring can be simplified"
+    /// </summary>
+    /// <param name="vr"></param>
+    /// <param name="from"></param>
+    /// <param name="length"></param>
+    /// <returns></returns>
+    private static string SubstringLength(string vr, int from, int length)
+    {
+        if (HasIndex(from, vr))
+        {
+            if (HasIndex(length, vr))
             {
-                c++;
+                return vr.Substring(from, length);
             }
         }
-
-        return c;
+        return string.Empty;
     }
 
     #region For easy copy from SH.cs
-    
+
 
     public static bool HasIndex(int p, string nahledy, bool throwExcWhenInvalidIndex = true)
     {
@@ -79,24 +102,7 @@ public static partial class SH
         return name.Substring(v1);
     }
 
-    /// <summary>
-    /// 2 of 2 method which call just BCL to use everywhere to disable message "IDE0057 Substring can be simplified"
-    /// </summary>
-    /// <param name="vr"></param>
-    /// <param name="from"></param>
-    /// <param name="length"></param>
-    /// <returns></returns>
-    private static string SubstringLength(string vr, int from, int length)
-    {
-        if (HasIndex(from, vr))
-        {
-            if (HasIndex(length, vr))
-            {
-                return vr.Substring(from, length);
-            }
-        }
-        return string.Empty;
-    }
+    
     #endregion
 
     public static string Substring(string sql, int indexFrom, int indexTo, bool returnInputIfInputIsShorterThanA3 = false)
@@ -169,6 +175,15 @@ public static partial class SH
         if (contains[0] == AllChars.excl)
         {
             contains = contains.Substring(1);
+            return true;
+        }
+        return false;
+    }
+
+    public static bool IsNegation( string contains)
+    {
+        if (contains[0] == AllChars.excl)
+        {
             return true;
         }
         return false;
@@ -277,6 +292,28 @@ public static partial class SH
     /// <param name="item"></param>
     /// <param name="contains"></param>
     public static bool IsContained(string item, ref string contains)
+    {
+        bool negation = SH.IsNegation(ref contains);
+
+        if (negation && item.Contains(contains))
+        {
+            return false;
+        }
+        else if (!negation && !item.Contains(contains))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Version wo ref - dont auto remove first!
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="contains"></param>
+    /// <returns></returns>
+    public static bool IsContained(string item,  string contains)
     {
         bool negation = SH.IsNegation(ref contains);
 
@@ -683,21 +720,7 @@ public static partial class SH
         return JoinString(delimiter, parts);
     }//
 
-    /// <summary>
-    /// Not auto remove empty
-    /// </summary>
-    /// <param name="p"></param>
-    public static List<string> GetLines(string p)
-    {
-        List<string> vr = new List<string>();
-        StringReader sr = new StringReader(p);
-        string f = null;
-        while ((f = sr.ReadLine()) != null)
-        {
-            vr.Add(f);
-        }
-        return vr;
-    }
+  
 
     /// <summary>
     /// Will be delete after final refactoring
@@ -1008,4 +1031,5 @@ public static partial class SH
             }
         }
     }
+    #endregion
 }

@@ -21,16 +21,16 @@ using System.Threading.Tasks;
 
 //    public Task<Stream> OpenStreamForReadAsync()
 //    {
-//        throw new NotImplementedException();
+//        
 //    }
 
 //    public static Task<StorageFile> GetFileFromApplicationUriAsync(Uri localUri)
 //    {
-//        throw new NotImplementedException();
+//        
 //    }
 
 //    public Task<global::Windows.Storage.Streams.IRandomAccessStream> OpenAsync(global::Windows.Storage.FileAccessMode read)
 //    {
-//        throw new NotImplementedException();
+//        
 //    }
 //}
