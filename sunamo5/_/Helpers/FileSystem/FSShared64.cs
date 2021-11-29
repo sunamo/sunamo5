@@ -420,14 +420,15 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), v, ex);
-            var result = InvokePs(v);
-            if (result.Count > 0)
-            {
-                return false;
-            }
+            // Je to try takže nevím co tu dělá tohle a 
+            //ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), v, ex);
+            //var result = InvokePs(v);
+            //if (result.Count > 0)
+            //{
+            //    return false;
+            //}
         }
-        return true;
+        return false;
     }
 
     /// <summary>

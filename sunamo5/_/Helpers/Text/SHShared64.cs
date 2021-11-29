@@ -15,6 +15,20 @@ public static partial class SH
     private static Type type = typeof(SH);
     public const String diacritic = "\u00E1\u010D\u010F\u00E9\u011B\u00ED\u0148\u00F3\u0161\u0165\u00FA\u016F\u00FD\u0159\u017E\u00C1\u010C\u010E\u00C9\u011A\u00CD\u0147\u00D3\u0160\u0164\u00DA\u016E\u00DD\u0158\u017D";
 
+
+    public static int CountOf(string pi, char v)
+    {
+        int i = 0;
+        foreach (var item in pi)
+        {
+            if (item == v)
+            {
+                i++;
+            }
+        }
+        return i;
+    }
+
     public static bool ContainsInShared(string item, string mustContains, string v)
     {
         var cs = AllExtensions.cs;

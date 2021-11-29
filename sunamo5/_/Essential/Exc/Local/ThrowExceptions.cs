@@ -96,9 +96,9 @@ public partial class ThrowExceptions
     
 
     
-    public static void MoreThanOneElement(string stacktrace, object type, string methodName, string listName, int count)
+    public static void MoreThanOneElement(string stacktrace, object type, string methodName, string listName, int count, string moreInfo = Consts.se)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.MoreThanOneElement(FullNameOfExecutedCode(type, methodName, true), listName, count));
+        ThrowIsNotNull(stacktrace, Exceptions.MoreThanOneElement(FullNameOfExecutedCode(type, methodName, true), listName, count, moreInfo));
     }
 
     public static bool NotInt(string stacktrace, object type, string methodName, string what, object value)

@@ -223,7 +223,6 @@ public partial class XlfResourcesH
 
         var doc = new XlfDocument();
         doc.LoadXml(content);
-        //var doc = new XlfDocument(@"C:\Users\w\AppData\Local\Packages\31735sunamo.GeoCachingTool_q65n5amar4ntm\LocalState\sunamo.cs-CZ.xlf");
         var lang = lang2.ToString().ToLower();
 
         var xlfFiles = doc.Files.Where(d => d.Original.ToLower().Contains(lang));

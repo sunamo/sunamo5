@@ -143,18 +143,6 @@ public static partial class SH
         return nameSolution;
     }
 
-    public static int CountOf(string pi, char v)
-    {
-        int i = 0;
-        foreach (var item in pi)
-        {
-            if (item == v)
-            {
-                i++;
-            }
-        }
-        return i;
-    }
 
     public static Dictionary<char, int> StatisticLetterChars(string between, StatisticLetterCharsStrategy s, params char[] charsToStrategy)
     {

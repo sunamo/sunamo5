@@ -104,11 +104,11 @@ public partial class Exceptions
     #region Without parameters
     
 
-    public static object MoreThanOneElement(string before, string listName, int count)
+    public static object MoreThanOneElement(string before, string listName, int count, string moreInfo = Consts.se)
     {
         if (count > 1)
         {
-            return CheckBefore(before) + listName + " has " + count + " elements, which is more than 1";
+            return CheckBefore(before) + listName + " has " + count + " elements, which is more than 1. " + moreInfo;
         }
         return null;
     }
