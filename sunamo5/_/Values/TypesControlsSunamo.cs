@@ -11,4 +11,5 @@ public class TypesControlsSunamo
     /// In default is type's object to avoid exception in waterfall type checking
     /// </summary>
     public static Type tPathEditor = typeof(object);
+    public const string CheckBoxListUC = "desktop.Controls.Collections.CheckBoxListUC";
 }

@@ -9,10 +9,10 @@ namespace sunamo.Constants
         public const string BackupSunamosAppData = @"e:\Sync\Develop of Future\Backups\";
         public const string pathPa = @"d:\pa\";
         public const string pathPaSync = @"d:\paSync\";
-        public const string KeysXlf = @"e:\Documents\vs\Projects\sunamo\sunamo\Enums\KeysXlf.cs";
+        
         public const string capturedUris = @"C:\Users\Administrator\AppData\Roaming\sunamo\SunamoCzAdmin\Data\SubsSignalR\CapturedUris.txt";
         public const string capturedUris_backup = @"C:\Users\Administrator\AppData\Roaming\sunamo\SunamoCzAdmin\Data\SubsSignalR\CapturedUris_backup.txt";
-        public const string DllSunamo = @"e:\Documents\vs\Projects\sunamo\dll\";
+        
         public const string rootVideos0Kb = @"d:\Documents\Videos0kb\";
         public static string Documents = @"d:\Documents\";
         public static string eDocuments = @"e:\Documents\";
@@ -20,8 +20,9 @@ namespace sunamo.Constants
         public static string Downloads = @"d:\Downloads\";
         public static string Music2 = @"d:\Music2\";
         public static string Backup = @"d:\Documents\Backup\";
-        public static string VisualStudio2017 = @"e:\Documents\vs\";
-        public static string VisualStudio2017WoSlash = @"e:\Documents\vs";
+
+
+
         public static string Streamline = @"d:\Pictures\Streamline_All_Icons_PNG\PNG Icons\";
 
         /// <summary>
@@ -36,23 +37,61 @@ namespace sunamo.Constants
         /// </summary>
         public static string sczRootPath = FS.Combine(eDocuments, @"vs\Projects\sunamo.cz\");
 
+
         public const string ProjectsFolderNameSlash = "Projects\\";
+
+        #region vs
+
+        public const string cRepos = @"c:\repos";
+
+        static DefaultPaths()
+        {
+            string bp = @"e:\Documents\vs\";
+
+            if (VpsHelperSunamo.IsQ)
+            {
+                bp = @"c:\repos\_\";
+            }
+
+            sunamo = bp + @"Projects\sunamo\";
+            sunamoProject = bp + @"Projects\sunamo\sunamo\";
+            vsProjects = bp + @"Projects\";
+            vs = bp + @"Projects\";
+            KeysXlf = bp + @"Projects\sunamo\sunamo\Enums\KeysXlf.cs";
+            DllSunamo = bp + @"Projects\sunamo\dll\";
+            VisualStudio2017 = bp ;
+            VisualStudio2017WoSlash = bp.Substring(0, bp.Length -1);
+
+            AllPathsToProjects = CA.ToListString(Test_MoveClassElementIntoSharedFileUC, vs, vsDocuments, vs17 + ProjectsFolderNameSlash, vs17Documents + ProjectsFolderNameSlash, NormalizePathToFolder);
+        }
+
         /// <summary>
         /// Solution, not project
         /// </summary>
-        public static string sunamo = @"e:\Documents\vs\Projects\sunamo\";
+        public static string sunamo = null;
         /// <summary>
         /// Cant be used also VpsHelperSunamo.SunamoProject()
         /// </summary>
-        public static string sunamoProject = @"e:\Documents\vs\Projects\sunamo\sunamo\";
+        public static string sunamoProject = null;
         /// <summary>
         /// e:\Documents\vs\Projects\
         /// </summary>
-        public static string vsProjects = @"e:\Documents\vs\Projects\";
+        public static string vsProjects = null;
         /// <summary>
         /// e:\Documents\vs\Projects\
         /// </summary>
-        public static string vs = @"e:\Documents\vs\Projects\";
+        public static string vs = null;
+        public static string KeysXlf = null;
+        public static string DllSunamo = null;
+        public static string VisualStudio2017 = null;
+        public static string VisualStudio2017WoSlash = null;
+
+        
+        #endregion
+
+
+
+
         public static string vsDocuments = FS.Combine(DefaultPaths.eDocuments, @"vs\");
         /// <summary>
         /// Use vs for non shortcuted folder
@@ -63,7 +102,7 @@ namespace sunamo.Constants
         public static string NormalizePathToFolder = FS.Combine(DefaultPaths.eDocuments, @"vs\Projects\");
         public static string Test_MoveClassElementIntoSharedFileUC = "d:\\_Test\\AllProjectsSearch\\AllProjectsSearch\\MoveClassElementIntoSharedFileUC\\";
 
-        public static List<string> AllPathsToProjects = CA.ToListString(Test_MoveClassElementIntoSharedFileUC, vs, vsDocuments, vs17 + ProjectsFolderNameSlash, vs17Documents + ProjectsFolderNameSlash, NormalizePathToFolder);
+        public static List<string> AllPathsToProjects = null;
 
         public const string SyncArchived = @"e:\SyncArchived\";
         public const string SyncArchivedText = @"e:\SyncArchived\Text\";
