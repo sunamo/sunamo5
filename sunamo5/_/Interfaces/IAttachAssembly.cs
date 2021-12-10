@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-
-public partial class ThrowEx
+public interface IAttachAssembly
 {
-
-    }
+    string Attach();
+}

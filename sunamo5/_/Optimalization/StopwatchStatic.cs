@@ -4,23 +4,36 @@ using System.Text;
 using System.Diagnostics;
 
 
-    public class StopwatchStatic
+    public static class StopwatchStatic
     {
-        static StopwatchHelper sw = new StopwatchHelper();
-
-        public static void Start()
+    public const string takes = " takes ";
+    public static StringBuilder sbElapsed = new StringBuilder();
+    public static long ElapsedMS
+    {
+        get
         {
-        sw.Start();
+            return sw.ElapsedMS;
         }
+    }
+    public static string lastMessage => sw.lastMessage;
+    static StopwatchHelper sw = new StopwatchHelper();
+
+    #region Reset,Start,Stop
+    public static void Start()
+    {
+        sw.Start();
+    }
 
     public static void Reset()
     {
         sw.Reset();
     }
+    #endregion
 
-        public static long StopAndEllapsedMs()
+    #region StopAnd*
+    public static long StopAndEllapsedMs()
     {
-        
+
         var l = sw.sw.ElapsedMilliseconds;
         sw.sw.Reset();
         return l;
@@ -36,8 +49,6 @@ using System.Diagnostics;
         return sw.StopAndPrintElapsed(operation);
     }
 
-    public static string lastMessage => sw.lastMessage;
-
     /// <summary>
     /// Write ElapsedMilliseconds to debug, TSL. For more return long
     /// </summary>
@@ -46,17 +57,10 @@ using System.Diagnostics;
     /// <param name="parametry"></param>
     /// <returns></returns>
     public static long StopAndPrintElapsed(string operation, string p, params object[] parametry)
-        {
-            return sw.StopAndPrintElapsed(operation, p, parametry);
-        }
-
-        public static long ElapsedMS
-        {
-            get
-            {
-                return sw.ElapsedMS;
-            }
-        }
+    {
+        return sw.StopAndPrintElapsed(operation, p, parametry);
+    } 
+    #endregion
 
     /// <summary>
     /// Call Start() Aganin
@@ -68,13 +72,37 @@ using System.Diagnostics;
         Start();
     }
 
-    public static StringBuilder sbElapsed = new StringBuilder();
-
     public static void SaveElapsed(string v)
     {
         var l = sw.sw.ElapsedMilliseconds;
         sw.Reset();
         var m = v + StopwatchHelper.takes + l + "ms";
         sbElapsed.AppendLine(m);
+    }
+
+    public static string CalculateAverageOfTakes(string li)
+    {
+        var l = SH.GetLines(li);
+
+        Dictionary<string, List<int>> d = new Dictionary<string, List<int>>();
+
+        foreach (var item in l)
+        {
+            if (item.Contains(takes))
+            {
+                var d2 = SH.Split(item, takes);
+                var tp = d2[1].Replace("ms", string.Empty);
+
+                DictionaryHelper.AddOrCreate<string, int>(d, d2[0], int.Parse(tp));
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        foreach (var item in d)
+        {
+            sb.AppendLine(item.Key + " " + NH.Average<int>(item.Value) + "ms");
+        }
+
+        return sb.ToString();
     }
 }

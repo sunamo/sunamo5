@@ -1,3 +1,11 @@
-﻿SevenZip
-SharpCompress
-SharpZipLib
+﻿ZÍTRA ZJISTIT PROČ SE MI NEZOBRAZUJE TY CO MÁM TADY
+
+MySelf 3x, subfolders 2x - mám kromě těch subfolders
+
+Code parsing 1x | 0
+List -> Project file => 7x, All except of web 2x - 1x | 6x, All except of web chybí
+
+Solution files => 14x - 3x | 12x
+
+Translation toolkit 2x | 1x
+

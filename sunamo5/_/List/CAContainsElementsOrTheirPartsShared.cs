@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 public static partial class CA
 {
     #region 1) ContainsAnyFromElement - For easy copy from CAContainsElementsOrTheirPartsShared.cs
-    public static bool ContainsAnyFromElementBool(string s, IEnumerable<string> list)
+    public static bool ContainsAnyFromElementBool(string s, IEnumerable<string> list, bool acceptAsteriskForPassingAll = false)
     {
+        if (list.Count() == 1 && list.First() == AllStrings.ast)
+        {
+            return true;
+        }
+
         List<int> result = new List<int>();
 
         foreach (var item in list)

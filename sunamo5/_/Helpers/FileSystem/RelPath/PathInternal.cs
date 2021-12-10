@@ -7,13 +7,13 @@ public partial class PathInternal
 {
     public static bool EndsInDirectorySeparator(ReadOnlySpan<char> path) => PathInternal.EndsInDirectorySeparator2(path);
 
-    internal static bool EndsInDirectorySeparator2(ReadOnlySpan<char> path) =>
+    public static bool EndsInDirectorySeparator2(ReadOnlySpan<char> path) =>
            path.Length > 0 && IsDirectorySeparator(path[path.Length - 1]);
 
     /// <summary>
     /// Get the common path length from the start of the string.
     /// </summary>
-    internal static int GetCommonPathLength(string first, string second, bool ignoreCase)
+    public static int GetCommonPathLength(string first, string second, bool ignoreCase)
     {
         int commonChars = EqualStartingCharacterCount(first, second, ignoreCase: ignoreCase);
 
@@ -61,7 +61,7 @@ public partial class PathInternal
     /// <summary>
     /// Returns true if the two paths have the same root
     /// </summary>
-    internal static bool AreRootsEqual(string first, string second, StringComparison comparisonType)
+    public static bool AreRootsEqual(string first, string second, StringComparison comparisonType)
     {
         int firstRootLength = GetRootLength(first.AsSpan());
         int secondRootLength = GetRootLength(second.AsSpan());
@@ -81,7 +81,7 @@ public partial class PathInternal
     /// path matches exactly (cannot use alternate directory separators) Windows will skip normalization
     /// and path length checks.
     /// </summary>
-    internal static bool IsExtended(ReadOnlySpan<char> path)
+    public static bool IsExtended(ReadOnlySpan<char> path)
     {
         // While paths like "//?/C:/" will work, they're treated the same as "\\.\" paths.
         // Skipping of normalization will *only* occur if back slashes ('\') are used.
@@ -95,10 +95,10 @@ public partial class PathInternal
     /// <summary>
     /// Returns true if the path uses any of the DOS device path syntaxes. ("\\.\", "\\?\", or "\??\")
     /// </summary>
-    internal static bool IsDevice(ReadOnlySpan<char> path)
+    public static bool IsDevice(ReadOnlySpan<char> path)
     {
         // If the path begins with any two separators is will be recognized and normalized and prepped with
-        // "\??\" for internal usage correctly. "\??\" is recognized and handled, "/??/" is not.
+        // "\??\" for public usage correctly. "\??\" is recognized and handled, "/??/" is not.
         return IsExtended(path)
             ||
             (
@@ -113,7 +113,7 @@ public partial class PathInternal
     /// <summary>
     /// Returns true if the path is a device UNC (\\?\UNC\, \\.\UNC\)
     /// </summary>
-    internal static bool IsDeviceUNC(ReadOnlySpan<char> path)
+    public static bool IsDeviceUNC(ReadOnlySpan<char> path)
     {
         return path.Length >= UncExtendedPrefixLength
             && IsDevice(path)
@@ -127,22 +127,22 @@ public partial class PathInternal
     /// True if the given character is a directory separator.
     /// </summary>
     //[MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsDirectorySeparator(char c)
+    public static bool IsDirectorySeparator(char c)
     {
         return c == DirectorySeparatorChar || c == AltDirectorySeparatorChar;
     }
 
-    internal const char DirectorySeparatorChar = '\\';
-    internal const char AltDirectorySeparatorChar = '/';
+    public const char DirectorySeparatorChar = '\\';
+    public const char AltDirectorySeparatorChar = '/';
     // \\
-    internal const int UncPrefixLength = 2;
+    public const int UncPrefixLength = 2;
     // \\?\UNC\, \\.\UNC\
-    internal const int UncExtendedPrefixLength = 8;
+    public const int UncExtendedPrefixLength = 8;
 
     /// <summary>
     /// Gets the length of the root of the path (drive, share, etc.).
     /// </summary>
-    internal static int GetRootLength(ReadOnlySpan<char> path)
+    public static int GetRootLength(ReadOnlySpan<char> path)
     {
         int pathLength = path.Length;
         int i = 0;
@@ -202,12 +202,12 @@ public partial class PathInternal
     /// <summary>
     /// Returns true if the given character is a valid drive letter
     /// </summary>
-    internal static bool IsValidDriveChar(char value)
+    public static bool IsValidDriveChar(char value)
     {
         return (value >= 'A' && value <= 'Z') || (value >= 'a' && value <= 'z');
     }
 
-    internal const char VolumeSeparatorChar = ':';
-    internal const int DevicePrefixLength = 4;
+    public const char VolumeSeparatorChar = ':';
+    public const int DevicePrefixLength = 4;
 } 
 #endregion

@@ -143,6 +143,29 @@ public static partial class SH
         return nameSolution;
     }
 
+    public static string InsertBeforeEndingBracket(string postfixSpaceCommaNewline, string v)
+    {
+        var dx = postfixSpaceCommaNewline.LastIndexOf(AllChars.rb);
+        if (dx != -1)
+        {
+            return postfixSpaceCommaNewline.Insert(dx, v);
+        }
+        return postfixSpaceCommaNewline;
+    }
+
+    public const string postfixSpaceCommaNewline = " (Space, comma, newline delimited)";
+    static List<string> spaceCommaNewline = CA.ToList<string>(AllStrings.space, AllStrings.comma, Environment.NewLine);
+
+    /// <summary>
+    /// Use postfixSpaceCommaNewline in askingUserDialogs
+    /// </summary>
+    /// <param name="d"></param>
+    /// <returns></returns>
+    public static List<string> SplitSpaceCommaNewline(string d)
+    {
+        return SH.Split(d, spaceCommaNewline);
+        
+    }
 
     public static Dictionary<char, int> StatisticLetterChars(string between, StatisticLetterCharsStrategy s, params char[] charsToStrategy)
     {

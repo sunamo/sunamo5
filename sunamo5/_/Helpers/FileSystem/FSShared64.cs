@@ -126,9 +126,10 @@ public partial class FS
         }
         else
         {
-
         }
     }
+
+    public static Action<string> DeleteFileMaybeLocked;
 
     public static bool CopyMoveFilePrepare(ref string item, ref string fileTo, FileMoveCollisionOption co)
     {
@@ -167,11 +168,26 @@ public partial class FS
             else if (co == FileMoveCollisionOption.DiscardFrom)
             {
                 // Cant delete from because then is file deleting
-                //File.Delete(item);
+                if (DeleteFileMaybeLocked != null)
+                {
+                    DeleteFileMaybeLocked(item);
+                }
+                else
+                {
+                    File.Delete(item);
+                }
+                
             }
             else if (co == FileMoveCollisionOption.Overwrite)
             {
-                File.Delete(fileTo);
+                if (DeleteFileMaybeLocked != null)
+                {
+                    DeleteFileMaybeLocked(fileTo);
+                }
+                else
+                {
+                    File.Delete(fileTo);
+                }
             }
             else if (co == FileMoveCollisionOption.LeaveLarger)
             {

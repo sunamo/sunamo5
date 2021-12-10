@@ -10,8 +10,6 @@ public partial class ThrowExceptions
 {
     #region For easy copy from ThrowExceptions.cs
     #region DifferentCountInLists
-   
-
     public static void FolderCannotBeDeleted(string stacktrace, object type, string methodName, string repairedBlogPostsFolder, Exception ex)
     {
         ThrowIsNotNull(stacktrace, Exceptions.FolderCannotBeDeleted(FullNameOfExecutedCode(type, methodName, true), repairedBlogPostsFolder, ex));

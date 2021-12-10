@@ -8,8 +8,6 @@ using System.Reflection;
 
 public partial class ThrowExceptions
 {
-    
-
     #region Must be as first - newly created method fall into this
     public static void BadMappedXaml(string stacktrace, object type, string methodName, string nameControl, string additionalInfo)
     {

@@ -25,13 +25,14 @@ public partial class FS
         return ReplaceIncorrectCharactersFile(dt.ToString());
     }
 
-    
+    public const string dEndsWithReplaceInFile = "SubdomainHelperSimple.cs";
 
-    
-    
 
-    
-    
+
+
+
+
+
 
     public static List<string> FilesWhichContainsAll(object sunamo, string masc, params string[] mustContains)
     {
@@ -528,8 +529,6 @@ public partial class FS
         else
         {
             ReplaceInAllFiles(CA.ToListString(t.from), CA.ToListString(t.to), t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.writeEveryWrittenFileAsStatus, t.fasterMethodForReplacing);
-
-
         }
     }
 
@@ -571,10 +570,15 @@ public partial class FS
     /// <param name="dontReplaceAll"></param>
     public static void ReplaceInAllFiles(IList<string> replaceFrom, IList<string> replaceTo, List<string> files, bool isMultilineWithVariousIndent, bool writeEveryReadedFileAsStatus, bool writeEveryWrittenFileAsStatus, Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing)
     {
-
-
         foreach (var item in files)
         {
+#if DEBUG
+            if (item.EndsWith(dEndsWithReplaceInFile))
+            {
+
+            }
+#endif
+
             if (!EncodingHelper.isBinary(item))
             {
                 if (writeEveryReadedFileAsStatus)

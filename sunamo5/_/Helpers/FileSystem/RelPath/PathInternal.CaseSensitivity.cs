@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
@@ -8,7 +8,7 @@ using System.Diagnostics;
 public partial class PathInternal
 {
     /// <summary>Returns a comparison that can be used to compare file and directory names for equality.</summary>
-    internal static StringComparison StringComparison
+    public static StringComparison StringComparison
     {
         get
         {
@@ -19,7 +19,7 @@ public partial class PathInternal
     }
 
     /// <summary>Gets whether the system is case-sensitive.</summary>
-    internal static bool IsCaseSensitive
+    public static bool IsCaseSensitive
     {
         get
         {

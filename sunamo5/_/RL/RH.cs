@@ -43,8 +43,6 @@ public partial class RH
         return null;
     }
 
-
-
     public static bool ExistsAssemblyNotFullName(string v)
     {
         var execAssembly = Assembly.GetEntryAssembly();
@@ -52,7 +50,7 @@ public partial class RH
 #if DEBUG
         //var names = refAss.Select(d => d.Name).ToList();
         refAss.Sort();
-        if (v == "Aps.Slns")
+        if (v == "Aps.Xlf")
         {
 
         }
@@ -69,7 +67,7 @@ public partial class RH
 
     public static List<string> AllReferencedAssemblies(Assembly execAssembly, bool useCache = true)
     {
-        if (!useCache)
+        if ( !useCache)
         {
             allReferencedAssemblies.Clear();
         }

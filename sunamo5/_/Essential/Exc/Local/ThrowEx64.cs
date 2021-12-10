@@ -4,15 +4,24 @@ using System.Reflection;
 using System.Text;
 
 
-public class ThrowEx
+public partial class ThrowEx
 {
-    public static void NotImplementedCase(MethodBase mi, object niCase)
+    public static void NotImplementedCase(MethodBase methodBase, object niCase)
     {
         string stacktrace = Exc.GetStackTrace(true);
 
-        Type type = mi.DeclaringType;
-        string methodName = mi.Name;
+        Type type = methodBase.DeclaringType;
+        string methodName = methodBase.Name;
         ThrowIsNotNull(stacktrace, Exceptions.NotImplementedCase(FullNameOfExecutedCode(type, methodName, true), niCase));
+    }
+
+    public static void Custom(MethodBase methodBase, string v)
+    {
+        string stacktrace = Exc.GetStackTrace(true);
+
+        Type type = methodBase.DeclaringType;
+        string methodName = methodBase.Name;
+        ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), v));
     }
 
     private static void ThrowIsNotNull(string stacktrace, string v)
@@ -24,4 +33,15 @@ public class ThrowEx
     {
         return ThrowExceptions.FullNameOfExecutedCode(type, methodName, v);
     }
+
+    public static void NotImplementedMethod(MethodBase methodBase)
+    {
+        string stacktrace = Exc.GetStackTrace(true);
+
+        Type type = methodBase.DeclaringType;
+        string methodName = methodBase.Name;
+        ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode(type, methodName, true)));
+    }
+
+    
 }

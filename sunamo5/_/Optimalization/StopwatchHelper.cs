@@ -7,48 +7,41 @@ using sunamo.Essential;
 public class StopwatchHelper
 {
     public  Stopwatch sw = new Stopwatch();
+    public const string takes = " takes ";
 
-    public static string CalculateAverageOfTakes(string li)
+
+    public string lastMessage = null;
+    public StringBuilder sbElapsed = new StringBuilder();
+
+    public long ElapsedMS
     {
-        var l = SH.GetLines(li);
-
-        Dictionary<string, List<int>> d = new Dictionary<string, List<int>>();
-
-        foreach (var item in l)
+        get
         {
-            if (item.Contains(takes))
-            {
-                var d2 = SH.Split(item, takes);
-                var tp = d2[1].Replace("ms", string.Empty);
-                
-                DictionaryHelper.AddOrCreate<string, int>(d, d2[0], int.Parse(tp));
-            }
+            return sw.ElapsedMilliseconds;
         }
-
-        StringBuilder sb = new StringBuilder();
-        foreach (var item in d)
-        {
-            sb.AppendLine(item.Key + " " + NH.Average<int>(item.Value) + "ms");
-        }
-
-        return sb.ToString();
     }
 
+    #region Reset,Start,Stop
     public void Reset()
     {
         sw.Reset();
     }
 
-    public  void Start()
+    public void Start()
     {
         sw.Reset();
         sw.Start();
     }
 
-    public const string takes = " takes ";
+    public string Stop()
+    {
+        var r = sw.ElapsedMilliseconds + "ms";
+        sw.Reset();
+        return r;
+    }
+    #endregion
 
-    public string lastMessage = null;
-
+    #region StopAnd*
     /// <summary>
     /// Write ElapsedMilliseconds to debug, TSL. For more return long
     /// </summary>
@@ -68,14 +61,6 @@ public class StopwatchHelper
         return l;
     }
 
-    public  long ElapsedMS
-    {
-        get
-        {
-            return sw.ElapsedMilliseconds;
-        }
-    }
-
     /// <summary>
     /// Write ElapsedMilliseconds
     /// </summary>
@@ -84,12 +69,16 @@ public class StopwatchHelper
     public long StopAndPrintElapsed(string operation)
     {
         return StopAndPrintElapsed(operation, string.Empty);
-    }
+    } 
+    #endregion
 
-    public string Stop()
+    
+
+    public  void SaveElapsed(string v)
     {
-        var r = sw.ElapsedMilliseconds + "ms";
+        var l = sw.ElapsedMilliseconds;
         sw.Reset();
-        return r;
+        var m = v + StopwatchHelper.takes + l + "ms";
+        sbElapsed.AppendLine(m);
     }
 }

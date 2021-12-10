@@ -14,6 +14,7 @@ public class DumpAsStringHeaderArgs
     }
 
     /// <summary>
+    /// Only names of properties to get
     /// If starting with ! => surely delete
     /// </summary>
     public List<string> onlyNames = new List<string>();
