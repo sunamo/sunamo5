@@ -401,6 +401,8 @@ public static partial class BTS
     private const string No = "No";
     private const string Ano = "Ano";
     private const string Ne = "Ne";
+    const string One = "1";
+    const string Zero = "0";
 
     /// <summary>
     /// G bool repr. A1. Pro Yes true, JF.
@@ -408,7 +410,7 @@ public static partial class BTS
     /// <param name="s"></param>
     public static bool StringToBool(string s)
     {
-        if (s == Yes || s == bool.TrueString) return true;
+        if (s == Yes || s == bool.TrueString || s == One || s == Ano) return true;
         return false;
     }
 

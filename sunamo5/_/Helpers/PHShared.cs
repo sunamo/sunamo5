@@ -29,8 +29,6 @@ public partial class PH
         var wc = paths.Where(d => d.Contains("Code"));
         paths.Reverse();
 #endif
-
-
         var paths2 = paths.Select(x => Path.Combine(x, exe));
         var files = paths2.Where(x => FS.ExistsFile(x));
         var fi = files.FirstOrDefault();

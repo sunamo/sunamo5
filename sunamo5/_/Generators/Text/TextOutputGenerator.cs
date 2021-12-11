@@ -126,6 +126,13 @@ public class TextOutputGenerator
         List(CA.ToListString(files1));
     }
 
+    public void ListSB(StringBuilder onlyStart, string v)
+    {
+        Header(v);
+        AppendLine(onlyStart);
+
+    }
+
     /// <summary>
     /// If you have StringBuilder, use Paragraph()
     /// </summary>

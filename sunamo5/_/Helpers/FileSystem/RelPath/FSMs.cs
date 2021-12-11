@@ -120,5 +120,11 @@ public partial class FS
     /// Returns true if the path ends in a directory separator.
     /// </summary>
     public static bool EndsInDirectorySeparator(ReadOnlySpan<char> path) => PathInternal.EndsInDirectorySeparator(path);
+
+    public static string Postfix(string arg1, string v)
+    {
+        arg1 = arg1.TrimEnd(AllChars.bs) + v + AllStrings.bs;
+        return arg1;
+    }
     #endregion
 }

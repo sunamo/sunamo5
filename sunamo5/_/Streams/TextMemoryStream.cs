@@ -6,22 +6,39 @@ using System.Threading.Tasks;
 
 public class TextMemoryStream
 {
-    public List<string> lines = null;
+    //public List<string> lines = null;
+
+    public StringBuilder line = new StringBuilder();
+    string fn = null;
 
     public TextMemoryStream(string t)
     {
-        lines = TF.ReadAllLines(t);
+        //lines = TF.ReadAllLines(t);
+        fn = t;
+
+        string line2 = string.Empty;
+        if (FS.ExistsFile(fn))
+        {
+            line2 = TF.ReadAllText(t).Trim();
+        }
+        
+        line.Append(line2);
     }
 
-    public string LineStartingWith(string date)
+    public void Save()
     {
-        foreach (var item in lines)
-        {
-            if (item.StartsWith(date))
-            {
-                return item;
-            }
-        }
-        return null;
+        TF.SaveFile(line.ToString(), fn);
     }
+
+    //public string LineStartingWith(string date)
+    //{
+    //    foreach (var item in lines)
+    //    {
+    //        if (item.StartsWith(date))
+    //        {
+    //            return item;
+    //        }
+    //    }
+    //    return null;
+    //}
 }

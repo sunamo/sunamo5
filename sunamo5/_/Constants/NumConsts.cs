@@ -19,12 +19,13 @@ public static partial class NumConsts
     public static int to = 1000;
     public const long kB = 1024;
     public const double zeroDouble = 0;
-    public const int zeroInt = 0;
+    
     public const float zeroFloat = 0;
     /// <summary>
     /// at int should be no postfix
     /// </summary>
     public const int one = 1;
+    public const int zeroInt = 0;
     public const int mOne = -1;
 
 

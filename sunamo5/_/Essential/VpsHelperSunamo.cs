@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class VpsHelperSunamo
 {
     
-    public const string ip = "46.36.40.198";
+    public const string ip = "46.36.38.72";
     public const string ipMyPoda = "85.135.38.18";
 
     public static bool IsQ
