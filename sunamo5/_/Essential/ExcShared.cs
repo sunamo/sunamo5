@@ -39,7 +39,7 @@ public class Exc
             {
                 first = false;
 
-                ClipboardHelper.SetText(AllStrings.dash);
+                //ClipboardHelper.SetText(AllStrings.dash);
             }
         }
 

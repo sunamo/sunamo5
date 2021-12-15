@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -33,15 +34,7 @@ namespace sunamo.Helpers
             return ip;
         }
 
-        /// <summary>
-        /// Find with everyline and insert
-        /// </summary>
-        /// <param name="httpRequest"></param>
-        /// <returns></returns>
-        public static byte[] GetIPAddressInArray(object httpRequest)
-        {
-            return null;
-        }
+        
 
         /// <summary>
         /// Find with everyline and insert
@@ -50,7 +43,26 @@ namespace sunamo.Helpers
         /// <returns></returns>
         public static bool? IsIpAddress(string ip)
         {
-            return true;
+            IPAddress address;
+            if (IPAddress.TryParse(ip, out address))
+            {
+                switch (address.AddressFamily)
+                {
+                    case System.Net.Sockets.AddressFamily.InterNetwork:
+                        // we have IPv4
+                        return true;
+                        break;
+                    case System.Net.Sockets.AddressFamily.InterNetworkV6:
+                        return false;
+                        // we have IPv6
+                        break;
+                    default:
+                        // umm... yeah... I'm going to need to take your red packet and...
+                        break;
+                }
+            }
+
+            return null;
         }
     }
 }
