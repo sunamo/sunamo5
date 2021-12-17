@@ -12,6 +12,11 @@ public partial class RH
 {
     static Type type = typeof(ThrowExceptions);
 
+    public static string FullPathCodeEntity(Type t)
+    {
+        return t.Namespace + AllStrings.dot + t.Name;
+    }
+
     public static Assembly AssemblyWithName(string name)
     {
         var ass = AppDomain.CurrentDomain.GetAssemblies();

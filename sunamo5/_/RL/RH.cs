@@ -317,10 +317,7 @@ public partial class RH
         return v.FullName + AllStrings.dot;
     }
 
-    public static string FullPathCodeEntity(Type t)
-    {
-        return t.Namespace + AllStrings.dot + t.Name;
-    }
+    
 
     public static string FullNameOfExecutedCode(MethodBase method)
     {
