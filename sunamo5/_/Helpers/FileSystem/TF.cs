@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 public partial class TF
 {
+    
+
+    
+
     public static string ReadFileParallel(string fileName, IList<string> from, IList<string> to)
     {
         return ReadFileParallel(fileName, 1470, from, to);
@@ -47,15 +51,6 @@ public partial class TF
         return l;
     }
 
-    public static void WriteAllBytesBytes(string soubor, byte[] compressedBytes)
-    {
-        File.WriteAllBytes(soubor, compressedBytes);
-    }
-
-    public static byte[] ReadAllBytesArray(string item)
-    {
-        return File.ReadAllBytes(item);
-    }
 
     public static Encoding GetEncoding(string filename)
     {
@@ -89,7 +84,7 @@ public partial class TF
             if (!content.Contains(append))
             {
                 content = append + content;
-                File.WriteAllText(item, content);
+                TF.WriteAllText(item, content);
             }
         }
     }
@@ -150,7 +145,7 @@ public partial class TF
                 }
             }
 
-            File.WriteAllLines(item, lines);
+            TF.WriteAllLines(item, lines);
         }
     }
 
@@ -165,7 +160,7 @@ public partial class TF
     /// <param name="file"></param>
     public static List<string> GetAllLines(string file)
     {
-        return File.ReadAllLines(file).ToList();
+        return TF.ReadAllLines(file).ToList();
     }
 
     public static void AppendLines(string path, List<string> notRecognized, bool deduplicate)

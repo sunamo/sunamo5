@@ -1,4 +1,5 @@
-﻿using sunamo.Data;
+﻿using AsyncIO.FileSystem;
+using sunamo.Data;
 using sunamo.Essential;
 using sunamo.Helpers;
 using System;
@@ -11,17 +12,6 @@ using System.Threading.Tasks;
 
 public partial class TF
 {
-    
-    
-
-
-    
-
-  
-    
-
-    
-
     public static void Replace(string pathCsproj, string to, string from)
     {
         string content = TF.ReadFile(pathCsproj);
@@ -79,6 +69,16 @@ public partial class TF
     }
 
     #region For easy copy
+    public static async Task<string> ReadAllTextAsync(string s)
+    {
+        return await AsyncFile.ReadAllTextAsync(s);
+    }
+
+    public static async Task WriteAllTextAsync(string path, string content)
+    {
+        await AsyncFile.WriteAllTextAsync(path, content);
+    }
+
     public static List<byte> bomUtf8 = CA.ToList<byte>(239, 187, 191);
 
     public static void RemoveDoubleBomUtf8(string path)
@@ -111,11 +111,11 @@ public partial class TF
 
         if (enc == null)
         {
-            return File.ReadAllText(path);
+            return TF.ReadAllText(path);
         }
         else
         {
-            return File.ReadAllText(path, enc);
+            return TF.ReadAllText(path, enc);
         }
     }
 }

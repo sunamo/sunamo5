@@ -107,4 +107,24 @@ public partial class HtmlAssistant
     {
         return HttpUtility.HtmlDecode(v);
     }
+
+    public static List< HtmlNode> GetAnyHeader(HtmlNode docs, bool rec, bool stopAfterFirst)
+    {
+        List<HtmlNode> hd2 = new List<HtmlNode>();
+        for (int i = 1; i < 7; i++)
+        {
+            var hd = HtmlAgilityHelper.Node(docs, rec, "h" + i);
+
+            if (hd != null)
+            {
+                hd2.Add(hd);
+                if (stopAfterFirst)
+                {
+                    break;
+                }
+            }
+        }
+
+        return hd2;
+    }
 }

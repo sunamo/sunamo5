@@ -24,8 +24,18 @@ public partial class ThrowExceptions
 
     public static void Custom(string stacktrace, object type, string methodName, string message, bool reallyThrow = true)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
+        ThrowIsNotNull( stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
     }
+
+    public static bool reallyThrow2 = true;
+
+#if MB
+    static void ShowMb(string s)
+    {
+        
+        TranslateDictionary.ShowMb(s);
+    }
+#endif
 
     /// <summary>
     /// true if everything is OK
@@ -35,18 +45,40 @@ public partial class ThrowExceptions
     /// <param name="exception"></param>
     public static bool ThrowIsNotNull(string stacktrace, string exception, bool reallyThrow = true)
     {
+        var v = Exc.GetStackTrace2(true);
+        var cm = v.Item2;
+
         if (exception != null)
         {
+            if (lastMethod == cm)
+            {
+#if MB
+                ShowMb("lastMethod == cm");
+#endif
+                return false;
+            }
+            else
+            {
+#if MB
+                if (lastMethod == null)
+                {
+                    ShowMb("lastMethod = " + Consts.nulled);
+                }
+                else
+                {
+                    ShowMb("lastMethod = " + lastMethod.ToString());
+                }
+#endif
+                lastMethod = cm;
+            }
+
             if (Exc.aspnet)
             {
                 exception = exception.Replace("Violation of PRIMARY KEY constraint", ShortenedExceptions.ViolationOfPK);
 
-                //if (HttpRuntime.AppDomainAppId != null)
-                //{
-                //Debugger.Break();
                 // Will be written in globalasax error
                 writeServerError(stacktrace, exception);
-                if (reallyThrow)
+                if (reallyThrow && reallyThrow2)
                 {
                     throw new Exception(exception);
                 }
@@ -54,11 +86,14 @@ public partial class ThrowExceptions
             else
             {
 #if MB
-                TranslateDictionary.ShowMb("Throw exc");
+                //ShowMb($"reallyThrow = {reallyThrow} && reallyThrow2 = {reallyThrow2}");
 #endif
 
-                if (reallyThrow)
+                if (reallyThrow && reallyThrow2)
                 {
+#if MB
+                    ShowMb("Throw exc");
+#endif
                     throw new Exception(exception);
                 }
             }

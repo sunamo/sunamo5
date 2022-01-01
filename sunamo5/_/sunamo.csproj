@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectTypeGuids>9a19103f-16f7-4668-be54-9a1e7a4f7556</ProjectTypeGuids>
@@ -29,6 +28,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1998</NoWarn>
+    <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Mixins\**" />
@@ -58,33 +58,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="git.txt">
-    </Content>
-    <Content Include="HTMLPage1.html">
-    </Content>
-    <Content Include="plain.txt">
-    </Content>
+    <Content Include="git.txt"></Content>
+    <Content Include="HTMLPage1.html"></Content>
+    <Content Include="plain.txt"></Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MultilingualResources\CopyWhileMassAdding\">
-    </Folder>
+    <Folder Include="MultilingualResources\CopyWhileMassAdding\"></Folder>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\sunamoWithoutDep\SunamoBitLocker\SunamoBitLocker.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\duo\duo.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
-    <ProjectReference Include="..\Xlf\Xlf.csproj">
-    </ProjectReference>
+    <ProjectReference Include="..\Xlf\Xlf.csproj"></ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
-    </PackageReference>
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
-    </PackageReference>
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2">
-    </PackageReference>
-    <PackageReference Include="System.Management" Version="5.0.0">
-    </PackageReference>
+    <PackageReference Include="AsyncIO.DotNet" Version="1.3.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"></PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0"></PackageReference>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2"></PackageReference>
+    <PackageReference Include="System.Management" Version="5.0.0"></PackageReference>
     <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="System.Runtime.WindowsRuntime">
       <Version>4.6.0</Version>
@@ -97,7 +90,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Helpers\PHSystemManagement.cs">
-    </Compile>
+    <Compile Remove="Helpers\PHSystemManagement.cs"></Compile>
   </ItemGroup>
 </Project>

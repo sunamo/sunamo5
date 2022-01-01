@@ -18,6 +18,7 @@ public partial class FS
     public static string GetFullPath(string vr)
     {
         var result = Path.GetFullPath(vr);
+        FS.FirstCharUpper(ref result);
         return result;
     }
 

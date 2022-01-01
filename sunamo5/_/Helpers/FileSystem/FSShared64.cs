@@ -95,7 +95,7 @@ public partial class FS
     }
     public static string ReadAllText(string filename)
     {
-        return File.ReadAllText(filename);
+        return TF.ReadAllText(filename);
     }
 
     /// <summary>
@@ -300,6 +300,13 @@ public partial class FS
                     }
                     MoveOrCopy(p, to, co, move, item);
                 }
+            }
+        }
+        else
+        {
+            foreach (var item in files)
+            {
+                    MoveOrCopy(p, to, co, move, item);
             }
         }
     }

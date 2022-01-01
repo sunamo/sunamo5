@@ -142,11 +142,11 @@ public class TextOutputGenerator
         List<string>(files1);
     }
 
-    public void List<Value>(IEnumerable<Value> files1)
+    public void List<Value>(IEnumerable<Value> files1, string whenNoEntries = Consts.stringEmpty)
     {
         if (files1.Count() == 0)
         {
-            sb.AppendLine();
+            sb.AppendLine(whenNoEntries);
         }
         else
         {
@@ -154,37 +154,53 @@ public class TextOutputGenerator
             {
                 AppendLine(item.ToString());
             }
-            sb.AppendLine();
+            //sb.AppendLine();
         }
     }
 
     public void List<Header, Value>(IEnumerable<Value> files1, Header header) where Header : IEnumerable<char>
     {
-        List<Header, Value>(files1, header, true, false);
+        List<Header, Value>(files1, header, new TextOutputGeneratorArgs { headerWrappedEmptyLines = true, insertCount = false });
     }
 
     public void List(IEnumerable<string> files1, string header)
     {
-        List(files1, header, true, false);
+        List(files1, header, new TextOutputGeneratorArgs { headerWrappedEmptyLines = true, insertCount = false });
     }
 
-
-    public void List<Header, Value>(IEnumerable<Value> files1, Header header, bool headerWrappedEmptyLines, bool insertCount) where Header : IEnumerable<char>
+    public void ListString(string list, string header)
     {
-        if (insertCount)
+        Header(header);
+        AppendLine(list);
+        sb.AppendLine();
+    }
+
+    /// <summary>
+    /// Use DictionaryHelper.CategoryParser 
+    /// </summary>
+    /// <typeparam name="Header"></typeparam>
+    /// <typeparam name="Value"></typeparam>
+    /// <param name="files1"></param>
+    /// <param name="header"></param>
+    /// <param name="a"></param>
+    public void List<Header, Value>(IEnumerable<Value> files1, Header header, TextOutputGeneratorArgs a) where Header : IEnumerable<char>
+    {
+        
+
+        if (a.insertCount)
         {
             header = (Header)((IEnumerable<char>)CA.JoinIEnumerable<char>(header, " (" + files1.Count() + AllStrings.rb));
         }
-        if (headerWrappedEmptyLines)
+        if (a.headerWrappedEmptyLines)
         {
             sb.AppendLine();
         }
         sb.AppendLine(header + AllStrings.colon);
-        if (headerWrappedEmptyLines)
+        if (a.headerWrappedEmptyLines)
         {
             sb.AppendLine();
         }
-        List(files1);
+        List(files1, a.whenNoEntries);
     }
     #endregion
 

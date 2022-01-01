@@ -21,7 +21,7 @@ using System.Text;
                 return RLData.en[key];
                 break;
             default:
-                ThrowEx.NotImplementedCase(MethodBase.GetCurrentMethod(), l); 
+                ThrowEx.NotImplementedCase(l); 
                 break;
         }
 

@@ -48,7 +48,7 @@ public partial class DictionaryHelper
         AddOrCreate<Key, Value, object>(sl, key, value, withoutDuplicitiesInValue, dictS);
     }
 
-    #region For easy copy
+    #region For easy copy from DictionaryHelperShared64.cs to SunamoExceptions
     /// <summary>
     /// Copy elements to A1 from A2
     /// </summary>

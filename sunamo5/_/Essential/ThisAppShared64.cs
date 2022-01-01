@@ -69,7 +69,7 @@ namespace sunamo.Essential
 
         public static readonly bool initialized = false;
         public static string Namespace = "";
-
+        public static bool async_ = false;
 
         public static event SetStatusDelegate StatusSetted;
 

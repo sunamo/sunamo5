@@ -8,10 +8,15 @@ using System.Threading.Tasks;
 
 public  class MainWindowSunamo_Ctor
 {
-    public static void FirstSection(string appName, Action WpfAppInit, IClipboardHelper ClipboardHelperWinInstance, Action checkForAlreadyRunning, Action applyCryptData)
+    public static void FirstSection<Dispatcher>(string appName, Action<Dispatcher> WpfAppInit, IClipboardHelper ClipboardHelperWinInstance, Action checkForAlreadyRunning, Action applyCryptData, Dispatcher d)
     {
         ThisApp.Name = appName;
-        WpfAppInit();
+
+        BitLockerHelper.Init();
+        ThrowEx.IsLockedByBitLocker = BitLockerHelper.IsFolderLockedByBitLocker;
+        SunamoExceptions.ThrowEx.IsLockedByBitLocker = BitLockerHelper.IsFolderLockedByBitLocker;
+
+        WpfAppInit(d);
         if (checkForAlreadyRunning != null)
         {
             checkForAlreadyRunning();

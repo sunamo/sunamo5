@@ -34,7 +34,7 @@ public partial class UriWebServices
 
             if (opened % 10 == 0)
             {
-                Debugger.Break();
+                DebugLogger.BreakOrReadLine();
             }
         }
     }
@@ -48,7 +48,7 @@ public partial class UriWebServices
             PH.Start(topRecepty.Invoke(item));
             if (opened % 10 == 0)
             {
-                Debugger.Break();
+                DebugLogger.BreakOrReadLine();
             }
         }
     }
@@ -95,7 +95,7 @@ public partial class UriWebServices
         {
             if (opened % 10 == 0 && opened != 0)
             {
-                Debugger.Break();
+                DebugLogger.BreakOrReadLine();
             }
             var uri = GoogleSearchSite(item, v);
             Process.Start(uri);
@@ -145,6 +145,7 @@ public partial class UriWebServices
 
     
     /// <summary>
+    /// Point to Repos tab
     /// Already new radekjancik
     /// Working with spaces right (SQL Server Scripts1)
     /// </summary>
@@ -154,7 +155,11 @@ public partial class UriWebServices
         return "https://radekjancik.visualstudio.com/_git/" + HttpUtility.UrlEncode(slnName);
     }
 
-    //
+    /// <summary>
+    /// Just gray screen (22-12-2021)
+    /// </summary>
+    /// <param name="slnName"></param>
+    /// <returns></returns>
     public static string AzureRepoWebUIFull(string slnName)
     {
         var enc = HttpUtility.UrlEncode(slnName);

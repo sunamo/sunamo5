@@ -1,16 +1,12 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-   <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <AssemblyName>Resources</AssemblyName>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.cs-CZ.xlf" Link="sunamo.cs-CZ.xlf"></None>
     <None Include="..\..\sunamo\sunamo\MultilingualResources\sunamo.en-US.xlf" Link="sunamo.en-US.xlf"></None>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="ResourcesDuo.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -18,12 +14,10 @@
       <DependentUpon>ResourcesDuo.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="ResourcesDuo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourcesDuo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
 </Project>

@@ -131,6 +131,11 @@ public partial class Exceptions
     /// <param name="alsoInner"></param>
     public static string TextOfExceptions(Exception ex, bool alsoInner = true)
     {
+        if (ex == null)
+        {
+            return String.Empty;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.Append(Consts.Exception);
         sb.AppendLine(ex.Message);

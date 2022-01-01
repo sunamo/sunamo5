@@ -10,6 +10,7 @@ public class ProgressState
 
     public void Init(Action<int> OverallSongs, Action<int> AnotherSong,  Action WriteProgressBarEnd)
     {
+
         isRegistered = true;
 
         this.AnotherSong += AnotherSong;

@@ -10,7 +10,7 @@ using System.Text;
     public const string _3Asterisks = "***";
     public const string Test_ = "Test_";
     public const string se = "";
-
+    public const string NoEntries = "No entries";
 
     public const string slashLocalhost = AllStrings.slash + Consts.localhost;
     public const string slashScz = AllStrings.slash + Consts.Cz;

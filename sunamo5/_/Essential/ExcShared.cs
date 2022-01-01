@@ -1,4 +1,5 @@
 ﻿using sunamo.Essential;
+using SunamoExceptions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,18 +29,28 @@ public class Exc
     static StringBuilder sb = new StringBuilder();
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="stopAtFirstSystem"></param>
+    /// <returns></returns>
+    public static string GetStackTrace(bool stopAtFirstSystem = false)
+    {
+        var r = GetStackTrace2(false);
+        return r.Item3;
+    }
+
+    /// <summary>
+    /// type, methodName, stacktrace
     /// Remove GetStackTrace (first line
     /// </summary>
     /// <returns></returns>
-    public static string GetStackTrace(bool stopAtFirstSystem = false)
+    public static Tuple<string, string, string> GetStackTrace2(bool fillAlsoFirstTwo, bool stopAtFirstSystem = false)
     {
         if (stopAtFirstSystem) 
         {
             if (first)
             {
                 first = false;
-
-                //ClipboardHelper.SetText(AllStrings.dash);
             }
         }
 
@@ -52,9 +63,23 @@ public class Exc
 
         int i = 0;
 
+        string type = null;
+        string methodName = null;
+
         for (; i < l.Count; i++)
         {
-            if (l[i].StartsWith(CsConsts.atSystemDot))
+            var item = l[i];
+
+            if (fillAlsoFirstTwo)
+            {
+                if (!item.StartsWith("   at ThrowExceptions"))
+                {
+                    TypeAndMethodName(item, out type, out methodName);
+                }
+                fillAlsoFirstTwo = false;
+            }
+
+            if (item.StartsWith(CsConsts.atSystemDot))
             {
                 l = l.Take(i).ToList();
                 l.Add(string.Empty);
@@ -62,11 +87,21 @@ public class Exc
 
                 break;
             }
-
             
         }
 
-        return JoinNL(l);
+        return new Tuple<string, string, string>(type, methodName, JoinNL(l));
+    }
+
+    public static void TypeAndMethodName(string l, out string type, out string methodName)
+    {
+        var s = SH.TrimStart(l, "   at ");
+        s = SH.RemoveAfterFirst(s, AllChars.lb);
+        var p = SH.Split(s, AllChars.dot);
+
+        methodName = p[p.Count - 1];
+        p.RemoveAt(p.Count - 1);
+        type = SH.Join(AllStrings.dot, p);
     }
 
     public static bool _trimTestOnEnd = true;

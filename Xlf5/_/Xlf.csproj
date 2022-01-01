@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectTypeGuids>9a19103f-16f7-4668-be54-9a1e7a4f7556</ProjectTypeGuids>
@@ -25,35 +24,32 @@
     <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs" Link="_WinSec\VpsHelperIsVps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="sunamo\List\" />
     <Folder Include="_WinSec\" />
-    <Folder Include="Scz\">
-    </Folder>
-    <Folder Include="Values\">
-    </Folder>
+    <Folder Include="Scz\"></Folder>
+    <Folder Include="Values\"></Folder>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WinSec\Readme.txt">
-    </Content>
+    <Content Include="WinSec\Readme.txt"></Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
-    </PackageReference>
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
-    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"></PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0"></PackageReference>
     <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0">
-    </PackageReference>
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CredentialsWithoutDep\WinSec\WinSec.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\fmdev.ResX\fmdev.ResX.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\XliffParser\XliffParser.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
-    <ProjectReference Include="..\Resources\Resources.csproj">
-    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj"></ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

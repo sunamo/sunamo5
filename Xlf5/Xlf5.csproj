@@ -1,18 +1,11 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-   <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="_\bin\**"></Compile>
     <Compile Remove="_\obj\**"></Compile>
     <Compile Remove="_\Properties\**"></Compile>
-    
-    
-    
-    
     <EmbeddedResource Remove="_\bin\**"></EmbeddedResource>
     <EmbeddedResource Remove="_\obj\**"></EmbeddedResource>
     <EmbeddedResource Remove="_\Properties\**"></EmbeddedResource>
@@ -20,17 +13,12 @@
     <None Remove="_\obj\**"></None>
     <None Remove="_\Properties\**"></None>
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>
     <ProjectReference Include="..\Resources5\Resources5.csproj"></ProjectReference>
   </ItemGroup>
-
-  <ItemGroup>
-  </ItemGroup>
-
+  <ItemGroup></ItemGroup>
 </Project>

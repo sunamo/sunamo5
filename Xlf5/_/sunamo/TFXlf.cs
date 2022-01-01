@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunamoExceptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ public class TFXlf
 
     public static void RemoveDoubleBomUtf8(string path)
     {
-        var b = File.ReadAllBytes(path).ToList();
+        var b = TF.ReadAllBytes(path).ToList();
         var to = b.Count > 5 ? 6 : b.Count;
 
         for (int i = 3; i < to; i++)
@@ -33,7 +34,7 @@ public class TFXlf
     #region Only in *Xlf.cs
     public static void WriteAllBytes(string file, List<byte> b)
     {
-        File.WriteAllBytes(file, b.ToArray());
+        TF.WriteAllBytes(file, b);
     }
     #endregion
 }

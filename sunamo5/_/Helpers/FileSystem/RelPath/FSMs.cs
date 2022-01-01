@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 
@@ -21,10 +22,20 @@ public partial class FS
 
     public static readonly char DirectorySeparatorChar = PathInternal.DirectorySeparatorChar;
 
+    public static List<string> lse = new List<string>();
+
     private static string GetRelativePath(string relativeTo, string path, StringComparison comparisonType)
     {
+
         if (relativeTo == null)
             throw new ArgumentNullException(nameof(relativeTo));
+
+        if (!FS.IsAbsolutePath(path))
+        {
+            lse.Add(path);
+            return path;
+        }
+
 
         //if (PathInternal.IsEffectivelyEmpty(relativeTo.AsSpan()))
         //    throw new ArgumentException(SR.Arg_PathEmpty, nameof(relativeTo));
@@ -37,6 +48,20 @@ public partial class FS
 
         //Debug.Assert(comparisonType == StringComparison.Ordinal || comparisonType == StringComparison.OrdinalIgnoreCase);
 
+        string removedFnRelativeTo = string.Empty;
+        string removedFnPath = string.Empty;
+
+        if (FS.IsFileHasKnownExtension(relativeTo))
+        {
+            removedFnRelativeTo = FS.GetFileName(relativeTo);
+            relativeTo = FS.GetDirectoryName(relativeTo);
+        }
+        if (FS.IsFileHasKnownExtension(path))
+        {
+            removedFnPath = FS.GetFileName(path);
+            path = FS.GetDirectoryName(path);
+        }
+
         relativeTo = FS.GetFullPath(relativeTo);
         path = FS.GetFullPath(path);
 
@@ -48,8 +73,8 @@ public partial class FS
 
         // If there is nothing in common they can't share the same root, return the "to" path as is.
         if (commonLength == 0)
-            return path;
-
+            return FS.Combine(path.Replace(relativeTo, string.Empty).TrimStart(AllChars.bs), removedFnPath);
+        
         // Trailing separators aren't significant for comparison
         int relativeToLength = relativeTo.Length;
         if (EndsInDirectorySeparator(relativeTo.AsSpan()))
@@ -113,8 +138,27 @@ public partial class FS
             sb.Append(path.AsSpan(commonLength, differenceLength).ToString());
         }
 
-        return sb.ToString();
+        return FS.Combine( sb.ToString(), removedFnPath);
     }
+
+    
+
+    public static bool IsAbsolutePath(string path)
+    {
+        return !String.IsNullOrWhiteSpace(path)
+            && path.IndexOfAny(System.IO.Path.GetInvalidPathChars()) == -1
+            && Path.IsPathRooted(path)
+            && !Path.GetPathRoot(path).Equals(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal);
+    }
+
+    public static string NonSpacesFilename(string nameOfPage)
+    {
+        var v = ConvertCamelConventionWithNumbers.ToConvention(nameOfPage);
+        v = FS.ReplaceInvalidFileNameChars(v);
+        return v;
+    }
+
+
 
     /// <summary>
     /// Returns true if the path ends in a directory separator.
@@ -128,3 +172,4 @@ public partial class FS
     }
     #endregion
 }
+

@@ -190,7 +190,7 @@ public static int keyCodeSeparator
             sb.AppendLine(PrepareToSerialization2(item));
         }
 
-        File.WriteAllText(VybranySouborLogu, sb.ToString());
+        TF.WriteAllText(VybranySouborLogu, sb.ToString());
     }
 
     

@@ -43,10 +43,11 @@ namespace sunamo.Constants
         #region vs
 
         public const string cRepos = @"c:\repos";
+        public static string bp = null;
 
         static DefaultPaths()
         {
-            string bp = @"e:\Documents\vs\";
+            bp = @"e:\Documents\vs\";
 
             if (VpsHelperSunamo.IsQ)
             {

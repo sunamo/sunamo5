@@ -105,6 +105,28 @@ public static partial class SH
     }
     #endregion
 
+    public static string ReplaceTypedWhitespacesForNormal(string t, bool quote, bool t24)
+    {
+        t = t.Trim().Trim(AllChars.qm, AllChars.apos);
+
+        if (t24)
+        {
+            t = t.Replace("\\\\t24", string.Empty);
+        }
+
+        t = t.Replace("\\t", "\t");
+        t = t.Replace("\\n", "\n");
+        t = t.Replace("\\r", "\r");
+        if (quote)
+        {
+            
+            t = t.Replace("\\\"", "\"");
+        }
+        //t = t.Replace("\\r", "\r");
+
+        return t;
+    }
+
     public static string AddIfNotContains(string input, string s, string sLower = null)
     {
         if (sLower != null)

@@ -5,5 +5,5 @@ using System.Text;
 
 public partial class ThrowEx
 {
-
-    }
+    
+}

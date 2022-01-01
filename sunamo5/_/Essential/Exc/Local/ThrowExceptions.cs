@@ -8,10 +8,12 @@ using System.Reflection;
 
 public partial class ThrowExceptions
 {
+    
+
     #region Must be as first - newly created method fall into this
     public static void BadMappedXaml(string stacktrace, object type, string methodName, string nameControl, string additionalInfo)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.BadMappedXaml(FullNameOfExecutedCode(type, methodName, true), nameControl, additionalInfo));
+        ThrowIsNotNull( stacktrace, Exceptions.BadMappedXaml(FullNameOfExecutedCode(type, methodName, true), nameControl, additionalInfo));
     }
 
     public static void CannotCreateDateTime(string stacktrace, object type, string methodName, int year, int month, int day, int hour, int minute, int seconds, Exception ex)

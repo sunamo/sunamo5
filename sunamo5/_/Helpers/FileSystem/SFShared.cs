@@ -224,7 +224,7 @@ public static partial class SF
             sb.AppendLine(PrepareToSerialization2(item));
         }
 
-        File.WriteAllText(VybranySouborLogu, sb.ToString());
+        TF.WriteAllText(VybranySouborLogu, sb.ToString());
     }
 
     public static List<List<string>> ListFromDictionary<Key, Value>(Dictionary<Key, Value> d2)

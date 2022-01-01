@@ -156,7 +156,7 @@ public partial class XlfResourcesH
 
         //    FS.CreateUpfoldersPsysicallyUnlessThere(file);
         //    //xlfContent = xlfContent.Skip(3);
-        //    File.WriteAllText(file, xlfContentCs, enc);
+        //    TF.WriteAllText(file, xlfContentCs, enc);
         //    TFXlf.RemoveDoubleBomUtf8(file);
 
         //    fn = "sunamo_en_US";
@@ -171,7 +171,7 @@ public partial class XlfResourcesH
         //    var file2 = appData.GetFileCommonSettings(fn + ".xlf");
 
         //    string xlfContentEn = rm.GetByteArrayAsString(fn);
-        //    File.WriteAllText(file2, xlfContentEn, enc);
+        //    TF.WriteAllText(file2, xlfContentEn, enc);
         //    TFXlf.RemoveDoubleBomUtf8(file2);
 
         //    path = Path.Combine(appData.RootFolderCommon(true), "Settings");

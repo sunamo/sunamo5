@@ -21,20 +21,11 @@ public partial class TF
         return ReadAllLines<StorageFolder, StorageFile>(item, ac);
     }
 
-    public static List<byte> ReadAllBytes(string file)
-    {
-        return File.ReadAllBytes(file).ToList();
-    }
 
-    public static void WriteAllLines(string file, List<string> lines)
-    {
-        SaveLines(lines, file);
-    }
 
-    public static void SaveLines(IList<string> list, string file)
-    {
-        File.WriteAllLines(file, list);
-    }
+    
+
+   
 
     public static void SaveLinesIEnumerable(IEnumerable belowZero, string f)
     {
@@ -46,10 +37,7 @@ public partial class TF
         TF.SaveFile(sb.ToString(), f);
     }
 
-    public static List<string> ReadAllLines(string file)
-    {
-        return ReadAllLines<string, string>(file, null);
-    }
+   
 
 
     public static List<string> ReadAllLines<StorageFolder, StorageFile>(StorageFile file, AbstractCatalog<StorageFolder, StorageFile> ac)
@@ -57,65 +45,6 @@ public partial class TF
         return SH.GetLines(ReadFile<StorageFolder, StorageFile>(file, ac));
     }
 
-    public static void WriteAllText(string path, string content)
-    {
-        WriteAllText<string, string>(path, content, null);
-    }
-    public static string ReadAllText(string f)
-    {
-
-        return FS.ReadAllText(f);
-    }
-    public static void WriteAllBytes(string file, List<byte> b)
-    {
-        WriteAllBytes<string, string>(file, b, null);
-    }
-
-    public static void WriteAllBytes<StorageFolder, StorageFile>(StorageFile file, List<byte> b, AbstractCatalog<StorageFolder, StorageFile> ac)
-    {
-        if (ac == null)
-        {
-            File.WriteAllBytes(file.ToString(), b.ToArray());
-
-        }
-        else
-        {
-            ac.tf.writeAllBytes(file, b);
-        }
-
-    }
-
-
-    /// <summary>
-    /// A1 cant be storagefile because its
-    /// not in 
-    /// </summary>
-    /// <param name="file"></param>
-    /// <param name="content"></param>
-    public static void WriteAllText<StorageFolder, StorageFile>(StorageFile file, string content, Encoding enc, AbstractCatalog<StorageFolder, StorageFile> ac)
-    {
-        if (ac == null)
-        {
-            File.WriteAllText(file.ToString(), content, enc);
-        }
-        else
-        {
-            ac.tf.writeAllText.Invoke(file, content);
-        }
-    }
-
-
-    /// <summary>
-    /// Create folder hiearchy and write
-    /// </summary>
-    /// <param name="path"></param>
-    /// <param name="content"></param>
-    public static void WriteAllText<StorageFolder, StorageFile>(StorageFile path, string content, AbstractCatalog<StorageFolder, StorageFile> ac)
-    {
-        FS.CreateUpfoldersPsysicallyUnlessThere(path, ac);
-        
-        TF.WriteAllText<StorageFolder, StorageFile>(path, content, Encoding.UTF8, ac);
-    }
 
     public static void SaveFile(string obsah, string soubor)
     {
@@ -138,7 +67,7 @@ public partial class TF
         }
         else
         {
-            File.WriteAllText(soubor, obsah, Encoding.UTF8);
+            TF.WriteAllText(soubor, obsah, Encoding.UTF8);
         }
     }
 
@@ -160,47 +89,7 @@ public partial class TF
 
     public static bool readFile = true; 
 
-    /// <summary>
-    /// Precte soubor a vrati jeho obsah. Pokud soubor neexistuje, vytvori ho a vrati SE. 
-    /// </summary>
-    /// <param name="s"></param>
-    public static string ReadFile<StorageFolder, StorageFile>(StorageFile s, AbstractCatalog<StorageFolder, StorageFile> ac = null)
-    {
-        if (readFile)
-        {
-            if (!File.Exists(s.ToString()))
-            {
-                return string.Empty;
-            }
-
-            if (ac == null)
-            {
-                FS.MakeUncLongPath<StorageFolder, StorageFile>(ref s, ac);
-            }
-
-            var ss = s.ToString();
-
-            if (isUsed != null)
-            {
-                if (isUsed.Invoke(ss))
-                {
-                    return string.Empty;
-                }
-            }
-
-            if (ac == null)
-            {
-                //result = enc.GetString(bytesArray);
-                return FS.ReadAllText(s.ToString());
-            }
-            else
-            {
-                return ac.tf.readAllText(s);
-            }
-        }
-        return string.Empty;
-
-    }
+    
 
 
 

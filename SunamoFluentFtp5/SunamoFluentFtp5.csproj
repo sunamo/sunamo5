@@ -1,40 +1,22 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-   <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
-
-  
-    <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="FluentFTP" Version="34.0.2"></PackageReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentFTP" Version="34.0.2"></PackageReference>
   </ItemGroup>
-
-
-  <ItemGroup>
-    
-    
-    
-    
-    
-    
-    
-    
-  </ItemGroup>
-
+  <ItemGroup></ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>
     <ProjectReference Include="..\shared5\shared5.csproj"></ProjectReference>
     <ProjectReference Include="..\sunamo5\sunamo5.csproj"></ProjectReference>
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Base\"></Folder>
     <Folder Include="FtpClients\"></Folder>
     <Folder Include="Other\"></Folder>
   </ItemGroup>
-
 </Project>

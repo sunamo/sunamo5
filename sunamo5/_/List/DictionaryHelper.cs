@@ -5,6 +5,45 @@ using System.Collections.Generic;
 using System.Linq;
 public partial class DictionaryHelper
 {
+    public static Dictionary<string, List<string>> CategoryParser(List<string> l, bool removeWhichHaveNoEntries)
+    {
+        Dictionary<string, List<string>> ds = new Dictionary<string, List<string>>();
+
+        List<string> lsToAdd = null;
+
+        for (int i = 0; i < l.Count; i++)
+        {
+            var item = l[i].Trim();
+            if (item == string.Empty)
+            {
+                continue;
+            }
+            if (item.EndsWith(AllStrings.colon))
+            {
+                lsToAdd = new List<string>();
+                ds.Add(item.TrimEnd(AllChars.colon), lsToAdd);
+            }
+            else
+            {
+                lsToAdd.Add(item);
+            }
+        }
+
+        if (removeWhichHaveNoEntries)
+        {
+            for (int i = ds.Keys.Count - 1; i >= 0; i--)
+            {
+                var key = ds.ElementAt(i).Key ;
+                if (ds[key][0] == Consts.NoEntries)
+                {
+                    ds.Remove(key);
+                }
+            }
+        }
+
+        return ds;
+    }
+
     public static List<KeyValuePair<T, int>> CountOfItems<T>(List<T> streets)
     {
         Dictionary<T, int> pairs = new Dictionary<T, int>();

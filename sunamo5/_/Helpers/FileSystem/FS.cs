@@ -27,7 +27,13 @@ public partial class FS
 
     public const string dEndsWithReplaceInFile = "SubdomainHelperSimple.cs";
 
+    public static bool IsFileHasKnownExtension(string relativeTo)
+    {
+        var ext = FS.GetExtension(relativeTo);
+        ext = FS.NormalizeExtension2(ext);
 
+        return AllExtensionsHelper.allExtensionsWithoutDot.ContainsKey(ext);
+    }
 
 
 
@@ -842,7 +848,7 @@ public partial class FS
             sr.Dispose();
             sr = null;
             string contentTrim = content.Trim();
-            File.WriteAllText(item, contentTrim, enc);
+            TF.WriteAllText(item, contentTrim, enc);
             //}
         }
     }
@@ -1043,7 +1049,7 @@ public partial class FS
     /// <param name="files"></param>
     public static void DeleteFilesWithSameContentBytes(List<string> files)
     {
-        DeleteFilesWithSameContentWorking<byte[], byte>(files, File.ReadAllBytes);
+        DeleteFilesWithSameContentWorking<byte[], byte>(files, TF.ReadAllBytesArray);
     }
     /// <summary>
     /// Unit tests = OK
@@ -1313,7 +1319,7 @@ public partial class FS
         return dict;
     }
     /// <summary>
-    /// convert to lowercase and remove first dot
+    /// convert to lowercase and remove first dot - to už asi neplatí. Use NormalizeExtension2 for that
     /// </summary>
     /// <param name="item"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1321,6 +1327,13 @@ public partial class FS
     {
         return AllStrings.dot + item.TrimStart(AllChars.dot);
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static string NormalizeExtension2(string item)
+    {
+        return item.ToLower().TrimStart(AllChars.dot);
+    }
+
     public static string GetNormalizedExtension(string filename)
     {
         return NormalizeExtension(filename);

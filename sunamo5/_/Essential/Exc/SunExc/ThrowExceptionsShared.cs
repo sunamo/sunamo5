@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,7 +52,7 @@ public partial class ThrowExceptions
         return ThrowIsNotNull(stacktrace, Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
     }
 
-
+    static string lastMethod = null;
 
     /// <summary>
     /// Default use here method with one argument
@@ -61,14 +62,15 @@ public partial class ThrowExceptions
     /// <param name="type"></param>
     /// <param name="methodName"></param>
     /// <param name="exception"></param>
-    public static bool ThrowIsNotNull(string stacktrace, object type, string methodName, string exception)
-    {
-        if (exception != null)
-        {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), exception);
-            return false;
-        }
-        return true;
-    }
+    //public static bool ThrowIsNotNull(string stacktrace, object type, string methodName, string exception)
+    //{
+    //    if (exception != null)
+    //    {
+            
+    //        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), exception, cm);
+    //        return false;
+    //    }
+    //    return true;
+    //}
     #endregion
 }

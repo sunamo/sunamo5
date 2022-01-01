@@ -30,7 +30,16 @@ public class DebugLogger : LoggerBase
         }
     }
 
-    
+    public static void BreakOrReadLine()
+    {
+#if DEBUG
+        Debugger.Break();
+#elif !DEBUG
+     Console.ReadLine();   
+#endif
+    }
+
+
 
     /// <summary>
     /// Must be always in #if debug - otherwise throw anonymous error in release and its hard to find it!!!

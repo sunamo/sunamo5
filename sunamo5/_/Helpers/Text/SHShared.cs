@@ -2578,6 +2578,8 @@ public static partial class SH
         return ReplaceWhiteSpacesWithoutSpaces(p, "");
     }
 
+
+
     /// <summary>
     /// Replace r,n,t with A2
     /// </summary>

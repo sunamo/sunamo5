@@ -260,19 +260,38 @@ public static partial class CA
         return ChangeContent(new ChangeContentArgs() { }, dirs, SH.PostfixIfNotEmpty, v);
     }
 
+    public static List<string> ChangeContentSwitch12<Arg1>(List<string> files_in, Func<Arg1, string, string> func, Arg1 arg)
+    {
+        for (int i = 0; i < files_in.Count; i++)
+        {
+            files_in[i] = func.Invoke(arg, files_in[i]);
+        }
+        return files_in;
+    }
+
     /// <summary>
     /// Direct edit input collection
+    /// 
+    /// Dříve to bylo List<string> files_in, Func<string,
     /// </summary>
     /// <typeparam name="Arg1"></typeparam>
     /// <param name="files_in"></param>
     /// <param name="func"></param>
     /// <param name="arg"></param>
-    public static List<string> ChangeContent<Arg1>(ChangeContentArgs a, List<string> files_in, Func<string, Arg1, string> func, Arg1 arg)
+    public static List<string> ChangeContent<Arg1>(ChangeContentArgs a, List<string> files_in, Func<string, Arg1, string> func, Arg1 arg, Func<Arg1, string, string> funcSwitch12 = null)
     {
-        for (int i = 0; i < files_in.Count; i++)
+        if (a.switchFirstAndSecondArg)
         {
-            files_in[i] = func.Invoke(files_in[i], arg);
+            files_in = ChangeContentSwitch12<Arg1>(files_in, funcSwitch12, arg);
         }
+        else
+        {
+            for (int i = 0; i < files_in.Count; i++)
+            {
+                files_in[i] = func.Invoke(files_in[i], arg);
+            }
+        }
+        
 
         RemoveNullOrEmpty(a, files_in);
 
