@@ -29,6 +29,8 @@ namespace sunamo.Generators
 
         public List<string> Commands { get => SH.GetLines(ToString()); }
 
+        
+
         /// <summary>
         /// A2 must be files prepared to cmd
         /// </summary>
@@ -330,6 +332,13 @@ namespace sunamo.Generators
         public void Add(string v)
         {
             Git("add");
+            Append(v);
+            AppendLine();
+        }
+
+        public void Config(string v)
+        {
+            Git("config");
             Append(v);
             AppendLine();
         }
