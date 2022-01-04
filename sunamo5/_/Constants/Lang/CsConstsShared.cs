@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 public partial class CsConsts
 {
-    public const string atSystemDot = "at System.";
+    #region For easy copy
+    public const string atSystemDot = "at System."; 
+    #endregion
 }

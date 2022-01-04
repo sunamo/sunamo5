@@ -8,35 +8,44 @@ using System.Text;
         #region For easy copy from ThrowEx64.cs
         public static void NotImplementedCase(object niCase)
         {
-            //Type type = methodBase.DeclaringType;
-            //string methodName = methodBase.Name;
-            ThrowIsNotNull(t.Item3, Exceptions.NotImplementedCase(FullNameOfExecutedCode(), niCase));
+            ThrowIsNotNull(Exceptions.NotImplementedCase, niCase);
         }
 
-        static Tuple<string, string, string> t = null;
+        public static Tuple<string, string, string> t = null;
 
         public static void Custom(string v)
         {
-            //Type type = methodBase.DeclaringType;
-            //string methodName = methodBase.Name;
-            ThrowIsNotNull(t.Item3, Exceptions.Custom(FullNameOfExecutedCode(), v));
+            ThrowIsNotNull(Exceptions.Custom, v);
         }
 
-        private static void ThrowIsNotNull(string stacktrace, string v)
+        private static void ThrowIsNotNull(Func<string, string> f)
         {
-            ThrowExceptions.ThrowIsNotNull(stacktrace, v);
+            ThrowExceptions.ThrowIsNotNullEx(f);
         }
 
-        private static string FullNameOfExecutedCode()
+    private static void ThrowIsNotNull(Func<string, object, string> f, object o)
+    {
+        ThrowExceptions.ThrowIsNotNullEx(f, o);
+    }
+
+    private static void ThrowIsNotNull(Func<string, string, string> f,string a1)
+        {
+            ThrowExceptions.ThrowIsNotNullEx(f, a1);
+        }
+
+    private static void ThrowIsNotNull<T>(Func<string, string, T[], string> f, string a1, params T[] a2)
+    {
+        ThrowExceptions.ThrowIsNotNullEx(f, a1, a2);
+    }
+
+    private static string FullNameOfExecutedCode()
         {
             return ThrowExceptions.FullNameOfExecutedCode(t.Item1, t.Item2, true);
         }
 
         public static void NotImplementedMethod()
         {
-            string stacktrace = Exc.GetStackTrace(true);
-
-            ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode()));
+            ThrowIsNotNull( Exceptions.NotImplementedMethod);
         }
-        #endregion
-    }
+    #endregion
+}

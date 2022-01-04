@@ -26,7 +26,9 @@ public static partial class NumConsts
     /// </summary>
     public const int one = 1;
     public const int zeroInt = 0;
-    public const int mOne = -1;
+    #region For easy copy
+    public const int mOne = -1; 
+    #endregion
 
 
 }

@@ -37,6 +37,52 @@ public partial class ThrowExceptions
     }
 #endif
 
+    public static Tuple<string, string, string> t
+    { 
+        get 
+        { 
+            return ThrowEx.t;
+        }
+        set
+        {
+            ThrowEx.t = value;
+        }
+    }
+
+    public static void ThrowIsNotNullEx(Func<string, object, string> f, object o)
+    {
+        t = Exc.GetStackTrace2(true);
+
+        var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), o);
+        ThrowIsNotNull(t.Item3, exc);
+    }
+
+    public static void ThrowIsNotNullEx(Func<string, string> f)
+    {
+        t = Exc.GetStackTrace2(true);
+
+        var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2));
+        ThrowIsNotNull(t.Item3, exc);
+    }
+
+    public static void ThrowIsNotNullEx(Func<string, string, string> f, string a1)
+    {
+        t = Exc.GetStackTrace2(true);
+
+        var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1);
+        ThrowIsNotNull(t.Item3, exc);
+    }
+
+    public static void ThrowIsNotNullEx<T>(Func<string, string, T[], string> f, string a1, params T[] a2)
+    {
+        t = Exc.GetStackTrace2(true);
+
+        var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1, a2);
+        ThrowIsNotNull(t.Item3, exc);
+    }
+
+    static string lastMethod = null;
+
     /// <summary>
     /// true if everything is OK
     /// false if some error occured
@@ -45,8 +91,10 @@ public partial class ThrowExceptions
     /// <param name="exception"></param>
     public static bool ThrowIsNotNull(string stacktrace, string exception, bool reallyThrow = true)
     {
-        var v = Exc.GetStackTrace2(true);
-        var cm = v.Item2;
+        // Výjimky se tak často nevyhazují. Tohle je daň za to že jsem tu měl arch
+        // jež nebyla dobře navržená. V ThrowEx se to již podruhé volat nebude.
+        t = Exc.GetStackTrace2(true);
+        var cm = t.Item2;
 
         if (exception != null)
         {

@@ -8,20 +8,6 @@ using System.Threading.Tasks;
 
 public partial class ThrowExceptions
 {
-    #region For easy copy in SunamoException project
-    //[SuppressMessage(type, "IDE0060")]
-#pragma warning disable
-    public static void DummyNotThrow(Exception ex)
-    {
-
-    }
-#pragma warning enable
-
-    public static void NotImplementedMethod(string stacktrace, object type, string methodName)
-    {
-        ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode(type, methodName)));
-    }
-
     /// <summary>
     /// A1 have to be Dictionary<T,U>, not IDictionary without generic
     /// </summary>
@@ -36,6 +22,27 @@ public partial class ThrowExceptions
     {
         ThrowIsNotNull(stacktrace, Exceptions.KeyNotFound(FullNameOfExecutedCode(type, v), en, dictName, key));
     }
+
+    public static void NotValidXml(string stacktrace, object type, string methodName, string path, Exception ex)
+    {
+        bool v = ThrowIsNotNull(stacktrace, Exceptions.NotValidXml(FullNameOfExecutedCode(type, methodName), path, ex));
+    }
+
+    #region For easy copy in SunamoException project
+    //[SuppressMessage(type, "IDE0060")]
+#pragma warning disable
+    public static void DummyNotThrow(Exception ex)
+    {
+
+    }
+#pragma warning enable
+
+    public static void NotImplementedMethod(string stacktrace, object type, string methodName)
+    {
+        ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode(type, methodName)));
+    }
+
+   
 
     
     /// <summary>
@@ -52,7 +59,7 @@ public partial class ThrowExceptions
         return ThrowIsNotNull(stacktrace, Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
     }
 
-    static string lastMethod = null;
+    
 
     /// <summary>
     /// Default use here method with one argument

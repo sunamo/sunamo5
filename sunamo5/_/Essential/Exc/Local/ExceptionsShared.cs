@@ -23,7 +23,10 @@ using System.Threading.Tasks;
         return null;
     }
 
-
+    public static string NotValidXml(string before, string path, Exception ex)
+    {
+        return before + path + AllStrings.space + Exceptions.TextOfExceptions(ex);
+    }
 
     public static string ViolationSqlIndex(string before, string tableName, ABC columnsInIndex)
     {

@@ -17,7 +17,51 @@ using Diacritics.Extensions;
 
 public static partial class SH
 {
-    
+    #region For easy copy
+    /// <summary>
+    /// Work like everybody excepts, from a {b} c return b
+    /// </summary>
+    /// <param name="p"></param>
+    /// <param name="begin"></param>
+    /// <param name="end"></param>
+    public static string GetTextBetweenTwoChars(string p, char beginS, char endS, bool throwExceptionIfNotContains = true)
+    {
+        var begin = p.IndexOf(beginS);
+        var end = p.IndexOf(endS, begin + 1);
+        if (begin == NumConsts.mOne || end == NumConsts.mOne)
+        {
+            if (throwExceptionIfNotContains)
+            {
+                ThrowExceptions.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
+            }
+        }
+        else
+        {
+            return GetTextBetweenTwoChars(p, begin, end);
+        }
+        return p;
+    }
+
+
+    public static string GetTextBetweenTwoChars(string p, int begin, int end)
+    {
+        if (end > begin)
+        {
+            // a(1) - 1,3
+            return p.Substring(begin + 1, end - begin - 1);
+            // originally
+            //return p.Substring(begin+1, end - begin - 1);
+        }
+        return p;
+    }
+
+    #endregion
+
+    public static string GetTextBetween(string p, char after, char before, bool throwExceptionIfNotContains = true)
+    {
+        return GetTextBetweenTwoChars(p, after, before, throwExceptionIfNotContains);
+    }
+
     public static List<string> ValuesBetweenQuotes(string str, bool insertAgainToQm)
     {
         var reg = new Regex("\".*?\"");
@@ -2536,42 +2580,8 @@ public static partial class SH
 
 
 
-    public static string GetTextBetweenTwoChars(string p, int begin, int end)
-    {
-        if (end > begin)
-        {
-            // a(1) - 1,3
-            return p.Substring(begin + 1, end - begin - 1);
-            // originally
-            //return p.Substring(begin+1, end - begin - 1);
-        }
-        return p;
-    }
 
-
-    /// <summary>
-    /// Work like everybody excepts, from a {b} c return b
-    /// </summary>
-    /// <param name="p"></param>
-    /// <param name="begin"></param>
-    /// <param name="end"></param>
-    public static string GetTextBetweenTwoChars(string p, char beginS, char endS, bool throwExceptionIfNotContains = true)
-    {
-        var begin = p.IndexOf(beginS);
-        var end = p.IndexOf(endS, begin+1);
-        if (begin == NumConsts.mOne || end == NumConsts.mOne)
-        {
-            if (throwExceptionIfNotContains)
-            {
-                ThrowExceptions.NotContains<char>(null, type, "GetTextBetween", p, beginS,endS);
-            }
-        }
-        else
-        {
-            return GetTextBetweenTwoChars(p, begin, end);
-        }
-        return p;
-    }
+    
 
     public static string ReplaceWhiteSpacesWithoutSpaces(string p)
     {
@@ -2699,10 +2709,6 @@ public static partial class SH
         return false;
     }
 
-    public static string GetTextBetween(string p, char after, char before, bool throwExceptionIfNotContains = true)
-    {
-        return GetTextBetweenTwoChars(p, after, before, throwExceptionIfNotContains);
-    }
 
     public static string GetTextBetween(string p, string after, string before, bool throwExceptionIfNotContains = true)
     {

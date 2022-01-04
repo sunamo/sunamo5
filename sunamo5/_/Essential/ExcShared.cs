@@ -72,16 +72,17 @@ public class Exc
 
             if (fillAlsoFirstTwo)
             {
-                if (!item.StartsWith("   at ThrowExceptions"))
+                if (!item.StartsWith("   at ThrowEx"))
                 {
                     TypeAndMethodName(item, out type, out methodName);
+                    fillAlsoFirstTwo = false;
                 }
-                fillAlsoFirstTwo = false;
             }
 
             if (item.StartsWith(CsConsts.atSystemDot))
             {
-                l = l.Take(i).ToList();
+                //Tohle nevím k čemu to je, vypadá to jako kdyby mě to dělalo duplikát již existujícího
+                //l = l.Take(i).ToList();
                 l.Add(string.Empty);
                 l.Add(string.Empty);
 

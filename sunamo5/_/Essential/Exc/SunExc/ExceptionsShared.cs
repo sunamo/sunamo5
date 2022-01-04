@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 public partial class Exceptions
 {
-    #region For easy copy from ExceptionsShared.cs
     public static object KeyNotFound<T, U>(string before, IDictionary<T, U> en, string dictName, T key)
     {
         if (!en.ContainsKey(key))
@@ -17,6 +16,9 @@ public partial class Exceptions
         }
         return null;
     }
+
+    #region For easy copy from ExceptionsShared.cs
+
 
     /// <summary>
     /// Verify whether A2 contains A3

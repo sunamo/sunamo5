@@ -8,11 +8,6 @@ using System.Threading.Tasks;
 
 public partial class ThrowExceptions
 {
-    public static bool NotContains<T>(string stacktrace, object type, string v, string p, params T[] after)
-    {
-        return NotContains<T>(stacktrace, type, v, p, after);
-    }
-
     /// <summary>
     /// Return false in case of exception, otherwise true
     /// In console app is needed put in into try-catch error due to there is no globally handler of errors
@@ -27,5 +22,4 @@ public partial class ThrowExceptions
         }
         return true;
     }
-
 }

@@ -44,8 +44,50 @@ public static partial class SH
         return false;
     }
 
-    
+
     #region For easy copy from SH.cs
+    public static string FirstLine(string item)
+    {
+        var lines = SH.GetLines(item);
+        if (lines.Count == 0)
+        {
+            return string.Empty;
+        }
+        return lines[0];
+    }
+
+    /// <summary>
+    /// Start at 0
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="lenght"></param>
+    /// <returns></returns>
+    public static string SubstringIfAvailable(string input, int lenght)
+    {
+        if (input.Length > lenght)
+        {
+            return input.Substring(0, lenght);
+        }
+        return input;
+    }
+
+    /// <summary>
+    /// Remove with A2
+    /// </summary>
+    /// <param name="t"></param>
+    /// <param name="ch"></param>
+    public static string RemoveAfterFirst(string t, char ch)
+    {
+        int dex = t.IndexOf(ch);
+        if (dex == -1 || dex == t.Length - 1)
+        {
+            return t;
+        }
+
+        return t.Substring(0, dex);
+    }
+    #endregion
+
     /// <summary>
     /// Not auto remove empty
     /// </summary>
@@ -117,7 +159,7 @@ public static partial class SH
     }
 
     
-    #endregion
+    
 
     public static string Substring(string sql, int indexFrom, int indexTo, bool returnInputIfInputIsShorterThanA3 = false)
     {
@@ -137,21 +179,6 @@ public static partial class SH
         return s;
     }
 
-    /// <summary>
-    /// Remove with A2
-    /// </summary>
-    /// <param name="t"></param>
-    /// <param name="ch"></param>
-    public static string RemoveAfterFirst(string t, char ch)
-    {
-        int dex = t.IndexOf(ch);
-        if (dex == -1 || dex == t.Length - 1)
-        {
-            return t;
-        }
-
-        return t.Substring(0, dex);
-    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string WrapWith(string value, char v, bool _trimWrapping = false)
@@ -923,30 +950,9 @@ public static partial class SH
     }
 
 
-    /// <summary>
-    /// Start at 0
-    /// </summary>
-    /// <param name="input"></param>
-    /// <param name="lenght"></param>
-    /// <returns></returns>
-    public static string SubstringIfAvailable(string input, int lenght)
-    {
-        if (input.Length > lenght)
-        {
-            return input.Substring(0, lenght);
-        }
-        return input;
-    }
+    
 
-    public static string FirstLine(string item)
-    {
-        var lines = SH.GetLines(item);
-        if (lines.Count == 0)
-        {
-            return string.Empty;
-        }
-        return lines[0];
-    }
+   
 
     public static string JoinPairs(params object[] parts)
     {
