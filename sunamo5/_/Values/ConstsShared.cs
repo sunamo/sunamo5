@@ -7,6 +7,7 @@ using System.Text;
     /// </summary>
     public static partial class Consts
     {
+    public const string gitFolderName = ".git";
     public const string _3Asterisks = "***";
     public const string Test_ = "Test_";
     public const string se = "";

@@ -25,5 +25,5 @@ using System.Threading.Tasks;
     public const string dirUp = @"..\";
     public const string dirUp3 = @"..\..\..\";
     public const string dirUp5 = @"..\..\..\..\..\";
-    public const string gitFolderName = ".git";
+    
 }
