@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+
 public partial class DictionaryHelper
 {
     public static Dictionary<string, List<string>> CategoryParser(List<string> l, bool removeWhichHaveNoEntries)
@@ -127,7 +129,20 @@ public partial class DictionaryHelper
         return default(T);
     }
 
-    
+    public static void AppendLineOrCreate<T>(Dictionary<T, StringBuilder> sb, T n, string item)
+    {
+        if (sb.ContainsKey(n))
+        {
+            sb[n].AppendLine(item);
+        }
+        else
+        {
+            var sb2 = new StringBuilder();
+            sb2.AppendLine(item);
+            sb.Add(n, sb2);
+        }
+    }
+
     public static Dictionary<T, U> ReturnsCopy<T, U>(Dictionary<T, U> slovnik)
     {
         Dictionary<T, U> tu = new Dictionary<T, U>();
