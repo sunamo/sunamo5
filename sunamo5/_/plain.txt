@@ -9,3 +9,20 @@ Solution files => 14x - 3x | 12x
 
 Translation toolkit 2x | 1x
 
+1)GetRelativePathToProject
+AddProjectsFromSunamoToSelected
+AddProjectsFromSunamoToSelected_NotUsed
+
+2)GetRelativePathFromSolution
+
+2-1)GetRelativePathFromSolution
+public void AddProjectsToSln(bool addProjectReferencesWhenAlreadyIsInSln, List<string> projectsToAdd, Solution slnFromWhichIsAdded, Dictionary<string, Guid> projectTypes, Dictionary<string, Guid> projectIds, string slnToWhichAdd)
+public void AddProjectsToSln(bool addProjectReferencesWhenAlreadyIsInSln, List<string> projectsToAdd, Solution slnFromWhichIsAdded, Dictionary<string, Guid> projectTypes, Dictionary<string, Guid> projectIds, string slnToWhichAdd)
+
+Kde se používá ApsHelper.ci.AddProjectsToSln:
+AddProjectsFromSunamoToSelected
+AddProjectsToSlnsInSolutionFolder
+miAddMissedProjectsToSolutions_Click - Add to every *.sunamo.cz.sln projects which is in _templateSubdomain.sln
+
+
+/// miAddMissingsProjectsIntoSolutions_Click - Add projects which exists on drive but not in sln into sln
