@@ -115,7 +115,8 @@ public class TextOutputGenerator
 
     public override string ToString()
     {
-        return sb.ToString();
+        var ts = sb.ToString();
+        return ts;
     }
 
     
@@ -299,6 +300,16 @@ public class TextOutputGenerator
             sb.AppendLine(SF.PrepareToSerializationExplicitString(CA.ToList<object>(item.Key, item.Value), deli));
         }
 
-    } 
+    }
+
+    public string DictionaryWithCount(Dictionary<int, List<string>> sbOther)
+    {
+        TextOutputGenerator tog = new TextOutputGenerator();
+        foreach (var item in sbOther)
+        {
+            tog.List(item.Value, item.Key.ToString());
+        }
+        return tog.ToString();
+    }
     #endregion
 }

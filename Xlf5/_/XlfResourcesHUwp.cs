@@ -37,7 +37,7 @@
 //        //foreach (var res in resources)
 //        //{
 //        //    var v = ((DictionaryEntry)res).Key;
-//        //    System.Console.WriteLine(v);
+//        //    System.CL.WriteLine(v);
 //        //}
 
 //        string path = null;

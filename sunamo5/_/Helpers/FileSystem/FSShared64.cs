@@ -671,6 +671,13 @@ public partial class FS
             }
         }
 
+        if (result.Count > 0)
+        {
+            result[0] = SH.FirstCharLower(result[0]);
+        }
+
+        CA.FirstCharUpper(result);
+
 #if DEBUG
         if (e.LoadFromFileWhenDebug)
         {
@@ -698,6 +705,13 @@ public partial class FS
     /// <param name="searchOption"></param>
     public static List<string> GetFiles(string folder2, string mask, SearchOption searchOption, GetFilesArgs getFilesArgs = null)
     {
+#if DEBUG
+        if (folder2.TrimEnd(AllChars.bs) == @"\monoConsoleSqlClient")
+        {
+
+        }
+#endif
+
         if (!FS.ExistsDirectory(folder2) && !folder2.Contains(";"))
         {
             ThisApp.SetStatus(TypeOfMessage.Warning, folder2 + "does not exists");
@@ -1211,21 +1225,28 @@ public partial class FS
         return ExistsDirectory<string, string>(item, null, _falseIfContainsNoFile);
     }
 
+    public static List<string> filesWhichSurelyExists = new List<string>();
+
     /// <summary>
     /// Dont check for size
     /// Into A2 is good put true - when storage was fulled, all new files will be written with zero size. But then failing because HtmlNode as null - empty string as input
     /// But when file is big, like backup of DB, its better false.. Then will be avoid reading whole file to determining their size and totally blocking HW resources on VPS
+    /// 
+    /// Change falseIfSizeZeroOrEmpty = false. Its extremely resource intensive 
     /// </summary>
     /// <param name="selectedFile"></param>
-    public static bool ExistsFile(string selectedFile, bool falseIfSizeZeroOrEmpty = true)
+    public static bool ExistsFile(string selectedFile, bool falseIfSizeZeroOrEmpty = false)
     {
-       
+        SH.FirstCharUpper(ref selectedFile);
+        //ThrowEx.FirstLetterIsNotUpper(selectedFile);
+
+        if (filesWhichSurelyExists.Contains(selectedFile))
+        {
+            return true;
+        }
 
 #if DEBUG
-        if (selectedFile.Contains("VS Code"))
-        {
-
-        }
+        
 #endif
 
         if (selectedFile == Consts.UncLongPath || selectedFile == string.Empty)

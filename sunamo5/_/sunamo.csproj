@@ -67,11 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamo.notmine\firenero.AsyncIO\firenero.AsyncIO.csproj" />
+    <ProjectReference Include="..\..\sunamoWithoutDep\cl\cl.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoBitLocker\SunamoBitLocker.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\duo\duo.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
-    <ProjectReference Include="..\Xlf\Xlf.csproj"></ProjectReference>
+    <ProjectReference Include="..\Xlf\Xlf.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0"></PackageReference>

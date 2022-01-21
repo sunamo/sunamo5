@@ -1,12 +1,13 @@
 ﻿using sunamo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
 
-public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
+public abstract class CollectionWithoutDuplicatesBaseIList<T> : IDumpAsString, IList<T>
 {
     /// <summary>
     /// 
@@ -32,10 +33,16 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
         }
     }
 
+    public int Count => c.Count;
+
+    public bool IsReadOnly => false;
+
+    public T this[int index] { get => c[index]; set => c[index] = value; }
+
     public static bool br = false;
     int count = 10000;
 
-    public CollectionWithoutDuplicatesBase()
+    public CollectionWithoutDuplicatesBaseIList()
     {
         if (br)
         {
@@ -44,28 +51,30 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
         c = new List<T>();
     }
 
-    public CollectionWithoutDuplicatesBase(int count)
+    public CollectionWithoutDuplicatesBaseIList(int count)
     {
         this.count = count;
         c = new List<T>(count);
     }
 
-    public CollectionWithoutDuplicatesBase(IEnumerable<T> l)
+    public CollectionWithoutDuplicatesBaseIList(IEnumerable<T> l)
     {
         c = new List<T>(l.ToList());
     }
 
-    public bool Add(T t2)
-    {
-        bool result = false;
+    bool resultOfAdd = false;
 
-        var con = Contains(t2);
+    public void Add(T t2)
+    {
+        resultOfAdd = false;
+
+        var con = ContainsN(t2);
         if (con.HasValue)
         {
             if (!con.Value)
             {
                 c.Add(t2);
-                result = true;
+                resultOfAdd = true;
             }
         }
         else
@@ -73,11 +82,11 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
             if (!allowNull.HasValue)
             {
                 c.Add(t2);
-                result = true;
+                resultOfAdd = true;
             }
         }
 
-        if (result)
+        if (resultOfAdd)
         {
             if (IsComparingByString())
             {
@@ -85,14 +94,24 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
             }
         }
 
-        return result;
+
     }
 
     protected abstract bool IsComparingByString();
 
     protected string ts = null;
 
-    public abstract bool? Contains(T t2);
+    /// <summary>
+    /// Dříve vracela Contains() bool? ale musí splňoval IList
+    /// </summary>
+    public bool? resultOfBoolN = null;
+
+    public abstract bool? ContainsN(T t2);
+
+    public bool Contains(T item)
+    {
+        return ContainsN(item).GetValueOrDefault();
+    }
 
     public abstract int AddWithIndex(T t2);
 
@@ -110,7 +129,8 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
         wasNotAdded.Clear();
         foreach (var item in list)
         {
-            if (!Add(item))
+            Add(item);
+            if (!resultOfAdd)
             {
                 wasNotAdded.Add(item);
             }
@@ -121,5 +141,39 @@ public abstract class CollectionWithoutDuplicatesBase<T> : IDumpAsString
     public string DumpAsString(string operation, DumpAsStringHeaderArgs a)
     {
         return c.DumpAsString(operation, a);
+    }
+
+    public void Insert(int index, T item)
+    {
+        c.Insert(index, item);
+    }
+
+    public void RemoveAt(int index)
+    {
+        c.RemoveAt(index);
+    }
+
+    public void Clear()
+    {
+        c.Clear();
+    }
+    public void CopyTo(T[] array, int arrayIndex)
+    {
+        c.CopyTo(array, arrayIndex);
+    }
+
+    public bool Remove(T item)
+    {
+        return c.Remove(item);
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return c.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return c.GetEnumerator();
     }
 }

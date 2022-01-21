@@ -135,7 +135,7 @@ public class Exc
         return name;
     }
 
-    private static object lockObject = new object();
+    public static object lockObject = new object();
 
     private static string JoinNL(List<string> l)
     {

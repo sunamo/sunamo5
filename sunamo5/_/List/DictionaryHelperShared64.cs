@@ -37,6 +37,12 @@ public partial class DictionaryHelper
     /// <summary>
     /// Pokud A1 bude obsahovat skupinu pod názvem A2, vložím do této skupiny prvek A3
     /// Jinak do A1 vytvořím novou skupinu s klíčem A2 s hodnotou A3
+    /// 
+    /// public static void AddOrCreate<Key, Value, C>(IDictionary<Key, C<Value>> sl, Key key, Value value, bool withoutDuplicitiesInValue = false, Dictionary<Key, C<Value>> dictS = null) where C : IList<Value> - 
+    /// takhle to nejde. 
+    /// 
+    /// As inner must be List, not IList etc.
+    /// From outside is not possible as inner use other class based on IList
     /// </summary>
     /// <typeparam name = "Key"></typeparam>
     /// <typeparam name = "Value"></typeparam>
@@ -47,6 +53,7 @@ public partial class DictionaryHelper
     {
         AddOrCreate<Key, Value, object>(sl, key, value, withoutDuplicitiesInValue, dictS);
     }
+
 
     #region For easy copy from DictionaryHelperShared64.cs to SunamoExceptions
     /// <summary>
@@ -102,9 +109,14 @@ public partial class DictionaryHelper
 
     #endregion
 
+
+
     /// <summary>
     /// A3 is inner type of collection entries
     /// dictS => is comparing with string
+    /// 
+    /// As inner must be List, not IList etc.
+    /// From outside is not possible as inner use other class based on IList
     /// </summary>
     /// <typeparam name = "Key"></typeparam>
     /// <typeparam name = "Value"></typeparam>
@@ -237,6 +249,9 @@ public partial class DictionaryHelper
             }
         }
     }
+
+    
+
 
     /// <summary>
     /// In addition to method AddOrCreate, more is checking whether value in collection does not exists

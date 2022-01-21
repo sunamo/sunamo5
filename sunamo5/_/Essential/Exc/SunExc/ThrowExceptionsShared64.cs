@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 public partial class ThrowExceptions
 {
     #region For easy copy from ThrowExceptionsShared64.cs - all ok 17-10-21
-
+   
 
     public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, int countfc, string namesc, int countsc)
     {
@@ -93,11 +93,12 @@ public partial class ThrowExceptions
     {
         // Výjimky se tak často nevyhazují. Tohle je daň za to že jsem tu měl arch
         // jež nebyla dobře navržená. V ThrowEx se to již podruhé volat nebude.
-        t = Exc.GetStackTrace2(true);
-        var cm = t.Item2;
+        
 
         if (exception != null)
         {
+            t = Exc.GetStackTrace2(true);
+            var cm = t.Item2;
             if (lastMethod == cm)
             {
 #if MB

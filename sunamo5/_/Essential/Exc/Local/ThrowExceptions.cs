@@ -176,6 +176,7 @@ public partial class ThrowExceptions
     }
 
     
+
     #region Helpers
 
     public static void IsEmpty(string stacktrace, object type, string methodName, IEnumerable folders, string colName, string additionalMessage)

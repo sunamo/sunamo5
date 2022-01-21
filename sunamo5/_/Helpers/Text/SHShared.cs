@@ -2226,6 +2226,11 @@ public static partial class SH
         return sb.ToString();
     }
 
+    public static void FirstCharUpper(ref string nazevPP)
+    {
+        nazevPP = FirstCharUpper(nazevPP);
+    }
+
     /// <summary>
     /// 
     /// </summary>

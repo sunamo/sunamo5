@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
 using System.Collections.Specialized;
+using cl;
 
 public partial class PH
 {
@@ -138,7 +139,7 @@ public partial class PH
         int exitCode = process.ExitCode;
 
         if (exitCode != 0)
-            Console.WriteLine("Error: " + output + "\r\n" + error);
+            CL.WriteLine("Error: " + output + "\r\n" + error);
 
         process.Close();
         //return exitCode == 0;

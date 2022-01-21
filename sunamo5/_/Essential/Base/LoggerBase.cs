@@ -129,7 +129,7 @@ public abstract partial class LoggerBase
     }
 
     /// <summary>
-    /// for compatibility with Console.WriteLine 
+    /// for compatibility with CL.WriteLine 
     /// </summary>
     /// <param name = "what"></param>
     public void WriteLine(object what)

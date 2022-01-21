@@ -8,6 +8,20 @@ using System.Threading.Tasks;
 public partial class Exceptions
 {
     #region For easy copy from ExceptionsShared64.cs
+    public static string FirstLetterIsNotUpper(string before, string p)
+    {
+        if (p.Length == 0)
+        {
+            return null;
+        }
+
+        if (char.IsLower(p[0]))
+        {
+            return CheckBefore(before) + "First letter is not upper: " + p;
+        }
+        return null;
+    }
+
     public static string NotImplementedCase(string before, object niCase)
     {
         string fr = string.Empty;

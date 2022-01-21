@@ -18,7 +18,9 @@ using System.Text;
             ThrowIsNotNull(Exceptions.Custom, v);
         }
 
-        private static void ThrowIsNotNull(Func<string, string> f)
+    
+
+    private static void ThrowIsNotNull(Func<string, string> f)
         {
             ThrowExceptions.ThrowIsNotNullEx(f);
         }

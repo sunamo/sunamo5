@@ -470,6 +470,12 @@ public static partial class SH
         }
         return sb.ToString();
     }
+
+    public static bool IsSingleLine(string sbNullS)
+    {
+        return !sbNullS.Trim().Contains(Environment.NewLine);
+    }
+
     static bool _result = false;
     public static bool Result
     {

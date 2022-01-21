@@ -29,7 +29,16 @@ namespace sunamo.Collections
 
         }
 
+        public T this[int i]
+        {
+            get { return base[i]; }
+            set {
+                if (char.IsLower( value.ToString()[0]))
+                {
 
+                }
+                base[i] = value; }
+        }
 
         public new void Add(T t)
         {

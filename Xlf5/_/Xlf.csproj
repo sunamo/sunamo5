@@ -41,10 +41,8 @@
     <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CredentialsWithoutDep\WinSec\WinSec.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\fmdev.ResX\fmdev.ResX.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\XliffParser\XliffParser.csproj" />
-    <ProjectReference Include="..\..\sunamoWithoutDep\SunamoExceptions\SunamoExceptions.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj"></ProjectReference>
   </ItemGroup>
   <ItemGroup>

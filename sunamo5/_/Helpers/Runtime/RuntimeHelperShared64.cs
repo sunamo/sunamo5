@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ public partial class RuntimeHelper
         if (_console_present == null)
         {
             _console_present = true;
-            try { int window_height = Console.WindowHeight; }
+            try { int window_height = CL.WindowHeight; }
             catch { _console_present = false; }
         }
         return _console_present.Value;
