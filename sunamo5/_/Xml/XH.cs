@@ -163,52 +163,6 @@ namespace sunamo.Xml
             return vstup;
         }
 
-        public static string FormatXml(string xml)
-        {
-            string result = "";
-
-            MemoryStream mStream = new MemoryStream();
-            XmlTextWriter writer = new XmlTextWriter(mStream, Encoding.Unicode);
-
-            XmlNamespacesHolder h = new XmlNamespacesHolder();
-
-            XmlDocument document = null;
-            //document = h.ParseAndRemoveNamespacesXmlDocument(xml);
-
-            document = new XmlDocument();
-            document.LoadXml(xml);
-
-            try
-            {
-                writer.Formatting = Formatting.Indented;
-
-                // Write the XML into a formatting XmlTextWriter
-                document.WriteContentTo(writer);
-                writer.Flush();
-                mStream.Flush();
-
-                // Have to rewind the MemoryStream in order to read
-                // its contents.
-                mStream.Position = 0;
-
-                // Read MemoryStream contents into a StreamReader.
-                StreamReader sReader = new StreamReader(mStream);
-
-                // Extract the text from the StreamReader.
-                string formattedXml = sReader.ReadToEnd();
-
-                result = formattedXml;
-            }
-            catch (XmlException ex)
-            {
-                ThrowExceptions.CustomWithStackTrace(ex);
-            }
-
-            mStream.Close();
-            // 'Cannot access a closed Stream.'
-            //writer.Close();
-
-            return result;
-        }
+        
     }
 }
