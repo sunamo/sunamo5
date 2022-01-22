@@ -1,28 +1,229 @@
-﻿ZÍTRA ZJISTIT PROČ SE MI NEZOBRAZUJE TY CO MÁM TADY
+﻿zítra ráno opravit tyto, pak se kouknout na letenky, pak na holky!!!
 
-MySelf 3x, subfolders 2x - mám kromě těch subfolders
+e:\Documents\vs\Projects\AllProjectsSearch.Cmd.Parallel\
 
-Code parsing 1x | 0
-List -> Project file => 7x, All except of web 2x - 1x | 6x, All except of web chybí
-
-Solution files => 14x - 3x | 12x
-
-Translation toolkit 2x | 1x
-
-1)GetRelativePathToProject
-AddProjectsFromSunamoToSelected
-AddProjectsFromSunamoToSelected_NotUsed
-
-2)GetRelativePathFromSolution
-
-2-1)GetRelativePathFromSolution
-public void AddProjectsToSln(bool addProjectReferencesWhenAlreadyIsInSln, List<string> projectsToAdd, Solution slnFromWhichIsAdded, Dictionary<string, Guid> projectTypes, Dictionary<string, Guid> projectIds, string slnToWhichAdd)
-public void AddProjectsToSln(bool addProjectReferencesWhenAlreadyIsInSln, List<string> projectsToAdd, Solution slnFromWhichIsAdded, Dictionary<string, Guid> projectTypes, Dictionary<string, Guid> projectIds, string slnToWhichAdd)
-
-Kde se používá ApsHelper.ci.AddProjectsToSln:
-AddProjectsFromSunamoToSelected
-AddProjectsToSlnsInSolutionFolder
-miAddMissedProjectsToSolutions_Click - Add to every *.sunamo.cz.sln projects which is in _templateSubdomain.sln
+ProjectWithUnValidXml
 
 
-/// miAddMissingsProjectsIntoSolutions_Click - Add projects which exists on drive but not in sln into sln
+
+
+WebProjectsCantHaveNonWebRefs
+
+
+
+
+CheckGitRemote
+
+
+
+
+Commit
+
+Exception: warning: LF will be replaced by CRLF in AllProjectsSearch.Cmd.Parallel/Data/CPP.cs.
+
+Exception: The file will have its original line endings in your working directory
+[master 4d44690] .
+ 3 files changed, 22 insertions(+), 19 deletions(-)
+
+
+Pull
+
+Already up to date.
+
+
+Push
+
+
+
+
+Status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+e:\Documents\vs\Projects\sunamo\
+
+ProjectWithUnValidXml
+
+
+
+
+WebProjectsCantHaveNonWebRefs
+
+
+
+
+CheckGitRemote
+
+
+
+
+Commit
+
+[master 32a6cd6c] .
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+
+Pull
+
+Already up to date.
+
+
+Push
+
+
+
+
+Status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+e:\Documents\vs\Projects\sunamo.webWithoutDep64\
+
+ProjectWithUnValidXml
+
+
+
+
+WebProjectsCantHaveNonWebRefs
+
+
+
+
+CheckGitRemote
+
+
+
+
+Commit
+
+Exception: warning: LF will be replaced by CRLF in .gitignore.
+
+Exception: The file will have its original line endings in your working directory
+On branch master
+nothing to commit, working tree clean
+
+
+Pull
+
+Exception: warning: no common commits
+
+Exception: From https://dev.azure.com/radekjancik/sunamo.webWithoutDep64/_git/sunamo.webWithoutDep64
+
+Exception:  * [new branch]      master     -> origin/master
+
+Exception: There is no tracking information for the current branch.
+
+Exception: Please specify which branch you want to merge with.
+
+Exception: See git-pull(1) for details.
+
+Exception: 
+
+Exception:     git pull <remote> <branch>
+
+Exception: 
+
+Exception: If you wish to set tracking information for this branch you can do so with:
+
+Exception: 
+
+Exception:     git branch --set-upstream-to=origin/<branch> master
+
+Exception:
+
+
+Push
+
+
+
+
+Status
+
+On branch master
+nothing to commit, working tree clean
+
+e:\Documents\vs\Projects\webelieve.cz\
+
+ProjectWithUnValidXml
+
+
+
+
+WebProjectsCantHaveNonWebRefs
+
+
+
+
+CheckGitRemote
+
+
+
+
+Commit
+
+[master f7db87f] .
+ 1 file changed, 141 insertions(+), 1 deletion(-)
+
+
+Pull
+
+Already up to date.
+
+
+Push
+
+
+
+
+Status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+e:\Documents\vs\Projects\_Frameworks\_ut\UnitTestProject(netFw)\
+
+ProjectWithUnValidXml
+
+
+
+
+WebProjectsCantHaveNonWebRefs
+
+
+
+
+CheckGitRemote
+
+Not reference to same name repo
+
+
+Commit
+
+
+
+
+Pull
+
+
+
+
+Push
+
+
+
+
+Status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
