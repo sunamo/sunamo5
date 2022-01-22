@@ -37,4 +37,5 @@ public class HtmlTags
     public static string h3 = "h3";
     public static string script = "script";
     public static string th = "th";
+    public static string option = "option";
 }

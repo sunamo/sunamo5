@@ -142,6 +142,16 @@ public static partial class SH
         return input;
     }
 
+    public static string SwitchSwap(string co, string v)
+    {
+        var p = SH.Split(co, v);
+        if (p.Count == 2)
+        {
+            return p[1] + AllStrings.comma + p[0];
+        }
+        return null;
+    }
+
     public static string TrimNumbersAtEnd(string nameSolution)
     {
         for (int i = nameSolution.Length - 1; i >= 0; i--)
