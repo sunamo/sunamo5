@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 public static partial class SH
 {
+
     private static Type type = typeof(SH);
     public const String diacritic = "\u00E1\u010D\u010F\u00E9\u011B\u00ED\u0148\u00F3\u0161\u0165\u00FA\u016F\u00FD\u0159\u017E\u00C1\u010C\u010E\u00C9\u011A\u00CD\u0147\u00D3\u0160\u0164\u00DA\u016E\u00DD\u0158\u017D";
 
@@ -43,19 +44,20 @@ public static partial class SH
         }
         return false;
     }
-
-
-    #region For easy copy from SH.cs
-    public static string FirstLine(string item)
+    /// <summary>
+    /// Trim all A2 from beginning A1
+    /// </summary>
+    /// <param name="v"></param>
+    /// <param name="s"></param>
+    public static string TrimStart(string v, string s)
     {
-        var lines = SH.GetLines(item);
-        if (lines.Count == 0)
+        while (v.StartsWith(s))
         {
-            return string.Empty;
+            v = SubstringStart(v, s.Length);
         }
-        return lines[0];
+        return v;
     }
-
+    #region For easy copy from SHShared64.cs
     /// <summary>
     /// Start at 0
     /// </summary>
@@ -86,45 +88,47 @@ public static partial class SH
 
         return t.Substring(0, dex);
     }
-    #endregion
 
-    /// <summary>
-    /// Not auto remove empty
-    /// </summary>
-    /// <param name="p"></param>
-    public static List<string> GetLines(string p)
+
+    public static string FirstLine(string item)
     {
-        List<string> vr = new List<string>();
-        StringReader sr = new StringReader(p);
-        string f = null;
-        while ((f = sr.ReadLine()) != null)
+        var lines = SH.GetLines(item);
+        if (lines.Count == 0)
         {
-            vr.Add(f);
+            return string.Empty;
         }
-        return vr;
+        return lines[0];
     }
 
-    /// <summary>
-    /// 2 of 2 method which call just BCL to use everywhere to disable message "IDE0057 Substring can be simplified"
-    /// </summary>
-    /// <param name="vr"></param>
-    /// <param name="from"></param>
-    /// <param name="length"></param>
-    /// <returns></returns>
-    private static string SubstringLength(string vr, int from, int length)
+    public static bool ContainsOnly(string floorS, List<char> numericChars)
     {
-        if (HasIndex(from, vr))
+        if (floorS.Length == 0)
         {
-            if (HasIndex(length, vr))
+            return false;
+        }
+
+        foreach (var item in floorS)
+        {
+            if (!numericChars.Contains(item))
             {
-                return vr.Substring(from, length);
+                return false;
             }
         }
-        return string.Empty;
+
+        return true;
     }
 
-    #region For easy copy from SH.cs
+    public static string FirstCharLower(string nazevPP)
+    {
+        if (nazevPP.Length < 2)
+        {
+            return nazevPP;
+        }
 
+        string sb = nazevPP.Substring(1);
+        return nazevPP[0].ToString().ToLower() + sb;
+    }
+    #endregion
 
     public static bool HasIndex(int p, string nahledy, bool throwExcWhenInvalidIndex = true)
     {
@@ -158,8 +162,8 @@ public static partial class SH
         return name.Substring(v1);
     }
 
-    
-    
+
+
 
     public static string Substring(string sql, int indexFrom, int indexTo, bool returnInputIfInputIsShorterThanA3 = false)
     {
@@ -221,7 +225,7 @@ public static partial class SH
         return false;
     }
 
-    public static bool IsNegation( string contains)
+    public static bool IsNegation(string contains)
     {
         if (contains[0] == AllChars.excl)
         {
@@ -354,7 +358,7 @@ public static partial class SH
     /// <param name="item"></param>
     /// <param name="contains"></param>
     /// <returns></returns>
-    public static bool IsContained(string item,  string contains)
+    public static bool IsContained(string item, string contains)
     {
         bool negation = SH.IsNegation(ref contains);
 
@@ -434,7 +438,7 @@ public static partial class SH
         return r;
     }
 
-   
+
 
     public static string GetString(IEnumerable o, string p)
     {
@@ -483,19 +487,7 @@ public static partial class SH
         return v;
     }
 
-    /// <summary>
-    /// Trim all A2 from beginning A1
-    /// </summary>
-    /// <param name="v"></param>
-    /// <param name="s"></param>
-    public static string TrimStart(string v, string s)
-    {
-        while (v.StartsWith(s))
-        {
-            v = SubstringStart( v,s.Length);
-        }
-        return v;
-    }
+    
 
     /// <summary>
     /// Trim all A2 from end A1
@@ -508,12 +500,12 @@ public static partial class SH
     {
         while (name.EndsWith(ext))
         {
-            return SH.SubstringLength( name, 0, name.Length - ext.Length);
+            return SH.SubstringLength(name, 0, name.Length - ext.Length);
         }
         return name;
     }
 
-    
+
     /// <summary>
     /// POZOR, tato metoda se změnila, nyní automaticky přičítá k indexu od 1
     /// When I want to include delimiter, add to A3 +1
@@ -663,23 +655,7 @@ public static partial class SH
         return p;
     }
 
-    public static bool ContainsOnly(string floorS, List<char> numericChars)
-    {
-        if (floorS.Length == 0)
-        {
-            return false;
-        }
 
-        foreach (var item in floorS)
-        {
-            if (!numericChars.Contains(item))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
 
     public static string FirstCharUpper(string nazevPP)
     {
@@ -690,20 +666,11 @@ public static partial class SH
         string sb = nazevPP.Substring(1);
         return nazevPP[0].ToString().ToUpper() + sb;
     }
-    public static string FirstCharLower(string nazevPP)
-    {
-        if (nazevPP.Length < 2)
-        {
-            return nazevPP;
-        }
-
-        string sb = nazevPP.Substring(1);
-        return nazevPP[0].ToString().ToLower() + sb;
-    }
 
 
 
-    
+
+
 
     /// <summary>
     /// If A1 is string, return A1
@@ -761,7 +728,7 @@ public static partial class SH
         return JoinString(delimiter, parts);
     }//
 
-  
+
 
     /// <summary>
     /// Will be delete after final refactoring
@@ -799,7 +766,7 @@ public static partial class SH
         return result;
     }
 
-    
+
     public static List<string> Split(string parametry, params object[] deli)
     {
         return Split(StringSplitOptions.RemoveEmptyEntries, parametry, deli);
@@ -827,7 +794,7 @@ public static partial class SH
 
     public static string JoinNL(IEnumerable parts, bool removeLastNl = false)
     {
-         string nl = Environment.NewLine;
+        string nl = Environment.NewLine;
         var result = SH.JoinString(nl, parts);
         if (removeLastNl)
         {
@@ -950,9 +917,9 @@ public static partial class SH
     }
 
 
-    
 
-   
+
+
 
     public static string JoinPairs(params object[] parts)
     {
@@ -1051,5 +1018,51 @@ public static partial class SH
             }
         }
     }
-    #endregion
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    /// <summary>
+    /// Not auto remove empty
+    /// </summary>
+    /// <param name="p"></param>
+    public static List<string> GetLines(string p)
+    {
+        List<string> vr = new List<string>();
+        StringReader sr = new StringReader(p);
+        string f = null;
+        while ((f = sr.ReadLine()) != null)
+        {
+            vr.Add(f);
+        }
+        return vr;
+    }
+
+    /// <summary>
+    /// 2 of 2 method which call just BCL to use everywhere to disable message "IDE0057 Substring can be simplified"
+    /// </summary>
+    /// <param name="vr"></param>
+    /// <param name="from"></param>
+    /// <param name="length"></param>
+    /// <returns></returns>
+    private static string SubstringLength(string vr, int from, int length)
+    {
+        if (HasIndex(from, vr))
+        {
+            if (HasIndex(length, vr))
+            {
+                return vr.Substring(from, length);
+            }
+        }
+        return string.Empty;
+    }
+
+    
 }

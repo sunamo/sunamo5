@@ -301,6 +301,33 @@ public static partial class CA
 
     #region For easy copy from CAShared64.cs
     /// <summary>
+    /// Non direct edit
+    /// </summary>
+    /// <param name="backslash"></param>
+    /// <param name="s"></param>
+    public static List<string> TrimStart(char backslash, params string[] s)
+    {
+        return TrimStart(backslash, s.ToList());
+    }
+
+    /// <summary>
+    /// Direct edit
+    /// </summary>
+    /// <param name="backslash"></param>
+    /// <param name="s"></param>
+    public static List<string> TrimStart(char backslash, List<string> s)
+    {
+        for (int i = 0; i < s.Count; i++)
+        {
+            s[i] = s[i].TrimStart(backslash);
+        }
+        return s;
+    }
+
+    #endregion
+
+
+    /// <summary>
     /// Direct edit collection
     /// Na rozdíl od metody RemoveStringsEmpty i vytrimuje (ale pouze pro porovnání, v kolekci nechá)
     /// </summary>
@@ -384,8 +411,6 @@ public static partial class CA
             }
         }
     }
-    #endregion
-
 
     /// <summary>
     /// Direct editr
@@ -440,29 +465,7 @@ public static partial class CA
         }
     }
 
-    /// <summary>
-    /// Non direct edit
-    /// </summary>
-    /// <param name="backslash"></param>
-    /// <param name="s"></param>
-    public static List<string> TrimStart(char backslash, params string[] s)
-    {
-        return TrimStart(backslash, s.ToList());
-    }
-
-    /// <summary>
-    /// Direct edit
-    /// </summary>
-    /// <param name="backslash"></param>
-    /// <param name="s"></param>
-    public static List<string> TrimStart(char backslash, List<string> s)
-    {
-        for (int i = 0; i < s.Count; i++)
-        {
-            s[i] = s[i].TrimStart(backslash);
-        }
-        return s;
-    }
+    
     public static T[] ToArrayT<T>(params T[] aB)
     {
         return aB;

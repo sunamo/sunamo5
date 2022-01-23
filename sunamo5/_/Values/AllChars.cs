@@ -8,10 +8,7 @@ using System.Diagnostics;
 /// </summary>
 public static partial class AllChars
 {
-    private static Type type = typeof(AllChars);
-
-    // my extension
-    public static readonly List<char> generalChars = null;
+    #region For easy copy from AllChars.cs
     // my extension
     public static readonly List<int> specialKeyCodes = new List<int>(new int[] { 33, 64, 35, 36, 37, 94, 38, 42, 63, 95, 126 });
 
@@ -61,14 +58,21 @@ equal->equals
 
     // IsNumber - 0..9 
     // IsPunctuation
-    // IsSeparator
+    // IsSeparatorw
     // IsSurrogate
     // IsSurrogatePair
     // IsSymbol
 
     // IsUpper
     public static readonly List<int> upperKeyCodes = new List<int>(new int[] { 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 });
-    public static readonly List<char> upperChars = new List<char>(new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' });
+    public static readonly List<char> upperChars = new List<char>(new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' }); 
+    #endregion
+
+    private static Type type = typeof(AllChars);
+
+    // my extension
+    public static readonly List<char> generalChars = null;
+    
 
     // IsWhiteSpace
     // , 55296 mi taky vrátila metoda IsWhiteSpace vrátila, ale při znovu vytvoření pomocí tohoto kódu to vyhazovalo výjimku

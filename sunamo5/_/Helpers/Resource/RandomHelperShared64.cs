@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 public static partial class RandomHelper
 {
-    public static List<char> vsZnaky = null;
-    private static Random s_rnd = new Random();
+    
 
     public static string RandomString(int delka)
     {
@@ -43,6 +42,9 @@ public static partial class RandomHelper
         return s_rnd.Next(0, to);
     }
 
+    #region For easy copy from RandomHelperShared64.cs
+    public static List<char> vsZnaky = null;
+    private static Random s_rnd = new Random();
     /// <summary>
     /// upper, lower and digits
     /// </summary>
@@ -59,5 +61,7 @@ public static partial class RandomHelper
         vsZnakyWithoutSpecial.AddRange(AllChars.lowerChars);
         vsZnakyWithoutSpecial.AddRange(AllChars.numericChars);
         vsZnakyWithoutSpecial.AddRange(AllChars.upperChars);
-    }
+    } 
+
+    #endregion
 }

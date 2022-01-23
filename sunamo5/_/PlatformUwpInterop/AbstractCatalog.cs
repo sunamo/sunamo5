@@ -11,7 +11,7 @@ using System.Text;
 /// </summary>
 /// <typeparam name="StorageFolder"></typeparam>
 /// <typeparam name="StorageFile"></typeparam>
-public class AbstractCatalog<StorageFolder, StorageFile>
+public class AbstractCatalog<StorageFolder, StorageFile> : AbstractCatalogBase<StorageFolder, StorageFile>
 {
     public AppDataBase<StorageFolder, StorageFile> appData;
     /// <summary>
@@ -20,7 +20,6 @@ public class AbstractCatalog<StorageFolder, StorageFile>
     public FSAbstract<StorageFolder, StorageFile> fs = null;
     
     public TFAbstract<StorageFile> tf;
-
 
     public AbstractCatalog()
     {
