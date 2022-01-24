@@ -36,22 +36,27 @@ namespace sunamo.Constants
         /// Ended with backslash
         /// </summary>
         public static string sczRootPath = FS.Combine(eDocuments, @"vs\Projects\sunamo.cz\");
-
-
         public const string ProjectsFolderNameSlash = "Projects\\";
 
         #region vs
 
         public const string cRepos = @"c:\repos";
+
+        public const string bpMb = @"E:\Documents\vs\";
+        public const string bpQ = @"C:\repos\_\";
+        public const string bpVps = @"C:\_\";
+
+        public const string bpBb = @"D:\Documents\BitBucket\";
+
         public static string bp = null;
 
         static DefaultPaths()
         {
-            bp = @"e:\Documents\vs\";
+            bp = bpMb;
 
             if (VpsHelperSunamo.IsQ)
             {
-                bp = @"c:\repos\_\";
+                bp = bpQ;
             }
 
             sunamo = bp + @"Projects\sunamo\";

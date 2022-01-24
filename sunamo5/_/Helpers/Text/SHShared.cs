@@ -19,6 +19,37 @@ public static partial class SH
 {
     #region For easy copy
     /// <summary>
+    /// Stejná jako metoda ReplaceAll, ale bere si do A3 pouze jediný parametr, nikoliv jejich pole
+    /// </summary>
+    /// <param name="vstup"></param>
+    /// <param name="zaCo"></param>
+    /// <param name="co"></param>
+    public static string ReplaceAll2(string vstup, string zaCo, string co)
+    {
+        return vstup.Replace(co, zaCo);
+    }
+
+    /// <summary>
+    /// Format - use string.Format with error checking, as only one can be use wich { } [ ] chars in text
+    /// Format2 - use string.Format with error checking
+    /// Format3 - Replace {x} with my code. Can be used with wildcard
+    /// Format4 - use string.Format without error checking
+    /// 
+    /// Manually replace every {i} 
+    /// </summary>
+    /// <param name="template"></param>
+    /// <param name="args"></param>
+    public static string Format3(string template, params object[] args)
+    {
+        // this was original implementation but dont know why isnt used string.format
+        for (int i = 0; i < args.Length; i++)
+        {
+            template = SH.ReplaceAll2(template, args[i].ToString(), AllStrings.lcub + i + AllStrings.rcub);
+        }
+        return template;
+    }
+
+    /// <summary>
     /// Work like everybody excepts, from a {b} c return b
     /// </summary>
     /// <param name="p"></param>
@@ -1352,16 +1383,7 @@ public static partial class SH
         return vr.ToList();
     }
 
-    /// <summary>
-    /// Stejná jako metoda ReplaceAll, ale bere si do A3 pouze jediný parametr, nikoliv jejich pole
-    /// </summary>
-    /// <param name="vstup"></param>
-    /// <param name="zaCo"></param>
-    /// <param name="co"></param>
-    public static string ReplaceAll2(string vstup, string zaCo, string co)
-    {
-        return vstup.Replace(co, zaCo);
-    }
+    
 
     
     public static bool IsValidISO(string input)
@@ -1852,25 +1874,7 @@ public static partial class SH
 
     
 
-    /// <summary>
-    /// Format - use string.Format with error checking, as only one can be use wich { } [ ] chars in text
-    /// Format2 - use string.Format with error checking
-    /// Format3 - Replace {x} with my code. Can be used with wildcard
-    /// Format4 - use string.Format without error checking
-    /// 
-    /// Manually replace every {i} 
-    /// </summary>
-    /// <param name="template"></param>
-    /// <param name="args"></param>
-    public static string Format3(string template, params object[] args)
-    {
-        // this was original implementation but dont know why isnt used string.format
-        for (int i = 0; i < args.Length; i++)
-        {
-            template = SH.ReplaceAll2(template, args[i].ToString(), AllStrings.lcub + i + AllStrings.rcub);
-        }
-        return template;
-    }
+    
 
     /// <summary>
     /// Format - use string.Format with error checking, as only one can be use wich { } [ ] chars in text
