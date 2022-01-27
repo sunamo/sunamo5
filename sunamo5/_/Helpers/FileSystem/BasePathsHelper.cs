@@ -7,7 +7,7 @@ using System.Text;
 public class BasePathsHelper
 {
     static Dictionary<string, bool> exists = new Dictionary<string, bool>();
-    static string actualPlatform = null;
+    public static string actualPlatform = null;
 
     static string bpMb => DefaultPaths.bpMb;
     static string bpQ => DefaultPaths.bpQ;
