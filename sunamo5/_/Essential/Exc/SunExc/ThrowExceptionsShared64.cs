@@ -73,6 +73,14 @@ public partial class ThrowExceptions
         ThrowIsNotNull(t.Item3, exc);
     }
 
+    public static bool ThrowIsNotNullEx(Func<string, string, IEnumerable, string> f, string a1, IEnumerable a2)
+    {
+        t = Exc.GetStackTrace2(true);
+
+        var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1, a2);
+        return ThrowIsNotNull(t.Item3, exc);
+    }
+
     public static void ThrowIsNotNullEx<T>(Func<string, string, T[], string> f, string a1, params T[] a2)
     {
         t = Exc.GetStackTrace2(true);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -17,6 +18,62 @@ namespace sunamo.Xml
         {
             var xd = XDocument.Parse(xml);
             //xd.Descendants("")
+        }
+
+        public static void AddXmlns(string csproj, XNamespace ns, bool add)
+    {
+        if (add)
+            {
+                XDocument xml = XDocument.Load(csproj);
+                AddNs(ns, xml);
+
+                xml.Save(csproj);
+            }
+            else
+            {
+                var text = TF.ReadAllText(csproj);
+                text = RemoveNs(ns, text);
+                TF.WriteAllText(text, csproj);
+            }
+        }
+
+        private static void AddNs(XNamespace ns, XDocument xml)
+        {
+            foreach (var element in xml.Descendants().ToList())
+            {
+                element.Name = ns + element.Name.LocalName;
+            }
+            xml.Root.SetAttributeValue(Consts.xmlns, ns.ToString());
+        }
+
+        private static string RemoveNs(XNamespace ns, string text)
+        {
+            var xmlns = "xmlns=\"" + ns.ToString() + "\"";
+            text = SH.ReplaceOnce(text, xmlns, string.Empty);
+            return text;
+        }
+
+        public static string AddXmlnsContent(string content, XNamespace ns, bool add)
+    {
+        if (add)
+        {
+            XDocument xml = XDocument.Parse(content);
+            AddNs(ns, xml);
+            return XH.OuterXml(xml); 
+        }
+        else
+        {
+            return RemoveNs(ns, content);
+        }
+    }
+
+        private static string OuterXml(XDocument xml)
+        {
+            StringBuilder sb = new StringBuilder();
+                
+                XmlWriter xml2 = XmlTextWriter.Create(sb);
+                xml.Document.WriteTo(xml2);
+            return sb.ToString();
         }
 
         /// <summary>
@@ -79,7 +136,7 @@ namespace sunamo.Xml
                 xdoc = new XmlDocument();
             }
 
-
+            xdoc.PreserveWhitespace = true;
             xdoc.LoadXml(xml);
 
             //xdoc.Load(soubor);

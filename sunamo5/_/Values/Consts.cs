@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
     public static partial class Consts
     {
+    
         /// <summary>
         /// Here because is use in Events, AllProjectsSearch etc.
         /// </summary>

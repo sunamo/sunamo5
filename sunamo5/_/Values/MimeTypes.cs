@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
+// Must be in NS due to another MimeTypes is in TurnerSoftware.SitemapTools.web
+namespace sunamo
+{
     public static class MimeTypes
     {
         // code take here : https://github.com/samuelneff/MimeTypeMap/blob/master/src/MimeTypes/MimeTypeMap.cs
         // On MIT License
 
-         static Dictionary<string, string> Mappings = null;
+        static Dictionary<string, string> Mappings = null;
 
         public static string ForExtension(string ext)
         {
@@ -18,6 +20,9 @@ using System.Collections.Generic;
 
             return Mappings[ext];
         }
+
+
+
         static void Init()
         {
             Mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
@@ -704,3 +709,4 @@ using System.Collections.Generic;
         };
         }
     }
+}

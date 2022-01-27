@@ -7,6 +7,8 @@ using System.Text;
     /// </summary>
     public static partial class Consts
     {
+    public const string xmlns = "xmlns";
+    public const string Schema = "http://schemas.microsoft.com/developer/msbuild/2003";
     public const string gitFolderName = ".git";
     public const string _3Asterisks = "***";
     public const string Test_ = "Test_";

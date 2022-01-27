@@ -23,7 +23,7 @@ public partial class Exceptions
         return CheckBefore(before) + what + " is not allowed.";
     }
 
-    public static object IsOdd(string before, string colName, IEnumerable col)
+    public static string IsOdd(string before, string colName, IEnumerable col)
     {
         if (col.Count() % 2 == 1)
         {

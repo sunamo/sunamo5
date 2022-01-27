@@ -59,14 +59,11 @@ xml=http://www.w3.org/XML/1998/namespace
                 var att = root.Attributes[i];
                 //
                 string key = defaultPrefix;
-                if (att.Name.StartsWith("xmlns"))
+                if (att.Name.StartsWith(Consts.xmlns))
                 {
                     if (att.Name.Contains(":"))
                     {
                         key = att.Name.Substring(6);
-                    }
-                    else
-                    {
                     }
 
                     nsmgr.AddNamespace(key, att.Value);

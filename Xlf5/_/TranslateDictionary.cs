@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using SunamoExceptions;
 using Xlf;
 
@@ -28,7 +27,7 @@ public class TranslateDictionary : IDictionary<string, string>
         {
             if (PD.delShowMb == null)
             {
-                MessageBox.Show("PD.delShowMb is null, return dummy method");
+                System.Windows.Forms.MessageBox.Show("PD.delShowMb is null, return dummy method");
                 return (s) => { };
             }
             return PD.delShowMb;

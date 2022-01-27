@@ -20,6 +20,7 @@ public partial class ThrowExceptions
 
     /// <summary>
     /// return true if exception was thrown
+    /// odd - lichý, even - sudý
     /// </summary>
     /// <param name="stacktrace"></param>
     /// <param name="type"></param>

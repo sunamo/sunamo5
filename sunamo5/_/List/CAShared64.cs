@@ -280,6 +280,11 @@ public static partial class CA
     /// <param name="arg"></param>
     public static List<string> ChangeContent<Arg1>(ChangeContentArgs a, List<string> files_in, Func<string, Arg1, string> func, Arg1 arg, Func<Arg1, string, string> funcSwitch12 = null)
     {
+        if (a == null)
+        {
+            a = new ChangeContentArgs();
+        }
+
         if (a.switchFirstAndSecondArg)
         {
             files_in = ChangeContentSwitch12<Arg1>(files_in, funcSwitch12, arg);

@@ -19,4 +19,9 @@ public class TWithString<T>
 
         public T t = default(T);
         public string path = null;
+
+    public override string ToString()
+    {
+        return path;
     }
+}

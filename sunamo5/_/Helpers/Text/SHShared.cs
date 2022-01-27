@@ -2753,7 +2753,9 @@ public static partial class SH
             }
             else
             {
-                vr = p;
+                // 24-1-21 return null instead of p
+                return null;
+                //vr = p;
             }
         }
 

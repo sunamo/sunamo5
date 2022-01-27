@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,6 +34,11 @@ using System.Text;
     private static void ThrowIsNotNull(Func<string, string, string> f,string a1)
         {
             ThrowExceptions.ThrowIsNotNullEx(f, a1);
+    }
+
+        private static bool ThrowIsNotNull(Func<string, string, IEnumerable, string> f, string a1, IEnumerable a2)
+        {
+            return ThrowExceptions.ThrowIsNotNullEx(f, a1, a2);
         }
 
     private static void ThrowIsNotNull<T>(Func<string, string, T[], string> f, string a1, params T[] a2)

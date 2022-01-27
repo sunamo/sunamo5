@@ -25,9 +25,9 @@ public partial class XHelper{
 
             if (withPrexixedXmlnsColon)
             {
-                if (item == string.Empty || item == "xmlns")
+                if (item == string.Empty || item == Consts.xmlns)
                 {
-                    item = "xmlns";
+                    item = Consts.xmlns;
                 }
                 else
                 {
