@@ -135,6 +135,12 @@ public partial class ThrowExceptions
 
                 // Will be written in globalasax error
                 writeServerError(stacktrace, exception);
+
+                /*
+reallyThrow - method arg
+reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
+                 */
+
                 if (reallyThrow && reallyThrow2)
                 {
                     throw new Exception(exception);
@@ -151,7 +157,16 @@ public partial class ThrowExceptions
 #if MB
                     ShowMb("Throw exc");
 #endif
-                    throw new Exception(exception);
+                    if (showExceptionWindow != null)
+                    {
+                        var nl = Environment.NewLine;
+
+                        showExceptionWindow(stacktrace + nl+nl+exception );
+                    }
+                    else
+                    {
+                        throw new Exception(exception);
+                    }
                 }
             }
         }
@@ -194,6 +209,7 @@ public partial class ThrowExceptions
     /// Must be public due to GlobalAsaxHelper
     /// </summary>
     public static Action<string, string> writeServerError;
+    public static Action<object> showExceptionWindow;
 #pragma warning enable
 
     public static void NotImplementedCase(string stacktrace, object type, string methodName, object niCase)

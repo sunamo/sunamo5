@@ -6,7 +6,7 @@ using System.Xml;
 
 public class XHDuo
 {
-    public static string FormatXml(string xml)
+    public static string FormatXml(string xml, string path = ConstsDuo.se)
     {
         string result = "";
 
@@ -19,10 +19,12 @@ public class XHDuo
         //document = h.ParseAndRemoveNamespacesXmlDocument(xml);
 
         document = new XmlDocument();
-        document.LoadXml(xml);
+        
 
         try
         {
+            document.LoadXml(xml);
+
             writer.Formatting = Formatting.Indented;
 
             // Write the XML into a formatting XmlTextWriter
@@ -44,7 +46,11 @@ public class XHDuo
         }
         catch (XmlException ex)
         {
-            return ex.Message;
+            var nl = Environment.NewLine;
+
+
+
+            return ConstsDuo.Exception + path + nl+nl + ex.Message;
             //ThrowExceptions.CustomWithStackTrace(ex);
         }
 

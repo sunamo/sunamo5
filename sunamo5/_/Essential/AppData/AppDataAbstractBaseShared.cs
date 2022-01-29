@@ -59,7 +59,7 @@ namespace sunamo
         /// <param name = "file"></param>
         public abstract StorageFile GetFile(AppFolders af, string file);
 
-        public abstract StorageFile GetFileString(string af, string file);
+        public abstract StorageFile GetFileString(string af, string file, bool pa = false);
 
         public abstract bool IsRootFolderNull();
         //public abstract StorageFolder GetSunamoFolder();

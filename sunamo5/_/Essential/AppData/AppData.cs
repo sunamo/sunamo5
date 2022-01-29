@@ -17,6 +17,8 @@ public class AppData : AppDataAbstractBase<string, string>
         
     }
 
+    
+
     public override string GetFileInSubfolder(AppFolders output, string subfolder, string file, string ext)
     {
         return AppData.ci.GetFile(AppFolders.Output, subfolder + @"\" + file + ext);
@@ -43,7 +45,9 @@ public class AppData : AppDataAbstractBase<string, string>
         return sunamo2;
     }
 
-    public override string GetFileString(string af, string file)
+    
+
+    public override string GetFileString(string af, string file, bool pa = false)
     {
         string slozka2, soubor;
 
@@ -55,15 +59,31 @@ public class AppData : AppDataAbstractBase<string, string>
         }
         else
         {
-            slozka2 = FS.Combine(RootFolder, af.ToString());
+            var rf = RootFolder;
+            if (pa)
+            {
+                rf = RootFolderPa;
+            }
+
+            slozka2 = FS.Combine(rf, af.ToString());
             soubor = FS.Combine(slozka2, file);
             return soubor;
         }
     }
 
+    public string GetFileString(string af, string file)
+    {
+        return GetFileString(af, file, false);
+    }
+
     public override string GetFile(AppFolders af, string file)
     {
         return GetFileString(af.ToString(), file);
+    }
+
+      public string GetFileAppTypeAgnostic(AppFolders af, string file)
+    {
+        return GetFileString(af.ToString(), file, true);
     }
 
     public override string GetFolder(AppFolders af)
@@ -124,15 +144,18 @@ public class AppData : AppDataAbstractBase<string, string>
 
 
 
-    /// <summary>
-    /// Ending with name of app
-    /// </summary>
-    public override string GetRootFolder()
+
+
+     public override string GetRootFolder()
     {
         rootFolder = GetSunamoFolder();
+        
 
-        RootFolder = FS.Combine(rootFolder, ThisApp.Name);
+        //pa ? SH.RemoveAfterFirst(ThisApp.Name, AllChars.dot) :
+        RootFolder = FS.Combine(rootFolder,  ThisApp.Name);
+        RootFolderPa = FS.Combine(FS.GetDirectoryName( rootFolder), SH.RemoveAfterFirst( ThisApp.Name, AllChars.dot));
         FS.CreateDirectory(RootFolder);
+        FS.CreateDirectory(RootFolderPa);
         return RootFolder;
     }
 

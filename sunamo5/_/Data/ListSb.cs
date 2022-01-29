@@ -22,7 +22,7 @@
 //        sb = bs;
 //    }
 
-//    internal StringBuilder Sb()
+//    public StringBuilder Sb()
 //    {
 //        if (sb == null)
 //        {

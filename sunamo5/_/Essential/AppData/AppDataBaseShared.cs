@@ -23,6 +23,7 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
     /// For all apps will be valid either AppData/Roaming or alternative path
     /// </summary>
     protected StorageFolder rootFolder = default(StorageFolder);
+    protected StorageFolder rootFolderPa = default(StorageFolder);
 
     /// <summary>
     /// Must be here and Tash because in UWP is everything async
@@ -77,6 +78,24 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
         set
         {
             rootFolder = value;
+        }
+    }
+
+    public StorageFolder RootFolderPa
+    {
+        get
+        {
+            bool isNull = Abstract.IsRootFolderNull();
+            if (isNull)
+            {
+                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Slo\u017Eka ke soubor\u016Fm aplikace nebyla zad\u00E1na "+SunamoPageHelperSunamo.i18n(XlfKeys.LookDirectIntoIsRootFolderNull)+".");
+            }
+
+            return rootFolderPa;
+        }
+        set
+        {
+            rootFolderPa = value;
         }
     }
 
