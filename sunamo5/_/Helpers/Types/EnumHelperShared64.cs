@@ -12,9 +12,13 @@ public static partial class EnumHelper
     /// </summary>
     /// <typeparam name = "T"></typeparam>
     /// <param name = "web"></param>
-    public static T Parse<T>(string web, T _def)
+    public static T Parse<T>(string web, T _def, bool returnDefIfNull = false)
         where T : struct
     {
+        if (returnDefIfNull)
+        {
+            return _def;
+        }
         T result;
         if (Enum.TryParse<T>(web, true, out result))
         {

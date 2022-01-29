@@ -20,6 +20,7 @@ using System.Threading.Tasks;
     /// Must be here due to XmlAgilityDocumentTest
     /// </summary>
     public static string Include = "Include";
+    public static string OK = "OK";
     public const string na = "n/a";
     public const string NA = "N/A";
     public const string x = "X";

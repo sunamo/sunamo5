@@ -8,6 +8,11 @@ public class BasePathsHelper
 {
     static Dictionary<string, bool> exists = new Dictionary<string, bool>();
     public static string actualPlatform = null;
+    public static Platforms platform = Platforms.Mb;
+    /// <summary>
+    /// e:\Documents\vs\Projects\
+    /// </summary>
+    public static string vs = null;
 
     static string bpMb => DefaultPaths.bpMb;
     static string bpQ => DefaultPaths.bpQ;
@@ -29,6 +34,26 @@ public class BasePathsHelper
         else
         {
             actualPlatform = where.First().Key;
+            if (actualPlatform != bpMb)
+            {
+                if (actualPlatform == bpQ)
+                {
+                    platform = Platforms.Q;
+                }
+                else if (actualPlatform == bpVps)
+                {
+                    platform = Platforms.Vps;
+                }
+                else
+                {
+                    ThrowEx.NotImplementedCase(platform);
+                }
+                vs = actualPlatform;
+            }
+            else
+            {
+                vs = actualPlatform + "Projects\\";
+            }
         }
     }
 

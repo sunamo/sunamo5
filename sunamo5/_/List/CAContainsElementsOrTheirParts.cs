@@ -205,6 +205,11 @@ public static partial class CA
         }
         return false;
     }
+
+    public static string FirstWhichEndWith(List<string> solutions, string v)
+    {
+        return solutions.FirstOrDefault(d => d.EndsWith(v));
+    }
     #endregion
     #endregion
 

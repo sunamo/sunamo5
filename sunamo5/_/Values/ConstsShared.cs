@@ -34,6 +34,8 @@ using System.Text;
     public static DateTime nDateTimeMaxVal= new DateTime(2032, 12, 31, 23, 59, 59);
     public static string isNot = "!=";
     public static string addressHavirovAntalaStaska = "";
+    public static string Load = "Load";
+    public static string AppendWithoutDuplicates = "AppendWithoutDuplicates";
     public const string appscs = "appscs";
     public const string ChytreAplikace = "chytre-aplikace.cz";
     public const string Nope = XlfKeys.Nope;
