@@ -145,6 +145,16 @@ public partial class DictionaryHelper
         return r;
     }
 
+    public static Dictionary<IDItemType, T1> ChangeTypeOfKey<IDItemType, T1>(Dictionary<short, T1> toAdd)
+    {
+        Dictionary<IDItemType, T1> r = new Dictionary<IDItemType, T1>(toAdd.Count);
+        foreach (var item in toAdd)
+        {
+            r.Add((IDItemType)(dynamic)item.Key, item.Value);
+        }
+        return r;
+    }
+
     public static Dictionary<T, T> GetDictionaryByKeyValueInString<T>(List<T> p)
     {
         var methodName = Exc.CallingMethod();

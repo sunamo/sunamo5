@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 public class EventLogNames
 {
     public const string AllProjectsSearchWpf="AllProjectsSearch.Wpf";
-    public const string SunamoCzAdminCmd = "SunamoCzAdminCmd";
+    public const string SunamoCzAdminCmd = "SczAdmCmd";
     public static string Dummy
     {
         get
