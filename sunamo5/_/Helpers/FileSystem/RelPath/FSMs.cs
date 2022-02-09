@@ -141,7 +141,34 @@ public partial class FS
         return FS.Combine( sb.ToString(), removedFnPath);
     }
 
-    
+    public static void OnlyNames(List<string> subfolders)
+    {
+        for (int i = 0; i < subfolders.Count; i++)
+        {
+            subfolders[i] = FS.GetFileName( subfolders[i]);
+        }
+    }
+
+    public static List<string> FilterInRootAndInSubFolder(string rf, List<string> fs)
+    {
+        FS.WithEndSlash(ref rf);
+
+        var c = rf.Length;
+
+        List<string> subFolder = new List<string>();
+
+        for (int i = fs.Count - 1; i >= 0; i--)
+        {
+            var item = fs[i];
+            if (item.Substring(c).Contains(AllStrings.bs))
+            {
+                subFolder.Add(item);
+                fs.RemoveAt(i);
+            }
+        }
+
+        return subFolder;
+    }
 
     public static bool IsAbsolutePath(string path)
     {

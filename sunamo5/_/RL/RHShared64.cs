@@ -32,6 +32,31 @@ public partial class RH
             return result.FirstOrDefault();
     }
 
+     private static List<PropertyInfo> GetProps(object carSAuto)
+    {
+        Type carSAutoType = GetType(carSAuto);
+        
+        var result = carSAutoType.GetProperties().ToList();
+        return result;
+    }
+
+    private static Type GetType(object carSAuto)
+    {
+        Type carSAutoType = null;
+        var t1 = carSAuto.GetType();
+
+        if (RH.IsType(t1))
+        {
+            carSAutoType = carSAuto as Type;
+        }
+        else
+        {
+            carSAutoType = carSAuto.GetType();
+        }
+
+        return carSAutoType;
+    }
+
     /// <summary>
     /// A1 can be Type of instance
     /// All fields must be public
@@ -189,6 +214,9 @@ public partial class RH
     /// <summary>
     /// swda Delimiter
     /// Mainly for fast comparing objects
+    /// 
+    /// Zde můžu zadat jen onlyNames kvůli DumpAsStringHeaderArgs
+    /// Pokud chci více customizovat výstup, musím užít DumpAsString - DumpAsStringArgs
     /// </summary>
     /// <param name="v"></param>
     /// <param name="tableRowPageNew"></param>
@@ -232,14 +260,13 @@ public partial class RH
         return values;
     }
 
-    public static List<string> GetValuesOfProperty2(object obj, List<string> onlyNames, bool onlyValues)
+    public static List<string> GetValuesOfProperty2(object obj, List<string> onlyNames, bool onlyValues, bool takeVariablesIfThereIsNoProps = true)
     {
         var onlyNames2 = onlyNames.ToList();
         List<string> values = new List<string>();
-        bool add = false;
 
         string name = null;
-        var props = TypeDescriptor.GetProperties(obj);
+        var props = GetProps(obj); //TypeDescriptor.GetProperties(obj);
 
         bool isAllNeg = true;
         foreach (var item in onlyNames)
@@ -250,19 +277,37 @@ public partial class RH
             }
         }
 
-        foreach (PropertyDescriptor descriptor in props)
+        if (props.Count == 0)
         {
-            add = true;
-            name = descriptor.Name;
+            var d = GetFields(obj);
+            foreach (var descriptor in d)
+            {
+                GetValue(descriptor, isAllNeg, onlyNames, onlyNames2, obj, values, onlyValues);
+            }
+        }
+        else
+        {
+        foreach (var descriptor in props)
+        {
+            GetValue(descriptor, isAllNeg, onlyNames, onlyNames2, obj, values, onlyValues);
+        }
+        }
+
+        return values;
+    }
+
+    public static void GetValue(MemberInfo descriptor, bool isAllNeg, List<string> onlyNames, List<string> onlyNames2, object obj, List<string> values, bool onlyValues)
+    {
+        bool add = true;
+        var name = descriptor.Name;
 
             if (onlyNames.Contains(AllStrings.excl + name))
             {
-                continue;
+                return;
             }
 
             if (onlyNames2.Count > 0)
             {
-                
                 if (isAllNeg)
                 {
                     if (onlyNames2.Contains(AllStrings.excl + name))
@@ -281,12 +326,9 @@ public partial class RH
 
             if (add)
             {
-                object value = descriptor.GetValue(obj);
+            var value = GetValue(obj, descriptor);
                 AddValue(values, name, value, onlyValues);
             }
-        }
-
-        return values;
     }
 
     #region Get types of class
@@ -329,8 +371,14 @@ public partial class RH
     }
 
     private static object GetValue(object instance, MemberInfo[] property, object v)
+    { 
+        return GetValue(instance, property);
+    }
+
+    private static object GetValue(object instance, params MemberInfo[] property)
     {
         var val = property[0];
+
         if (val is PropertyInfo)
         {
             var pi = (PropertyInfo)val;
@@ -341,6 +389,7 @@ public partial class RH
             var pi = (FieldInfo)val;
             return pi.GetValue(instance);
         }
+
         return null;
     }
 
@@ -349,6 +398,8 @@ public partial class RH
     {
         return GetOrSetValue(name, type, instance, pis, ignoreCase, GetValue, v);
     }
+
+    
 
     public static object GetOrSetValue(string name, Type type, object instance, IEnumerable pis, bool ignoreCase, Func<object, MemberInfo[], object, object> getOrSet, object v)
     {
