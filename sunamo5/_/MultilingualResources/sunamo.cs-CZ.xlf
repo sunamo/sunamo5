@@ -4992,6 +4992,18 @@
           <source></source>
           <target state="translated">Přezdívka nemůže obsahovat</target>
         </trans-unit>
+        <trans-unit id="Get" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Dostat</target>
+        </trans-unit>
+        <trans-unit id="Set" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Soubor</target>
+        </trans-unit>
+        <trans-unit id="Done" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Hotovo</target>
+        </trans-unit>
       </group>
     </body>
   </file>

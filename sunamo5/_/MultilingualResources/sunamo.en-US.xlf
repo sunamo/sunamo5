@@ -13930,6 +13930,18 @@ A fraternal form of manifestation is the bliss</target>
           <source></source>
           <target state="translated">Nickname cannot contains</target>
         </trans-unit>
+        <trans-unit id="Get" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Get</target>
+        </trans-unit>
+        <trans-unit id="Set" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Set</target>
+        </trans-unit>
+        <trans-unit id="Done" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Done</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -157,7 +157,7 @@ public static partial class SH
     /// <param name="v1"></param>
     /// <param name="v2"></param>
     /// <returns></returns>
-    private static string SubstringStart(string name, int v1)
+    public static string SubstringStart(string name, int v1)
     {
         return name.Substring(v1);
     }
