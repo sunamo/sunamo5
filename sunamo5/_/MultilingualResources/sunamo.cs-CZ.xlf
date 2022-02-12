@@ -5004,6 +5004,10 @@
           <source></source>
           <target state="translated">Hotovo</target>
         </trans-unit>
+        <trans-unit id="GetOne" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Získat jeden</target>
+        </trans-unit>
       </group>
     </body>
   </file>

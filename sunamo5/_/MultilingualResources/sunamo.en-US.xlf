@@ -13942,6 +13942,10 @@ A fraternal form of manifestation is the bliss</target>
           <source></source>
           <target state="translated">Done</target>
         </trans-unit>
+        <trans-unit id="GetOne" translate="no" xml:space="preserve">
+          <source></source>
+          <target state="translated">Get one</target>
+        </trans-unit>
       </group>
     </body>
   </file>

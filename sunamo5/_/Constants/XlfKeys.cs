@@ -6,8 +6,9 @@ using System.Text;
 /// </summary>
 public class XlfKeys
 {
-	public const string Done = "Done"; 
+	public const string GetOne = "GetOne"; 
 
+	public const string Done = "Done"; 
 	public const string Set = "Set"; 
 	public const string Get = "Get"; 
 	public const string NicknameCannotContaintAt = "NicknameCannotContaintAt"; 
