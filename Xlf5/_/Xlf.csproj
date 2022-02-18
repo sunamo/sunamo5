@@ -25,6 +25,7 @@
     <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs" Link="_WinSec\VpsHelperIsVps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="sunamo\Helpers\FileSystem\" />
     <Folder Include="sunamo\List\" />
     <Folder Include="_WinSec\" />
     <Folder Include="Scz\"></Folder>

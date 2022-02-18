@@ -1,21 +1,15 @@
-﻿using System;
+﻿using sunamo;
+using sunamo.Data;
+using sunamo.Enums;
+using sunamo.Essential;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using sunamo.Enums;
-using sunamo.Data;
-using sunamo.Values;
-using System.Runtime.CompilerServices;
-using sunamo.Helpers;
-using sunamo.Essential;
-using sunamo.Constants;
-using System.Diagnostics;
-using sunamo;
 using System.Linq;
-using System.Threading;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 public partial class FS
 {
@@ -27,13 +21,7 @@ public partial class FS
 
     public const string dEndsWithReplaceInFile = "SubdomainHelperSimple.cs";
 
-    public static bool IsFileHasKnownExtension(string relativeTo)
-    {
-        var ext = FS.GetExtension(relativeTo);
-        ext = FS.NormalizeExtension2(ext);
 
-        return AllExtensionsHelper.allExtensionsWithoutDot.ContainsKey(ext);
-    }
 
 
 
@@ -138,7 +126,7 @@ public partial class FS
         return SH.Join(AllStrings.comma, allExtensions);
     }
 
-   
+
     /// <summary>
     /// c:\Users\w\AppData\Roaming\sunamo\
     /// </summary>
@@ -154,8 +142,37 @@ public partial class FS
         return vr;
     }
 
-    #region For easy copy
+    public static string GetRelativePath(string relativeTo, string path)
+    {
+        return SunamoExceptions.FS.GetRelativePath(relativeTo, path);
+    }
 
+    public static bool IsAbsolutePath(string path)
+    {
+        return SunamoExceptions.FS.IsAbsolutePath(path);
+    }
+
+    #region For easy copy
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static string NormalizeExtension2(string item)
+    {
+        return item.ToLower().TrimStart(AllChars.dot);
+    }
+
+    public static string NonSpacesFilename(string nameOfPage)
+    {
+        var v = ConvertCamelConventionWithNumbers.ToConvention(nameOfPage);
+        v = FS.ReplaceInvalidFileNameChars(v);
+        return v;
+    }
+
+    public static bool IsFileHasKnownExtension(string relativeTo)
+    {
+        var ext = FS.GetExtension(relativeTo);
+        ext = FS.NormalizeExtension2(ext);
+
+        return AllExtensionsHelper.allExtensionsWithoutDot.ContainsKey(ext);
+    }
 
 
     /// <summary>
@@ -233,7 +250,7 @@ public partial class FS
     public static void RenameNumberedSerieFiles(List<string> d, List<string> f, int startFrom, string ext)
     {
         var p = FS.GetDirectoryName(f[0]);
-        
+
         if (f.Count >= d.Count)
         {
             var fCountMinusONe = f.Count - 1;
@@ -241,7 +258,7 @@ public partial class FS
             //var r = f.First();
             for (int i = startFrom; ; i++)
             {
-                if (fCountMinusONe < i )
+                if (fCountMinusONe < i)
                 {
                     break;
                 }
@@ -258,7 +275,7 @@ public partial class FS
                     //FS.RenameFile(t, d[i - startFrom] + ext, FileMoveCollisionOption.AddSerie);
                     FS.RenameFile(r, t, FileMoveCollisionOption.AddSerie);
                 }
-                
+
             }
         }
     }
@@ -286,7 +303,7 @@ public partial class FS
         }
         return vr.ToArray();
     }
-   
+
 
     /// <summary>
     /// A1 MUST BE WITH EXTENSION
@@ -380,11 +397,11 @@ public partial class FS
     /// <param name="files"></param>
     /// <param name="folderFrom"></param>
     /// <param name="folderTo"></param>
-    public static void CopyMoveFromMultiLocationIntoOne(List<string> files, string folderFrom, string folderTo )
+    public static void CopyMoveFromMultiLocationIntoOne(List<string> files, string folderFrom, string folderTo)
     {
-        
+
         List<string> wasntExists = new List<string>();
-        
+
         Dictionary<string, List<string>> files2 = new Dictionary<string, List<string>>();
         var getFiles = FS.GetFiles(folderFrom, "*.cs", SearchOption.AllDirectories, new GetFilesArgs { excludeFromLocationsCOntains = CA.ToListString("TestFiles") });
         foreach (var item in files)
@@ -432,7 +449,7 @@ public partial class FS
             return ac.fs.getFiles.Invoke(folder, mask, recursive);
         }
         // folder is StorageFolder
-        return CA.ToList<StorageFile>( GetFiles(folder.ToString(), mask, recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
+        return CA.ToList<StorageFile>(GetFiles(folder.ToString(), mask, recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
     }
 
     public static Stream OpenStreamForReadAsync<StorageFolder, StorageFile>(StorageFile file, AbstractCatalog<StorageFolder, StorageFile> ac)
@@ -475,7 +492,7 @@ public partial class FS
     /// </summary>
     /// <param name="folder"></param>
     /// <param name="v"></param>
-    public  static StorageFile GetStorageFile<StorageFolder, StorageFile>(StorageFolder folder, string v, AbstractCatalog<StorageFolder, StorageFile> ac)
+    public static StorageFile GetStorageFile<StorageFolder, StorageFile>(StorageFolder folder, string v, AbstractCatalog<StorageFolder, StorageFile> ac)
     {
         if (ac != null)
         {
@@ -501,7 +518,7 @@ public partial class FS
                     FS.TryDeleteFile(item);
                 }
             }
-            
+
         }
     }
 
@@ -555,15 +572,15 @@ public partial class FS
         Thread t = new Thread(new ParameterizedThreadStart(ReplaceInAllFilesWorker));
         t.Start(r);
 
-        
+
     }
 
-   
+
 
     public static void ReplaceInAllFiles(string folder, string extension, IList<string> replaceFrom, IList<string> replaceTo, bool isMultilineWithVariousIndent)
     {
         var files = FS.GetFiles(folder, FS.MascFromExtension(extension), SearchOption.AllDirectories);
-        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(),type, "ReplaceInAllFiles", "replaceFrom", replaceFrom, "replaceTo", replaceTo);
+        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "replaceFrom", replaceFrom, "replaceTo", replaceTo);
         Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing = null;
         ReplaceInAllFiles(replaceFrom, replaceTo, files, isMultilineWithVariousIndent, false, false, fasterMethodForReplacing);
     }
@@ -602,14 +619,14 @@ public partial class FS
                 }
                 else
                 {
-                    content2 = fasterMethodForReplacing.Invoke(new StringBuilder( content), replaceFrom, replaceTo).ToString();
+                    content2 = fasterMethodForReplacing.Invoke(new StringBuilder(content), replaceFrom, replaceTo).ToString();
                 }
 
                 if (content != content2)
                 {
                     PpkOnDrive ppk = PpkOnDrive.WroteOnDrive;
                     ppk.Add(DateTime.Now.ToString() + " " + item);
-                    
+
                     TF.SaveFile(content2, item);
 
                     if (writeEveryReadedFileAsStatus)
@@ -620,7 +637,7 @@ public partial class FS
             }
             else
             {
-                ThisApp.SetStatus(TypeOfMessage.Warning, sess.i18n(XlfKeys.ContentOf)+" " + item + " couldn't be replaced - contains control chars.");
+                ThisApp.SetStatus(TypeOfMessage.Warning, sess.i18n(XlfKeys.ContentOf) + " " + item + " couldn't be replaced - contains control chars.");
             }
         }
     }
@@ -671,8 +688,8 @@ public partial class FS
         FS.FirstCharLower(ref result);
         return result;
     }
-    
-    
+
+
     public static string MakeFromLastPartFile(string fullPath, string ext)
     {
         FS.WithoutEndSlash(ref fullPath);
@@ -713,7 +730,7 @@ public partial class FS
             TF.WriteAllText(path, string.Empty);
         }
     }
-   
+
     public static string ShrinkLongPath(string actualFilePath)
     {
         // .NET 4.7.1
@@ -866,7 +883,7 @@ public partial class FS
         FS.FirstCharLower(ref vr);
         return vr;
     }
-    
+
     public static long GetSizeIn(long value, ComputerSizeUnits b, ComputerSizeUnits to)
     {
         if (b == to)
@@ -879,7 +896,7 @@ public partial class FS
             value = ConvertToSmallerComputerUnitSize(value, b, ComputerSizeUnits.B);
             if (to == ComputerSizeUnits.Auto)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
+                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
             }
             else if (to == ComputerSizeUnits.KB && b != ComputerSizeUnits.KB)
             {
@@ -1035,7 +1052,7 @@ public partial class FS
         for (int i = dirs.Length() - 1; i >= 0; i--)
         {
             FS.TryDeleteDirectory(dirs[i]);
-            
+
         }
         FS.TryDeleteDirectory(p);
     }
@@ -1057,7 +1074,7 @@ public partial class FS
     /// <param name="files"></param>
     public static void DeleteDuplicatedImages(List<string> files)
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(),type, "DeleteDuplicatedImages", sess.i18n(XlfKeys.OnlyForTestFilesForAnotherApps) + ". ");
+        ThrowExceptions.Custom(Exc.GetStackTrace(), type, "DeleteDuplicatedImages", sess.i18n(XlfKeys.OnlyForTestFilesForAnotherApps) + ". ");
     }
     public static void DeleteFilesWithSameContentWorking<T, ColType>(List<string> files, Func<string, T> readFunc)
     {
@@ -1095,7 +1112,7 @@ public partial class FS
     /// <param name="l"></param>
     public static List<string> OrderByNaturalNumberSerie(List<string> l)
     {
-        List<Tuple< string, int, string>> filenames = new List<Tuple<string, int, string>>();
+        List<Tuple<string, int, string>> filenames = new List<Tuple<string, int, string>>();
         List<string> dontHaveNumbersOnBeginning = new List<string>();
         string path = null;
         for (int i = l.Count - 1; i >= 0; i--)
@@ -1119,7 +1136,7 @@ public partial class FS
             }
             else
             {
-                filenames.Add(new Tuple<string, int, string>( path, sh, fn));
+                filenames.Add(new Tuple<string, int, string>(path, sh, fn));
             }
         }
         var sorted = filenames.OrderBy(d => d.Item2);
@@ -1149,7 +1166,7 @@ public partial class FS
         }
         return vr;
     }
-   
+
     public static void DeleteAllRecursively(string p, bool rootDirectoryToo = false)
     {
         if (FS.ExistsDirectory(p))
@@ -1175,7 +1192,7 @@ public partial class FS
 
     public static void DeleteFoldersWhichNotContains(string v, string folder, IEnumerable<string> v2)
     {
-        
+
 
         //var f = FS.GetFolders(v, folder, SearchOption.AllDirectories);
         //for (int i = f.Count - 1; i >= 0; i--)
@@ -1203,7 +1220,7 @@ public partial class FS
 
     public static List<string> OnlyExtensions(List<string> cesta)
     {
-        List<string> vr = new List<string>( cesta.Count);
+        List<string> vr = new List<string>(cesta.Count);
         CA.InitFillWith(vr, cesta.Count);
         for (int i = 0; i < vr.Count; i++)
         {
@@ -1231,7 +1248,7 @@ public partial class FS
     }
     public static List<string> OnlyExtensionsToLower(List<string> cesta)
     {
-        List<string> vr = new List<string>( cesta.Count);
+        List<string> vr = new List<string>(cesta.Count);
         CA.InitFillWith(vr, cesta.Count);
         for (int i = 0; i < vr.Count; i++)
         {
@@ -1241,11 +1258,11 @@ public partial class FS
     }
     public static List<string> OnlyExtensionsToLowerWithPath(List<string> cesta)
     {
-        List<string> vr = new List<string>( cesta.Count);
+        List<string> vr = new List<string>(cesta.Count);
         CA.InitFillWith(vr, cesta.Count);
         for (int i = 0; i < vr.Count; i++)
         {
-            
+
             vr[i] = FS.OnlyExtensionToLowerWithPath(cesta[i]);
         }
         return vr;
@@ -1255,7 +1272,7 @@ public partial class FS
     {
         string path, fn, ext;
         FS.GetPathAndFileName(d, out path, out fn, out ext);
-        var result  = path + fn + ext.ToLower();
+        var result = path + fn + ext.ToLower();
         return result;
     }
 
@@ -1266,7 +1283,7 @@ public partial class FS
     /// <param name="folders"></param>
     public static List<string> AllExtensionsInFolders(SearchOption so, params string[] folders)
     {
-        ThrowExceptions.NoPassedFolders(Exc.GetStackTrace(),type, "AllExtensionsInFolders", folders);
+        ThrowExceptions.NoPassedFolders(Exc.GetStackTrace(), type, "AllExtensionsInFolders", folders);
         List<string> vr = new List<string>();
         List<string> files = AllFilesInFolders(CA.ToListString(folders), CA.ToListString("*."), so);
         files = new List<string>(OnlyExtensionsToLower(files));
@@ -1328,11 +1345,7 @@ public partial class FS
         return AllStrings.dot + item.TrimStart(AllChars.dot);
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static string NormalizeExtension2(string item)
-    {
-        return item.ToLower().TrimStart(AllChars.dot);
-    }
+
 
     public static string GetNormalizedExtension(string filename)
     {
@@ -1383,7 +1396,7 @@ public partial class FS
     public static void RenameFile(string oldFn, string newFn, FileMoveCollisionOption co)
     {
         var to = FS.ChangeFilename(oldFn, newFn, false);
-                                                      FS.MoveFile(oldFn, to, co);
+        FS.MoveFile(oldFn, to, co);
     }
     /// <summary>
     /// Může výhodit výjimku, proto je nutné používat v try-catch bloku
@@ -1449,7 +1462,7 @@ public partial class FS
     }
     public static List<string> OnlyNamesWithoutExtensionCopy(List<string> p2)
     {
-        List<string> p = new List<string>( p2.Count);
+        List<string> p = new List<string>(p2.Count);
         CA.InitFillWith(p, p2.Count);
         for (int i = 0; i < p2.Count; i++)
         {
@@ -1459,7 +1472,7 @@ public partial class FS
     }
     public static List<string> OnlyNamesWithoutExtension(string appendToStart, List<string> fullPaths)
     {
-        List<string> ds = new List<string>( fullPaths.Count);
+        List<string> ds = new List<string>(fullPaths.Count);
         CA.InitFillWith(ds, fullPaths.Count);
         for (int i = 0; i < fullPaths.Count; i++)
         {

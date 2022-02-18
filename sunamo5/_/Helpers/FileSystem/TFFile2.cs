@@ -18,7 +18,17 @@ public partial class TF
     {
         if (ac == null)
         {
-            File.WriteAllText(file.ToString(), content, enc);
+            try
+            {
+                File.WriteAllText(file.ToString(), content, enc);
+            }
+            catch (Exception)
+            {
+                if (throwExcIfCantBeWrite)
+                {
+                    throw;
+                }
+            }
         }
         else
         {
@@ -98,7 +108,7 @@ public partial class TF
 
                 if (LockedByBitLocker(ss2))
                 {
-                    return String.Empty ;
+                    return String.Empty;
                 }
 
                 //result = enc.GetString(bytesArray);

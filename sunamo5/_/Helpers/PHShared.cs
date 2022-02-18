@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Diagnostics;
+﻿using cl;
 using sunamo;
+using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Collections.Specialized;
-using cl;
+using System.Web;
 
 public partial class PH
 {
     static Type type = typeof(PH);
+
+
 
     /// <summary>
     /// https://stackoverflow.com/a/12393522
@@ -24,7 +24,7 @@ public partial class PH
     {
         var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
 
-        var paths = SH.Split( enviromentPath, ';');
+        var paths = SH.Split(enviromentPath, ';');
 
 #if DEBUG
         var wc = paths.Where(d => d.Contains("Code"));
@@ -110,7 +110,7 @@ public partial class PH
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        
+
 
         process.WaitForExit();
 
@@ -160,7 +160,7 @@ public partial class PH
         catch (Exception ex)
         {
             ThrowExceptions.CustomWithStackTrace(ex);
-        } 
+        }
     }
 
     public static void Start(string exe, string args)
@@ -198,7 +198,7 @@ public partial class PH
         }
     }
 
-    
+
     public static bool IsAlreadyRunning(string name)
     {
         var pr = Process.GetProcessesByName(name).Select(d => d.ProcessName);
@@ -206,14 +206,14 @@ public partial class PH
         return pr.Count() > 1;
     }
 
-public static void Uri(string v)
+    public static void Uri(string v)
     {
         v = NormalizeUri(v);
         v = v.Trim();
         //Must UrlDecode for https://mapy.cz/?q=Antala+Sta%c5%a1ka+1087%2f3%2c+Hav%c3%ad%c5%99ov&sourceid=Searchmodule_1
         // to fulfillment RFC 3986 and RFC 3987 https://docs.microsoft.com/en-us/dotnet/api/system.uri.iswellformeduristring?view=netframework-4.8
         v = HttpUtility.UrlDecode(v);
-        if (System.Uri.IsWellFormedUriString( v, UriKind.RelativeOrAbsolute))
+        if (System.Uri.IsWellFormedUriString(v, UriKind.RelativeOrAbsolute))
         {
             Process.Start(v);
         }
@@ -223,7 +223,7 @@ public static void Uri(string v)
         }
     }
 
-public static string NormalizeUri(string v)
+    public static string NormalizeUri(string v)
     {
         // Without this cant search for google apps
         v = SH.ReplaceAll(v, "%22", AllStrings.qm);
@@ -238,7 +238,10 @@ public static string NormalizeUri(string v)
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            if (!ex.Message.Contains("Access is denied"))
+            {
+                ThrowExceptions.CustomWithStackTrace(ex);
+            }
         }
     }
 

@@ -1,16 +1,13 @@
 ﻿using sunamo.Essential;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
-public  class MainWindowSunamo_Ctor
+public class MainWindowSunamo_Ctor
 {
-    public static void FirstSection<Dispatcher>(string appName, Action<Dispatcher> WpfAppInit, IClipboardHelper ClipboardHelperWinInstance, Action checkForAlreadyRunning, Action applyCryptData, Dispatcher d)
+    public static void FirstSection<Dispatcher>(string appName, Action<Dispatcher> WpfAppInit, IClipboardHelper ClipboardHelperWinInstance, Action checkForAlreadyRunning, Action applyCryptData, Dispatcher d, bool async_)
     {
         ThisApp.Name = appName;
+        ThisApp.async_ = async_;
 
         BitLockerHelper.Init();
         ThrowEx.IsLockedByBitLocker = BitLockerHelper.IsFolderLockedByBitLocker;

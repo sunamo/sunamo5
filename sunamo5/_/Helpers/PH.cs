@@ -1,20 +1,69 @@
-﻿using System;
+﻿using sunamo.Essential;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Diagnostics;
-using sunamo;
-using System.Linq;
-using System.Web;
-using System.Text.RegularExpressions;
 using System.ComponentModel;
-using sunamo.Essential;
-using System.Runtime.CompilerServices;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 public partial class PH
 {
-    
 
+
+    public static List<string> ProcessesWithNameContains(string name)
+    {
+        List<string> processes = PH.GetProcessesNames(true);
+        var s = CA.ReturnWhichContains(processes, name.ToLower());
+        return s;
+    }
+
+    public static int TerminateProcessesWithNameContains(string name)
+    {
+        var s = ProcessesWithNameContains(name);
+
+        int ended = 0;
+        foreach (var item in s)
+        {
+            ended += PH.Terminate(item);
+        }
+        return ended;
+    }
+
+    public static int TerminateProcessesWithName(string name)
+    {
+        List<string> processes = PH.GetProcessesNames(true);
+
+        int ended = 0;
+
+        if (processes.Contains(name))
+        {
+            ended += PH.Terminate(name);
+        }
+
+
+        return ended;
+    }
+
+    #region 
+    /// <summary>
+    /// Alternative is FileUtil.WhoIsLocking
+    /// </summary>
+    /// <param name="fileName"></param>
+    public static void ShutdownProcessWhichOccupyFileHandleExe(string fileName)
+    {
+        var pr2 = FindProcessesWhichOccupyFileHandleExe(fileName);
+        foreach (var pr in pr2)
+        {
+            KillProcess(pr);
+        }
+    }
+    #endregion
+
+    /// <summary>
+    /// Alternative is FileUtil.WhoIsLocking
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
     public static List<Process> FindProcessesWhichOccupyFileHandleExe(string fileName)
     {
         List<Process> pr2 = new List<Process>();
@@ -42,12 +91,12 @@ public partial class PH
         string outputTool = null;
         try
         {
-             outputTool = tool.StandardOutput.ReadToEnd();
+            outputTool = tool.StandardOutput.ReadToEnd();
         }
         catch (Exception ex)
         {
 
-            if (ex.Message.Contains(sess.i18n(XlfKeys.NoProcessIsAssociatedWithThisObject)+"."))
+            if (ex.Message.Contains(sess.i18n(XlfKeys.NoProcessIsAssociatedWithThisObject) + "."))
             {
                 ThisApp.SetStatus(TypeOfMessage.Warning, sess.i18n(XlfKeys.PleaseAddHandle64ExeToPATH));
                 return pr2;
@@ -65,14 +114,7 @@ public partial class PH
         return pr2;
     }
 
-    public static void ShutdownProcessWhichOccupyFileHandleExe(string fileName)
-    {
-        var pr2 = FindProcessesWhichOccupyFileHandleExe(fileName);
-        foreach (var pr in pr2)
-        {
-            KillProcess(pr);
-        }
-    }
+
 
 
     public static void StartAllUri(List<string> all)
@@ -113,14 +155,14 @@ public partial class PH
 
     public static void StartAllUri(List<string> carModels, Func<string, string> spritMonitor)
     {
-        carModels = CA.ChangeContent(null,carModels, spritMonitor);
-        carModels = CA.ChangeContent(null,carModels, NormalizeUri);
+        carModels = CA.ChangeContent(null, carModels, spritMonitor);
+        carModels = CA.ChangeContent(null, carModels, NormalizeUri);
         StartAllUri(carModels);
     }
 
-    
 
-    
+
+
 
     /// <summary>
     /// Start all uri in clipboard, splitted by whitespace

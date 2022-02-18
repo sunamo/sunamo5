@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-public partial class ThrowEx
+﻿public partial class ThrowEx
 {
-    
+    public static void NotSupportedExtension(string extension)
+    {
+        Custom("Extensions is not supported: " + extension);
+    }
 }

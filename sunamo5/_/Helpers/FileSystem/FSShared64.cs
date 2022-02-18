@@ -1,7 +1,7 @@
 ﻿using sunamo.Essential;
-using SunamoExceptions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -284,7 +284,7 @@ public partial class FS
                 {
                     return;
                 }
-                    File.Move(item, fileTo);
+                File.Move(item, fileTo);
             }
             catch (Exception ex)
             {
@@ -343,7 +343,7 @@ public partial class FS
                 {
                     File.Delete(item);
                 }
-                
+
             }
             else if (co == FileMoveCollisionOption.Overwrite)
             {
@@ -459,7 +459,7 @@ public partial class FS
         {
             foreach (var item in files)
             {
-                if (SH.IsContained(item,  mustContains))
+                if (SH.IsContained(item, mustContains))
                 {
                     if (item.Contains("node_modules"))
                     {
@@ -473,7 +473,7 @@ public partial class FS
         {
             foreach (var item in files)
             {
-                    MoveOrCopy(p, to, co, move, item);
+                MoveOrCopy(p, to, co, move, item);
             }
         }
     }
@@ -491,14 +491,55 @@ public partial class FS
         }
     }
 
+
+    public static Func<string, bool, List<Process>> fileUtilWhoIsLocking = null;
+
     /// <summary>
     /// Copy file by ordinal way 
     /// </summary>
     /// <param name="jsFiles"></param>
     /// <param name="v"></param>
-    public static void CopyFile(string jsFiles, string v)
+    public static void CopyFile(string jsFiles, string v, bool terminateProcessIfIsInUsed = false)
     {
-        File.Copy(jsFiles, v, true);
+        try
+        {
+            File.Copy(jsFiles, v, true);
+        }
+        catch (Exception ex)
+        {
+            if (ex.Message.Contains("because it is being used by another process") && terminateProcessIfIsInUsed)
+            {
+                if (fileUtilWhoIsLocking != null)
+                {
+                    var pr = fileUtilWhoIsLocking(jsFiles, true);
+                    foreach (var item in pr)
+                    {
+                        item.Kill();
+                    }
+                }
+                else
+                {
+                    // Používá se i ve web, musel bych tam includovat spoustu metod
+                    //PH.ShutdownProcessWhichOccupyFileHandleExe(jsFiles);
+                }
+
+                try
+                {
+                    File.Copy(jsFiles, v, true);
+                }
+                catch (Exception)
+                {
+                    // Pokud se to ani na druhý pokus nepodaří, tak už to jebu
+                }
+            }
+            else
+            {
+                throw;
+            }
+
+        }
+
+
     }
 
     public static void CopyFile(string item, string fileTo2, FileMoveCollisionOption co)
@@ -510,10 +551,10 @@ public partial class FS
             {
                 return;
             }
-            
-                File.Copy(item, fileTo);
-            
-            
+
+            File.Copy(item, fileTo);
+
+
         }
     }
 
@@ -594,7 +635,7 @@ public partial class FS
     /// </summary>
     /// <param name="filename"></param>
     /// <returns></returns>
-    public static string ReplaceInvalidFileNameChars(string filename, params  char[] ch)
+    public static string ReplaceInvalidFileNameChars(string filename, params char[] ch)
     {
         StringBuilder sb = new StringBuilder();
         foreach (var item in filename)
@@ -738,7 +779,7 @@ public partial class FS
         return result;
     }
 
-    public  static List<string> GetFilesMoreMasc(string path, string masc, SearchOption searchOption, GetFilesMoreMascArgs e = null)
+    public static List<string> GetFilesMoreMasc(string path, string masc, SearchOption searchOption, GetFilesMoreMascArgs e = null)
 
     {
         if (e == null)
@@ -1093,9 +1134,9 @@ public partial class FS
         return rp.Substring(dex + 1);
     }
 
-    
 
-    
+
+
 
 
 
@@ -1116,7 +1157,7 @@ public partial class FS
     /// Convert to UNC path
     /// </summary>
     /// <param name="item"></param>
-    public static bool ExistsDirectoryWorker(string item, bool  _falseIfContainsNoFile = false)
+    public static bool ExistsDirectoryWorker(string item, bool _falseIfContainsNoFile = false)
     {
         // Not working, flags from GeoCachingTool wasnt transfered to standard
 #if NETFX_CORE
@@ -1158,7 +1199,7 @@ public partial class FS
         //return path;
     }
 
-    
+
 
     public static string MakeUncLongPath(string path)
     {
@@ -1323,7 +1364,7 @@ public partial class FS
         }
 
 #if DEBUG
-        
+
 #endif
 
         if (selectedFile == Consts.UncLongPath || selectedFile == string.Empty)
@@ -1339,7 +1380,7 @@ public partial class FS
         {
             if (!exists)
             {
-                
+
                 return false;
             }
             else
@@ -1379,7 +1420,7 @@ public partial class FS
     }
 
     private static Type type = typeof(FS);
-   
+
 
 
     /// <summary>
@@ -1399,9 +1440,9 @@ public partial class FS
         }
     }
 
-    
 
-    
 
-   
+
+
+
 }

@@ -1,12 +1,9 @@
-﻿using sunamo.Essential;
-using SunamoExceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SunamoExceptions
 {
@@ -46,7 +43,7 @@ public class Exc
     /// <returns></returns>
     public static Tuple<string, string, string> GetStackTrace2(bool fillAlsoFirstTwo, bool stopAtFirstSystem = false)
     {
-        if (stopAtFirstSystem) 
+        if (stopAtFirstSystem)
         {
             if (first)
             {
@@ -88,7 +85,7 @@ public class Exc
 
                 break;
             }
-            
+
         }
 
         return new Tuple<string, string, string>(type, methodName, JoinNL(l));
@@ -171,7 +168,6 @@ public class Exc
             st = SH.SubstringIfAvailable(st, dx);
         }
         return st;
-        //
     }
 
     private static List<string> GetLines(string v)

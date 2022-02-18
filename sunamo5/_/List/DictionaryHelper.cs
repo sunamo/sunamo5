@@ -1,6 +1,4 @@
-﻿using sunamo.Collections;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +33,7 @@ public partial class DictionaryHelper
         {
             for (int i = ds.Keys.Count - 1; i >= 0; i--)
             {
-                var key = ds.ElementAt(i).Key ;
+                var key = ds.ElementAt(i).Key;
                 if (ds[key][0] == Consts.NoEntries)
                 {
                     ds.Remove(key);
@@ -46,7 +44,7 @@ public partial class DictionaryHelper
         return ds;
     }
 
-    
+
     public static List<KeyValuePair<T, int>> CountOfItems<T>(List<T> streets)
     {
         Dictionary<T, int> pairs = new Dictionary<T, int>();
@@ -73,10 +71,10 @@ public partial class DictionaryHelper
                 child.AddChild(v);
             }
 
-            child.children = new LinkedList<NTree<string>>( child.children.Reverse());
+            child.children = new LinkedList<NTree<string>>(child.children.Reverse());
         }
 
-         
+
 
         return t;
     }
@@ -89,7 +87,7 @@ public partial class DictionaryHelper
         }
     }
 
-   
+
 
     public static Dictionary<T, List<U>> GroupByValues<U, T, ColType>(Dictionary<U, T> dictionary)
     {
@@ -218,7 +216,7 @@ public partial class DictionaryHelper
     /// <param name="airPlaneCompanies"></param>
     /// <param name="twoTimes"></param>
     /// <returns></returns>
-    public static Dictionary<T1, T2> RemoveDuplicatedFromDictionaryByValues<T1, T2>(Dictionary<T1, T2> airPlaneCompanies,  Dictionary<T1, T2> twoTimes)
+    public static Dictionary<T1, T2> RemoveDuplicatedFromDictionaryByValues<T1, T2>(Dictionary<T1, T2> airPlaneCompanies, Dictionary<T1, T2> twoTimes)
     {
         //twoTimes = new Dictionary<T1, T2>();
         CollectionWithoutDuplicates<T2> processed = new CollectionWithoutDuplicates<T2>();
@@ -231,7 +229,7 @@ public partial class DictionaryHelper
                 {
                     twoTimes.Add(item, value);
                 }
-                
+
                 airPlaneCompanies.Remove(item);
             }
         }

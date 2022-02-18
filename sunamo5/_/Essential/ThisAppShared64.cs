@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sunamo.Essential
+﻿namespace sunamo.Essential
 {
-    
+
 
     public partial class ThisApp
     {
@@ -32,7 +26,7 @@ namespace sunamo.Essential
 
 
         public static bool check = false;
-        
+
         /// <summary>
         /// Name = Solution
         /// Project = Project
@@ -69,7 +63,15 @@ namespace sunamo.Essential
 
         public static readonly bool initialized = false;
         public static string Namespace = "";
-        public static bool async_ = false;
+        /// <summary>
+        /// Use everywhere is method without / with Async. Its needed due to avoid deadlock https://stackoverflow.com/a/65820543/9327173
+        /// Good for example in ClipboardHelperWin. But when I'm changing headers of methods, I have to use #if ASYNC. Otherwise program can "froze" and due to async I cant debug where.
+        /// </summary>
+        public static bool async_
+        {
+            get => SunamoExceptions.ThisApp.async_;
+            set => SunamoExceptions.ThisApp.async_ = value;
+        }
         public static string EventLogName = null;
 
         public static event SetStatusDelegate StatusSetted;

@@ -1,7 +1,4 @@
-﻿
-using sunamo;
-using sunamo.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 public partial class AllExtensionsHelper
@@ -15,7 +12,7 @@ public partial class AllExtensionsHelper
     /// </summary>
      //public static Dictionary<string, TypeOfExtension> allExtensions = new Dictionary<string, TypeOfExtension>();
     public static Dictionary<TypeOfExtension, List<string>> extensionsByTypeWithoutDot = null;
-    public static Dictionary<string, TypeOfExtension> allExtensionsWithoutDot = null;
+    public static Dictionary<string, SunamoExceptions.TypeOfExtension> allExtensionsWithoutDot { get => AllExtensionsHelperWithoutDot.allExtensionsWithoutDot; set => AllExtensionsHelperWithoutDot.allExtensionsWithoutDot = value; }
 
     static AllExtensionsHelper()
     {
@@ -25,14 +22,13 @@ public partial class AllExtensionsHelper
 
     public static void Initialize()
     {
-        
-
+        bool loadAllExtensionsWithoutDot = allExtensionsWithoutDot != null;
 
         if (extensionsByType == null)
         {
             extensionsByType = new Dictionary<TypeOfExtension, List<string>>();
             extensionsByTypeWithoutDot = new Dictionary<TypeOfExtension, List<string>>();
-            allExtensionsWithoutDot = new Dictionary<string, TypeOfExtension>();
+            allExtensionsWithoutDot = new Dictionary<string, SunamoExceptions.TypeOfExtension>();
 
             AllExtensions ae = new AllExtensions();
             var exts = RH.GetConsts(typeof(AllExtensions));
@@ -42,8 +38,14 @@ public partial class AllExtensionsHelper
                 string extWithoutDot = extWithDot.Substring(1);
                 var v1 = item.CustomAttributes.First();
                 TypeOfExtension toe = (TypeOfExtension)v1.ConstructorArguments.First().Value;
+
+                if (loadAllExtensionsWithoutDot)
+                {
+                    allExtensionsWithoutDot.Add(extWithoutDot, (SunamoExceptions.TypeOfExtension)toe);
+                }
                 //allExtensions.Add(extWithDot, toe);
-                allExtensionsWithoutDot.Add(extWithoutDot, toe);
+
+
                 if (!extensionsByType.ContainsKey(toe))
                 {
                     List<string> extensions = new List<string>();
@@ -52,6 +54,7 @@ public partial class AllExtensionsHelper
                     List<string> extensionsWithoutDot = new List<string>();
                     extensionsWithoutDot.Add(extWithoutDot);
                     extensionsByTypeWithoutDot.Add(toe, extensionsWithoutDot);
+
                 }
                 else
                 {
@@ -73,7 +76,7 @@ public partial class AllExtensionsHelper
         {
             if (allExtensionsWithoutDot.ContainsKey(p))
             {
-                return allExtensionsWithoutDot[p];
+                return (TypeOfExtension)allExtensionsWithoutDot[p];
             }
         }
 
@@ -102,7 +105,7 @@ public partial class AllExtensionsHelper
             p = p.Substring(1);
             if (allExtensionsWithoutDot.ContainsKey(p))
             {
-                return allExtensionsWithoutDot[p];
+                return (TypeOfExtension)allExtensionsWithoutDot[p];
             }
         }
 

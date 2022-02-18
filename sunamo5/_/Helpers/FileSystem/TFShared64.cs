@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 public partial class TF
 {
@@ -23,9 +21,9 @@ public partial class TF
 
 
 
-    
 
-   
+
+
 
     public static void SaveLinesIEnumerable(IEnumerable belowZero, string f)
     {
@@ -37,7 +35,7 @@ public partial class TF
         TF.SaveFile(sb.ToString(), f);
     }
 
-   
+
 
 
     public static List<string> ReadAllLines<StorageFolder, StorageFile>(StorageFile file, AbstractCatalog<StorageFolder, StorageFile> ac)
@@ -45,6 +43,10 @@ public partial class TF
         return SH.GetLines(ReadFile<StorageFolder, StorageFile>(file, ac));
     }
 
+    /// <summary>
+    /// Just one command File.Write* can be wrapped with it
+    /// </summary>
+    public static bool throwExcIfCantBeWrite = false;
 
     public static void SaveFile(string obsah, string soubor)
     {
@@ -87,9 +89,9 @@ public partial class TF
         return ReadFile<string, string>(s);
     }
 
-    public static bool readFile = true; 
+    public static bool readFile = true;
 
-    
+
 
 
 

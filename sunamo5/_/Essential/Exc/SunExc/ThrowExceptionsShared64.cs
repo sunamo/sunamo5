@@ -1,16 +1,13 @@
 ﻿using sunamo;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 public partial class ThrowExceptions
 {
     #region For easy copy from ThrowExceptionsShared64.cs - all ok 17-10-21
-   
+
 
     public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, int countfc, string namesc, int countsc)
     {
@@ -24,7 +21,7 @@ public partial class ThrowExceptions
 
     public static void Custom(string stacktrace, object type, string methodName, string message, bool reallyThrow = true)
     {
-        ThrowIsNotNull( stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
+        ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
     }
 
     public static bool reallyThrow2 = true;
@@ -38,9 +35,9 @@ public partial class ThrowExceptions
 #endif
 
     public static Tuple<string, string, string> t
-    { 
-        get 
-        { 
+    {
+        get
+        {
             return ThrowEx.t;
         }
         set
@@ -101,7 +98,6 @@ public partial class ThrowExceptions
     {
         // Výjimky se tak často nevyhazují. Tohle je daň za to že jsem tu měl arch
         // jež nebyla dobře navržená. V ThrowEx se to již podruhé volat nebude.
-        
 
         if (exception != null)
         {
@@ -161,7 +157,7 @@ reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
                     {
                         var nl = Environment.NewLine;
 
-                        showExceptionWindow(stacktrace + nl+nl+exception );
+                        showExceptionWindow(stacktrace + nl + nl + exception);
                     }
                     else
                     {

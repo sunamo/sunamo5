@@ -1,15 +1,11 @@
-﻿using sunamo.Constants;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 
 /// <summary>
@@ -67,7 +63,7 @@ public partial class RH
 
     public static List<string> AllReferencedAssemblies(Assembly execAssembly, bool useCache = true)
     {
-        if ( !useCache)
+        if (!useCache)
         {
             allReferencedAssemblies.Clear();
         }
@@ -109,18 +105,18 @@ public partial class RH
         {
             AllReferencedAssemblies(n, item);
         }
-        
+
     }
 
     public static object SetValue(string name, Type type, object instance, IEnumerable pis, bool ignoreCase, object v)
     {
-        return GetOrSetValue(name, type, instance, pis, ignoreCase, SetValue,v);
+        return GetOrSetValue(name, type, instance, pis, ignoreCase, SetValue, v);
     }
 
-    
-    
 
-    
+
+
+
 
     public static bool ExistsClass(string className)
     {
@@ -130,12 +126,8 @@ public partial class RH
                      select type).FirstOrDefault();
 
         return type2 != null;
-    } 
+    }
     #endregion
-
-    
-
-    
 
     #region Copy object
     public static object CopyObject(object input)
@@ -179,7 +171,7 @@ public partial class RH
         }
     }
 
-    
+
 
 
 
@@ -193,7 +185,7 @@ public partial class RH
     {
         if (!typeof(T).IsSerializable)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),SunamoPageHelperSunamo.i18n(XlfKeys.TheTypeMustBeSerializable) + ". source");
+            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.TheTypeMustBeSerializable) + ". source");
         }
 
         // Don't serialize a null object, simply return the default for that object
@@ -221,10 +213,10 @@ public partial class RH
         return values;
     }
 
- 
-    
 
-    
+
+
+
 
     /// <summary>
     /// U složitějších ne mých .net objektů tu byla chyba, proto je zde GetValuesOfProperty2
@@ -278,9 +270,9 @@ public partial class RH
         return values;
     }
 
-    
 
-    
+
+
 
 
 
@@ -304,8 +296,6 @@ public partial class RH
     }
     #endregion
 
-
-
     #region FullName
     public static string FullNameOfMethod(MethodInfo mi)
     {
@@ -317,7 +307,7 @@ public partial class RH
         return v.FullName + AllStrings.dot;
     }
 
-    
+
 
     public static string FullNameOfExecutedCode(MethodBase method)
     {
@@ -352,7 +342,7 @@ public partial class RH
     #endregion
 
     #region Get types of class
-    
+
 
     public static List<MethodInfo> GetMethods(Type t)
     {
@@ -363,7 +353,7 @@ public partial class RH
     }
     #endregion
 
-    
 
-    
+
+
 }

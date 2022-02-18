@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 
 public partial class ThrowEx
 {
+    public static string lastError;
+
     public static void FirstLetterIsNotUpper(string selectedFile)
     {
         ThrowIsNotNull(Exceptions.FirstLetterIsNotUpper, selectedFile);
@@ -15,4 +15,6 @@ public partial class ThrowEx
         Func<string, string, IEnumerable, string> f = Exceptions.IsOdd;
         return ThrowIsNotNull(f, colName, e);
     }
+
+
 }

@@ -6,7 +6,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 public partial class RH
 {
@@ -29,13 +28,13 @@ public partial class RH
         {
             result = ass.Where(d => d.FullName.Contains(name));
         }
-            return result.FirstOrDefault();
+        return result.FirstOrDefault();
     }
 
-     private static List<PropertyInfo> GetProps(object carSAuto)
+    private static List<PropertyInfo> GetProps(object carSAuto)
     {
         Type carSAutoType = GetType(carSAuto);
-        
+
         var result = carSAutoType.GetProperties().ToList();
         return result;
     }
@@ -185,12 +184,12 @@ public partial class RH
             sb.AppendLine(Consts._3Asterisks);
             sb.AppendLine(operation + AllStrings.space + AllStrings.lb + o.Count() + AllStrings.rb + AllStrings.colon);
 
-            sb.AppendLine(NameOfFieldsFromDump(o.FirstOrNull(), a)); 
+            sb.AppendLine(NameOfFieldsFromDump(o.FirstOrNull(), a));
 
             int i = 0;
             foreach (var item in o)
             {
-                sb.AppendLine(DumpAsString(new DumpAsStringArgs { d = DumpProvider.Reflection, deli = AllStrings.swd, o = item, onlyValues = true,onlyNames = a.onlyNames }));
+                sb.AppendLine(DumpAsString(new DumpAsStringArgs { d = DumpProvider.Reflection, deli = AllStrings.swd, o = item, onlyValues = true, onlyNames = a.onlyNames }));
                 i++;
             }
 
@@ -287,10 +286,10 @@ public partial class RH
         }
         else
         {
-        foreach (var descriptor in props)
-        {
-            GetValue(descriptor, isAllNeg, onlyNames, onlyNames2, obj, values, onlyValues);
-        }
+            foreach (var descriptor in props)
+            {
+                GetValue(descriptor, isAllNeg, onlyNames, onlyNames2, obj, values, onlyValues);
+            }
         }
 
         return values;
@@ -301,36 +300,37 @@ public partial class RH
         bool add = true;
         var name = descriptor.Name;
 
-            if (onlyNames.Contains(AllStrings.excl + name))
-            {
-                return;
-            }
+        if (onlyNames.Contains(AllStrings.excl + name))
+        {
+            return;
+        }
 
-            if (onlyNames2.Count > 0)
+        if (onlyNames2.Count > 0)
+        {
+            if (isAllNeg)
             {
-                if (isAllNeg)
+                if (onlyNames2.Contains(AllStrings.excl + name))
                 {
-                    if (onlyNames2.Contains(AllStrings.excl + name))
-                    {
-                        add = false;
-                    }
-                }
-                else
-                {
-                    if (!onlyNames2.Contains(name))
-                    {
-                        add = false;
-                    }
+                    add = false;
                 }
             }
-
-            if (add)
+            else
             {
+                if (!onlyNames2.Contains(name))
+                {
+                    add = false;
+                }
+            }
+        }
+
+        if (add)
+        {
             var value = GetValue(obj, descriptor);
-                AddValue(values, name, value, onlyValues);
-            }
+            AddValue(values, name, value, onlyValues);
+        }
     }
 
+    #region For easy copy from RHShared64.cs
     #region Get types of class
     /// <summary>
     /// Return FieldInfo, so will be useful extract Name etc. 
@@ -361,6 +361,7 @@ public partial class RH
         var withType = fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
         return withType;
     }
+    #endregion 
     #endregion
 
     public static object GetValueOfField(string name, Type type, object instance, bool ignoreCase)
@@ -371,7 +372,7 @@ public partial class RH
     }
 
     private static object GetValue(object instance, MemberInfo[] property, object v)
-    { 
+    {
         return GetValue(instance, property);
     }
 
@@ -399,7 +400,7 @@ public partial class RH
         return GetOrSetValue(name, type, instance, pis, ignoreCase, GetValue, v);
     }
 
-    
+
 
     public static object GetOrSetValue(string name, Type type, object instance, IEnumerable pis, bool ignoreCase, Func<object, MemberInfo[], object, object> getOrSet, object v)
     {
@@ -438,7 +439,7 @@ public partial class RH
     }
 
 
-    
+
 
     private static void AddValue(List<string> values, string name, object value, bool onlyValue)
     {
@@ -492,7 +493,7 @@ public partial class RH
         }
     }
 
-   
+
 
     /// <summary>
     /// A1 have to be selected
@@ -521,10 +522,10 @@ public partial class RH
             return dump;
         }
         return a.name + Environment.NewLine + dump;
-        
+
     }
 
-    
+
 
     private static string NameOfFieldsFromDump(object obj, DumpAsStringHeaderArgs a)
     {
@@ -580,11 +581,11 @@ public partial class RH
         {
             sb.AppendLine("1) " + item.Key.ToString());
 
-                foreach (var v in item.Value)
-                {
-                    sb.AppendLine(v.ToString());
-                }
-                sb.AppendLine();
+            foreach (var v in item.Value)
+            {
+                sb.AppendLine(v.ToString());
+            }
+            sb.AppendLine();
         }
 
         var vr = sb.ToString();
