@@ -10,6 +10,12 @@ public partial class ThrowEx
         ThrowIsNotNull(Exceptions.FirstLetterIsNotUpper, selectedFile);
     }
 
+    /// <summary>
+    /// Je lichý
+    /// </summary>
+    /// <param name="colName"></param>
+    /// <param name="e"></param>
+    /// <returns></returns>
     public static bool IsOdd(string colName, IEnumerable e)
     {
         Func<string, string, IEnumerable, string> f = Exceptions.IsOdd;

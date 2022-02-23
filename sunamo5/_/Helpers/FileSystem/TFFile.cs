@@ -9,17 +9,17 @@ public partial class TF
 
 
     #region For easy copy
-    
+
 
     static bool LockedByBitLocker(string path)
     {
-        return ThrowEx.LockedByBitLocker( path);
+        return ThrowEx.LockedByBitLocker(path);
     }
 
     #region Array
     public static void WriteAllLinesArray(string path, String[] c)
     {
-         WriteAllLines(path, c.ToList());
+        WriteAllLines(path, c.ToList());
     }
 
     public static void WriteAllBytesArray(string path, Byte[] c)
@@ -51,7 +51,7 @@ public partial class TF
     }
     public static void WriteAllBytes(string file, List<byte> b)
     {
-       
+
 
         WriteAllBytes<string, string>(file, b, null);
     }
@@ -70,7 +70,7 @@ public partial class TF
 
     public static List<string> ReadAllLines(string file)
     {
-        
+
 
         return ReadAllLines<string, string>(file, null);
     }
@@ -90,6 +90,7 @@ public partial class TF
 
         WriteAllText<string, string>(path, content, null);
     }
+
     public static string ReadAllText(string f)
     {
         if (LockedByBitLocker(f))
@@ -98,6 +99,26 @@ public partial class TF
         }
 
         return File.ReadAllText(f);
+    }
+
+    public static string ReadAllText(string path, Encoding enc)
+    {
+        if (isUsed != null)
+        {
+            if (isUsed.Invoke(path))
+            {
+                return string.Empty;
+            }
+        }
+
+        if (enc == null)
+        {
+            return File.ReadAllText(path);
+        }
+        else
+        {
+            return File.ReadAllText(path, enc);
+        }
     }
     #endregion 
     #endregion

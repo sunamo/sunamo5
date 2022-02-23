@@ -505,6 +505,12 @@ public partial class RH
         // When I was serializing ISymbol, execution takes unlimited time here
         //return o.DumpToString(name);
         string dump = null;
+        if (a.o.GetType() == Types.tString)
+        {
+            dump = a.o.ToString();
+        }
+        else
+        {
         switch (a.d)
         {
             case DumpProvider.Yaml:
@@ -516,6 +522,7 @@ public partial class RH
             default:
                 ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, "DumpAsString", a.d);
                 break;
+        }
         }
         if (string.IsNullOrWhiteSpace(a.name))
         {

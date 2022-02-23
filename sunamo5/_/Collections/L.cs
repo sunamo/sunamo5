@@ -11,6 +11,7 @@ public class L<T> : List<T>
 {
     public int Length => Count;
     public T defIfNotFoundIndex = default(T);
+    public bool changed = false;
     public L()
     {
     }
@@ -36,10 +37,13 @@ public class L<T> : List<T>
     {
         set
         {
+            #if DEBUG
             if (value.ToString().Contains(Consts.dirUp5))
             {
 
             }
+            #endif
+            changed = true;
             base[i] = value;
         }
         get
@@ -48,7 +52,6 @@ public class L<T> : List<T>
             {
                 return base[i];
             }
-            //return CSharpHelperSunamo.DefaultValueForType()
             return defIfNotFoundIndex;
         }
     }

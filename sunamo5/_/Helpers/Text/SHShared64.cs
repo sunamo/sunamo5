@@ -44,6 +44,7 @@ public static partial class SH
         }
         return false;
     }
+
     /// <summary>
     /// Trim all A2 from beginning A1
     /// </summary>
@@ -57,6 +58,7 @@ public static partial class SH
         }
         return v;
     }
+
     #region For easy copy from SHShared64.cs
     /// <summary>
     /// Start at 0
@@ -487,7 +489,10 @@ public static partial class SH
         return v;
     }
 
-    
+    public static string TrimEnd(string name)
+    {
+        return name.TrimEnd(AllChars.whiteSpacesChars.ToArray());
+    }
 
     /// <summary>
     /// Trim all A2 from end A1
@@ -1019,15 +1024,15 @@ public static partial class SH
         }
     }
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
 
     /// <summary>
     /// Not auto remove empty
@@ -1064,5 +1069,5 @@ public static partial class SH
         return string.Empty;
     }
 
-    
+
 }

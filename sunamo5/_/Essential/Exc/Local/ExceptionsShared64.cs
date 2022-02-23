@@ -23,6 +23,13 @@ public partial class Exceptions
         return CheckBefore(before) + what + " is not allowed.";
     }
 
+    /// <summary>
+    /// Je lichý
+    /// </summary>
+    /// <param name="before"></param>
+    /// <param name="colName"></param>
+    /// <param name="col"></param>
+    /// <returns></returns>
     public static string IsOdd(string before, string colName, IEnumerable col)
     {
         if (col.Count() % 2 == 1)
@@ -63,14 +70,14 @@ public partial class Exceptions
         return null;
     }
 
-    
-
-    
 
 
-    
 
-    
+
+
+
+
+
 
 
     public static string DirectoryWasntFound(string before, string directory)
@@ -83,15 +90,15 @@ public partial class Exceptions
         return null;
     }
 
-   
+
     public static string DivideByZero(string before)
     {
         return CheckBefore(before) + " is dividing by zero.";
     }
 
-    
 
-    
+
+
 
     public static string AnyElementIsNullOrEmpty(string before, string nameOfCollection, List<int> nulled)
     {

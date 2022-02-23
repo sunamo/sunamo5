@@ -21,9 +21,34 @@ public partial class FS
 
     public const string dEndsWithReplaceInFile = "SubdomainHelperSimple.cs";
 
+    public static List<string> FilterInRootAndInSubFolder(string rf, List<string> fs)
+    {
+        FS.WithEndSlash(ref rf);
 
+        var c = rf.Length;
 
+        List<string> subFolder = new List<string>();
 
+        for (int i = fs.Count - 1; i >= 0; i--)
+        {
+            var item = fs[i];
+            if (item.Substring(c).Contains(AllStrings.bs))
+            {
+                subFolder.Add(item);
+                fs.RemoveAt(i);
+            }
+        }
+
+        return subFolder;
+    }
+
+    public static void OnlyNames(List<string> subfolders)
+    {
+        for (int i = 0; i < subfolders.Count; i++)
+        {
+            subfolders[i] = FS.GetFileName(subfolders[i]);
+        }
+    }
 
 
 
@@ -61,14 +86,17 @@ public partial class FS
         return ls;
     }
 
-    public static bool IsException(string ext)
+    public static bool IsExtension(string result)
     {
-        if (string.IsNullOrWhiteSpace(ext))
+        if (string.IsNullOrWhiteSpace(result))
         {
             return false;
         }
-        ext = ext.TrimStart(AllChars.dot);
-        return SH.ContainsOnly(ext, RandomHelper.vsZnakyWithoutSpecial);
+        if (!SH.ContainsOnly(result.Substring(1), RandomHelper.vsZnakyWithoutSpecial))
+        {
+            return false;
+        }
+        return true;
     }
 
     public static string PathSpecialAndLevel(string basePath, string item, int v)

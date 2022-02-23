@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 public class FromToT<T> : IParser where T : struct
 {
-   public  bool empty = false;
+    public bool empty = false;
     public static Type type = typeof(FromTo);
 
     public FromToT()
@@ -45,8 +45,8 @@ public class FromToT<T> : IParser where T : struct
 
     public FromToUse ftUse = FromToUse.DateTime;
 
-    public T from { get { return (T)(dynamic)fromL; } set { fromL = (long)(dynamic)value; } } 
-    public T to { get { return (T)(dynamic)toL; } set { toL = (long)(dynamic)value; } } 
+    public T from { get { return (T)(dynamic)fromL; } set { fromL = (long)(dynamic)value; } }
+    public T to { get { return (T)(dynamic)toL; } set { toL = (long)(dynamic)value; } }
 
 
     long fromL = 0;
@@ -56,7 +56,7 @@ public class FromToT<T> : IParser where T : struct
     public long FromL { get => fromL; }
     public long ToL { get => toL; }
 
-    
+
 
     /// <summary>
     /// After it could be called IsFilledWithData

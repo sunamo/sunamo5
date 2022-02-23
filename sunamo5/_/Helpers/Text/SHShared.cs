@@ -55,15 +55,39 @@ public static partial class SH
     /// <param name="p"></param>
     /// <param name="begin"></param>
     /// <param name="end"></param>
-    public static string GetTextBetweenTwoChars(string p, char beginS, char endS, bool throwExceptionIfNotContains = true)
+    public static string GetTextBetweenTwoChars(string p, char beginS, char endS, bool throwExceptionIfNotContains = true, FromToList notAllowedInRanges = null, bool endLastIndexOf = false)
     {
         var begin = p.IndexOf(beginS);
-        var end = p.IndexOf(endS, begin + 1);
+        int end = -1;
+        if (endLastIndexOf)
+        {
+            end = p.LastIndexOf(endS);
+        }
+        else
+        {
+        end = p.IndexOf(endS, begin + 1);
+
+        if (notAllowedInRanges != null)
+        {
+        while (end != NumConsts.mOne && notAllowedInRanges.IsInRange(end))
+        {
+        end = p.IndexOf(endS, end + 1);
+        }
+        }
+        }
+
         if (begin == NumConsts.mOne || end == NumConsts.mOne)
         {
             if (throwExceptionIfNotContains)
             {
                 ThrowExceptions.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
+            }
+            else
+            {
+                if (end == NumConsts.mOne)
+                {
+                    return null;
+                }
             }
         }
         else
@@ -88,9 +112,9 @@ public static partial class SH
 
     #endregion
 
-    public static string GetTextBetween(string p, char after, char before, bool throwExceptionIfNotContains = true)
+    public static string GetTextBetween(string p, char after, char before, bool throwExceptionIfNotContains = true, FromToList notAllowedInRanges = null, bool endLastIndexOf = false)
     {
-        return GetTextBetweenTwoChars(p, after, before, throwExceptionIfNotContains);
+        return GetTextBetweenTwoChars(p, after, before, throwExceptionIfNotContains, notAllowedInRanges, endLastIndexOf);
     }
 
     public static List<string> ValuesBetweenQuotes(string str, bool insertAgainToQm)
@@ -115,7 +139,7 @@ public static partial class SH
     public static string InsertEndingBracket(string v, char startingBracket)
     {
         var cb = ClosingBracketFor(startingBracket);
-        var occB = SH.ReturnOccurencesOfString(v, startingBracket.ToString()) ;
+        var occB = SH.ReturnOccurencesOfString(v, startingBracket.ToString());
         var occE = SH.ReturnOccurencesOfString(v, cb.ToString());
         return InsertEndingBracket(v, occB, occE, startingBracket);
     }
@@ -174,7 +198,7 @@ public static partial class SH
     {
         for (int i = bold.Count - 1; i >= 0; i--)
         {
-            if (char.IsWhiteSpace(s[bold[i] -1]) && char.IsWhiteSpace(s[bold[i] + 1]))
+            if (char.IsWhiteSpace(s[bold[i] - 1]) && char.IsWhiteSpace(s[bold[i] + 1]))
             {
                 bold.RemoveAt(i);
             }
@@ -190,7 +214,7 @@ public static partial class SH
         {
             if (isSpecial(v[i]))
             {
-                if (canBe.Contains( v[i]))
+                if (canBe.Contains(v[i]))
                 {
                     continue;
                 }
@@ -261,14 +285,14 @@ public static partial class SH
         return lineNumber - 1;
     }
 
-   
+
 
     public static string ReplaceVariables(string innerHtml, List<List<string>> _dataBinding, int actualRow)
     {
         return ReplaceVariables(AllChars.lcub, AllChars.rcub, innerHtml, _dataBinding, actualRow);
     }
 
-    
+
 
     public static int AnotherOtherThanLetterOrDigit(string content, int v)
     {
@@ -296,27 +320,27 @@ public static partial class SH
     {
         int sl = s.Length;
         int e = sl / c;
-        int remain = sl % c; 
+        int remain = sl % c;
         if (remain != 0)
         {
-            ThrowExceptions.Custom(null, type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.NumbersOfLetters)+" " + s + " is not dividable with " + c);
+            ThrowExceptions.Custom(null, type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.NumbersOfLetters) + " " + s + " is not dividable with " + c);
         }
 
         List<string> ls = new List<string>(c);
         int from = 0;
 
-        while(s.Length > from + c-2)
+        while (s.Length > from + c - 2)
         {
-            
-                ls.Add(s.Substring(from, c));
 
-                from += c;
-                if (from == sl)
-                {
-                    break;
-                }
-            
-            
+            ls.Add(s.Substring(from, c));
+
+            from += c;
+            if (from == sl)
+            {
+                break;
+            }
+
+
         }
         return ls;
     }
@@ -380,7 +404,7 @@ public static partial class SH
             bracketsLeft.Add(Brackets.Curly, '{');
             bracketsLeft.Add(Brackets.Square, '[');
             bracketsLeft.Add(Brackets.Normal, '(');
-            bracketsLeftList =  bracketsLeft.Values.ToList();
+            bracketsLeftList = bracketsLeft.Values.ToList();
 
             bracketsRight = new Dictionary<Brackets, char>();
             bracketsRight.Add(Brackets.Curly, '}');
@@ -420,7 +444,7 @@ public static partial class SH
 
     public static List<string> SplitByIndexes(string input, List<int> bm)
     {
-        List<string> d = new List<string>(bm.Count +1);
+        List<string> d = new List<string>(bm.Count + 1);
         bm.Sort();
         string before, after;
         before = input;
@@ -469,7 +493,7 @@ public static partial class SH
     public static bool ContainsBracket(string t, ref List<char> left, ref List<char> right, bool mustBeLeftAndRight = false)
     {
         left = SH.ContainsAny<char>(char.MaxValue, false, null, t, AllLists.leftBracketsS);
-        right = SH.ContainsAny<char>(char.MaxValue, false,  null, t, AllLists.leftBracketsS);
+        right = SH.ContainsAny<char>(char.MaxValue, false, null, t, AllLists.leftBracketsS);
         if (mustBeLeftAndRight)
         {
             if (left.Count > 0 && right.Count > 0)
@@ -484,13 +508,13 @@ public static partial class SH
                 return true;
             }
         }
-        
-        
-       
+
+
+
         return false;
     }
 
-    
+
 
     public static char ClosingBracketFor(char v)
     {
@@ -502,11 +526,11 @@ public static partial class SH
             }
         }
 
-        ThrowExceptions.IsNotAllowed(null, type, Exc.CallingMethod(), v +" as bracket");
+        ThrowExceptions.IsNotAllowed(null, type, Exc.CallingMethod(), v + " as bracket");
         return char.MaxValue;
     }
 
-    
+
 
     /// <summary>
     /// Get text after cz#cd => #cd
@@ -518,7 +542,7 @@ public static partial class SH
         var dex = item.IndexOf(after);
         if (dex != -1)
         {
-            return item.Substring(dex + after.Length); 
+            return item.Substring(dex + after.Length);
         }
         return string.Empty;
     }
@@ -579,7 +603,7 @@ public static partial class SH
     {
         //var delimiter = SH.PadRight(string.Empty, Environment.NewLine, 2);
         var p = SH.SplitByWhiteSpaces(c);
-        
+
 
         while (c.Length + p.Count > maxLength)
         {
@@ -590,7 +614,7 @@ public static partial class SH
             }
             else
             {
-                c = SH.SubstringIfAvailable( c, maxLength); break;
+                c = SH.SubstringIfAvailable(c, maxLength); break;
             }
         }
 
@@ -657,7 +681,7 @@ public static partial class SH
 
 
         return new Tuple<string, string>(from.ToString(), to.ToString());
-        
+
     }
 
     public static string ReplaceAllWhitecharsForSpace(string c)
@@ -706,7 +730,7 @@ public static partial class SH
         {
             // Must be split, not splitNone
             // 'SH.ReplaceInAllFiles:  Different count elements in collection from2 - 4 vs. to2 - 3'
-            var p = SH.Split( item, delimiter);
+            var p = SH.Split(item, delimiter);
             if (p.Count == 1)
             {
                 if (item.EndsWith(delimiter))
@@ -750,7 +774,7 @@ public static partial class SH
         List<int> removeOnIndexes = new List<int>();
 
         var sb = new StringBuilder(vr);
-        
+
 
         var occL = SH.ReturnOccurencesOfString(vr, cbl);
         var occR = SH.ReturnOccurencesOfString(vr, cbr);
@@ -844,14 +868,14 @@ public static partial class SH
                 i++;
                 // Na konci přebývá lastLeft
 
-               // onlyLeft.Add(lastLeft);
-               // I will remove it on end
+                // onlyLeft.Add(lastLeft);
+                // I will remove it on end
                 occL.RemoveAt(occL.Count - 1);
             }
             else
             {
                 // když je lastLeft menší, znamená to že last right má svůj levý protějšek
-                l.Add(new Tuple<int, int>( lastLeft, lastRight));
+                l.Add(new Tuple<int, int>(lastLeft, lastRight));
             }
         }
 
@@ -869,7 +893,7 @@ public static partial class SH
 
         var addToAnotherCollection = new CollectionWithoutDuplicates<int>();
         var l2 = new List<Tuple<int, int>>();
-        
+
         List<int> alreadyProcessedItem1 = new List<int>();
         for (int i = l.Count - 1; i >= 0; i--)
         {
@@ -895,7 +919,7 @@ public static partial class SH
 
         foreach (var item in addToAnotherCollection.c)
         {
-            var count = alreadyProcessedItem1.Where(d=> d==item).Count();
+            var count = alreadyProcessedItem1.Where(d => d == item).Count();
             //!alreadyProcessedItem1.Contains(item)
 
             if (count > 2)
@@ -943,16 +967,16 @@ public static partial class SH
                 if (dx != -1)
                 {
                     i = occL[dx - 1];
-                    result[i] = new Tuple<int, int>(i, result[y -1].Item2);
+                    result[i] = new Tuple<int, int>(i, result[y - 1].Item2);
                 }
             }
 
             alreadyProcessed.Add(i);
         }
 
-        
 
-        onlyLeft =  occL;
+
+        onlyLeft = occL;
         CA.RemoveDuplicitiesList(onlyLeft);
         CA.RemoveDuplicitiesList(onlyRight);
 
@@ -971,7 +995,7 @@ public static partial class SH
     {
         for (int i = 0; i < target.Length; i++)
         {
-            if (!startAllowed.Invoke( target[i]))
+            if (!startAllowed.Invoke(target[i]))
             {
                 target = target.Substring(1);
                 i--;
@@ -986,8 +1010,8 @@ public static partial class SH
         {
             if (!startAllowed.Invoke(target[i]))
             {
-                target = target.Remove(target.Length - 1,1);
-                
+                target = target.Remove(target.Length - 1, 1);
+
             }
             else
             {
@@ -1038,7 +1062,7 @@ public static partial class SH
 
     public static string ReplaceBrackets(string item, Brackets from, Brackets to)
     {
-        
+
 
         item = item.Replace(bracketsLeft[from], bracketsLeft[to]);
         item = item.Replace(bracketsRight[from], bracketsRight[to]);
@@ -1087,7 +1111,7 @@ public static partial class SH
         return false;
     }
 
-    
+
 
     /// <summary>
     /// Get null if count of getted parts was under A2.
@@ -1231,7 +1255,7 @@ public static partial class SH
                 {
                     add.RemoveAt(dx);
                 }
-                
+
             }
         }
 
@@ -1283,7 +1307,7 @@ public static partial class SH
         {
             foreach (var item in s)
             {
-                if (CA.ContainsElement<char>( SH.bracketsLeftList, item))
+                if (CA.ContainsElement<char>(SH.bracketsLeftList, item))
                 {
                     containsBracket.Add(item);
                 }
@@ -1305,7 +1329,7 @@ public static partial class SH
 
 
 
-    
+
 
     public static StringBuilder ReplaceAllSb(StringBuilder sb, string zaCo, params string[] co)
     {
@@ -1343,7 +1367,7 @@ public static partial class SH
         var dx = searchQuery.LastIndexOf(after);
         if (dx != -1)
         {
-            return SH.TrimStart( searchQuery.Substring(dx), after);
+            return SH.TrimStart(searchQuery.Substring(dx), after);
         }
         return searchQuery;
     }
@@ -1379,13 +1403,13 @@ public static partial class SH
     public static List<string> SplitAndKeepDelimiters(string originalString, IEnumerable ienu)
     {
         //var ienu = (IEnumerable)deli;
-        var vr = Regex.Split(originalString, @"(?<=["+SH.Join("", ienu) + "])");
+        var vr = Regex.Split(originalString, @"(?<=[" + SH.Join("", ienu) + "])");
         return vr.ToList();
     }
 
-    
 
-    
+
+
     public static bool IsValidISO(string input)
     {
         // ISO-8859-1 je to samé jako latin1 https://en.wikipedia.org/wiki/ISO/IEC_8859-1
@@ -1470,7 +1494,7 @@ public static partial class SH
         return Results;
     }
 
-    
+
     private static bool IsInFirstXCharsTheseLetters(string p, int pl, params char[] letters)
     {
         for (int i = 0; i < pl; i++)
@@ -1580,7 +1604,7 @@ public static partial class SH
         return true;
     }
 
-    
+
     public static string ShortForLettersCount(string p, int p_2)
     {
         bool pridatTriTecky = false;
@@ -1593,7 +1617,7 @@ public static partial class SH
 
 
 
-    
+
 
 
 
@@ -1839,7 +1863,7 @@ public static partial class SH
         return slovo != SH.TextWithoutDiacritic(slovo);
     }
 
-    
+
 
     private static bool s_cs = false;
 
@@ -1872,9 +1896,9 @@ public static partial class SH
     }
 
 
-    
 
-    
+
+
 
     /// <summary>
     /// Format - use string.Format with error checking, as only one can be use wich { } [ ] chars in text
@@ -1906,20 +1930,20 @@ public static partial class SH
 
         return templateHandler;
     }
-   
 
 
-    
-    
 
-    
 
-  
 
-    
 
-    
-    
+
+
+
+
+
+
+
+
     public static string JoinNL(params string[] parts)
     {
         return SH.JoinString(Environment.NewLine, parts);
@@ -1945,8 +1969,8 @@ public static partial class SH
         return sb.ToString();
     }
 
-    
-    
+
+
 
     /// <summary>
     /// Musi mit sudy pocet prvku
@@ -2011,8 +2035,8 @@ public static partial class SH
         return SH.WrapWith(commitMessage, AllChars.qm);
     }
 
-    
-    
+
+
 
     /// <summary>
     /// Vše tu funguje výborně
@@ -2068,13 +2092,13 @@ public static partial class SH
         List<char> a = null;
         //,' | ',
         // removed char 18 - it was recognized as control char
-        a = CA.ToList<char>('�', 'ل' , '€', '™', ':', '´', '', '\'','ṗ','`','§','←','↑','¡' , '↓','³','©', '¿','ƒ','¸','¹','а','ﬂ','і','Н','е','б','с','х','л','Е','ў','р','о','п','ы','®','С','ч','т','ь','н','д','ж','к','я','О','в','ю','Э','М','м','и','з','Б','ц','ш','В','Т','г','э','у','Д','Я','П','А','щ','Ю','И','Г','У','К','Ч','Р','З','Л','Х','ф','Ж','Ц','','Ṩ','¬','既','然','愛','讓','你','找','到','對','的','我','下','去','如','此','真','切','其','他','都','無','所','求','早','就','懼','任','何','危','險','該','一','起','往','前','走','卻','放','手','果','能','時','間','折','返','回','那','天','們','分','開','會','改','變','個','答','案','˜','ả','ấ','प','ा','ठ','न','ह','ी','ं','म','ि','ल','','‒','♥','み','ん','な','最','高','あ','り','が','と','う','か','わ','い','Λ','歪','だ','身','体','叫','び','出','す','痛','つ','け','る','汚','世','界','っ','た','翼','飛','べ','ら','支','配','恐','れ','偽','善','者','て','捨','ち','ま','え','よ','犠','牲','傷','言','葉','届','く','願','叶','光','奪','絆','終','誓','忘','こ','の','壊','も','☆','★','¯','­','″','Ṗ','±','⁕','ا','ه','γ','ζ','μ','α','ε','υ','ω','£','♫','。','♯','⚄','∞','ʇ','∑','ʼ','ª','¦','ˆ','¥','ɛ','ɑ','̃','ŋ','','·','∈','','','‽','♦','','','','ب','ن','ی','د','م','ع','ک','گ','ر','ف','ز','و','چ','،','ق','ت','ح','‌','′','','Þ','ﬁ','º','•','س','ج','ژ','ص','ټ','ړ','ښ','ĕ','Ф','ԁ','ѕ','Ɩ','ο','ɡ','','‡','‐','，','¶','閽','抳','抦','抰','抮','抯','扵','抣','','','̌','́','','','','²','♪','御','味','方','贈','物','は','同','じ','波','神','様','使','ǐ','ǎ','א','נ','י','ח','ו','ש','ב','ע','ל','ך','כ','ה','מ','ד','ת','צ','ק','ר','ג','ם','פ','ן','ז','ס','이','흐','름','을','타','새','로','운','길','함','께','천','히','올','라','진','실','닿','는','순','간','느','껴','봐','눈','감','아','서','필','꿈','과','현','내','손','잡','으','면','Ɏ','‹','¢','ϟ','˘','→','ə','ǰ','ḥ','ʾ','ṭ','ʿ','ṣ','ḍ','Ṣ','‬','ŭ','Ŭ','Ṭ','Ɛ','ɔ','Ɔ','ŗ','ǧ','ġ','ḏ','þ','ṅ','ẏ','ṃ','ṇ','ʹ','ḹ','ң','Қ','қ','ḫ','ų','ŵ','ħ','Ħ','ṛ','ẓ','̲','̤','Ẕ','ŏ','ʻ','Ḥ','İ','ệ','ứ','ố','ư','ớ','ồ','ờ','ậ','ề','ế','ắ','ừ','ữ','ơ','ầ','µ','❌','き','し','む','‰','⟓','娘','子','汉','精','采','‎','Μ','Ι','Α','Ο','Τ','Ν','Β','Η','、','†','ა','ფ','ხ','ზ','უ','რ','ი','ს','მ','ღ','ე','ნ','ბ','ლ','ო','Ш','є','Щ','І','Ь','Є','Ы','우','리','지','구','를','사','랑','해','요','们','爱','地','球','һ','ν','持','上','げ','解','','ー','「','」','❤','〝','〟','姫','僕','未','来','ァ','♂','⇒','ッ','星','在','処','‪','‏','笑','容','兩','點','鐘','用','睫','毛','剪','接','每','舉','動','髮','飄','節','奏','像','是','獨','幫','伴','心','房','季','沒','有','春','秋','冬','炎','熱','夏','曬','臉','蛋','紅','晶','瑩','眼','眸','情','書','般','剔','透','交','給','來','拆','封','慢','著','作','定','格','輪','廓','品','嚐','互','緩','掌','控','完','美','瑕','火','候','忍','住','呼','吸','還','氣','相','投','即','不','邊','也','記','朦','朧','秒','喚','玫','瑰','香','漫','游','頭','要','成','功','闖','關','迷','宮','音','樂','噗','通','板','胸','懷','脈','調','保','證','跟','別','人','絕','與','眾','吻','家','普','侯','空','轉','陪','夢','受','寵','為','訂','做','專','屬','私','宇','宙','⁠','►','ι','λ','ς','ἴ','½','さ','で','に','ず','ど','へ','見','を','め','嘘','お','絶','妙','バ','ラ','ン','ス','首','皮','枚','ア','ダ','ル','ト','ツ','背','向','ば','ほ','合','離','そ','形','確','探','明','日','君','怖','ぐ','強','深','入','関','係','繋','糸','赤','せ','マ','ジ','ク','種','ウ','ソ','重','ね','術','立','尽','ぶ','声','エ','グ','感','涙','二','引','冷','独','ロ','リ','ナ','遠','寄','道','意','・','全','覚','カ','サ','ブ','タ','欠','落','オ','メ','シ','ョ','キ','ミ','イ','列','車','混','雑','コ','ュ','ニ','ケ','信','降','止','雨','響','曲','現','代','失','度','目','気','づ','ワ','デ','望','や','希','鏡','映','問','自','誤','魔','化','生','酷','鼓','景','色','掴','','♚','ℑ','ℵ','ℜ','̆','Ｉ','Ｍ','Ａ','Ｙ','Ｔ','̈','̊','外','国','','','¼','歌','｢','？','‿','Φ','Γ','Ε','Σ','Κ','Υ','Ξ','Χ','Π','Δ','Ρ','Θ','Ζ','Ω','Մ','ե','ն','ք','մ','ի','շ','տ','ա','պ','ր','լ','յ','ս','հ','ո','ղ','ւ','Ք','ձ','դ','Ս','բ','խ','գ','ց','կ','ծ','ռ','Հ','վ','Ա','զ','Դ','չ','ը','ժ','թ','է','օ','։','Գ','Վ','Ի','Տ','Բ','Ե','Օ','Թ','ջ','Ռ','￼','好','想','听','现','哪','里','当','睡','正','醒','承','了','对','思','念','闭','看','脸','已','经','算','清','时','间','让','己','忙','得','没','隙','否','则','脑','袋','面','特','别','多','和','个','太','阳','升','얼','어','붙','버','린','팔','찌','목','에','음','장','식','난','바','닷','물','다','섭','취','마','치','범','고','래','된','것','같','나','셀','수','없','돈','원','보','조','르','려','걸','니','방','울','의','온','몸','주','먹','석','굴','모','양','별','귀','끊','임','뿜','빛','들','은','친','피','날','하','늘','위','너','무','가','까','워','여','긴','소','공','포','증','불','안','정','통','절','대','오','않','뭄','명','품','전','부','달','쳐','본','두','쥐','봉','적','향','쏜','기','옥','근','저','멀','Ј','ј','ћ','љ','њ','ђ','','ᴏ','ʀ','ᴅ','΄','ḃ','ṫ','ṁ','ḋ','䨬','䳥','ߣ','ߠ','䲠','䨲','ߥ','詞','','','ي','ك','‫','','٧','ط','ّ','ሠ','ላ','ም','ለ','ኪ','؟','ܝ','ܘ','ܣ','ܦ','ܟ','ܢ','ܐ','χ','τ','σ','π','ρ','κ','η','δ','ξ','φ','ψ','β','θ','Ў','燦','爛','聖','夜','靜','ھ','ہ','ے','؛','慍','扴','慠','ǒ','ǔ','ǚ','蓝','（','棒');
+        a = CA.ToList<char>('�', 'ل', '€', '™', ':', '´', '', '\'', 'ṗ', '`', '§', '←', '↑', '¡', '↓', '³', '©', '¿', 'ƒ', '¸', '¹', 'а', 'ﬂ', 'і', 'Н', 'е', 'б', 'с', 'х', 'л', 'Е', 'ў', 'р', 'о', 'п', 'ы', '®', 'С', 'ч', 'т', 'ь', 'н', 'д', 'ж', 'к', 'я', 'О', 'в', 'ю', 'Э', 'М', 'м', 'и', 'з', 'Б', 'ц', 'ш', 'В', 'Т', 'г', 'э', 'у', 'Д', 'Я', 'П', 'А', 'щ', 'Ю', 'И', 'Г', 'У', 'К', 'Ч', 'Р', 'З', 'Л', 'Х', 'ф', 'Ж', 'Ц', '', 'Ṩ', '¬', '既', '然', '愛', '讓', '你', '找', '到', '對', '的', '我', '下', '去', '如', '此', '真', '切', '其', '他', '都', '無', '所', '求', '早', '就', '懼', '任', '何', '危', '險', '該', '一', '起', '往', '前', '走', '卻', '放', '手', '果', '能', '時', '間', '折', '返', '回', '那', '天', '們', '分', '開', '會', '改', '變', '個', '答', '案', '˜', 'ả', 'ấ', 'प', 'ा', 'ठ', 'न', 'ह', 'ी', 'ं', 'म', 'ि', 'ल', '', '‒', '♥', 'み', 'ん', 'な', '最', '高', 'あ', 'り', 'が', 'と', 'う', 'か', 'わ', 'い', 'Λ', '歪', 'だ', '身', '体', '叫', 'び', '出', 'す', '痛', 'つ', 'け', 'る', '汚', '世', '界', 'っ', 'た', '翼', '飛', 'べ', 'ら', '支', '配', '恐', 'れ', '偽', '善', '者', 'て', '捨', 'ち', 'ま', 'え', 'よ', '犠', '牲', '傷', '言', '葉', '届', 'く', '願', '叶', '光', '奪', '絆', '終', '誓', '忘', 'こ', 'の', '壊', 'も', '☆', '★', '¯', '­', '″', 'Ṗ', '±', '⁕', 'ا', 'ه', 'γ', 'ζ', 'μ', 'α', 'ε', 'υ', 'ω', '£', '♫', '。', '♯', '⚄', '∞', 'ʇ', '∑', 'ʼ', 'ª', '¦', 'ˆ', '¥', 'ɛ', 'ɑ', '̃', 'ŋ', '', '·', '∈', '', '', '‽', '♦', '', '', '', 'ب', 'ن', 'ی', 'د', 'م', 'ع', 'ک', 'گ', 'ر', 'ف', 'ز', 'و', 'چ', '،', 'ق', 'ت', 'ح', '‌', '′', '', 'Þ', 'ﬁ', 'º', '•', 'س', 'ج', 'ژ', 'ص', 'ټ', 'ړ', 'ښ', 'ĕ', 'Ф', 'ԁ', 'ѕ', 'Ɩ', 'ο', 'ɡ', '', '‡', '‐', '，', '¶', '閽', '抳', '抦', '抰', '抮', '抯', '扵', '抣', '', '', '̌', '́', '', '', '', '²', '♪', '御', '味', '方', '贈', '物', 'は', '同', 'じ', '波', '神', '様', '使', 'ǐ', 'ǎ', 'א', 'נ', 'י', 'ח', 'ו', 'ש', 'ב', 'ע', 'ל', 'ך', 'כ', 'ה', 'מ', 'ד', 'ת', 'צ', 'ק', 'ר', 'ג', 'ם', 'פ', 'ן', 'ז', 'ס', '이', '흐', '름', '을', '타', '새', '로', '운', '길', '함', '께', '천', '히', '올', '라', '진', '실', '닿', '는', '순', '간', '느', '껴', '봐', '눈', '감', '아', '서', '필', '꿈', '과', '현', '내', '손', '잡', '으', '면', 'Ɏ', '‹', '¢', 'ϟ', '˘', '→', 'ə', 'ǰ', 'ḥ', 'ʾ', 'ṭ', 'ʿ', 'ṣ', 'ḍ', 'Ṣ', '‬', 'ŭ', 'Ŭ', 'Ṭ', 'Ɛ', 'ɔ', 'Ɔ', 'ŗ', 'ǧ', 'ġ', 'ḏ', 'þ', 'ṅ', 'ẏ', 'ṃ', 'ṇ', 'ʹ', 'ḹ', 'ң', 'Қ', 'қ', 'ḫ', 'ų', 'ŵ', 'ħ', 'Ħ', 'ṛ', 'ẓ', '̲', '̤', 'Ẕ', 'ŏ', 'ʻ', 'Ḥ', 'İ', 'ệ', 'ứ', 'ố', 'ư', 'ớ', 'ồ', 'ờ', 'ậ', 'ề', 'ế', 'ắ', 'ừ', 'ữ', 'ơ', 'ầ', 'µ', '❌', 'き', 'し', 'む', '‰', '⟓', '娘', '子', '汉', '精', '采', '‎', 'Μ', 'Ι', 'Α', 'Ο', 'Τ', 'Ν', 'Β', 'Η', '、', '†', 'ა', 'ფ', 'ხ', 'ზ', 'უ', 'რ', 'ი', 'ს', 'მ', 'ღ', 'ე', 'ნ', 'ბ', 'ლ', 'ო', 'Ш', 'є', 'Щ', 'І', 'Ь', 'Є', 'Ы', '우', '리', '지', '구', '를', '사', '랑', '해', '요', '们', '爱', '地', '球', 'һ', 'ν', '持', '上', 'げ', '解', '', 'ー', '「', '」', '❤', '〝', '〟', '姫', '僕', '未', '来', 'ァ', '♂', '⇒', 'ッ', '星', '在', '処', '‪', '‏', '笑', '容', '兩', '點', '鐘', '用', '睫', '毛', '剪', '接', '每', '舉', '動', '髮', '飄', '節', '奏', '像', '是', '獨', '幫', '伴', '心', '房', '季', '沒', '有', '春', '秋', '冬', '炎', '熱', '夏', '曬', '臉', '蛋', '紅', '晶', '瑩', '眼', '眸', '情', '書', '般', '剔', '透', '交', '給', '來', '拆', '封', '慢', '著', '作', '定', '格', '輪', '廓', '品', '嚐', '互', '緩', '掌', '控', '完', '美', '瑕', '火', '候', '忍', '住', '呼', '吸', '還', '氣', '相', '投', '即', '不', '邊', '也', '記', '朦', '朧', '秒', '喚', '玫', '瑰', '香', '漫', '游', '頭', '要', '成', '功', '闖', '關', '迷', '宮', '音', '樂', '噗', '通', '板', '胸', '懷', '脈', '調', '保', '證', '跟', '別', '人', '絕', '與', '眾', '吻', '家', '普', '侯', '空', '轉', '陪', '夢', '受', '寵', '為', '訂', '做', '專', '屬', '私', '宇', '宙', '⁠', '►', 'ι', 'λ', 'ς', 'ἴ', '½', 'さ', 'で', 'に', 'ず', 'ど', 'へ', '見', 'を', 'め', '嘘', 'お', '絶', '妙', 'バ', 'ラ', 'ン', 'ス', '首', '皮', '枚', 'ア', 'ダ', 'ル', 'ト', 'ツ', '背', '向', 'ば', 'ほ', '合', '離', 'そ', '形', '確', '探', '明', '日', '君', '怖', 'ぐ', '強', '深', '入', '関', '係', '繋', '糸', '赤', 'せ', 'マ', 'ジ', 'ク', '種', 'ウ', 'ソ', '重', 'ね', '術', '立', '尽', 'ぶ', '声', 'エ', 'グ', '感', '涙', '二', '引', '冷', '独', 'ロ', 'リ', 'ナ', '遠', '寄', '道', '意', '・', '全', '覚', 'カ', 'サ', 'ブ', 'タ', '欠', '落', 'オ', 'メ', 'シ', 'ョ', 'キ', 'ミ', 'イ', '列', '車', '混', '雑', 'コ', 'ュ', 'ニ', 'ケ', '信', '降', '止', '雨', '響', '曲', '現', '代', '失', '度', '目', '気', 'づ', 'ワ', 'デ', '望', 'や', '希', '鏡', '映', '問', '自', '誤', '魔', '化', '生', '酷', '鼓', '景', '色', '掴', '', '♚', 'ℑ', 'ℵ', 'ℜ', '̆', 'Ｉ', 'Ｍ', 'Ａ', 'Ｙ', 'Ｔ', '̈', '̊', '外', '国', '', '', '¼', '歌', '｢', '？', '‿', 'Φ', 'Γ', 'Ε', 'Σ', 'Κ', 'Υ', 'Ξ', 'Χ', 'Π', 'Δ', 'Ρ', 'Θ', 'Ζ', 'Ω', 'Մ', 'ե', 'ն', 'ք', 'մ', 'ի', 'շ', 'տ', 'ա', 'պ', 'ր', 'լ', 'յ', 'ս', 'հ', 'ո', 'ղ', 'ւ', 'Ք', 'ձ', 'դ', 'Ս', 'բ', 'խ', 'գ', 'ց', 'կ', 'ծ', 'ռ', 'Հ', 'վ', 'Ա', 'զ', 'Դ', 'չ', 'ը', 'ժ', 'թ', 'է', 'օ', '։', 'Գ', 'Վ', 'Ի', 'Տ', 'Բ', 'Ե', 'Օ', 'Թ', 'ջ', 'Ռ', '￼', '好', '想', '听', '现', '哪', '里', '当', '睡', '正', '醒', '承', '了', '对', '思', '念', '闭', '看', '脸', '已', '经', '算', '清', '时', '间', '让', '己', '忙', '得', '没', '隙', '否', '则', '脑', '袋', '面', '特', '别', '多', '和', '个', '太', '阳', '升', '얼', '어', '붙', '버', '린', '팔', '찌', '목', '에', '음', '장', '식', '난', '바', '닷', '물', '다', '섭', '취', '마', '치', '범', '고', '래', '된', '것', '같', '나', '셀', '수', '없', '돈', '원', '보', '조', '르', '려', '걸', '니', '방', '울', '의', '온', '몸', '주', '먹', '석', '굴', '모', '양', '별', '귀', '끊', '임', '뿜', '빛', '들', '은', '친', '피', '날', '하', '늘', '위', '너', '무', '가', '까', '워', '여', '긴', '소', '공', '포', '증', '불', '안', '정', '통', '절', '대', '오', '않', '뭄', '명', '품', '전', '부', '달', '쳐', '본', '두', '쥐', '봉', '적', '향', '쏜', '기', '옥', '근', '저', '멀', 'Ј', 'ј', 'ћ', 'љ', 'њ', 'ђ', '', 'ᴏ', 'ʀ', 'ᴅ', '΄', 'ḃ', 'ṫ', 'ṁ', 'ḋ', '䨬', '䳥', 'ߣ', 'ߠ', '䲠', '䨲', 'ߥ', '詞', '', '', 'ي', 'ك', '‫', '', '٧', 'ط', 'ّ', 'ሠ', 'ላ', 'ም', 'ለ', 'ኪ', '؟', 'ܝ', 'ܘ', 'ܣ', 'ܦ', 'ܟ', 'ܢ', 'ܐ', 'χ', 'τ', 'σ', 'π', 'ρ', 'κ', 'η', 'δ', 'ξ', 'φ', 'ψ', 'β', 'θ', 'Ў', '燦', '爛', '聖', '夜', '靜', 'ھ', 'ہ', 'ے', '؛', '慍', '扴', '慠', 'ǒ', 'ǔ', 'ǚ', '蓝', '（', '棒');
         #region Added as int because its control chars and isBinary could return true => replace in files wouldnt working
         a.Add((char)1);
         a.Add((char)20);
         a.Add((char)159);
         a.Add((char)3);
-        a.Add((char)2); 
+        a.Add((char)2);
         #endregion
 
         spaceAndPuntactionCharsAndWhiteSpacesList.AddRange(a);
@@ -2104,7 +2128,7 @@ public static partial class SH
         return sb.ToString();
     }
 
-    
+
 
     /// <summary>
     /// 
@@ -2135,7 +2159,7 @@ public static partial class SH
         else
         {
             pred = text.Substring(0, pozice);
-            if (text.Length > pozice+1)
+            if (text.Length > pozice + 1)
             {
                 za = text.Substring(pozice + 1);
             }
@@ -2207,7 +2231,7 @@ public static partial class SH
         return false;
     }
 
-   
+
 
     /// <summary>
     /// Nevraci znaky na indexech ale zda nektere znaky maji rozsah char definovany v A2,3
@@ -2254,9 +2278,9 @@ public static partial class SH
         return null;
     }
 
-    
 
-    
+
+
     public static List<string> RemoveDuplicatesNone(string p1, string delimiter)
     {
         var split = SH.SplitNone(p1, delimiter);
@@ -2568,7 +2592,7 @@ public static partial class SH
         return result;
     }
 
-    
+
 
     /// <summary>
     /// Replace AllChars.whiteSpacesChars with A2
@@ -2590,7 +2614,7 @@ public static partial class SH
 
 
 
-    
+
 
     public static string ReplaceWhiteSpacesWithoutSpaces(string p)
     {
@@ -2644,8 +2668,8 @@ public static partial class SH
         return s;
     }
 
-    
-    
+
+
     public static string ReplaceFromEnd(string s, string zaCo, string co)
     {
         List<int> occ = SH.ReturnOccurencesOfString(s, co);
@@ -2691,13 +2715,13 @@ public static partial class SH
         string p, z;
         p = p1;
 
-        
+
 
         if (dx < p1.Length)
         {
             GetPartsByLocation(out p, out z, p1, dx);
         }
-        
+
         return p;
     }
 
@@ -2741,7 +2765,8 @@ public static partial class SH
             var length = p3 - dxOfFounded + 1;
             if (length < 1)
             {
-                return p;
+                // Takhle to tu bylo předtím ale logicky je to nesmysl.
+                //return p;
             }
             vr = p.Substring(dxOfFounded, length).Trim();
         }
@@ -2762,7 +2787,7 @@ public static partial class SH
         return vr.Trim();
     }
 
-public static bool EndsWith(string input, string endsWith)
+    public static bool EndsWith(string input, string endsWith)
     {
         return input.EndsWith(endsWith);
     }
@@ -2770,11 +2795,11 @@ public static bool EndsWith(string input, string endsWith)
 
 
 
-public static string JoinDictionary(IDictionary<string, string> dict, string delimiterBetweenKeyAndValue, string delimAfter)
+    public static string JoinDictionary(IDictionary<string, string> dict, string delimiterBetweenKeyAndValue, string delimAfter)
     {
         return JoinKeyValueCollection(dict.Keys, dict.Values, delimiterBetweenKeyAndValue, delimAfter);
     }
-public static string JoinDictionary(Dictionary<string, string> dictionary, string delimiter)
+    public static string JoinDictionary(Dictionary<string, string> dictionary, string delimiter)
     {
         StringBuilder sb = new StringBuilder();
         foreach (var item in dictionary)
@@ -2784,7 +2809,7 @@ public static string JoinDictionary(Dictionary<string, string> dictionary, strin
         return sb.ToString();
     }
 
-public static string JoinKeyValueCollection(IEnumerable v1, IEnumerable v2, string delimiterBetweenKeyAndValue, string delimAfter)
+    public static string JoinKeyValueCollection(IEnumerable v1, IEnumerable v2, string delimiterBetweenKeyAndValue, string delimAfter)
     {
         StringBuilder sb = new StringBuilder();
         var v2List = new List<object>(v2.Count());
@@ -2801,7 +2826,7 @@ public static string JoinKeyValueCollection(IEnumerable v1, IEnumerable v2, stri
         return SH.TrimEnd(sb.ToString(), delimAfter);
     }
 
-public static bool RemovePrefix(ref string s, string v)
+    public static bool RemovePrefix(ref string s, string v)
     {
         if (s.StartsWith(v))
         {
@@ -2813,7 +2838,7 @@ public static bool RemovePrefix(ref string s, string v)
 
 
 
-public static string GetToFirstChar(string input, int indexOfChar)
+    public static string GetToFirstChar(string input, int indexOfChar)
     {
         if (indexOfChar != -1)
         {
@@ -2826,7 +2851,7 @@ public static string GetToFirstChar(string input, int indexOfChar)
 
 
 
-/// <summary>
+    /// <summary>
     /// Tato metoda byla výchozí, jen se jmenovala NullToString
     /// OrEmpty pro odliseni od metody NullToStringOrEmpty
     /// </summary>
@@ -2841,7 +2866,7 @@ public static string GetToFirstChar(string input, int indexOfChar)
         return s;
     }
 
-public static bool ContainsFromEnd(string p1, char p2, out int ContainsFromEndResult)
+    public static bool ContainsFromEnd(string p1, char p2, out int ContainsFromEndResult)
     {
         for (int i = p1.Length - 1; i >= 0; i--)
         {
@@ -2855,7 +2880,7 @@ public static bool ContainsFromEnd(string p1, char p2, out int ContainsFromEndRe
         return false;
     }
 
-/// <summary>
+    /// <summary>
     /// FUNGUJE ale může být pomalá, snaž se využívat co nejméně
     /// Pokud někde bude více delimiterů těsně za sebou, ve výsledku toto nebude, bude tam jen poslední delimiter v té řadě příklad z 1,.Par při delimiteru , a . bude 1.Par
     /// </summary>
@@ -2914,7 +2939,7 @@ public static bool ContainsFromEnd(string p1, char p2, out int ContainsFromEndRe
         return v;
     }
 
-/// <summary>
+    /// <summary>
     /// V A2 vrátí jednotlivé znaky z A1, v A3 bude false, pokud znak v A2 bude delimiter, jinak True
     /// </summary>
     /// <param name="what"></param>
@@ -2946,7 +2971,7 @@ public static bool ContainsFromEnd(string p1, char p2, out int ContainsFromEndRe
         delimitersIndexes.Reverse();
     }
 
-public static string FirstWhichIsNotEmpty(params string[] s)
+    public static string FirstWhichIsNotEmpty(params string[] s)
     {
         foreach (var item in s)
         {
@@ -2958,7 +2983,7 @@ public static string FirstWhichIsNotEmpty(params string[] s)
         return "";
     }
 
-/// <summary>
+    /// <summary>
     /// Whether A1 is under A2
     /// </summary>
     /// <param name="name"></param>
@@ -2968,7 +2993,7 @@ public static string FirstWhichIsNotEmpty(params string[] s)
         return IsMatchRegex(name, mask, AllChars.q, AllChars.asterisk);
     }
 
-private static bool IsMatchRegex(string str, string pat, char singleWildcard, char multipleWildcard)
+    private static bool IsMatchRegex(string str, string pat, char singleWildcard, char multipleWildcard)
     {
         // If I compared .vs with .vs, return false before
         if (str == pat)
@@ -3026,7 +3051,7 @@ private static bool IsMatchRegex(string str, string pat, char singleWildcard, ch
 
 
 
-/// <summary>
+    /// <summary>
     /// AnySpaces - split A2 by spaces and A1 must contains all parts
     /// ExactlyName - ==
     /// FixedSpace - simple contains
@@ -3073,7 +3098,7 @@ private static bool IsMatchRegex(string str, string pat, char singleWildcard, ch
 
         foreach (var item in tfd)
         {
-            tfdOverallLength += (item.fromTo.to - item.fromTo.from) +1;
+            tfdOverallLength += (item.fromTo.to - item.fromTo.from) + 1;
         }
 
         int partsCount = tfd.Count;
@@ -3173,7 +3198,7 @@ private static bool IsMatchRegex(string str, string pat, char singleWildcard, ch
                     return true;
                 }
 
-                
+
             }
 
             if (remains == 0)
@@ -3199,7 +3224,7 @@ private static bool IsMatchRegex(string str, string pat, char singleWildcard, ch
         }
     }
 
-/// <summary>
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="text"></param>
@@ -3248,18 +3273,18 @@ private static bool IsMatchRegex(string str, string pat, char singleWildcard, ch
         // Here it was cycling, dont know why, therefore without while
         //while (text.Contains(AllStrings.doubleSpace16032))
         //{
-            //text = SH.ReplaceAll2(text, AllStrings.space, AllStrings.doubleSpace16032);
+        //text = SH.ReplaceAll2(text, AllStrings.space, AllStrings.doubleSpace16032);
         //}
 
         //while (text.Contains(AllStrings.doubleSpace32160))
         //{
-            //text = SH.ReplaceAll2(text, AllStrings.space, AllStrings.doubleSpace32160);
+        //text = SH.ReplaceAll2(text, AllStrings.space, AllStrings.doubleSpace32160);
         //}
 
         return text;
     }
 
-public static string FromSpace160To32(ref string text)
+    public static string FromSpace160To32(ref string text)
     {
         text = Regex.Replace(text, @"\p{Z}", AllStrings.space);
         return text;

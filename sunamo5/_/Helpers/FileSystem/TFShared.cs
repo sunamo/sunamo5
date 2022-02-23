@@ -1,13 +1,9 @@
 ﻿using AsyncIO.FileSystem;
-using sunamo.Data;
-using sunamo.Essential;
-using sunamo.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 public partial class TF
@@ -23,7 +19,7 @@ public partial class TF
     {
         var content = TF.ReadFile(f);
         content = transformHtmlToMetro4.Invoke(content);
-        TF.SaveFile(content, FS.InsertBetweenFileNameAndExtension( f, insertBetweenFilenameAndExtension));
+        TF.SaveFile(content, FS.InsertBetweenFileNameAndExtension(f, insertBetweenFilenameAndExtension));
     }
 
     public static void PureFileOperation(string f, Func<string, string> transformHtmlToMetro4)
@@ -36,7 +32,7 @@ public partial class TF
 
         }
 
-        if (String.Compare( content, content2) != 0)
+        if (String.Compare(content, content2) != 0)
         {
             //TF.SaveFile(content, CompareFilesPaths.GetFile(CompareExt.cs, 1));
             //TF.SaveFile(content2, CompareFilesPaths.GetFile(CompareExt.cs, 2));
@@ -44,9 +40,9 @@ public partial class TF
         }
     }
 
-    
 
- 
+
+
 
 
     /// <summary>
@@ -55,7 +51,7 @@ public partial class TF
     /// <param name="file"></param>
     public static StreamReader TextReader(string file)
     {
-        return  File.OpenText(file);
+        return File.OpenText(file);
     }
 
     public static void WriteAllText(string file, StringBuilder sb)
@@ -99,23 +95,5 @@ public partial class TF
     }
     #endregion
 
-    public static string ReadAllText(string path, Encoding enc)
-    {
-        if (isUsed != null)
-        {
-            if (isUsed.Invoke(path))
-            {
-                return string.Empty;
-            }
-        }
 
-        if (enc == null)
-        {
-            return TF.ReadAllText(path);
-        }
-        else
-        {
-            return TF.ReadAllText(path, enc);
-        }
-    }
 }

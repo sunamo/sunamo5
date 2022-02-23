@@ -70,6 +70,15 @@ public partial class ThrowExceptions
         ThrowIsNotNull(t.Item3, exc);
     }
 
+    /// <summary>
+    /// true if everything is OK
+    /// false if some error occured
+    /// 
+    /// </summary>
+    /// <param name="f"></param>
+    /// <param name="a1"></param>
+    /// <param name="a2"></param>
+    /// <returns></returns>
     public static bool ThrowIsNotNullEx(Func<string, string, IEnumerable, string> f, string a1, IEnumerable a2)
     {
         t = Exc.GetStackTrace2(true);
@@ -205,7 +214,22 @@ reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
     /// Must be public due to GlobalAsaxHelper
     /// </summary>
     public static Action<string, string> writeServerError;
-    public static Action<object> showExceptionWindow;
+    static Action<object> _showExceptionWindow = null;
+    public static Action<object> showExceptionWindow
+    { 
+        get
+        {
+            return _showExceptionWindow;
+        }
+        set
+        { 
+            #if DEBUG
+            _showExceptionWindow = null;
+            #else
+            _showExceptionWindow = value;
+            #endif
+        }
+    }
 #pragma warning enable
 
     public static void NotImplementedCase(string stacktrace, object type, string methodName, object niCase)
