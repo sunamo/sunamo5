@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using sunamo.Essential;
 
 /// <summary>
 /// Methods which is calling with TFFIle.cs
@@ -106,10 +107,13 @@ public partial class TF
             {
                 var ss2 = s.ToString();
 
+                AppData.ci.GetCommonSettings("CloudProviders");
                 if (LockedByBitLocker(ss2))
                 {
                     return String.Empty;
                 }
+                
+                //ThisApp.firstReadingFromCloudProvider = 
 
                 //result = enc.GetString(bytesArray);
                 return File.ReadAllText(ss2);

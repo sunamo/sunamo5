@@ -86,18 +86,7 @@ public partial class FS
         return ls;
     }
 
-    public static bool IsExtension(string result)
-    {
-        if (string.IsNullOrWhiteSpace(result))
-        {
-            return false;
-        }
-        if (!SH.ContainsOnly(result.Substring(1), RandomHelper.vsZnakyWithoutSpecial))
-        {
-            return false;
-        }
-        return true;
-    }
+    
 
     public static string PathSpecialAndLevel(string basePath, string item, int v)
     {

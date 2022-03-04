@@ -1114,7 +1114,18 @@ public partial class FS
         return result;
     }
 
-    
+    public static bool IsExtension(string result)
+        {
+            if (string.IsNullOrWhiteSpace(result))
+            {
+                return false;
+            }
+            if (!SH.ContainsOnly(result.Substring(1), RandomHelper.vsZnakyWithoutSpecial))
+            {
+                return false;
+            }
+            return true;
+        }
 
     /// <summary>
     /// If path ends with backslash, FS.GetDirectoryName returns empty string
