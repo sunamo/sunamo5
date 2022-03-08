@@ -173,7 +173,8 @@ public class AppData : AppDataAbstractBase<string, string>
     {
 
             string r = AppData.ci.GetFolderWithAppsFiles();
-            string sunamoFolder = TF.ReadFile(r);
+        // Here I can't use TF.ReadFile
+            string sunamoFolder = TF.ReadAllText(r);
 
             if (string.IsNullOrWhiteSpace(sunamoFolder))
             {

@@ -107,7 +107,8 @@ public partial class TF
             {
                 var ss2 = s.ToString();
 
-                AppData.ci.GetCommonSettings("CloudProviders");
+                // Způsobovalo mi chybu v asp.net Could not find file 'd:\Documents\sunamo\Common\Settings\CloudProviders'.
+                //AppData.ci.GetCommonSettings("CloudProviders");
                 if (LockedByBitLocker(ss2))
                 {
                     return String.Empty;
