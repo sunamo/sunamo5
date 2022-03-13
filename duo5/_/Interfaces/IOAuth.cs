@@ -12,9 +12,18 @@ public interface IOAuth
     /// </summary>
     string MerchantId{get;}
 
+
 }
 
 public interface IGoPayOAuth : IOAuth
 {
     long GoID{get;}
+}
+
+public interface IComgateOAuth : IOAuth
+{
+    /// <summary>
+    /// cm specific
+    /// </summary>
+    string Email { get; }
 }

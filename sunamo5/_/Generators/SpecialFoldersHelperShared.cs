@@ -2,6 +2,7 @@
 using sunamo.Essential;
 using System;
 using System.IO;
+using SunamoExceptions;
 
 public static partial class SpecialFoldersHelper
 {
@@ -21,7 +22,7 @@ public static partial class SpecialFoldersHelper
     {
         string vr = null;
 
-        if (Exc.aspnet || VpsHelperSunamo.IsVps)
+        if (Exc.aspnet || VpsHelperXlf.IsVps)
         {
             // Create junction to Administrator
             vr = @"c:\Users\Administrator\AppData\Roaming";

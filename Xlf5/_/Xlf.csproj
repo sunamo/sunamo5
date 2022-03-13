@@ -22,9 +22,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\CredentialsWithoutDep\WinSec\VpsHelperIsVps.cs" Link="_WinSec\VpsHelperIsVps.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="sunamo\Helpers\FileSystem\" />
     <Folder Include="sunamo\List\" />
     <Folder Include="_WinSec\" />
@@ -43,7 +40,6 @@
     <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CredentialsWithoutDep\WinSec\WinSec.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\fmdev.ResX\fmdev.ResX.csproj" />
     <ProjectReference Include="..\..\sunamo.notmine\XliffParser\XliffParser.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj"></ProjectReference>

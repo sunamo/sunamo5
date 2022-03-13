@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SunamoExceptions;
 
 public partial class VpsHelperSunamo
 {
     
     public const string ip = "46.36.38.72";
     public const string ipMyPoda = "85.135.38.18";
+
+    public static bool IsVps => VpsHelperXlf.IsVps;
+    public static string path => VpsHelperXlf.path;
 
     public static bool IsQ
         => Environment.MachineName == "CZOV-61TN5D3";
