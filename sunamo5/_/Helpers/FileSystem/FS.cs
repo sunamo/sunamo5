@@ -702,7 +702,7 @@ public partial class FS
             fullPathCsproj = FS.GetDirectoryName(fullPathCsproj);
         }
         var result = FS.WithoutEndSlash(fullPathCsproj);
-        FS.FirstCharLower(ref result);
+        FS.FirstCharUpper(ref result);
         return result;
     }
 
@@ -763,7 +763,7 @@ public partial class FS
         string pathToFolder = FS.GetDirectoryName(folder.TrimEnd(AllChars.bs)) + AllStrings.bs;
         string folderWithCaretFiles = pathToFolder + FS.GetFileName(folder.TrimEnd(AllChars.bs)) + ending;
         var result = folderWithCaretFiles;
-        FS.FirstCharLower(ref result);
+        FS.FirstCharUpper(ref result);
         return result;
     }
     public static void CopyFilesOfExtensions(string folderFrom, string FolderTo, params string[] extensions)
@@ -897,7 +897,7 @@ public partial class FS
         string p2, fn;
         GetPathAndFileName(oldPath, out p2, out fn);
         string vr = p2 + AllStrings.bs + fn.Replace(what, forWhat);
-        FS.FirstCharLower(ref vr);
+        FS.FirstCharUpper(ref vr);
         return vr;
     }
 

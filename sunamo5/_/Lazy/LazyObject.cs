@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class LazyT<T>
 {
-    private Func<string, T> getCommonSettings;
+    private Func<string, bool, T> getCommonSettings;
     private string arg;
     T value = default(T);
 
@@ -14,13 +14,13 @@ public class LazyT<T>
         get {
             if (EqualityComparer<T>.Default.Equals(value, default(T)))
             {
-                value = getCommonSettings(arg);
+                value = getCommonSettings(arg, true);
             }
             return value;
                 }
     }
 
-    public LazyT(Func<string, T> getCommonSettings, string pwUsersScz)
+    public LazyT(Func<string, bool, T> getCommonSettings, string pwUsersScz)
     {
         this.getCommonSettings = getCommonSettings;
         this.arg = pwUsersScz;

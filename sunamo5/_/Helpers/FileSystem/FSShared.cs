@@ -161,7 +161,7 @@ public partial class FS
             }
         }
 
-        CA.ChangeContent(null, list, d => SH.FirstCharLower(d));
+        CA.ChangeContent(null, list, d => SH.FirstCharUpper(d));
 
         if (getFilesArgs._trimA1)
         {
@@ -494,7 +494,7 @@ public partial class FS
     /// <param name="empty"></param>
     public static string ReplaceVsProjectFolder(string fullPathOriginalFile, string combineWithA1, string empty)
     {
-        fullPathOriginalFile = SH.FirstCharLower(fullPathOriginalFile);
+        fullPathOriginalFile = SH.FirstCharUpper(fullPathOriginalFile);
         foreach (var item in DefaultPaths.AllPathsToProjects)
         {
             string replace = FS.WithEndSlash(FS.Combine(item, combineWithA1));
@@ -512,7 +512,7 @@ public partial class FS
     /// Cant return with end slash becuase is working also with files
     /// </summary>
     /// <param name="s"></param>
-    public static string CombineWithoutFirstCharLower(params string[] s)
+    public static string CombineWithoutFirstCharUpper(params string[] s)
     {
         return CombineWorker(false, s);
     }
@@ -580,7 +580,7 @@ public partial class FS
             }
         }
         var result = sb.ToString();
-        FS.FirstCharLower(ref result);
+        FS.FirstCharUpper(ref result);
         return result;
     }
 
@@ -607,7 +607,7 @@ public partial class FS
         }
 
         var result = sb.ToString();
-        FS.FirstCharLower(ref result);
+        FS.FirstCharUpper(ref result);
         return result;
     }
 
@@ -709,7 +709,7 @@ public partial class FS
             return new List<string>();
         }
 
-        CA.ChangeContent(null, dirs, d => SH.FirstCharLower(d));
+        CA.ChangeContent(null, dirs, d => SH.FirstCharUpper(d));
 
         if (_trimA1)
         {
@@ -827,7 +827,7 @@ public partial class FS
             {
             }
         }
-        FirstCharLower(ref nova);
+        FirstCharUpper(ref nova);
         return nova;
     }
 
@@ -1140,7 +1140,7 @@ public partial class FS
             StopwatchStatic.StopAndPrintElapsed("GetFiles");
         }
 
-        CA.ChangeContent(null, list, d2 => SH.FirstCharLower(d2));
+        CA.ChangeContent(null, list, d2 => SH.FirstCharUpper(d2));
 
         if (e._trimA1)
         {
@@ -1318,7 +1318,7 @@ public partial class FS
             result = SH.ReplaceAll2(path, AllStrings.bs, AllStrings.slash);
         }
 
-        FS.FirstCharLower(ref result);
+        FS.FirstCharUpper(ref result);
         return result;
     }
 

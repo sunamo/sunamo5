@@ -176,6 +176,11 @@ public class AppData : AppDataAbstractBase<string, string>
         // Here I can't use TF.ReadFile
             string sunamoFolder = TF.ReadAllText(r);
 
+            if (char.IsLower(sunamoFolder[0]))
+            {
+                ThrowEx.FirstLetterIsNotUpper(sunamoFolder);
+            }
+            
             if (string.IsNullOrWhiteSpace(sunamoFolder))
             {
                 sunamoFolder = FS.Combine(SpecialFoldersHelper.AppDataRoaming(), Consts.@sunamo);
@@ -200,15 +205,29 @@ public class AppData : AppDataAbstractBase<string, string>
     public static Func<List<byte>, List<byte>> RijndaelBytesDecrypt;
     public static Func<List<byte>, List<byte>> RijndaelBytesEncrypt;
 
-    public override string GetCommonSettings(string key)
+    /// <summary>
+    /// CryptHelper.ApplyCryptData(CryptHelper.RijndaelBytes.Instance, CryptDataWrapper.rijn);
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public override string GetCommonSettings(string key, bool isCrypted = true)
     {
         var file = GetFileCommonSettings(key);
-        var b = TF.ReadAllBytes(file);
-        var b2 = RijndaelBytesDecrypt(b);
-        var b3 = b2.ToArray();
-        var vr = Encoding.UTF8.GetString(b3);
-        vr = vr.Replace("\0", "");
-        return vr;
+        if (isCrypted)
+        {
+            var b = TF.ReadAllBytes(file);
+            var b2 = RijndaelBytesDecrypt(b);
+            var b3 = b2.ToArray();
+            var vr = Encoding.UTF8.GetString(b3);
+            vr = vr.Replace("\0", "");
+
+            return vr;
+        }
+        else
+        {
+            // Must be File
+            return File.ReadAllText(file);
+        }
     }
 
     public override void SetCommonSettings(string key, string value)

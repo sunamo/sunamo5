@@ -5,6 +5,11 @@ using HtmlAgilityPack;
 using System;
 using System.Threading.Tasks;
 
+public interface ISunamoBrowser<T> :ISunamoBrowser
+{
+    
+}
+
 /// <summary>
 /// A1 je třída Control závislá na typu cílové aplikace
 /// 
@@ -15,7 +20,7 @@ using System.Threading.Tasks;
 /// 
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public interface ISunamoBrowser<T>
+public interface ISunamoBrowser
 {
     Uri Source { get; set; }
     /// <summary>

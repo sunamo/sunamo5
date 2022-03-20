@@ -18,15 +18,15 @@ public partial class FS
     /// <summary>
     /// Cant return with end slash becuase is working also with files
     /// </summary>
-    /// <param name="firstCharLower"></param>
+    /// <param name="FirstCharUpper"></param>
     /// <param name="s"></param>
-    private static string CombineWorker(bool firstCharLower, params string[] s)
+    private static string CombineWorker(bool FirstCharUpper, params string[] s)
     {
         s = CA.TrimStart(AllChars.bs, s).ToArray();
         var result = Path.Combine(s);
-        if (firstCharLower)
+        if (FirstCharUpper)
         {
-            result = FS.FirstCharLower(ref result);
+            result = FS.FirstCharUpper(ref result);
         }
         else
         {
@@ -89,14 +89,14 @@ public partial class FS
         if (dex != -1)
         {
             var result = rp.Substring(0, dex + 1);
-            FS.FirstCharLower(ref result);
+            FS.FirstCharUpper(ref result);
             return result;
         }
         return "";
     }
 
     /// <summary>
-    /// Use FirstCharLower instead
+    /// Use FirstCharUpper instead
     /// </summary>
     /// <param name="result"></param>
     private static string FirstCharUpper(ref string result)
@@ -125,19 +125,10 @@ public partial class FS
         {
             v = v.TrimEnd(AllChars.bs) + AllChars.bs;
         }
-        FirstCharLower(ref v);
+        FirstCharUpper(ref v);
         return v;
     }
-
-    private static string FirstCharLower(ref string result)
-    {
-        if (IsWindowsPathFormat(result))
-        {
-            result = SH.FirstCharLower(result);
-        }
-        return result;
-    }
-
+    
     public static bool IsWindowsPathFormat(string argValue)
     {
         if (string.IsNullOrWhiteSpace(argValue))
@@ -848,7 +839,7 @@ public partial class FS
 
         if (result.Count > 0)
         {
-            result[0] = SH.FirstCharLower(result[0]);
+            result[0] = SH.FirstCharUpper(result[0]);
         }
 
         CA.FirstCharUpper(result);
@@ -966,7 +957,7 @@ public partial class FS
             }
         }
 
-        CA.ChangeContent(null, list, d => SH.FirstCharLower(d));
+        CA.ChangeContent(null, list, d => SH.FirstCharUpper(d));
 
         if (getFilesArgs._trimA1)
         {

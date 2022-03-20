@@ -63,7 +63,7 @@ namespace sunamo
 
         public abstract bool IsRootFolderNull();
         //public abstract StorageFolder GetSunamoFolder();
-        public abstract StorageFolder GetCommonSettings(string key);
+        public abstract StorageFolder GetCommonSettings(string key, bool isCrypted = true);
 
         public abstract void SetCommonSettings(string key, string value);
 

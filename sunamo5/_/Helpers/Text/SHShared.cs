@@ -2035,7 +2035,10 @@ public static partial class SH
         return SH.WrapWith(commitMessage, AllChars.qm);
     }
 
-
+    public static string WrapWithBs(string commitMessage)
+    {
+        return SH.WrapWith(commitMessage, AllChars.bs);
+    }
 
 
     /// <summary>

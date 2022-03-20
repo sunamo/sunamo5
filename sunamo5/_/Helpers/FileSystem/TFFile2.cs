@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using sunamo.Essential;
+using sunamo.Helpers.FileSystem;
 
 /// <summary>
 /// Methods which is calling with TFFIle.cs
@@ -108,7 +109,11 @@ public partial class TF
                 var ss2 = s.ToString();
 
                 // Způsobovalo mi chybu v asp.net Could not find file 'd:\Documents\sunamo\Common\Settings\CloudProviders'.
-                //AppData.ci.GetCommonSettings("CloudProviders");
+
+                new CloudProvidersHelper();
+                CloudProvidersHelper.OpenSyncAppIfNotRunning(ss2);
+                
+                
                 if (LockedByBitLocker(ss2))
                 {
                     return String.Empty;

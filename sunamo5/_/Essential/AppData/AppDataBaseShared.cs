@@ -77,6 +77,10 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
         }
         set
         {
+            if (value != null && char.IsLower(value.ToString()[0]))
+            {
+                ThrowEx.FirstLetterIsNotUpper(value.ToString());   
+            }
             rootFolder = value;
         }
     }

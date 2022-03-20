@@ -105,10 +105,19 @@ public static partial class SH
     }
     #endregion
 
-    public static string ReplaceTypedWhitespacesForNormal(string t, bool quote, bool t24)
+    private static StringBuilder sb = new StringBuilder();
+    
+    public static string ReplaceTypedWhitespacesForNormal(string t, bool quote, bool t24, bool bs)
     {
-        t = t.Trim().Trim(AllChars.qm, AllChars.apos);
-
+        sb.Clear();
+        t = t.Trim();
+        // jen zde protože jestli něco dělám přes ts tak to dělám na rychlost a to už musí být tohohle zbavené 
+        t = t.TrimEnd(AllChars.qm, AllChars.apos);
+        sb.Append(t);
+        return ReplaceTypedWhitespacesForNormal(sb, quote, t24, bs).ToString();
+    }
+    public static StringBuilder ReplaceTypedWhitespacesForNormal(StringBuilder t, bool quote, bool t24, bool bs)
+    {
         if (t24)
         {
             t = t.Replace("\\\\t24", string.Empty);
@@ -119,9 +128,14 @@ public static partial class SH
         t = t.Replace("\\r", "\r");
         if (quote)
         {
-            
             t = t.Replace("\\\"", "\"");
         }
+
+        if (bs)
+        {
+            t = t.Replace("\\\\", "\\");
+        }
+            
         //t = t.Replace("\\r", "\r");
 
         return t;
