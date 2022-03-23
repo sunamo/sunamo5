@@ -1,9 +1,10 @@
 ﻿using sunamo.Data;
-using sunamo.Essential;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using SunamoExceptions;
+using ThisApp = sunamo.Essential.ThisApp;
 
 public class MayExtHelper
 {
