@@ -11,6 +11,17 @@ public class TWithName<T>
     /// </summary>
     public string name = string.Empty;
 
+    public TWithName()
+    {
+
+    }
+    public TWithName(string name, T t)
+    {
+        this.name = name;
+        this.t = t;
+    }
+
+
     public override string ToString()
     {
         return name;

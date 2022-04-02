@@ -1497,4 +1497,11 @@ public partial class FS
         }
         return ds;
     }
+
+    public static string Postfix(string aPath, string s)
+    {
+        var result = aPath.TrimEnd(AllChars.bs) + s;
+        FS.WithEndSlash(ref result);
+        return result;
+    }
 }

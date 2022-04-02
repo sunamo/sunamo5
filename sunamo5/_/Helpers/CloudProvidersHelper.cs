@@ -17,7 +17,7 @@ namespace sunamo.Helpers.FileSystem
         public static string OneDriveFn = null;
         public static string GDriveFn = null;
 
-        public static IMyStations myStations = null;
+        public static /*IMyStations*/ dynamic myStations = null;
 
         private static CloudProvidersHelper Instance = null;
         

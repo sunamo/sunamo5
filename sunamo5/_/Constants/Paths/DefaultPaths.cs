@@ -7,23 +7,23 @@ namespace sunamo.Constants
     public class DefaultPaths
     {
         public const string BackupSunamosAppData = @"e:\Sync\Develop of Future\Backups\";
-        public const string pathPa = @"d:\pa\";
-        public const string pathPaSync = @"d:\paSync\";
+        public const string pathPa = @"D:\pa\";
+        public const string pathPaSync = @"D:\paSync\";
         
         public const string capturedUris = @"C:\Users\Administrator\AppData\Roaming\sunamo\SunamoCzAdmin\Data\SubsSignalR\CapturedUris.txt";
         public const string capturedUris_backup = @"C:\Users\Administrator\AppData\Roaming\sunamo\SunamoCzAdmin\Data\SubsSignalR\CapturedUris_backup.txt";
         
-        public const string rootVideos0Kb = @"d:\Documents\Videos0kb\";
-        public static string Documents = @"d:\Documents\";
+        public const string rootVideos0Kb = @"D:\Documents\Videos0kb\";
+        public static string Documents = @"D:\Documents\";
         public static string eDocuments = @"e:\Documents\";
-        public static string Docs = @"d:\Docs\";
-        public static string Downloads = @"d:\Downloads\";
-        public static string Music2 = @"d:\Music2\";
-        public static string Backup = @"d:\Documents\Backup\";
+        public static string Docs = @"D:\Docs\";
+        public static string Downloads = @"D:\Downloads\";
+        public static string Music2 = @"D:\Music2\";
+        public static string Backup = @"D:\Documents\Backup\";
 
 
 
-        public static string Streamline = @"d:\Pictures\Streamline_All_Icons_PNG\PNG Icons\";
+        public static string Streamline = @"D:\Pictures\Streamline_All_Icons_PNG\PNG Icons\";
 
         /// <summary>
         /// For all is here sczRootPath
@@ -40,7 +40,7 @@ namespace sunamo.Constants
 
         #region vs
 
-        public const string cRepos = @"c:\repos";
+        public const string cRepos = @"C:\repos";
 
         public const string bpMb = @"E:\Documents\vs\";
         public const string bpQ = @"C:\repos\_\";
@@ -101,12 +101,12 @@ namespace sunamo.Constants
         public static string vsDocuments = FS.Combine(DefaultPaths.eDocuments, @"vs\");
         /// <summary>
         /// Use vs for non shortcuted folder
-        /// d:\vs17\
+        /// D:\vs17\
         /// </summary>
         public static string vs17 = @"e:\vs17\";
         public static string vs17Documents = FS.Combine(DefaultPaths.eDocuments, @"vs17\");
         public static string NormalizePathToFolder = FS.Combine(DefaultPaths.eDocuments, @"vs\Projects\");
-        public static string Test_MoveClassElementIntoSharedFileUC = "d:\\_Test\\AllProjectsSearch\\AllProjectsSearch\\MoveClassElementIntoSharedFileUC\\";
+        public static string Test_MoveClassElementIntoSharedFileUC = "D:\\_Test\\AllProjectsSearch\\AllProjectsSearch\\MoveClassElementIntoSharedFileUC\\";
 
         public static List<string> AllPathsToProjects = null;
 
@@ -115,7 +115,7 @@ namespace sunamo.Constants
         public const string SyncArchivedDrive = @"e:\SyncArchived\Drive\";
 
         public static List<string> All = new List<string> { Documents, Docs, Downloads, Music2 };
-        public static string XnConvert = @"d:\Pictures\XnConvert\";
-        public const string PhotosScz = @"d:\Pictures\photos.sunamo.cz\";
+        public static string XnConvert = @"D:\Pictures\XnConvert\";
+        public const string PhotosScz = @"D:\Pictures\photos.sunamo.cz\";
     }
 }

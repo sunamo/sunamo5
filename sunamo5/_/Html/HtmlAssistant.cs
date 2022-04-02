@@ -127,4 +127,21 @@ public partial class HtmlAssistant
 
         return hd2;
     }
+
+    public static HtmlNode RemoveAllAttrs(HtmlNode img)
+    {
+        var tagL = img.Name.ToLower();
+        string html = "";
+        if (AllLists.HtmlNonPairTags.Contains(tagL))
+        {
+            html = "<" + tagL + " />";
+        }
+        else
+        {
+            html = "<" + tagL + "></" + tagL + ">";
+        }
+
+        var hn = HtmlNode.CreateNode(html);
+        return img.ParentNode.ReplaceChild(hn, img);
+    }
 }
