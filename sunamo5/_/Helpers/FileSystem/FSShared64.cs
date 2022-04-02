@@ -551,8 +551,12 @@ public partial class FS
 
     public static DateTime LastModified(string rel)
     {
-        var f = new FileInfo(rel);
-        return f.LastWriteTime;
+        if (File.Exists(rel))
+        {
+            var f = new FileInfo(rel);
+            return f.LastWriteTime;
+        }
+        return DateTime.MinValue;
 
     }
 
