@@ -83,7 +83,7 @@ public partial class PH
             if (ex.Message == sess.i18n(XlfKeys.TheSystemCannotFindTheFileSpecified))
             {
                 // probably file is hold by other process 
-                // like c:\inetpub\logs\logfiles\W3SVC1\u_ex200307.log
+                // like C:\inetpub\logs\logfiles\W3SVC1\u_ex200307.log
             }
             /*System.ComponentModel.Win32Exception: ''*/
         }
@@ -103,7 +103,7 @@ public partial class PH
             }
         }
 
-        string matchPattern = @"(?<=\s+pid:\s+)\b(\d+)\b(?=\s+)";
+        string matchPattern = @"(?<=\s+piD:\s+)\b(\d+)\b(?=\s+)";
         var matches = Regex.Matches(outputTool, matchPattern);
         foreach (Match match in matches)
         {

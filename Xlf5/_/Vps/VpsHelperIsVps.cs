@@ -12,7 +12,7 @@ public partial class VpsHelperXlf
     #region For easy copy
 
 
-    public const string path = @"c:\_";
+    public const string path = @"C:\_";
 
     public static bool IsVps
     {

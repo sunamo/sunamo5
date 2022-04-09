@@ -9,11 +9,11 @@ namespace Xlf
 public class DefaultPaths
 {
         /// <summary>
-        /// e:\Documents\vs\Projects\
+        /// E:\Documents\vs\Projects\
         /// </summary>
-        public static string vs = @"e:\Documents\vs\Projects\";
-        public static string sunamoProject = @"e:\Documents\vs\Projects\sunamo\sunamo\";
+        public static string vs = @"E:\Documents\vs\Projects\";
+        public static string sunamoProject = @"E:\Documents\vs\Projects\sunamo\sunamo\";
         public const string KeysXlf = @"E:\Documents\vs\Projects\sunamo\sunamo\Enums\KeysXlf.cs";
-        public const string Downloads = @"d:\Downloads\";
+        public const string Downloads = @"D:\Downloads\";
     }
 }

@@ -10,7 +10,7 @@ public class BasePathsHelper
     public static string actualPlatform = null;
     public static Platforms platform = Platforms.Mb;
     /// <summary>
-    /// e:\Documents\vs\Projects\
+    /// E:\Documents\vs\Projects\
     /// </summary>
     public static string vs = null;
 

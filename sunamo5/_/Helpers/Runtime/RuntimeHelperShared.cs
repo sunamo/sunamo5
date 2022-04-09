@@ -12,7 +12,7 @@ using System.Windows;
 public partial class RuntimeHelper{ 
 public static bool IsAdminUser()
     {
-        return FS.ExistsDirectory(@"e:\vs\sunamo\");
+        return FS.ExistsDirectory(@"E:\vs\sunamo\");
     }
 
     

@@ -145,7 +145,7 @@ public partial class FS
 
 
     /// <summary>
-    /// c:\Users\w\AppData\Roaming\sunamo\
+    /// C:\Users\w\AppData\Roaming\sunamo\
     /// </summary>
     /// <param name="item2"></param>
     /// <param name="exts"></param>
@@ -211,7 +211,7 @@ public partial class FS
 
         String pathSep = "\\";
         String fromPath = Path.GetFullPath(path);
-        String baseDir = Path.GetFullPath(relativeTo);            // If folder contains upper folder references, they gets lost here. "c:\test\..\test2" => "c:\test2"
+        String baseDir = Path.GetFullPath(relativeTo);            // If folder contains upper folder references, they gets lost here. "C:\test\..\test2" => "C:\test2"
 
         String[] p1 = Regex.Split(fromPath, "[\\\\/]").Where(x => x.Length != 0).ToArray();
         String[] p2 = Regex.Split(baseDir, "[\\\\/]").Where(x => x.Length != 0).ToArray();
@@ -751,9 +751,9 @@ public partial class FS
     public static string ShrinkLongPath(string actualFilePath)
     {
         // .NET 4.7.1
-        // Originally - 265 chars, 254 also too long: e:\Documents\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs
-        // 4+265 - OK: @"\\?\d:\_NewlyRecovered\Visual Studio 2020\Projects\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs"
-        // 216 - OK: d:\Recovered data 03-23 12_11_44012345678901234567890123456\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\
+        // Originally - 265 chars, 254 also too long: E:\Documents\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs
+        // 4+265 - OK: @"\\?\D:\_NewlyRecovered\Visual Studio 2020\Projects\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs"
+        // 216 - OK: D:\Recovered data 03-23 12_11_44012345678901234567890123456\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\
         // for many API is different limits: https://stackoverflow.com/questions/265769/maximum-filename-length-in-ntfs-windows-xp-and-windows-vista
         // 237+11 - bad 
         return Consts.UncLongPath + actualFilePath;
@@ -1203,7 +1203,7 @@ public partial class FS
                 FS.TryDeleteDirectory(p);
             }
             // Commented due to NI
-            //FS.DeleteFoldersWhichNotContains(@"e:\Documents\vs\Projects\", "bin", CA.ToListString( "node_modules"));
+            //FS.DeleteFoldersWhichNotContains(@"E:\Documents\vs\Projects\", "bin", CA.ToListString( "node_modules"));
         }
     }
 

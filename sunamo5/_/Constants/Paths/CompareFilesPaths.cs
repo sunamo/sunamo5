@@ -8,7 +8,7 @@ public class CompareFilesPaths
 {
     public static string GetFile(CompareExt c, int i)
     {
-        return @"e:\Documents\vs\Projects\_tests\CompareTwoFiles\CompareTwoFiles\" + c + @"\" + i + "." + c;
+        return @"E:\Documents\vs\Projects\_tests\CompareTwoFiles\CompareTwoFiles\" + c + @"\" + i + "." + c;
     }
 }
 

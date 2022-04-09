@@ -37,7 +37,7 @@ namespace sunamo
                 // add those to the dictionary specifcially
                 //
                 // combination of values from Windows 7 Registry and 
-                // from c:\Windows\System32\inetsrv\config\applicationHost.config
+                // from C:\Windows\System32\inetsrv\config\applicationHost.config
                 // some added, including .7z and .dat
                 //
                 // Some added based on https://www.iana.org/assignments/media-types/media-types.xhtml

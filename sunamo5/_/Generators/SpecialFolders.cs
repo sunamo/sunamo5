@@ -2,11 +2,11 @@
 {
     public static string MyDocuments(string path)
     {
-        return @"d:\Documents\" + path.TrimStart(AllChars.bs);
+        return @"D:\Documents\" + path.TrimStart(AllChars.bs);
     }
 
     public static string eMyDocuments(string path)
     {
-        return @"e:\Documents\" + path.TrimStart(AllChars.bs);
+        return @"E:\Documents\" + path.TrimStart(AllChars.bs);
     }
 }

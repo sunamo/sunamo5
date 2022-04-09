@@ -20,8 +20,8 @@ public partial class VpsHelperSunamo
     public static string LocationOfSqlBackup(string s)
     {
         var p = string.Empty;
-        //p = @"c:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\";
-        p = @"c:\mssqllserver\";
+        //p = @"C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\";
+        p = @"C:\mssqllserver\";
 
         var r = p += @"Backup\"+s+".bak";
         return r;
@@ -31,11 +31,11 @@ public partial class VpsHelperSunamo
     {
         if (IsVps)
         {
-            return @"c:\_\sunamo\";
+            return @"C:\_\sunamo\";
         }
         else
         {
-            return @"e:\Documents\vs\Projects\sunamo\";
+            return @"E:\Documents\vs\Projects\sunamo\";
         }
     }
 
@@ -43,11 +43,11 @@ public partial class VpsHelperSunamo
     {
         if (IsVps)
         {
-            return @"c:\_\sunamo.cz\";
+            return @"C:\_\sunamo.cz\";
         }
         else
         {
-            return @"e:\Documents\vs\Projects\sunamo.cz\";
+            return @"E:\Documents\vs\Projects\sunamo.cz\";
         }
     }
 

@@ -108,7 +108,7 @@ public partial class TF
             {
                 var ss2 = s.ToString();
 
-                // Způsobovalo mi chybu v asp.net Could not find file 'd:\Documents\sunamo\Common\Settings\CloudProviders'.
+                // Způsobovalo mi chybu v asp.net Could not find file 'D:\Documents\sunamo\Common\Settings\CloudProviders'.
 
                 new CloudProvidersHelper();
                 CloudProvidersHelper.OpenSyncAppIfNotRunning(ss2);

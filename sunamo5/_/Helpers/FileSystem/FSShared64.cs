@@ -175,7 +175,7 @@ public partial class FS
     {
         MakeUncLongPath(ref p);
 #if DEBUG
-        if (p == @"e:\Documents\vs\Projects\ut2\_ut2\_ut2\")
+        if (p == @"E:\Documents\vs\Projects\ut2\_ut2\_ut2\")
         {
 
         }

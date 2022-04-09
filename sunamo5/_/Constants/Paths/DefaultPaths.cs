@@ -6,7 +6,7 @@ namespace sunamo.Constants
 {
     public class DefaultPaths
     {
-        public const string BackupSunamosAppData = @"e:\Sync\Develop of Future\Backups\";
+        public const string BackupSunamosAppData = @"E:\Sync\Develop of Future\Backups\";
         public const string pathPa = @"D:\pa\";
         public const string pathPaSync = @"D:\paSync\";
         
@@ -15,7 +15,7 @@ namespace sunamo.Constants
         
         public const string rootVideos0Kb = @"D:\Documents\Videos0kb\";
         public static string Documents = @"D:\Documents\";
-        public static string eDocuments = @"e:\Documents\";
+        public static string eDocuments = @"E:\Documents\";
         public static string Docs = @"D:\Docs\";
         public static string Downloads = @"D:\Downloads\";
         public static string Music2 = @"D:\Music2\";
@@ -80,11 +80,11 @@ namespace sunamo.Constants
         /// </summary>
         public static string sunamoProject = null;
         /// <summary>
-        /// e:\Documents\vs\Projects\
+        /// E:\Documents\vs\Projects\
         /// </summary>
         public static string vsProjects = null;
         /// <summary>
-        /// e:\Documents\vs\Projects\
+        /// E:\Documents\vs\Projects\
         /// </summary>
         public static string vs = null;
         public static string KeysXlf = null;
@@ -103,16 +103,16 @@ namespace sunamo.Constants
         /// Use vs for non shortcuted folder
         /// D:\vs17\
         /// </summary>
-        public static string vs17 = @"e:\vs17\";
+        public static string vs17 = @"E:\vs17\";
         public static string vs17Documents = FS.Combine(DefaultPaths.eDocuments, @"vs17\");
         public static string NormalizePathToFolder = FS.Combine(DefaultPaths.eDocuments, @"vs\Projects\");
         public static string Test_MoveClassElementIntoSharedFileUC = "D:\\_Test\\AllProjectsSearch\\AllProjectsSearch\\MoveClassElementIntoSharedFileUC\\";
 
         public static List<string> AllPathsToProjects = null;
 
-        public const string SyncArchived = @"e:\SyncArchived\";
-        public const string SyncArchivedText = @"e:\SyncArchived\Text\";
-        public const string SyncArchivedDrive = @"e:\SyncArchived\Drive\";
+        public const string SyncArchived = @"E:\SyncArchived\";
+        public const string SyncArchivedText = @"E:\SyncArchived\Text\";
+        public const string SyncArchivedDrive = @"E:\SyncArchived\Drive\";
 
         public static List<string> All = new List<string> { Documents, Docs, Downloads, Music2 };
         public static string XnConvert = @"D:\Pictures\XnConvert\";

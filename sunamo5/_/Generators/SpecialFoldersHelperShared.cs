@@ -25,14 +25,14 @@ public static partial class SpecialFoldersHelper
         if (Exc.aspnet || VpsHelperXlf.IsVps)
         {
             // Create junction to Administrator
-            vr = @"c:\Users\Administrator\AppData\Roaming";
+            vr = @"C:\Users\Administrator\AppData\Roaming";
         }
         else
         {
             var n = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             // Vracelo mi to empty string  s Environment.GetFolderPath
             //vr = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            vr = @"c:\Users\"+ FS.GetFileName(n) + @"\AppData\Roaming";
+            vr = @"C:\Users\"+ FS.GetFileName(n) + @"\AppData\Roaming";
         }
 
         return vr;
