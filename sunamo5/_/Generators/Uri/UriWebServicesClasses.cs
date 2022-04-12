@@ -204,10 +204,10 @@ Template for which I will find, have to be in derivates the same:
     /// </summary>
     public static partial class SunamoCz
     {
-        public const string lyricsScz = "https://lyr.localhost/search/%s";
-        public const string appsHelp = "https://app.localhost/help/%s";
-        public const string appsFeedBack = "https://app.localhost/feedback/%s";
-        public const string appsApp = "https://app.localhost/app/%s";
+        public const string lyricsScz = "https://lyr.sunamo.net/search/%s";
+        public const string appsHelp = "https://app.sunamo.net/help/%s";
+        public const string appsFeedBack = "https://app.sunamo.net/feedback/%s";
+        public const string appsApp = "https://app.sunamo.net/app/%s";
     }
 
     public static partial class SexShops
