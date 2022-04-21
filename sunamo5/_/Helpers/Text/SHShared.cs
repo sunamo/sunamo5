@@ -1232,7 +1232,7 @@ public static partial class SH
         return songName;
     }
 
-    public static string PairsBracketToCompleteBlock(string input)
+    public static string PairsBracketsToCompleteBlock(string input)
     {
         if (input.Contains("name, price,"))
         {
