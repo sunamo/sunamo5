@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\sunamo\SunamoPS\ErrorRecord.cs" Link="ErrorRecord.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PowershellBuilder.cs" Link="PowershellBuilder.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PowershellHelper.cs" Link="PowershellHelper.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PowershellParser.cs" Link="PowershellParser.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PowershellRunner.cs" Link="PowershellRunner.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PowershellRunnerBase.cs" Link="PowershellRunnerBase.cs" />
+    <Compile Include="..\..\sunamo\SunamoPS\PS.cs" Link="PS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerShell.Native" Version="7.2.0" />
+    <PackageReference Include="System.Management.Automation" Version="7.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamo\extensions\extensions.csproj" />
+    <ProjectReference Include="..\..\sunamo\shared\shared.csproj" />
+    <ProjectReference Include="..\..\sunamo\sunamo\sunamo.csproj" />
+  </ItemGroup>
+</Project>

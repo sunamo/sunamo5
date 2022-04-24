@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -20,7 +21,7 @@ public partial class UriWebServices
 
     public static string TopRecepty(string what)
     {
-        return FromChromeReplacement("https://www.toprecepty.cz/vyhledavani.php?hledam=%s&kategorie=&autor=&razeni=", HttpUtility.UrlEncode(what));
+        return FromChromeReplacement("https://www.toprecepty.cz/vyhledavani.php?hledam=%s&kategorie=&autor=&razeni=", WebUtility.UrlEncode(what));
     }
 
     /// <summary>

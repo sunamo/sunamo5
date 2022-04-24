@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -152,7 +153,7 @@ public partial class UriWebServices
     /// <param name="slnName"></param>
     public static string GitRepoInVsts(string slnName)
     {
-        return "https://radekjancik.visualstudio.com/_git/" + HttpUtility.UrlEncode(slnName);
+        return "https://radekjancik.visualstudio.com/_git/" + WebUtility.UrlEncode(slnName);
     }
 
     /// <summary>
@@ -162,13 +163,13 @@ public partial class UriWebServices
     /// <returns></returns>
     public static string AzureRepoWebUIFull(string slnName)
     {
-        var enc = HttpUtility.UrlEncode(slnName);
+        var enc = WebUtility.UrlEncode(slnName);
         return $"https://radekjancik@dev.azure.com/radekjancik/{enc}/_git/{enc}";
     }
 
     public static string AzureRepoWebUI(string slnName)
     {
-        return "https://dev.azure.com/radekjancik/" + HttpUtility.UrlEncode(slnName);
+        return "https://dev.azure.com/radekjancik/" + WebUtility.UrlEncode(slnName);
     }
 
     public static string UrlEncode(string s)

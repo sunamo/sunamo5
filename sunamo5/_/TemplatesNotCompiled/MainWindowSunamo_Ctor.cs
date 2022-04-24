@@ -4,14 +4,17 @@ using System;
 
 public class MainWindowSunamo_Ctor
 {
-    public static void FirstSection<Dispatcher>(string appName, Action<Dispatcher> WpfAppInit, IClipboardHelper ClipboardHelperWinInstance, Action checkForAlreadyRunning, Action applyCryptData, Dispatcher d, bool async_)
+    public static void FirstSection<Dispatcher>(string appName, Action<Dispatcher> WpfAppInit, IClipboardHelper ClipboardHelperWinStdInstance, Action checkForAlreadyRunning, Action applyCryptData, Dispatcher d, bool async_,Func<char, bool> bitLockerHelperIsFolderLockedByBitLocker, Action bitLockerHelperInit)
     {
         ThisApp.Name = appName;
         ThisApp.async_ = async_;
 
-        BitLockerHelper.Init();
-        ThrowEx.IsLockedByBitLocker = BitLockerHelper.IsFolderLockedByBitLocker;
-        SunamoExceptions.ThrowEx.IsLockedByBitLocker = BitLockerHelper.IsFolderLockedByBitLocker;
+        if(bitLockerHelperInit != null)
+        {
+        bitLockerHelperInit();
+        ThrowEx.IsLockedByBitLocker = bitLockerHelperIsFolderLockedByBitLocker;
+        SunamoExceptions.ThrowEx.IsLockedByBitLocker = bitLockerHelperIsFolderLockedByBitLocker;
+        }
 
         WpfAppInit(d);
         if (checkForAlreadyRunning != null)
@@ -19,7 +22,7 @@ public class MainWindowSunamo_Ctor
             checkForAlreadyRunning();
         }
 
-        ClipboardHelper.Instance = ClipboardHelperWinInstance;
+        ClipboardHelper.Instance = ClipboardHelperWinStdInstance;
         AppData.ci.CreateAppFoldersIfDontExists();
         applyCryptData();
 

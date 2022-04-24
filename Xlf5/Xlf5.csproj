@@ -1,6 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
+	  <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="_\bin\**"></Compile>
@@ -17,6 +18,8 @@
     <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0"></PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\sunamo.notmine5\fmdev.ResX5\fmdev.ResX5.csproj" />
+    <ProjectReference Include="..\..\sunamo.notmine5\XliffParser5\XliffParser5.csproj" />
     <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>
     <ProjectReference Include="..\Resources5\Resources5.csproj"></ProjectReference>
   </ItemGroup>

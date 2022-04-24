@@ -3,6 +3,7 @@ using sunamo.Html;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -90,7 +91,7 @@ namespace sunamo
                         HtmlNode cellRow = ths[c];
                         var cell = cellRow.InnerText.Trim();
                         //cell = HtmlHelperText.ConvertTextToHtml(cell);
-                        cell = HttpUtility.HtmlDecode(cell);
+                        cell = WebUtility.HtmlDecode(cell);
                         cell = SH.ReplaceAllDoubleSpaceToSingle(cell);
                         
 
@@ -125,7 +126,7 @@ namespace sunamo
                 {
                     chars[i] = HtmlHelper.StripAllTags(chars[i]);
                 }
-                chars[i] = HttpUtility.HtmlDecode(chars[i]);
+                chars[i] = WebUtility.HtmlDecode(chars[i]);
             }
 
             

@@ -1,5 +1,39 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="_\bin\**" />
+    <Compile Remove="_\obj\**" />
+    <Compile Remove="_\Properties\**" />
+    <Compile Remove="_\_\win\**" />
+    <EmbeddedResource Remove="_\bin\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\Properties\**" />
+    <EmbeddedResource Remove="_\_\win\**" />
+    <None Remove="_\bin\**" />
+    <None Remove="_\obj\**" />
+    <None Remove="_\Properties\**" />
+    <None Remove="_\_\win\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_\_\win\Powershell\PowershellBuilder.cs" />
+    <Compile Include="_\_\win\Powershell\PowershellHelper.cs" />
+    <Compile Include="_\_\win\Powershell\PowershellParser.cs" />
+    <Compile Include="_\_\win\Powershell\PowershellRunner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj" />
+    <ProjectReference Include="..\duo5\duo5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+    <ProjectReference Include="..\Xlf5\Xlf5.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\sunamo\dll\netstandard2.0\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

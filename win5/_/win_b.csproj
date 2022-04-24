@@ -1,0 +1,112 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{733E62D8-0D2C-4A1C-A7D9-DDC815097CA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>win</RootNamespace>
+    <AssemblyName>win</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\..\sunamoWithoutDep\cl\cl.csproj">
+      <Project>{97617162-9358-40f4-a56e-cf232990ceb7}</Project>
+      <Name>cl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\duo\duo.csproj">
+      <Project>{D4C45A56-F726-4B63-B94B-4172AC65F358}</Project>
+      <Name>duo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\extensions\extensions.csproj">
+      <Project>{9AE93802-855A-4745-8905-B353122264B6}</Project>
+      <Name>extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PInvoke\PInvoke.csproj">
+      <Project>{539e627e-333b-4942-99f8-68370f7c9737}</Project>
+      <Name>PInvoke</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{3204432D-B6E7-4481-BEB0-8B177AF809C2}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\shared\shared.csproj">
+      <Project>{77719C0D-7C8B-4B9E-A644-AEE7CEB35134}</Project>
+      <Name>shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sunamo\sunamo.csproj">
+      <Project>{F6F92307-B0B3-4D6C-BD9C-8B5FF5560DCF}</Project>
+      <Name>sunamo</Name>
+    </ProjectReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
+    </PackageReference>
+    <PackageReference Include="Microsoft.PowerShell.5.1.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0">
+    </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
+    </PackageReference>
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    <PackageReference Include="System.Threading" Version="4.3.0" />
+    <PackageReference Include="WinCopies.WindowsAPICodePack">
+      <Version>2.9.3</Version>
+    </PackageReference>
+    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.10.2">
+    </PackageReference>
+    <Reference Include="TextCopy">
+      <HintPath>..\dll\net461\TextCopy.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_\_NonStd\ClipboardAsync.cs" />
+    <Compile Include="_\_NonStd\Helpers\ClipboardHelperWin.cs" />
+    <Compile Include="_\_NonStd\Helpers\DW.cs" />
+    <Compile Include="_\_NonStd\Helpers\DWShared.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

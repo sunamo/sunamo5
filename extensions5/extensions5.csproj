@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_\bin\**" />
+    <Compile Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\bin\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <None Remove="_\bin\**" />
+    <None Remove="_\obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamo.notmine5\fmdev.ResX5\fmdev.ResX5.csproj" />
+    <ProjectReference Include="..\duo5\duo5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+  </ItemGroup>
+
+</Project>

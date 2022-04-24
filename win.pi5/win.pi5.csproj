@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <UseWPF>true</UseWPF>
+	  <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\sunamo\win.pi\MimeHelper.cs" Link="MimeHelper.cs" />
+    <Compile Include="..\..\sunamo\win.pi\PHWinPi.cs" Link="PHWinPi.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PInvoke5\PInvoke5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+    <ProjectReference Include="..\win.std5\win.std5.csproj" />
+  </ItemGroup>
+
+</Project>

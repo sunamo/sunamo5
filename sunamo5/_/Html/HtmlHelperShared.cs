@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 
 using sunamo.Html;
 using System.Web;
+using System.Net;
 
 public static partial class HtmlHelper
 {
@@ -315,7 +316,7 @@ public static partial class HtmlHelper
 
     public static string ConvertHtmlToText(string h)
     {
-        h = HttpUtility.HtmlDecode(h);
+        h = WebUtility.HtmlDecode(h);
         h = SH.ReplaceAll(h, Environment.NewLine, "<br>", "<br />", "<br/>");
         h = StripAllTags(h);
         return h;

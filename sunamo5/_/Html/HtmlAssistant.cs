@@ -3,6 +3,7 @@ using sunamo.Html;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 
@@ -105,7 +106,7 @@ public partial class HtmlAssistant
 
     public static string HtmlDecode(string v)
     {
-        return HttpUtility.HtmlDecode(v);
+        return WebUtility.HtmlDecode(v);
     }
 
     public static List< HtmlNode> GetAnyHeader(HtmlNode docs, bool rec, bool stopAfterFirst)

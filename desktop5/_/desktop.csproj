@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamoWithoutDep\SunamoJson\SunamoJson.csproj"></ProjectReference>
+    <ProjectReference Include="..\desktop.extensions\desktop.extensions.csproj" />
+    <ProjectReference Include="..\duo\duo.csproj"></ProjectReference>
+    <ProjectReference Include="..\extensions\extensions.csproj" />
+    <ProjectReference Include="..\PInvoke\PInvoke.csproj" />
+    <ProjectReference Include="..\shared\shared.csproj"></ProjectReference>
+    <ProjectReference Include="..\sunamo\sunamo.csproj"></ProjectReference>
+    <ProjectReference Include="..\win.std\win.std.csproj" />
+    <ProjectReference Include="..\Xlf\Xlf.csproj"></ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"></PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0"></PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0"></PackageReference>
+    <PackageReference Include="System.IO" Version="4.3.0"></PackageReference>
+    <PackageReference Include="System.Runtime" Version="4.3.1"></PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1"></PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Encoding" Version="4.3.0"></PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.3.0"></PackageReference>
+    <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2"></PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+</Project>

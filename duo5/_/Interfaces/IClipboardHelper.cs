@@ -24,8 +24,6 @@ public interface IClipboardHelperBase<String, ListString, Bool>
     /// </summary>
     /// <param name="s"></param>
     void SetText3(string s);
-
-    void GetFirstWordOfList();
     void SetList(List<string> d);
     void SetLines(IEnumerable lines);
     void CutFiles(params string[] selected);

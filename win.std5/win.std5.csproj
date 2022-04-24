@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TextCopy" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\duo5\duo5.csproj" />
+    <ProjectReference Include="..\extensions5\extensions5.csproj" />
+    <ProjectReference Include="..\Resources5\Resources5.csproj" />
+    <ProjectReference Include="..\shared5\shared5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+  </ItemGroup>
+
+</Project>

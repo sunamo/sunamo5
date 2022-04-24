@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\duo\duo.csproj" />
+    <ProjectReference Include="..\extensions\extensions.csproj" />
+    <ProjectReference Include="..\sunamo\sunamo.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SunamoSizeExtensionsShared.cs" />
+    <Compile Remove="SunamoSizeExtensionsSharedWeb.cs" />
+  </ItemGroup>
+</Project>

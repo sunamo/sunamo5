@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+	  <UseWPF>true</UseWPF>
+	  <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_\bin\**" />
+    <Compile Remove="_\obj\**" />
+    <Compile Remove="_\Properties\**" />
+    <EmbeddedResource Remove="_\bin\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\Properties\**" />
+    <None Remove="_\bin\**" />
+    <None Remove="_\obj\**" />
+    <None Remove="_\Properties\**" />
+    <Page Remove="_\Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoJson5\SunamoJson5.csproj" />
+    <ProjectReference Include="..\desktop.extensions5\desktop.extensions5.csproj" />
+    <ProjectReference Include="..\duo5\duo5.csproj" />
+    <ProjectReference Include="..\extensions5\extensions5.csproj" />
+    <ProjectReference Include="..\PInvoke5\PInvoke5.csproj" />
+    <ProjectReference Include="..\shared5\shared5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+    <ProjectReference Include="..\win.pi5\win.pi5.csproj" />
+    <ProjectReference Include="..\win.std5\win.std5.csproj" />
+    <ProjectReference Include="..\win5\win5.csproj" />
+    <ProjectReference Include="..\Xlf5\Xlf5.csproj" />
+  </ItemGroup>
+
+</Project>

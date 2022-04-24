@@ -32,5 +32,8 @@ public enum Browsers : byte
     EdgeDev,
     EdgeCanary,
 
+    ChromeBeta,
+    PaleMoon,
+
     None
 }

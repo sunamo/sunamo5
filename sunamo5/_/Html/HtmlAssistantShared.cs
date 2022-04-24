@@ -3,6 +3,7 @@ using sunamo.Html;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 
@@ -14,7 +15,7 @@ public partial class HtmlAssistant
     {
         var r = n.InnerText.Trim();
         r = SH.ReplaceWhiteSpacesWithoutSpaces(r, AllStrings.space);
-        r = HttpUtility.HtmlDecode(r);
+        r = WebUtility.HtmlDecode(r);
         r = SH.ReplaceAllDoubleSpaceToSingle(r);
         return r;
     }

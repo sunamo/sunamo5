@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+	  <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_\bin\**" />
+    <Compile Remove="_\obj\**" />
+    <Compile Remove="_\Properties\**" />
+    <EmbeddedResource Remove="_\bin\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\Properties\**" />
+    <None Remove="_\bin\**" />
+    <None Remove="_\obj\**" />
+    <None Remove="_\Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\duo5\duo5.csproj" />
+    <ProjectReference Include="..\extensions5\extensions5.csproj" />
+    <ProjectReference Include="..\sunamo5\sunamo5.csproj" />
+  </ItemGroup>
+
+</Project>

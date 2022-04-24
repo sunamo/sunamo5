@@ -27,7 +27,7 @@ public class TranslateDictionary : IDictionary<string, string>
         {
             if (PD.delShowMb == null)
             {
-                System.Windows.Forms.MessageBox.Show("PD.delShowMb is null, return dummy method");
+                System.Windows.MessageBox.Show("PD.delShowMb is null, return dummy method");
                 return (s) => { };
             }
             return PD.delShowMb;

@@ -94,19 +94,6 @@ public class ClipboardHelper
     }
 
 
-    public static void GetFirstWordOfList()
-    {
-        if (Instance == null)
-        {
-            InstanceApps.GetFirstWordOfList();
-        }
-        else
-        {
-            Instance.GetFirstWordOfList();
-        }
-    }
-
-
     public static void SetList(List<string> d)
     {
         if (Instance == null)
