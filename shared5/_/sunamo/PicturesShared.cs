@@ -198,73 +198,13 @@ public class PicturesShared
         }
     }
 
-    public static void TransformImage(System.Drawing.Image image, double width, double height, string path)
-    {
-        TransformImage(image, (int)width, (int)height, path);
-    }
+    
 
-    /// <summary>
-    /// Po uložení obrázku jej i všechny ostatní prostředky zlikviduje.
-    /// </summary>
-    /// <param name="image"></param>
-    /// <param name="width"></param>
-    /// <param name="height"></param>
-    /// <param name="path"></param>
-    public static void TransformImage(System.Drawing.Image image, int width, int height, string path)
-    {
-        #region Zakomentováno, z důvodu že mi to špatně zvětšovalo čtvercové obrázky na obdelníkové
-        float scale = (float)width / (float)image.Width;
-        using (Bitmap thumb = new Bitmap(width, height))
-        {
-            using (Graphics graphics = Graphics.FromImage(thumb))
-            {
-                using (System.Drawing.Drawing2D.Matrix transform = new System.Drawing.Drawing2D.Matrix())
-                {
-                    transform.Scale(scale, scale, MatrixOrder.Append);
-                    graphics.SetClip(new System.Drawing.Rectangle(0, 0, width, height));
-                    graphics.Transform = transform;
-                    graphics.DrawImage(image, 0, 0, image.Width, image.Height);
+    
 
+    
 
-                    ImageCodecInfo Info = getEncoderInfo("image/jpeg");
-                    EncoderParameters Params = new EncoderParameters(1);
-                    Params.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 66L);
-                    SaveImage(path, thumb, Info, Params);
-                    #endregion
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// Zdrojová metoda musí zavolat A2.Dispose nebo vložit vytváření A2 do Using klazule
-    /// </summary>
-    /// <param name="path"></param>
-    /// <param name="thumb"></param>
-    /// <param name="mime"></param>
-    /// <param name="Params"></param>
-    public static void SaveImage(string path, Image thumb, string mime, EncoderParameters Params)
-    {
-        SaveImage(path, thumb, getEncoderInfo(mime), Params);
-
-    }
-
-    /// <summary>        
-    /// Zdrojová metoda musí zavolat A2.Dispose nebo vložit vytváření A2 do Using klazule
-    /// </summary>
-    /// <param name="path"></param>
-    /// <param name="thumb"></param>
-    /// <param name="Info"></param>
-    /// <param name="Params"></param>
-    private static void SaveImage(string path, Image thumb, ImageCodecInfo Info, EncoderParameters Params)
-    {
-        using (System.IO.MemoryStream mss = new System.IO.MemoryStream())
-        {
-            thumb.Save(mss, Info, Params);
-            FS.SaveMemoryStream(mss, path);
-            //thumb.Dispose();
-        }
-    }
+    
 
     /// <summary>
     /// Tato metoda(alespoň když ukládá do jpeg) všechno nastavuje na maximum i kvalitu a tak produkuje v případě malých obrázků stejně kvalitní při vyšší velikosti
@@ -334,44 +274,9 @@ public class PicturesShared
     }
 
 
-    public static void saveJpeg(string path, Image img, long quality)
-    {
-        path = FS.ChangeExtension(path, AllExtensions.jpg, false);
-        try
-        {
-            // Encoder parameter for image quality
-            EncoderParameter qualityParam =
-               new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)quality);
+   
 
-            // Jpeg image codec
-            ImageCodecInfo jpegCodec = getEncoderInfo("image/jpeg");
-
-            if (jpegCodec == null)
-                return;
-
-            EncoderParameters encoderParams = new EncoderParameters(1);
-            encoderParams.Param[0] = qualityParam;
-
-            img.Save(path, jpegCodec, encoderParams);
-
-        }
-        catch
-        {
-
-        }
-    }
-
-    private static ImageCodecInfo getEncoderInfo(string mimeType)
-    {
-        // Get image codecs for all image formats
-        ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-
-        // Find the correct image codec
-        for (int i = 0; i < codecs.Length; i++)
-            if (codecs[i].MimeType == mimeType)
-                return codecs[i];
-        return null;
-    }
+    
 
     static Bitmap resizeImage(Bitmap imgToResize, System.Drawing.Size size)
     {
@@ -697,4 +602,6 @@ public class PicturesShared
         }
     }
     #endregion
+
+    
 }

@@ -84,7 +84,7 @@ public partial class MainWindow_Ctor : Window, IEssentialMainWindow, IHideToTray
         #region 1) ThisApp.Name, Check for already running, required conditions, Clipboard, AppData and Xlf
         SunamoPageHelperSunamo.localizedString = SunamoPageHelper.LocalizedString_String;
         string appName = "";
-        MainWindowSunamo_Ctor.FirstSection<Dispatcher>(appName, WpfApp.Init, ClipboardHelperWinStd.Instance, CheckIsAlreadyRunning, null, Dispatcher, ThisApp.async_, null, null);
+        MainWindowSunamo_Ctor.FirstSection<Dispatcher>(appName, WpfApp.Init, ClipboardHelperWinStd.Instance, CheckIsAlreadyRunning, null, Dispatcher, ThisApp.async_);
         //CloudProvidersHelper.myStations = new DefaultAccountNames();
         #endregion
         // All initialization must be after #region Initialize base properties of every app 
