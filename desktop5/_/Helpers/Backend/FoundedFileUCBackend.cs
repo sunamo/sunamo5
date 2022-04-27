@@ -30,11 +30,12 @@ namespace desktop.Helpers.Backend
         /// <param name="selectedCastHelperString"></param>
         /// <param name="txtContent"></param>
         /// <param name="foundedFilesUC"></param>
-        public FoundedFileUCBackend(TextBlock txtTextBoxState, TextBox txtContent, SelectedCastHelper<string> selectedCastHelperString,  FoundedFilesUC foundedFilesUC, int addRowsDuringScrolling) 
+        public FoundedFileUCBackend(TextBlock txtTextBoxState, TextBox txtContent, SelectedCastHelper<string> selectedCastHelperString,  dynamic foundedFilesUC, int addRowsDuringScrolling) 
         {
             this.selectedCastHelperString = selectedCastHelperString;
             this.foundedFilesUC = foundedFilesUC;
-            foundedFilesUC.Selected += FoundedFilesUC_Selected;
+            ThrowEx.UncommentNextRows();
+            //foundedFilesUC.Selected += FoundedFilesUC_Selected;
 
             textBoxBackend = new TextBoxBackend(txtTextBoxState, txtContent, addRowsDuringScrolling);
         }
@@ -42,7 +43,8 @@ namespace desktop.Helpers.Backend
         private void FoundedFilesUC_Selected(string s)
         {
             ControlHelper.SwitchBorder(lastSelected, BorderData.Black1);
-            lastSelected = foundedFilesUC.GetFoundedFileByPath(s);
+            ThrowEx.UncommentNextRows();
+            //lastSelected = foundedFilesUC.GetFoundedFileByPath(s);
             ControlHelper.SwitchBorder(lastSelected, BorderData.Black1);
         }
 

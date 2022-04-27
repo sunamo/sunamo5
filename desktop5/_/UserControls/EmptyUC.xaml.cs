@@ -18,37 +18,37 @@ namespace desktop.UserControls
     /// <summary>
     /// 
     /// </summary>
-    public partial class EmptyUC : UserControl, IUserControl, IKeysHandler
-    {
-        public EmptyUC()
-        {
-            InitializeComponent();
+    public partial class EmptyUC : UserControl//, IUserControl, IKeysHandler
+   {
+//        public EmptyUC()
+//        {
+//            InitializeComponent();
 
-            Loaded += uc_Loaded;
-        }
+//            Loaded += uc_Loaded;
+//        }
 
-        public string Title => "Empty";
+//        public string Title => "Empty";
 
-        public WindowWithUserControl windowWithUserControl {
-            get =>
-                ((IWindowOpener)Application.Current.MainWindow).windowWithUserControl;
-            set => 
-                 ((IWindowOpener)Application.Current.MainWindow).windowWithUserControl = value;
-        }
+//        public WindowWithUserControl windowWithUserControl {
+//            get =>
+//                ((IWindowOpener)Application.Current.MainWindow).windowWithUserControl;
+//            set => 
+//                 ((IWindowOpener)Application.Current.MainWindow).windowWithUserControl = value;
+//        }
 
-        public bool HandleKey(KeyEventArgs e)
-        {
-            return false;
-        }
+//        public bool HandleKey(KeyEventArgs e)
+//        {
+//            return false;
+//        }
 
-        public void Init()
-        {
-            
-        }
+//        public void Init()
+//        {
 
-        public void uc_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
+//        }
+
+//        public void uc_Loaded(object sender, RoutedEventArgs e)
+//        {
+
+//        }
     }
 }

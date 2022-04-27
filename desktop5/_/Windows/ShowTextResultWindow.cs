@@ -14,7 +14,8 @@ public class ShowTextResultWindow : Window, IControlWithResult
     {
          s = new ShowTextResult(text);
         Content = s;
-        s.ChangeDialogResult += S_ChangeDialogResult;
+        ThrowEx.UncommentNextRows();
+        //s.ChangeDialogResult += S_ChangeDialogResult;
     }
 
     public event VoidBoolNullable ChangeDialogResult;

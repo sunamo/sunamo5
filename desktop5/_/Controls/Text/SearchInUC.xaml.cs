@@ -20,32 +20,32 @@ namespace desktop.Controls.Text
     /// </summary>
     public partial class SearchInUC : UserControl
     {
-        public SearchInUC()
-        {
-            InitializeComponent();
+        //public SearchInUC()
+        //{
+        //    InitializeComponent();
 
-            Loaded += SearchInUC_Loaded;
-        }
+        //    Loaded += SearchInUC_Loaded;
+        //}
 
-        private void SearchInUC_Loaded(object sender, RoutedEventArgs e)
-        {
-            cbSearchInContentUC.Name = Name + "Cb";
-            chbSearchInContent.Name = Name + "Chb";
+        //private void SearchInUC_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    cbSearchInContentUC.Name = Name + "Cb";
+        //    chbSearchInContent.Name = Name + "Chb";
 
-            chbSearchInContent.Checked += ChbSearchInContent_Checked;
-        }
+        //    chbSearchInContent.Checked += ChbSearchInContent_Checked;
+        //}
 
-        private void ChbSearchInContent_Checked(object sender, RoutedEventArgs e)
-        {
+        //private void ChbSearchInContent_Checked(object sender, RoutedEventArgs e)
+        //{
             
-        }
+        //}
 
-        public Brush BorderBrush
-        {
-            set
-            {
-                b.BorderBrush = value;
-            }
-        }
+        //public Brush BorderBrush
+        //{
+        //    set
+        //    {
+        //        b.BorderBrush = value;
+        //    }
+        //}
     }
 }

@@ -9,123 +9,125 @@ using System.Windows.Input;
 
 namespace desktop.Controls
 {
-    public sealed partial class AboutApp : UserControl, IUserControl, IControlWithResult, IKeysHandler //, IPopupResponsive, IPopupEvents<object>
+    public sealed partial class AboutApp : UserControl //, IUserControl, IControlWithResult, IKeysHandler //, IPopupResponsive, IPopupEvents<object>
     {
-        //public event VoidT<object> ClickOK;
-        //public event VoidT<object> ClickCancel;
-        public event VoidBoolNullable ChangeDialogResult;
-        string updateUri = null;
-        string actualVersion = null;
-        string appUri = null;
-        string appName = null;
+        #region Rewrite to pure cs. With xaml is often problems without building
+    //    //public event VoidT<object> ClickOK;
+    //    //public event VoidT<object> ClickCancel;
+    //    public event VoidBoolNullable ChangeDialogResult;
+    //    string updateUri = null;
+    //    string actualVersion = null;
+    //    string appUri = null;
+    //    string appName = null;
 
-        public void FocusOnMainElement()
-        {
-            //btnOk.Focus();
-        }
+    //    public void FocusOnMainElement()
+    //    {
+    //        //btnOk.Focus();
+    //    }
 
-        /// <summary>
-        /// A2 like used-car-comparing
-        /// A4 = SellingHelper.CheckNewVersion etc.
-        /// </summary>
-        /// <param name="updateUri"></param>
-        /// <param name="appUri"></param>
-        public AboutApp(string updateUri, string appUri, string appName, Action<string, string, string> CheckNewVersion)
-        {
-            this.InitializeComponent();
+    //    /// <summary>
+    //    /// A2 like used-car-comparing
+    //    /// A4 = SellingHelper.CheckNewVersion etc.
+    //    /// </summary>
+    //    /// <param name="updateUri"></param>
+    //    /// <param name="appUri"></param>
+    //    public AboutApp(string updateUri, string appUri, string appName, Action<string, string, string> CheckNewVersion)
+    //    {
+    //        this.InitializeComponent();
 
-            this.updateUri = updateUri;
-            this.appUri = appUri;
-            this.appName = appName;
+    //        this.updateUri = updateUri;
+    //        this.appUri = appUri;
+    //        this.appName = appName;
 
-            tbTitle.Text = sess.i18n(XlfKeys.AboutApp) + AllStrings.space  + appName;
+    //        tbTitle.Text = sess.i18n(XlfKeys.AboutApp) + AllStrings.space + appName;
 
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetEntryAssembly();
-            
-            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            actualVersion = fvi.FileVersion;
-            tbAboutApp.Text = sess.i18n(XlfKeys.Version) + ": " + actualVersion;
+    //        System.Reflection.Assembly assembly = System.Reflection.Assembly.GetEntryAssembly();
 
-            //WRTBH tbh2 = new WRTBH(475, 10, FontArgs.DefaultRun());
-            ParagraphBuilderTextBlock tbh2 = new ParagraphBuilderTextBlock();
-            // padding / margin top / bottom not working, therefore create new line will
-            tbh2.Hyperlink(sess.i18n(XlfKeys.CzechBlog), "http://jepsano.net");
-            tbh2.LineBreak();
-            tbh2.LineBreak();
-            tbh2.Hyperlink(sess.i18n(XlfKeys.EnglishBlog), "http://blog.sunamo.cz");
-            tbh2.LineBreak();
-            tbh2.LineBreak();
-            tbh2.Hyperlink("Web", "http://www.sunamo.cz");
-            tbh2.LineBreak();
-            tbh2.LineBreak();
+    //        System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+    //        actualVersion = fvi.FileVersion;
+    //        tbAboutApp.Text = sess.i18n(XlfKeys.Version) + ": " + actualVersion;
 
-            //tbh2.Hyperlink(sess.i18n(XlfKeys.Google), "https://plus.google.com/111524962367375368826");
-            //tbh2.LineBreak();
-            //tbh2.LineBreak();
-            tbh2.Hyperlink("Mail: radek.jancik@sunamo.cz", "mailto:radek.jancik@sunamo.cz");
-            tbh2.LineBreak();
-            tbh2.LineBreak();
+    //        //WRTBH tbh2 = new WRTBH(475, 10, FontArgs.DefaultRun());
+    //        ParagraphBuilderTextBlock tbh2 = new ParagraphBuilderTextBlock();
+    //        // padding / margin top / bottom not working, therefore create new line will
+    //        tbh2.Hyperlink(sess.i18n(XlfKeys.CzechBlog), "http://jepsano.net");
+    //        tbh2.LineBreak();
+    //        tbh2.LineBreak();
+    //        tbh2.Hyperlink(sess.i18n(XlfKeys.EnglishBlog), "http://blog.sunamo.cz");
+    //        tbh2.LineBreak();
+    //        tbh2.LineBreak();
+    //        tbh2.Hyperlink("Web", "http://www.sunamo.cz");
+    //        tbh2.LineBreak();
+    //        tbh2.LineBreak();
 
-            // cant be named new instead of updated - translation toolkit check for new a, new b, atd... 
-            btnCheckNewVersion.Content = sess.i18n(XlfKeys.CheckUpdatedVersion);
+    //        //tbh2.Hyperlink(sess.i18n(XlfKeys.Google), "https://plus.google.com/111524962367375368826");
+    //        //tbh2.LineBreak();
+    //        //tbh2.LineBreak();
+    //        tbh2.Hyperlink("Mail: radek.jancik@sunamo.cz", "mailto:radek.jancik@sunamo.cz");
+    //        tbh2.LineBreak();
+    //        tbh2.LineBreak();
 
-            tbh2.margin = new Thickness(25, 0, 0, 0);
-            tbh2.padding = new Thickness(0, 0, 0, 0);
-            var sp = tbh2.Final();
-            Grid.SetRow(sp, 4);
-            grid.Children.Add(sp);
+    //        // cant be named new instead of updated - translation toolkit check for new a, new b, atd... 
+    //        btnCheckNewVersion.Content = sess.i18n(XlfKeys.CheckUpdatedVersion);
 
-            //wg.DataContext = tbh2.uis;
-            //var itemsPanel = wg.ItemsPanel;
-            ////var ipt = itemsPanel.te
-            //var d = wg;
+    //        tbh2.margin = new Thickness(25, 0, 0, 0);
+    //        tbh2.padding = new Thickness(0, 0, 0, 0);
+    //        var sp = tbh2.Final();
+    //        Grid.SetRow(sp, 4);
+    //        grid.Children.Add(sp);
 
-            this.CheckNewVersion = CheckNewVersion;
-        }
+    //        //wg.DataContext = tbh2.uis;
+    //        //var itemsPanel = wg.ItemsPanel;
+    //        ////var ipt = itemsPanel.te
+    //        //var d = wg;
 
-        public Size MaxContentSize
-        {
-            get
-            {
-                //return maxContentSize;
-                return FrameworkElementHelper.GetMaxContentSize(this);
-            }
-            set
-            {
-                //maxContentSize = value;
-                FrameworkElementHelper.SetMaxContentSize(this, value);
-            }
-        }
+    //        this.CheckNewVersion = CheckNewVersion;
+    //    }
 
-        public  Action<string, string, string> CheckNewVersion;
+    //    public Size MaxContentSize
+    //    {
+    //        get
+    //        {
+    //            //return maxContentSize;
+    //            return FrameworkElementHelper.GetMaxContentSize(this);
+    //        }
+    //        set
+    //        {
+    //            //maxContentSize = value;
+    //            FrameworkElementHelper.SetMaxContentSize(this, value);
+    //        }
+    //    }
 
-        public bool? DialogResult { set => RuntimeHelper.EmptyDummyMethod(); }
+    //    public Action<string, string, string> CheckNewVersion;
 
-        public string Title => sess.i18n(XlfKeys.AboutApp);
+    //    public bool? DialogResult { set => RuntimeHelper.EmptyDummyMethod(); }
 
-        private void OnClickOK(object sender, RoutedEventArgs e)
-        {
-            ChangeDialogResult(true);
-        }
+    //    public string Title => sess.i18n(XlfKeys.AboutApp);
 
-        public void Accept(object input)
-        {
-            
-        }
+    //    private void OnClickOK(object sender, RoutedEventArgs e)
+    //    {
+    //        ChangeDialogResult(true);
+    //    }
 
-        public void Init()
-        {
-            
-        }
+    //    public void Accept(object input)
+    //    {
 
-        public bool HandleKey(KeyEventArgs e)
-        {
-            return false;
-        }
+    //    }
 
-        private void btnCheckNewVersion_Click(object sender, RoutedEventArgs e)
-        {
-            CheckNewVersion(updateUri, actualVersion, appUri);
-        }
-    }
+    //    public void Init()
+    //    {
+
+    //    }
+
+    //    public bool HandleKey(KeyEventArgs e)
+    //    {
+    //        return false;
+    //    }
+
+    //    private void btnCheckNewVersion_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        CheckNewVersion(updateUri, actualVersion, appUri);
+    //    }
+    } 
+    #endregion
 }

@@ -74,12 +74,13 @@ public partial class WindowHelper{
         sb.AppendLine(methodName);
         sb.Append(dump);
 
-        ShowTextResult result = new ShowTextResult(sb.ToString());
-        result.ChangeDialogResult += Result_ChangeDialogResult;
+        ThrowEx.UncommentNextRows();
+        var result = new ShowTextResult(sb.ToString());
+        //result.ChangeDialogResult += Result_ChangeDialogResult;
 
         if (isTerminanting)
         {
-            result.txtResult.Background = Brushes.OrangeRed;
+            //result.txtResult.Background = Brushes.OrangeRed;
         }
 
         var mw = Application.Current.MainWindow;
@@ -104,6 +105,7 @@ public partial class WindowHelper{
 #endif
            
             windowOpener.windowWithUserControl = new WindowWithUserControl(result, ResizeMode.CanResizeWithGrip, false);
+
             windowOpener.windowWithUserControl.ShowDialog();
         }
 

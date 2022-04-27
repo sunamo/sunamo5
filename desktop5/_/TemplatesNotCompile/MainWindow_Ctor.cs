@@ -111,7 +111,8 @@ public partial class MainWindow_Ctor : Window, IEssentialMainWindow, IHideToTray
         // 1st LogUC must be before Empty
         SetMode(Mode.LogUC);
         WpfApp.SaveReferenceToTextBlockStatus(false, tbLastErrorOrWarning, tbLastOtherMessage);
-        WpfApp.SaveReferenceToLogsStackPanel(logUC.lbLogsOthers.lbLogs, logUC.lbLogsErrors.lbLogs);
+        dynamic logUC2 = logUC;
+        WpfApp.SaveReferenceToLogsStackPanel(logUC2.lbLogsOthers.lbLogs, logUC2.lbLogsErrors.lbLogs);
         #endregion
 
         #region 3) Initialize base properties of app

@@ -16,15 +16,58 @@ using System.Windows.Shapes;
 namespace desktop.Controls.Controls
 {
     /// <summary>
-    /// 
+    /// NC = Not Commented
     /// </summary>
-    public partial class TwoRadiosUC : UserControl
+    public partial class TwoRadiosUC
     {
-        public static Type type = typeof(TwoRadiosUC);
+        dynamic rb1, rb2;
+
+                public static Type type = typeof(TwoRadiosUC);
+
+        public static bool validated
+        {
+            get
+            {
+                return TwoRadiosUC.validated;
+            }
+            set
+            {
+                TwoRadiosUC.validated = value;
+            }
+        }
+
+
+        
+
+        public bool Validate(object tbFolder, ref ValidateData d)
+        {
+            Validate(tbFolder, this, ref d);
+            return validated;
+        }
+
+        public object GetBool()
+        {
+            if (rb1.IsCheckedSimple())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool Validate(object tb, TwoRadiosUC control, ref ValidateData d)
+        {
+            if (d == null)
+            {
+                d = new ValidateData();
+            }
+            validated = BTS.GetValueOfNullable(rb1.IsChecked) || BTS.GetValueOfNullable(rb2.IsChecked);
+            return validated;
+        }
 
         public TwoRadiosUC(TwoState addRemove)
         {
-            InitializeComponent();
+            ThrowEx.UncommentNextRows();
+            //InitializeComponent();
 
             switch (addRemove)
             {
@@ -46,42 +89,17 @@ namespace desktop.Controls.Controls
 
             Tag = "TwoRadiosUC";
         }
+    }
 
-        public static bool validated
-        {
-            get
-            {
-                return TwoRadiosUC.validated;
-            }
-            set
-            {
-                TwoRadiosUC.validated = value;
-            }
-        }
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class TwoRadiosUC : UserControl
+    {
+        
 
-        public object GetBool()
-        {
-            if (rb1.IsCheckedSimple())
-            {
-                return true;
-            }
-            return false;
-        }
 
-        public  bool Validate(object tb, TwoRadiosUC control, ref ValidateData d)
-        {
-            if (d == null)
-            {
-                d = new ValidateData();
-            }
-            validated = BTS.GetValueOfNullable( rb1.IsChecked) || BTS.GetValueOfNullable( rb2.IsChecked);
-            return validated;
-        }
+       
 
-        public bool Validate(object tbFolder, ref ValidateData d)
-        {
-            Validate(tbFolder, this, ref d);
-            return validated;
-        }
     }
 }

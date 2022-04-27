@@ -21,19 +21,21 @@ namespace desktop.Controls
     /// </summary>
     public partial class DeleteDuplicitiesFilesWrapper : UserControl
     {
-        public DeleteDuplicitiesFilesWrapper()
-        {
-            InitializeComponent();
-        }
+        #region MyRegion
+        //public DeleteDuplicitiesFilesWrapper()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public ISelectFromMany<TWithSizeInString<string>> PathWithSize
-        {
-            set
-            {
-                UIElement uie = (UIElement)value;
-                Grid.SetRow(uie, 1);
-                grid.Children.Add(uie);
-            }
-        }
+        //public ISelectFromMany<TWithSizeInString<string>> PathWithSize
+        //{
+        //    set
+        //    {
+        //        UIElement uie = (UIElement)value;
+        //        Grid.SetRow(uie, 1);
+        //        grid.Children.Add(uie);
+        //    }
+        //} 
+        #endregion
     }
 }

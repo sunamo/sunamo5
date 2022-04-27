@@ -12,8 +12,9 @@ public partial class ApplicationDataContainer
     public void Add(SelectFolder chb)
     {
         ApplicationDataContainerList adcl = AddFrameworkElement(chb);
-        chb.SelectedFolder = adcl.GetString(SelectedFolder);
-        chb.FolderChanged += Chb_FolderChanged;
+        ThrowEx.UncommentNextRows();
+        //chb.SelectedFolder = adcl.GetString(SelectedFolder);
+        //chb.FolderChanged += Chb_FolderChanged;
 
     }
 
@@ -31,12 +32,13 @@ public partial class ApplicationDataContainer
     {
         var adcl = AddFrameworkElement(txtFolders);
         var folders = adcl.GetListString(SelectedFolders, innerDelimiter);
-        foreach (var item in folders)
-        {
-            txtFolders.AddFolder(item);
-        }
-        txtFolders.FolderChanged += TxtFolders_FolderChanged;
-        txtFolders.FolderRemoved += TxtFolders_FolderRemoved;
+        ThrowEx.UncommentNextRows();
+        //foreach (var item in folders)
+        //{
+        //    txtFolders.AddFolder(item);
+        //}
+        //txtFolders.FolderChanged += TxtFolders_FolderChanged;
+        //txtFolders.FolderRemoved += TxtFolders_FolderRemoved;
     }
 
     private void TxtFolders_FolderRemoved(object sender, List<string> selectedFolders)

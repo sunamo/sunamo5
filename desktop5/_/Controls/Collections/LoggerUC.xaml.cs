@@ -21,50 +21,52 @@ namespace desktop.Controls.Collections
     /// <summary>
     /// 
     /// </summary>
-    public partial class LoggerUC : UserControl, ISaveWithoutArg
+    public partial class LoggerUC : UserControl //, ISaveWithoutArg
     {
-        public LoggerUC()
-        {
-            InitializeComponent();
+        #region Rewrite to pure cs. With xaml is often problems without building
+        //    public LoggerUC()
+        //    {
+        //        InitializeComponent();
 
-            Loaded += LoggerUC_Loaded;
-        }
+        //        Loaded += LoggerUC_Loaded;
+        //    }
 
-        private async void LoggerUC_Loaded(object sender, RoutedEventArgs e)
-        {
-            await AwesomeFontControls.SetAwesomeFontSymbol(BtnClear, "\uf00d");
-            await AwesomeFontControls.SetAwesomeFontSymbol(BtnCopyToClipboard, "\uf0c5");
-        }
+        //    private async void LoggerUC_Loaded(object sender, RoutedEventArgs e)
+        //    {
+        //        await AwesomeFontControls.SetAwesomeFontSymbol(BtnClear, "\uf00d");
+        //        await AwesomeFontControls.SetAwesomeFontSymbol(BtnCopyToClipboard, "\uf0c5");
+        //    }
 
-        private void BtnClear_Click(object o, RoutedEventArgs e)
-        {
-            lbLogs.Children.Clear();
-        }
+        //    private void BtnClear_Click(object o, RoutedEventArgs e)
+        //    {
+        //        lbLogs.Children.Clear();
+        //    }
 
-        private void BtnCopyToClipboard_Click(object o, RoutedEventArgs e)
-        {
-            List<string> result = Lines();
-            ClipboardHelper.SetLines(result);
-            SunamoTemplateLogger.Instance.CopiedToClipboard(sess.i18n(XlfKeys.logs));
-        }
+        //    private void BtnCopyToClipboard_Click(object o, RoutedEventArgs e)
+        //    {
+        //        List<string> result = Lines();
+        //        ClipboardHelper.SetLines(result);
+        //        SunamoTemplateLogger.Instance.CopiedToClipboard(sess.i18n(XlfKeys.logs));
+        //    }
 
-        private List<string> Lines()
-        {
-            List<string> result = new List<string>(lbLogs.Children.Count);
-            foreach (var item in lbLogs.Children)
-            {
-                result.Add(((TextBlock)item).Text);
-            }
+        //    private List<string> Lines()
+        //    {
+        //        List<string> result = new List<string>(lbLogs.Children.Count);
+        //        foreach (var item in lbLogs.Children)
+        //        {
+        //            result.Add(((TextBlock)item).Text);
+        //        }
 
-            return result;
-        }
+        //        return result;
+        //    }
 
-        public string fileToSave = null;
+        //    public string fileToSave = null;
 
-        public void Save()
-        {
-            fileToSave = AppData.ci.GetFile(AppFolders.Logs, this.Name + AllExtensions.txt);
-            TF.SaveLines(Lines(), fileToSave);
-        }
+        //    public void Save()
+        //    {
+        //        fileToSave = AppData.ci.GetFile(AppFolders.Logs, this.Name + AllExtensions.txt);
+        //        TF.SaveLines(Lines(), fileToSave);
+        //    }
+        } 
+        #endregion
     }
-}

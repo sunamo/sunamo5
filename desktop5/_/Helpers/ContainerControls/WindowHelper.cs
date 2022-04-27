@@ -39,14 +39,15 @@ public partial class WindowHelper
 
     public static void ShowDialog(WindowWithUserControl windowWithUserControl)
     {
-        if (windowWithUserControl.dialogResult == null)
+        dynamic windowWithUserControl2 = windowWithUserControl;
+        if (windowWithUserControl2.dialogResult == null)
         {
             // 'Cannot set Visibility or call Show, ShowDialog, or WindowInteropHelper.EnsureHandle after a Window has closed.'
             /*
              e.Cancel = true;
         this.Visibility = Visibility.Hidden;
              */
-            windowWithUserControl.ShowDialog();
+            windowWithUserControl2.ShowDialog();
         }
     }
 

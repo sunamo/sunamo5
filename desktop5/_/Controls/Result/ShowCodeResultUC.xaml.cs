@@ -20,9 +20,9 @@ namespace desktop.Controls.Result
     /// </summary>
     public partial class ShowCodeResultUC : UserControl
     {
-        public ShowCodeResultUC()
-        {
-            InitializeComponent();
-        }
+        //public ShowCodeResultUC()
+        //{
+        //    InitializeComponent();
+        //}
     }
 }
