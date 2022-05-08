@@ -107,7 +107,7 @@ public partial class DTHelperMulti
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), l);
+            ThrowExceptions.NotImplementedCase(l);
             return string.Empty;
         }
     }
@@ -124,7 +124,7 @@ public partial class DTHelperMulti
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), l);
+            ThrowExceptions.NotImplementedCase(l);
             return null;
         }
     }

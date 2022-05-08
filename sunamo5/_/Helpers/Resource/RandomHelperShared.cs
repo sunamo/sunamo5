@@ -162,7 +162,7 @@ public static partial class RandomHelper
         }
         if (od > to)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), $"From {od} is higher than to {to}");
+            ThrowExceptions.Custom($"From {od} is higher than to {to}");
         }
 
         return s_rnd.Next(od, to + 1);

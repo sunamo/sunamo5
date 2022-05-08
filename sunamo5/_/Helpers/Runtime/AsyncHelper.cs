@@ -293,7 +293,7 @@ using System.Threading.Tasks;
 
             public override void Send(SendOrPostCallback d, object state)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.WeCannotSendToOurSameThread));
+                ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.WeCannotSendToOurSameThread));
             }
 
             public override void Post(SendOrPostCallback d, object state)

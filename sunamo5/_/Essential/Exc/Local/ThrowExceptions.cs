@@ -45,7 +45,7 @@ public partial class ThrowExceptions
 
     public static void CustomWithStackTrace(Exception ex)
     {
-        Custom( Exc.GetStackTrace(), type, Exc.CallingMethod(), Exceptions.TextOfExceptions(ex));
+        Custom( Exceptions.TextOfExceptions(ex));
     }
 
   

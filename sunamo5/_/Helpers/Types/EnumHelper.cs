@@ -128,7 +128,7 @@ public static partial class EnumHelper
         }
 
         if (typeof(T).BaseType != typeof(Enum))
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "  " + SunamoPageHelperSunamo.i18n(XlfKeys.mustBeAnEnumType));
+            ThrowExceptions.Custom("  " + SunamoPageHelperSunamo.i18n(XlfKeys.mustBeAnEnumType));
         var values = Enum.GetValues(typeof(T)).Cast<int>().ToArray();
         valuesInverted = values.Select(v => ~v).ToArray();
         result = new List<T>();

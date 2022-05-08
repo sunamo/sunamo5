@@ -56,7 +56,7 @@ public partial class PicturesSunamo
         }
         else 
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), imf);
+            ThrowExceptions.NotImplementedCase(imf);
         }
         return null;
     }

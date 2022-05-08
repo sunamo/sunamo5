@@ -29,7 +29,7 @@ public partial class FS
             }
             catch (Exception ex)
             {
-                ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), repairedBlogPostsFolder, ex);
+                ThrowExceptions.FolderCannotBeDeleted(repairedBlogPostsFolder, ex);
                 deleted = false;
             }
         }

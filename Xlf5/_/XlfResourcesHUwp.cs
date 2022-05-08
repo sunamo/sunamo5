@@ -75,7 +75,7 @@
 //                p += "en-US";
 //                break;
 //            default:
-//                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), l);
+//                ThrowExceptions.NotImplementedCase(l);
 //                break;
 //        }
 
@@ -256,7 +256,7 @@
 //                }
 //                else
 //                {
-//                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), sess.i18n(XlfKeys.UnvalidFile) + " " + file + ", please delete it");
+//                    ThrowExceptions.Custom(sess.i18n(XlfKeys.UnvalidFile) + " " + file + ", please delete it");
 //                }
 //            }
 //        }

@@ -913,7 +913,7 @@ public partial class FS
             value = ConvertToSmallerComputerUnitSize(value, b, ComputerSizeUnits.B);
             if (to == ComputerSizeUnits.Auto)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
+                ThrowExceptions.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
             }
             else if (to == ComputerSizeUnits.KB && b != ComputerSizeUnits.KB)
             {
@@ -1035,7 +1035,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CannotMoveFolder(Exc.GetStackTrace(), type, Exc.CallingMethod(), item, nova, ex);
+            ThrowExceptions.CannotMoveFolder(item, nova, ex);
         }
         if (FS.IsDirectoryEmpty(item, true, true))
         {

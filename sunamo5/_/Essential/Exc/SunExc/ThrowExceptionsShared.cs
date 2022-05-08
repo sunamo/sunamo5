@@ -74,7 +74,7 @@ public partial class ThrowExceptions
     //    if (exception != null)
     //    {
             
-    //        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), exception, cm);
+    //        ThrowExceptions.Custom(exception, cm);
     //        return false;
     //    }
     //    return true;

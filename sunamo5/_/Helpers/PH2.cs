@@ -76,7 +76,7 @@ public partial class PH
                 }
                 catch (System.Exception ex)
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), ex);
+                    ThrowExceptions.Custom(ex);
                 }
             }
         }
@@ -95,7 +95,7 @@ public partial class PH
             }
             catch (System.Exception ex)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), ex);
+                ThrowExceptions.Custom(ex);
             }
         }
 

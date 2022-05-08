@@ -16,7 +16,7 @@ public static partial class SF
         var p = SF.GetAllElementsLine(input);
         if (p.Count > requiredCount)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), $"p have {p.Count} elements, max is {requiredCount}");
+            ThrowExceptions.Custom($"p have {p.Count} elements, max is {requiredCount}");
         }
         else if (p.Count < requiredCount)
         {

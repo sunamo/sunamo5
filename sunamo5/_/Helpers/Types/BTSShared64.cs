@@ -269,7 +269,7 @@ public static partial class BTS
         {
             return UInt64.MinValue;
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Nepovolen\u00FD nehodnotov\u00FD typ v metod\u011B GetMinValueForType");
+        ThrowExceptions.Custom("Nepovolen\u00FD nehodnotov\u00FD typ v metod\u011B GetMinValueForType");
         return null;
     }
 
@@ -317,7 +317,7 @@ public static partial class BTS
             {
                 if (excIfIsFloat)
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), id + " is float but is calling IsInt");
+                    ThrowExceptions.Custom(id + " is float but is calling IsInt");
                 }
             }
         }

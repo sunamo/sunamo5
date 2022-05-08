@@ -29,7 +29,7 @@ public partial class TextBlockHelper{
 
         if (d.imagePath != null)
         {
-            ThrowExceptions.IsNotNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), "d.imagePath", d.imagePath);
+            ThrowExceptions.IsNotNull("d.imagePath", d.imagePath);
         }
 
         tb.Tag = d.tag;

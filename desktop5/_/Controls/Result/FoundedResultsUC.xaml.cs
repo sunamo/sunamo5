@@ -61,7 +61,7 @@ namespace desktop.Controls.Result
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), obj);
+        //        ThrowExceptions.NotImplementedCase(obj);
         //    }
         //}
 

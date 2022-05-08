@@ -22,7 +22,7 @@ public static Image Get(object imagePathOrBitmapImage)
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), t);
+            ThrowExceptions.NotImplementedCase(t);
         }
 
         Image img = ImageHelper.ReturnImage(bi);

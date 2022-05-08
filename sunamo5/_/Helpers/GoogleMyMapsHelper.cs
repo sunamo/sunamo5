@@ -50,7 +50,7 @@ namespace sunamo
                 if (!allowEmptyCity)
                 {
                     //input = CL.LoadFromClipboardOrConsole("2 rows from sheets");
-                    ThrowExceptions.IsNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), input);
+                    ThrowExceptions.IsNull(input);
                 }
             }
 

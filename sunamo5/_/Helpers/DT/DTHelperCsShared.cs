@@ -154,7 +154,7 @@ public partial class DTHelperCs
                             }
                             catch (Exception ex)
                             {
-                                ThrowExceptions.CannotCreateDateTime(Exc.GetStackTrace(), type, Exc.CallingMethod(), year, month, day, 0, 0, 0, ex);
+                                ThrowExceptions.CannotCreateDateTime(year, month, day, 0, 0, 0, ex);
                             }
                         }
                     }

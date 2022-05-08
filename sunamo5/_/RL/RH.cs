@@ -185,7 +185,7 @@ public partial class RH
     {
         if (!typeof(T).IsSerializable)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.TheTypeMustBeSerializable) + ". source");
+            ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.TheTypeMustBeSerializable) + ". source");
         }
 
         // Don't serialize a null object, simply return the default for that object

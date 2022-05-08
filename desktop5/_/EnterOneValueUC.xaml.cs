@@ -122,7 +122,7 @@ namespace desktop.Controls.Input
         //            }
         //            else if (gs == GridSize.Mine)
         //            {
-        //                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), gs);
+        //                ThrowExceptions.NotImplementedCase(gs);
         //            }
         //            else if (gs == GridSize.XamlDefined)
         //            {

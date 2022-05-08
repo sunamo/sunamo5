@@ -1,4 +1,4 @@
-using sunamo;
+﻿using sunamo;
 using sunamo.Essential;
 
 using System;
@@ -669,7 +669,7 @@ public static partial class CA
             {
                 if (EqualityComparer<T>.Default.Equals(number, defVal))
                 {
-                    ThrowExceptions.BadFormatOfElementInList(Exc.GetStackTrace(), type, Exc.CallingMethod(), item, nameof(enumerable));
+                    ThrowExceptions.BadFormatOfElementInList(item, nameof(enumerable));
                     return null;
                 }
             }

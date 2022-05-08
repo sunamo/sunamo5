@@ -68,11 +68,11 @@ namespace desktop
 
             if (d.imagePath != null)
             {
-                ThrowExceptions.IsNotNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), "d.imagePath", d.imagePath);
+                ThrowExceptions.IsNotNull("d.imagePath", d.imagePath);
             }
             if (d.OnClick != null)
             {
-                ThrowExceptions.IsNotNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), "d.OnClick", d.OnClick);
+                ThrowExceptions.IsNotNull("d.OnClick", d.OnClick);
             }
 
             txt.Name = d.name;

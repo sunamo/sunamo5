@@ -18,7 +18,7 @@ using System.Threading.Tasks;
         {
             if (string.IsNullOrWhiteSpace(defFile))
             {
-                ThrowExceptions.InvalidParameter(Exc.GetStackTrace(), type, Exc.CallingMethod(), defFile, "defFile");
+                ThrowExceptions.InvalidParameter(defFile, "defFile");
             }
 
             //var v = AddPathIfNotContains( UserFoldersWin.Local, @"Programs\Microsoft VS Code", CodeExe);
@@ -216,7 +216,7 @@ using System.Threading.Tasks;
                         NullIfNotExists(ref b);
                         break;
                     default:
-                        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), prohlizec);
+                        ThrowExceptions.NotImplementedCase(prohlizec);
                         break;
                 }
 

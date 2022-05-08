@@ -47,7 +47,7 @@ public partial class ApplicationDataContainerList : IEnumerable
 
     public ApplicationDataContainerList(FrameworkElement fw)
     {
-        ThrowExceptions.IsWhitespaceOrNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), "fw.Name", fw.Name);
+        ThrowExceptions.IsWhitespaceOrNull("fw.Name", fw.Name);
 
         Init(AppData.ci.GetFile(AppFolders.Controls, fw.Name));
     }
@@ -195,7 +195,7 @@ public partial class ApplicationDataContainerList : IEnumerable
                     value = sunamoPoint.ToSystemWindows();
                     break;
                 default:
-                    ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), fullName);
+                    ThrowExceptions.NotImplementedCase(fullName);
                     break;
             }
             if (value != null)
@@ -308,7 +308,7 @@ public partial class ApplicationDataContainerList : IEnumerable
                 }
                 else
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SH.Format2("Pravděpodobně chyba v aplikaci, pokoušíte se uložit do souboru v AppData položku typu {0} pod klíčem {1} která měla původně typ {{}", typeName, key, ab.A));
+                    ThrowExceptions.Custom(SH.Format2("Pravděpodobně chyba v aplikaci, pokoušíte se uložit do souboru v AppData položku typu {0} pod klíčem {1} která měla původně typ {{}", typeName, key, ab.A));
                 }
             }
             else

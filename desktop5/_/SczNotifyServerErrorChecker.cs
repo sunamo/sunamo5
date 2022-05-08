@@ -54,7 +54,7 @@ public class SczNotifyServerErrorChecker
             }
             else if (!b1 &&!b2)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), f1 +" doesn't exists!");
+                ThrowExceptions.Custom(f1 +" doesn't exists!");
             }
             
            }

@@ -138,7 +138,7 @@ public static partial class SH
         {
             if (throwExcWhenInvalidIndex)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Chybn\u00FD parametr ");
+                ThrowExceptions.Custom("Chybn\u00FD parametr ");
             }
             else
             {
@@ -433,7 +433,7 @@ public static partial class SH
             }
             else
             {
-                ThrowExceptions.IsTheSame(Exc.GetStackTrace(), type, Exc.CallingMethod(), "what", "forWhat");
+                ThrowExceptions.IsTheSame("what", "forWhat");
             }
         }
         var r = t.Replace(what, forWhat);
@@ -540,7 +540,7 @@ public static partial class SH
             }
             else
             {
-                ThrowExceptions.ArgumentOutOfRangeException(Exc.GetStackTrace(), type, Exc.CallingMethod(), "indexFrom", "indexFrom is lower than indexTo");
+                ThrowExceptions.ArgumentOutOfRangeException("indexFrom", "indexFrom is lower than indexTo");
             }
         }
 
@@ -757,7 +757,7 @@ public static partial class SH
     {
         if (deli == null || deli.Count() == 0)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.NoDelimiterDetermined));
+            ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.NoDelimiterDetermined));
         }
         var ie = CA.OneElementCollectionToMulti(deli);
         var deli3 = CA.ToListString(ie);
@@ -876,7 +876,7 @@ public static partial class SH
 
             if (ie.Count() > 1 && enu.Count() == 1)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.ProbablyWasCalledWithSwithechDelimiterAndParts));
+                ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.ProbablyWasCalledWithSwithechDelimiterAndParts));
             }
         }
 

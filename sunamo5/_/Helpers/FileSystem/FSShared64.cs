@@ -12,7 +12,7 @@ public partial class FS
     #region For easy copy from FSShared.cs
     private static void ThrowNotImplementedUwp()
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Not implemented in UWP");
+        ThrowExceptions.Custom("Not implemented in UWP");
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ public partial class FS
         }
         if (!FS.IsWindowsPathFormat(rp))
         {
-            ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "rp", rp);
+            ThrowExceptions.IsNotWindowsPathFormat("rp", rp);
         }
 
 
@@ -614,7 +614,7 @@ public partial class FS
         catch (Exception ex)
         {
             // Je to try takže nevím co tu dělá tohle a 
-            //ThrowExceptions.FolderCannotBeDeleted(Exc.GetStackTrace(), type, Exc.CallingMethod(), v, ex);
+            //ThrowExceptions.FolderCannotBeDeleted(v, ex);
             //var result = InvokePs(v);
             //if (result.Count > 0)
             //{
@@ -1244,7 +1244,7 @@ public partial class FS
     public static void CreateFoldersPsysicallyUnlessThere(string nad)
     {
         ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
-        ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "nad", nad);
+        ThrowExceptions.IsNotWindowsPathFormat("nad", nad);
 
         FS.MakeUncLongPath(ref nad);
         if (FS.ExistsDirectory(nad))

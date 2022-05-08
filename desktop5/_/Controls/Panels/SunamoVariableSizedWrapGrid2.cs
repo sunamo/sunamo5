@@ -38,7 +38,7 @@ namespace desktop
         {
             if (index >= VisualChildrenCount)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "bla");
+                ThrowExceptions.Custom("bla");
             }
 
             int i = 0;

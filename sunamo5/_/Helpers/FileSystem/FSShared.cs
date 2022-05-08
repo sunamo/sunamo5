@@ -240,7 +240,7 @@ public partial class FS
         {
             if (!exf)
             {
-                ThrowExceptions.FileDoesntExists(Exc.GetStackTrace(), type, Exc.CallingMethod(), path);
+                ThrowExceptions.FileDoesntExists(path);
             }
         }
         else
@@ -308,7 +308,7 @@ public partial class FS
         {
             return ac.fs.getDirectoryNameFolder.Invoke(rp2);
         }
-        //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "GetDirectoryName");
+        //ThrowExceptions.Custom("GetDirectoryName");
         var rp = rp2.ToString();
         return (dynamic)GetDirectoryName(rp);
     }
@@ -548,7 +548,7 @@ public partial class FS
             }
             else
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "SaveMemoryStream");
+                ThrowExceptions.Custom("SaveMemoryStream");
             }
         }
     }
@@ -1457,7 +1457,7 @@ public partial class FS
     {
         if (to == ComputerSizeUnits.Auto)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
+            ThrowExceptions.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
         }
         else if (to == ComputerSizeUnits.KB && b != ComputerSizeUnits.KB)
         {

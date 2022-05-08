@@ -196,7 +196,7 @@ public partial class DictionaryHelper
         {
             if (throwExIfNotContains)
             {
-                ThrowExceptions.KeyNotFound<T, U>(Exc.GetStackTrace(), type, Exc.CallingMethod(), l, nameof(l), item);
+                ThrowExceptions.KeyNotFound<T, U>(l, nameof(l), item);
             }
         }
     }

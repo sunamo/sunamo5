@@ -149,7 +149,7 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
             }
             else
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Nen\u00ED vypln\u011Bno n\u00E1zev aplikace.");
+                ThrowExceptions.Custom("Nen\u00ED vypln\u011Bno n\u00E1zev aplikace.");
             }
         }
     }

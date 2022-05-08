@@ -13,7 +13,7 @@ public static class sess
     {
         if (Exc.aspnet)
         {
-            //ThrowExceptions.IsNotAllowed(Exc.GetStackTrace(), type, Exc.CallingMethod(), "SunamoPageHelperSunamo.i18n in asp.net due to use global ThisApp.l");
+            //ThrowExceptions.IsNotAllowed("SunamoPageHelperSunamo.i18n in asp.net due to use global ThisApp.l");
         }       
 
         switch (ThisApp.l)
@@ -23,7 +23,7 @@ public static class sess
             case Langs.en:
                 return RLData.en[key];
             default:
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), ThisApp.l);
+                ThrowExceptions.NotImplementedCase(ThisApp.l);
                 break;
         }
         return null;

@@ -204,7 +204,7 @@ namespace desktop.Controls.Input
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), storageApplicationData);
+        //        ThrowExceptions.NotImplementedCase(storageApplicationData);
         //    }
 
         //    if (txtLogin.Text != "")
@@ -221,7 +221,7 @@ namespace desktop.Controls.Input
 
         //private static void ThrowExceptionConfigNotSupported()
         //{
-        //    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), sess.i18n(XlfKeys.SavingSettingsToAppConfigOrWebConfigIsNotYetSupported));
+        //    ThrowExceptions.Custom(sess.i18n(XlfKeys.SavingSettingsToAppConfigOrWebConfigIsNotYetSupported));
         //}
 
         //private void btnLogin_Click(object sender, RoutedEventArgs e)

@@ -222,7 +222,7 @@ public static partial class BTS
         {
             if (throwEx)
             {
-                ThrowExceptions.NotInt(Exc.GetStackTrace(), type, Exc.CallingMethod(), entry, throwEx);
+                ThrowExceptions.NotInt(entry, throwEx);
             }
         }
         return def;

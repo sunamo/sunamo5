@@ -25,7 +25,7 @@ namespace sunamo.Essential
             {
                 if (instance == null)
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Dont use DebugLogger without #if DEBUG!!", false);
+                    ThrowExceptions.Custom("Dont use DebugLogger without #if DEBUG!!", false);
                     return DummyTemplateLogger.Instance;
                 }
                 return instance;

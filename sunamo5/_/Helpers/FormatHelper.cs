@@ -16,7 +16,7 @@ public class FormatHelper
         var p = SH.Split(nameSurname, AllStrings.space);
         if (p.Count != 2)
         {
-            ThrowExceptions.WrongNumberOfElements(Exc.GetStackTrace(), type, Exc.CallingMethod(), 2, "p", p);
+            ThrowExceptions.WrongNumberOfElements(2, "p", p);
         }
         parsedName = p[0];
         parsedSurname = p[1];

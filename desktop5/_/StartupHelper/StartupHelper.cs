@@ -40,7 +40,7 @@ public class StartupHelper
             }
             else
             {
-                ThrowExceptions.IsNull(Exc.GetStackTrace(), type, Exc.CallingMethod(), "ftl.fn", ftl.fn);
+                ThrowExceptions.IsNull("ftl.fn", ftl.fn);
             }
         }
     }

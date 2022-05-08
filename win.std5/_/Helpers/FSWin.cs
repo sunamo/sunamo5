@@ -79,7 +79,7 @@ using System.Threading.Tasks;
             {
                 // Only warning, not exc with stacktrace cecause is using in Quadient
                 ThisApp.SetStatus(TypeOfMessage.Warning, "Doesnt exists as file / folder:" + p);
-                //ThrowExceptions.FileDoesntExists(Exc.GetStackTrace(), type, Exc.CallingMethod(), p);
+                //ThrowExceptions.FileDoesntExists(p);
             }
         }
  

@@ -49,7 +49,7 @@ static Type type = typeof(DateTimeFileIndex<StorageFolder,StorageFile>);
         }
         else
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), sess.i18n(XlfKeys.NotSupportedStrategyOfSavingFiles) + ".");
+            ThrowExceptions.Custom(sess.i18n(XlfKeys.NotSupportedStrategyOfSavingFiles) + ".");
         }
         mask += AllStrings.asterisk + ext;
         var files2 = FS.GetFilesInterop(_folder, mask, false, ac);

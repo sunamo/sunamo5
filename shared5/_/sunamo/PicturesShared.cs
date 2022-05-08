@@ -424,7 +424,7 @@ public class PicturesShared
             }
             else
             {
-                ThrowExceptions.FileHasExtensionNotParseableToImageFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), fnOri);
+                ThrowExceptions.FileHasExtensionNotParseableToImageFormat(fnOri);
             }
             //}
         }
@@ -525,13 +525,13 @@ public class PicturesShared
                 }
                 else
                 {
-                    ThrowExceptions.FileHasExtensionNotParseableToImageFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), fnOri);
+                    ThrowExceptions.FileHasExtensionNotParseableToImageFormat(fnOri);
                 }
             }
         }
         else
         {
-            ThrowExceptions.FileHasExtensionNotParseableToImageFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), fnOri);
+            ThrowExceptions.FileHasExtensionNotParseableToImageFormat(fnOri);
         }
         return false;
     }
@@ -598,7 +598,7 @@ public class PicturesShared
         }
         else
         {
-            ThrowExceptions.FileHasExtensionNotParseableToImageFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), fnOri);
+            ThrowExceptions.FileHasExtensionNotParseableToImageFormat(fnOri);
         }
     }
     #endregion

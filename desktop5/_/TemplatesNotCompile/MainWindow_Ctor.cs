@@ -378,7 +378,7 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
         userControlWithSuMenuItems = actual as IUserControlWithSuMenuItemsList;
         userControlClosing = actual as IUserControlClosing;
         keysHandler = actual as IKeysHandler;
-        ThrowExceptions.WasNotKeysHandler(Exc.GetStackTrace(), type, Exc.CallingMethod(), userControl.Title, keysHandler);
+        ThrowExceptions.WasNotKeysHandler(userControl.Title, keysHandler);
 
         #region On start I have to unregister
         previouslyRegisteredSuMenuItems.ForEach(SuMenuItem => miUC.Items.Remove(SuMenuItem));
