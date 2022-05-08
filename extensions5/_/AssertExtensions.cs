@@ -12,14 +12,14 @@ public class AssertExtensions
     {
         if (a.Count != b.Count)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.CountInAAndBIsNotEqual));
+            ThrowEx.Custom(sess.i18n(XlfKeys.CountInAAndBIsNotEqual));
         }
 
         for (int i = 0; i < a.Count; i++)
         {
             if(!EqualityComparer<T>.Default.Equals( a[i].Item1 ,b[i].Item1) || !EqualityComparer<U>.Default.Equals( a[i].Item2, b[i].Item2))
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"a and b is not equal");
+                ThrowEx.Custom("a and b is not equal");
             }
         }
 

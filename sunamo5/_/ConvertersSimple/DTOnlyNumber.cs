@@ -16,7 +16,7 @@ public class DTOnlyNumber
 
     public static DateTime From(string s)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return DateTime.MinValue;
     }
 

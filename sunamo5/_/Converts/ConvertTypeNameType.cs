@@ -70,7 +70,7 @@ public class ConvertTypeNameType
             case "UInt64":
                 return typeof(ulong);
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Nepodporovan\u00FD typ");
+        ThrowEx.Custom("Nepodporovan\u00FD typ");
         return null;
     }
 

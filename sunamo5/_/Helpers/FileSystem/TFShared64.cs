@@ -57,7 +57,7 @@ public partial class TF
     {
         var dir = FS.GetDirectoryName(soubor);
 
-        ThrowExceptions.DirectoryWasntFound(Exc.GetStackTrace(), type, "SaveFile", dir);
+        ThrowEx.DirectoryWasntFound(Exc.GetStackTrace(), type, "SaveFile", dir);
 
         if (soubor == null)
         {

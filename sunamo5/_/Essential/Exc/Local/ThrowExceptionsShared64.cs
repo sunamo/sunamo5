@@ -6,16 +6,16 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
-    public static void IsNotAllowed(string stacktrace, object type, string methodName, string what)
+    public static void IsNotAllowed( string what)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsNotAllowed(FullNameOfExecutedCode(type, methodName, true), what));
+        ThrowIsNotNull(Exceptions.IsNotAllowed(FullNameOfExecutedCode(t.Item1, t.Item2, true), what));
     }
 
-    public static void BadFormatOfElementInList(string stacktrace, object type, string methodName, object elVal, string listName)
+    public static void BadFormatOfElementInList( object elVal, string listName)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.BadFormatOfElementInList(FullNameOfExecutedCode(type, methodName), elVal, listName));
+        ThrowIsNotNull(Exceptions.BadFormatOfElementInList(FullNameOfExecutedCode(t.Item1, t.Item2), elVal, listName));
     }
 
     /// <summary>
@@ -28,27 +28,27 @@ public partial class ThrowExceptions
     /// <param name="colName"></param>
     /// <param name="col"></param>
     /// <returns></returns>
-    public static bool IsOdd(string stacktrace, object type, string methodName, string colName, IEnumerable col)
+    public static bool IsOdd( string colName, IEnumerable col)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.IsOdd(FullNameOfExecutedCode(type, methodName), colName, col));
+        return ThrowIsNotNull(Exceptions.IsOdd(FullNameOfExecutedCode(t.Item1, t.Item2), colName, col));
     }
 
 
 
-    public static readonly Type type = typeof(ThrowExceptions);
+    public static readonly Type type = typeof(ThrowEx);
     
     static readonly string dot = ".";
 
-    public static void IsTheSame(string stacktrace, object type, string methodName, string fst, string sec)
+    public static void IsTheSame( string fst, string sec)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsTheSame(FullNameOfExecutedCode(type, methodName), fst, sec));
+        ThrowIsNotNull(Exceptions.IsTheSame(FullNameOfExecutedCode(t.Item1, t.Item2), fst, sec));
     }
 
     
 
     public static void WrongNumberOfElements(string stacktrace, Type type, string methodName, int requireElements, string nameCount, IEnumerable<string> ele)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.WrongNumberOfElements(FullNameOfExecutedCode(type, methodName), requireElements, nameCount, ele));
+        ThrowIsNotNull(Exceptions.WrongNumberOfElements(FullNameOfExecutedCode(t.Item1, t.Item2), requireElements, nameCount, ele));
     }
 
     
@@ -66,37 +66,37 @@ public partial class ThrowExceptions
     /// <param name="type"></param>
     /// <param name="methodName"></param>
     /// <param name="folder1"></param>
-    public static void DirectoryWasntFound(string stacktrace, object type, string methodName, string folder1)
+    public static void DirectoryWasntFound( string folder1)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.DirectoryWasntFound(FullNameOfExecutedCode(type, methodName, true), folder1));
+        ThrowIsNotNull(Exceptions.DirectoryWasntFound(FullNameOfExecutedCode(t.Item1, t.Item2, true), folder1));
     }
 
 
 
-    public static void DivideByZero(string stacktrace, object type, string methodName)
+    public static void DivideByZero()
     {
-        ThrowIsNotNull(stacktrace, Exceptions.DivideByZero(FullNameOfExecutedCode(type, methodName, true)));
+        ThrowIsNotNull(Exceptions.DivideByZero(FullNameOfExecutedCode(t.Item1, t.Item2, true)));
     }
     
     
 
     
 
-    public static void ViolationSqlIndex(string stacktrace, object type, string methodName, string tableName, ABC columnsInIndex)
+    public static void ViolationSqlIndex( string tableName, ABC columnsInIndex)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.ViolationSqlIndex(FullNameOfExecutedCode(type, methodName, true), tableName, columnsInIndex));
+        ThrowIsNotNull(Exceptions.ViolationSqlIndex(FullNameOfExecutedCode(t.Item1, t.Item2, true), tableName, columnsInIndex));
     }
 
-    public static void Custom(string stacktrace, object type, string methodName, Exception message, bool reallyThrow = true)
+    public static void Custom( Exception message, bool reallyThrow = true)
     {
-        Custom(stacktrace, type, methodName, Exceptions.TextOfExceptions(message), reallyThrow);
+        Custom(ThrowIsNotNull( Exceptions.TextOfExceptions(message), reallyThrow);
     }
 
     
 
     public static bool WrongExtension(string stacktrace, Type type, string methodName, string path, string ext)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.WrongExtension(FullNameOfExecutedCode(type, methodName, true), path, ext));
+        return ThrowIsNotNull(Exceptions.WrongExtension(FullNameOfExecutedCode(t.Item1, t.Item2, true), path, ext));
     }
 
     

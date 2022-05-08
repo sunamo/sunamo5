@@ -41,7 +41,7 @@ namespace ThreadsIfaces
         public bool QueueUserWorkItem(System.Threading.WaitCallback callBack)
         {
             if (callBack == null)
-                ThrowExceptions.Custom("  callback method cannot be null");
+                ThrowEx.Custom("  callback method cannot be null");
 
             lock (jobs)
             {

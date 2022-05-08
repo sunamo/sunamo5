@@ -70,7 +70,7 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
             bool isNull = Abstract.IsRootFolderNull();
             if (isNull)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Slo\u017Eka ke soubor\u016Fm aplikace nebyla zad\u00E1na "+SunamoPageHelperSunamo.i18n(XlfKeys.LookDirectIntoIsRootFolderNull)+".");
+                ThrowEx.Custom("Slo\u017Eka ke soubor\u016Fm aplikace nebyla zad\u00E1na "+SunamoPageHelperSunamo.i18n(XlfKeys.LookDirectIntoIsRootFolderNull)+".");
             }
 
             return rootFolder;
@@ -92,7 +92,7 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
             bool isNull = Abstract.IsRootFolderNull();
             if (isNull)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Slo\u017Eka ke soubor\u016Fm aplikace nebyla zad\u00E1na "+SunamoPageHelperSunamo.i18n(XlfKeys.LookDirectIntoIsRootFolderNull)+".");
+                ThrowEx.Custom("Slo\u017Eka ke soubor\u016Fm aplikace nebyla zad\u00E1na "+SunamoPageHelperSunamo.i18n(XlfKeys.LookDirectIntoIsRootFolderNull)+".");
             }
 
             return rootFolderPa;
@@ -149,7 +149,7 @@ public abstract partial class AppDataBase<StorageFolder, StorageFile>: IAppDataB
             }
             else
             {
-                ThrowExceptions.Custom("Nen\u00ED vypln\u011Bno n\u00E1zev aplikace.");
+                ThrowEx.Custom("Nen\u00ED vypln\u011Bno n\u00E1zev aplikace.");
             }
         }
     }

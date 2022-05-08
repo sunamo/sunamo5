@@ -13,7 +13,7 @@ namespace sunamo
 
         public PropertyType2 ConvertTo(string u)
         {
-            ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+            ThrowEx.NotImplementedMethod();
             return PropertyType2.Bool;
         }
 

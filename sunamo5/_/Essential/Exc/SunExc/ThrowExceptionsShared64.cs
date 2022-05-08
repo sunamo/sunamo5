@@ -4,24 +4,24 @@ using System.Collections;
 using System.Linq;
 using System.Reflection;
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
-    #region For easy copy from ThrowExceptionsShared64.cs - all ok 17-10-21
+    #region For easy copy from ThrowExShared64.cs - all ok 17-10-21
 
 
-    public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, int countfc, string namesc, int countsc)
+    public static void DifferentCountInLists( string namefc, int countfc, string namesc, int countsc)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.DifferentCountInLists(FullNameOfExecutedCode(type, methodName, true), namefc, countfc, namesc, countsc));
+        ThrowIsNotNull(Exceptions.DifferentCountInLists(FullNameOfExecutedCode(t.Item1, t.Item2, true), namefc, countfc, namesc, countsc));
     }
 
-    public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, IEnumerable replaceFrom, string namesc, IEnumerable replaceTo)
+    public static void DifferentCountInLists( string namefc, IEnumerable replaceFrom, string namesc, IEnumerable replaceTo)
     {
-        DifferentCountInLists(stacktrace, type, methodName, namefc, replaceFrom.Count(), namesc, replaceTo.Count());
+        DifferentCountInLists(ThrowIsNotNull( namefc, replaceFrom.Count(), namesc, replaceTo.Count());
     }
 
-    public static void Custom(string stacktrace, object type, string methodName, string message, bool reallyThrow = true)
+    public static void Custom( string message, bool reallyThrow = true)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
+        ThrowIsNotNull(Exceptions.Custom(FullNameOfExecutedCode(t.Item1, t.Item2, true), message), reallyThrow);
     }
 
     public static bool reallyThrow2 = true;
@@ -51,7 +51,7 @@ public partial class ThrowExceptions
         t = Exc.GetStackTrace2(true);
 
         var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), o);
-        ThrowIsNotNull(t.Item3, exc);
+        ThrowIsNotNull( exc);
     }
 
     public static void ThrowIsNotNullEx(Func<string, string> f)
@@ -59,7 +59,7 @@ public partial class ThrowExceptions
         t = Exc.GetStackTrace2(true);
 
         var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2));
-        ThrowIsNotNull(t.Item3, exc);
+        ThrowIsNotNull( exc);
     }
 
     public static void ThrowIsNotNullEx(Func<string, string, string> f, string a1)
@@ -67,7 +67,7 @@ public partial class ThrowExceptions
         t = Exc.GetStackTrace2(true);
 
         var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1);
-        ThrowIsNotNull(t.Item3, exc);
+        ThrowIsNotNull( exc);
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public partial class ThrowExceptions
         t = Exc.GetStackTrace2(true);
 
         var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1, a2);
-        return ThrowIsNotNull(t.Item3, exc);
+        return ThrowIsNotNull( exc);
     }
 
     public static void ThrowIsNotNullEx<T>(Func<string, string, T[], string> f, string a1, params T[] a2)
@@ -92,7 +92,7 @@ public partial class ThrowExceptions
         t = Exc.GetStackTrace2(true);
 
         var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1, a2);
-        ThrowIsNotNull(t.Item3, exc);
+        ThrowIsNotNull( exc);
     }
 
     static string lastMethod = null;
@@ -103,7 +103,7 @@ public partial class ThrowExceptions
     /// In console app is needed put in into try-catch error due to there is no globally handler of errors
     /// </summary>
     /// <param name="exception"></param>
-    public static bool ThrowIsNotNull(string stacktrace, string exception, bool reallyThrow = true)
+    public static bool ThrowIsNotNull( string exception, bool reallyThrow = true)
     {
         // Výjimky se tak často nevyhazují. Tohle je daň za to že jsem tu měl arch
         // jež nebyla dobře navržená. V ThrowEx se to již podruhé volat nebude.
@@ -186,24 +186,24 @@ reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
     /// <param name="methodName"></param>
     /// <param name="argName"></param>
     /// <param name="argValue"></param>
-    public static void IsNotWindowsPathFormat(string stacktrace, object type, string methodName, string argName, string argValue)
+    public static void IsNotWindowsPathFormat( string argName, string argValue)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsNotWindowsPathFormat(FullNameOfExecutedCode(type, methodName, true), argName, argValue));
+        ThrowIsNotNull(Exceptions.IsNotWindowsPathFormat(FullNameOfExecutedCode(t.Item1, t.Item2, true), argName, argValue));
     }
 
-    public static void IsNullOrEmpty(string stacktrace, object type, string methodName, string argName, string argValue)
+    public static void IsNullOrEmpty( string argName, string argValue)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsNullOrEmpty(FullNameOfExecutedCode(type, methodName, true), argName, argValue));
+        ThrowIsNotNull(Exceptions.IsNullOrEmpty(FullNameOfExecutedCode(t.Item1, t.Item2, true), argName, argValue));
     }
 
-    public static void ArgumentOutOfRangeException(string stacktrace, object type, string methodName, string paramName, string message = null)
+    public static void ArgumentOutOfRangeException( string paramName, string message = null)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.ArgumentOutOfRangeException(FullNameOfExecutedCode(type, methodName, true), paramName, message));
+        ThrowIsNotNull(Exceptions.ArgumentOutOfRangeException(FullNameOfExecutedCode(t.Item1, t.Item2, true), paramName, message));
     }
 
-    public static void IsNull(string stacktrace, object type, string methodName, string variableName, object variable = null)
+    public static void IsNull( string variableName, object variable = null)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsNull(FullNameOfExecutedCode(type, methodName, true), variableName, variable));
+        ThrowIsNotNull(Exceptions.IsNull(FullNameOfExecutedCode(t.Item1, t.Item2, true), variableName, variable));
     }
 
 #pragma warning disable
@@ -232,9 +232,9 @@ reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
     }
 #pragma warning enable
 
-    public static void NotImplementedCase(string stacktrace, object type, string methodName, object niCase)
+    public static void NotImplementedCase( object niCase)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.NotImplementedCase(FullNameOfExecutedCode(type, methodName, true), niCase));
+        ThrowIsNotNull(Exceptions.NotImplementedCase(FullNameOfExecutedCode(t.Item1, t.Item2, true), niCase));
     }
 
     /// <summary>
@@ -242,12 +242,12 @@ reallyThrow2 - is setted in ShowMb and all excs handlers in WpfAppShared.cs
     /// </summary>
     /// <param name="type"></param>
     /// <param name="methodName"></param>
-    public static string FullNameOfExecutedCode(object type, string methodName, bool fromThrowExceptions = false)
+    public static string FullNameOfExecutedCode(object type, string methodName, bool fromThrowEx = false)
     {
         if (methodName == null)
         {
             int depth = 2;
-            if (fromThrowExceptions)
+            if (fromThrowEx)
             {
                 depth++;
             }

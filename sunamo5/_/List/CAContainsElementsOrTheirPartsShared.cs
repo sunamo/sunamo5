@@ -82,7 +82,7 @@ public static partial class CA
         var c2 = l2.Count();
         if (c1 != c2)
         {
-            ThrowExceptions.DifferentCountInLists("l", l, "l2", l2);
+            ThrowEx.DifferentCountInLists("l", l, "l2", l2);
         }
 
         string s1;

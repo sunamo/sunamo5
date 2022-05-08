@@ -110,7 +110,7 @@ public partial class ComboBoxHelper
         }
         if (d.OnClick != null)
         {
-            ThrowExceptions.IsNotAllowed(Exc.GetStackTrace(),type, Exc.CallingMethod(), "d.OnClick");
+            ThrowEx.IsNotAllowed( "d.OnClick");
         }
         cb.Tag = d.tag;
         cb.ToolTip = d.tooltip;

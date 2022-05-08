@@ -12,6 +12,6 @@ public class ColorThemeHelper
 
     public static void ApplyColorTheme(Border border, ColorTheme ct)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
     }
 }

@@ -87,12 +87,12 @@ public class TranslateDictionary : IDictionary<string, string>
     {
         if (string.IsNullOrEmpty(customErr))
         {
-            ThrowExceptions.NotFoundTranslationKeyWithoutCustomError(customErr + ". " + key + " is not in " + _l + " dictionary");
+            ThrowEx.NotFoundTranslationKeyWithoutCustomError(customErr + ". " + key + " is not in " + _l + " dictionary");
             return null;
         }
         else
         {
-            ThrowExceptions.NotFoundTranslationKeyWithCustomError(customErr + ". " + key + " is not in " + _l + " dictionary");
+            ThrowEx.NotFoundTranslationKeyWithCustomError(customErr + ". " + key + " is not in " + _l + " dictionary");
             return null;
         }
         

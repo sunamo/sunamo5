@@ -164,7 +164,7 @@ public partial class FrameworkElementHelper
         }
         else
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(),type, "", sess.i18n(XlfKeys.customControlIsNotContentControlOrPanel));
+            ThrowEx.Custom(sess.i18n(XlfKeys.customControlIsNotContentControlOrPanel));
         }
 
         return default(T);

@@ -69,7 +69,7 @@ namespace desktop
             {
 
             }
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.NISizeOfPaperGetPaperSize) + "()");
+            ThrowEx.Custom(sess.i18n(XlfKeys.NISizeOfPaperGetPaperSize) + "()");
             return Size.Empty;
         }
     }

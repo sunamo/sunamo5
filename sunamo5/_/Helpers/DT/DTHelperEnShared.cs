@@ -38,7 +38,7 @@ public partial class DTHelperEn
                     }
                     catch (Exception ex)
                     {
-                        ThrowExceptions.CannotCreateDateTime(year, month, day, 0, 0, 0, ex);
+                        ThrowEx.CannotCreateDateTime(year, month, day, 0, 0, 0, ex);
                     }
                 }
             }

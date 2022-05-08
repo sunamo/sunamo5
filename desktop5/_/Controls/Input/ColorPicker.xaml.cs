@@ -97,7 +97,7 @@ namespace desktop
         //                result.A = value;
         //                break;
         //            default:
-        //                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"");
+        //                ThrowEx.Custom("");
         //                break;
         //        }
         //        rectColor.Fill = new SolidColorBrush(result);

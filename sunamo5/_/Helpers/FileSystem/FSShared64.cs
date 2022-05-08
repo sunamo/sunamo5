@@ -12,7 +12,7 @@ public partial class FS
     #region For easy copy from FSShared.cs
     private static void ThrowNotImplementedUwp()
     {
-        ThrowExceptions.Custom("Not implemented in UWP");
+        ThrowEx.Custom("Not implemented in UWP");
     }
 
     /// <summary>
@@ -76,11 +76,11 @@ public partial class FS
     {
         if (string.IsNullOrEmpty(rp))
         {
-            ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
+            ThrowEx.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
         }
         if (!FS.IsWindowsPathFormat(rp))
         {
-            ThrowExceptions.IsNotWindowsPathFormat("rp", rp);
+            ThrowEx.IsNotWindowsPathFormat("rp", rp);
         }
 
 
@@ -614,7 +614,7 @@ public partial class FS
         catch (Exception ex)
         {
             // Je to try takže nevím co tu dělá tohle a 
-            //ThrowExceptions.FolderCannotBeDeleted(v, ex);
+            //ThrowEx.FolderCannotBeDeleted(v, ex);
             //var result = InvokePs(v);
             //if (result.Count > 0)
             //{
@@ -1160,10 +1160,10 @@ public partial class FS
     {
         // Not working, flags from GeoCachingTool wasnt transfered to standard
 #if NETFX_CORE
-        ThrowExceptions.IsNotAvailableInUwpWindowsStore(type, Exc.CallingMethod(), "  "+-SunamoPageHelperSunamo.i18n(XlfKeys.UseMethodsInFSApps));
+        ThrowEx.IsNotAvailableInUwpWindowsStore(type, Exc.CallingMethod(), "  "+-SunamoPageHelperSunamo.i18n(XlfKeys.UseMethodsInFSApps));
 #endif
 #if WINDOWS_UWP
-        ThrowExceptions.IsNotAvailableInUwpWindowsStore(type, Exc.CallingMethod(), "  "+-SunamoPageHelperSunamo.i18n(XlfKeys.UseMethodsInFSApps));
+        ThrowEx.IsNotAvailableInUwpWindowsStore(type, Exc.CallingMethod(), "  "+-SunamoPageHelperSunamo.i18n(XlfKeys.UseMethodsInFSApps));
 #endif
 
         if (item == Consts.UncLongPath || item == string.Empty)
@@ -1243,8 +1243,8 @@ public partial class FS
     /// <param name="nad"></param>
     public static void CreateFoldersPsysicallyUnlessThere(string nad)
     {
-        ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
-        ThrowExceptions.IsNotWindowsPathFormat("nad", nad);
+        ThrowEx.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
+        ThrowEx.IsNotWindowsPathFormat("nad", nad);
 
         FS.MakeUncLongPath(ref nad);
         if (FS.ExistsDirectory(nad))

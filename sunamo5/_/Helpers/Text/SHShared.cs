@@ -80,7 +80,7 @@ public static partial class SH
         {
             if (throwExceptionIfNotContains)
             {
-                ThrowExceptions.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
+                ThrowEx.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
             }
             else
             {
@@ -172,7 +172,7 @@ public static partial class SH
         }
         catch (Exception ex)
         {
-            ThrowExceptions.DummyNotThrow(ex);
+            ThrowEx.DummyNotThrow(ex);
         }
 
         try
@@ -181,7 +181,7 @@ public static partial class SH
         }
         catch (Exception ex)
         {
-            ThrowExceptions.DummyNotThrow(ex);
+            ThrowEx.DummyNotThrow(ex);
         }
 
         return formatted;
@@ -323,7 +323,7 @@ public static partial class SH
         int remain = sl % c;
         if (remain != 0)
         {
-            ThrowExceptions.Custom(null, type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.NumbersOfLetters) + " " + s + " is not dividable with " + c);
+            ThrowEx.Custom(null, type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.NumbersOfLetters) + " " + s + " is not dividable with " + c);
         }
 
         List<string> ls = new List<string>(c);
@@ -526,7 +526,7 @@ public static partial class SH
             }
         }
 
-        ThrowExceptions.IsNotAllowed(null, type, Exc.CallingMethod(), v + " as bracket");
+        ThrowEx.IsNotAllowed(null, type, Exc.CallingMethod(), v + " as bracket");
         return char.MaxValue;
     }
 
@@ -1292,7 +1292,7 @@ public static partial class SH
             case ']':
                 return Brackets.Square;
             default:
-                ThrowExceptions.NotImplementedCase(null, type, Exc.CallingMethod(), v);
+                ThrowEx.NotImplementedCase(null, type, Exc.CallingMethod(), v);
                 break;
         }
 
@@ -1385,7 +1385,7 @@ public static partial class SH
         {
             var from2 = SH.Split(co, Environment.NewLine);
             var to2 = SH.Split(zaCo, Environment.NewLine);
-            ThrowExceptions.DifferentCountInLists(null, type, "ReplaceInAllFiles", @"from2", from2, "to2", to2);
+            ThrowEx.DifferentCountInLists(null, type, "ReplaceInAllFiles", @"from2", from2, "to2", to2);
 
             for (int i = 0; i < from2.Count; i++)
             {
@@ -2777,7 +2777,7 @@ public static partial class SH
         {
             if (throwExceptionIfNotContains)
             {
-                ThrowExceptions.NotContains(null, type, "GetTextBetween", p, after, before);
+                ThrowEx.NotContains(null, type, "GetTextBetween", p, after, before);
             }
             else
             {

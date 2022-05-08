@@ -458,7 +458,7 @@ mam 3, d0, u1 - nechapu */
                     return IsModifier(Key.LWin);
                 case ModifierKeys.None:
                 default:
-                    ThrowExceptions.NotImplementedCase(control);
+                    ThrowEx.NotImplementedCase(control);
                     break;
             }
 

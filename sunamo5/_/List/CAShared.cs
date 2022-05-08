@@ -420,8 +420,8 @@ public static partial class CA
     {
         string methodName = "TrimStart";
 
-        ThrowExceptions.IsNull(Exc.GetStackTrace(),type, methodName, "backslash", backslash);
-        ThrowExceptions.IsNull(Exc.GetStackTrace(),type, methodName, "s", s);
+        ThrowEx.IsNull( "backslash", backslash);
+        ThrowEx.IsNull( "s", s);
 
         for (int i = 0; i < s.Count; i++)
         {
@@ -669,7 +669,7 @@ public static partial class CA
             {
                 if (EqualityComparer<T>.Default.Equals(number, defVal))
                 {
-                    ThrowExceptions.BadFormatOfElementInList(item, nameof(enumerable));
+                    ThrowEx.BadFormatOfElementInList(item, nameof(enumerable));
                     return null;
                 }
             }
@@ -814,7 +814,7 @@ public static partial class CA
     {
         if (p < 0)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Chybn\u00FD parametr p");
+            ThrowEx.Custom("Chybn\u00FD parametr p");
         }
         if (nahledy.Count() > p)
         {
@@ -1073,7 +1073,7 @@ public static partial class CA
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, Exc.CallingMethod(), parseNegations);
+            ThrowEx.NotImplementedCase( parseNegations);
         }
 
         return result;
@@ -1371,7 +1371,7 @@ public static bool HasPostfix(string key, params string[] v1)
     /// <param name="input"></param>
     private static void Prepend(List<string> numbered, List<string> input)
     {
-        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(),type, SunamoPageHelperSunamo.i18n(XlfKeys.Prepend), "numbered", numbered.Count(), "input", input.Count);
+        ThrowEx.DifferentCountInLists(Exc.GetStackTrace(),type, SunamoPageHelperSunamo.i18n(XlfKeys.Prepend), "numbered", numbered.Count(), "input", input.Count);
         for (int i = 0; i < input.Count; i++)
         {
             input[i] = numbered[i] + input[i];

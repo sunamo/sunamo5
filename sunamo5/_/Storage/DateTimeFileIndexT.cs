@@ -18,7 +18,7 @@ static Type type = typeof(DateTimeFileIndex<StorageFolder,StorageFile>);
     private Langs _l = Langs.cs;
     public string GetFullPath(FileNameWithDateTime<StorageFolder, StorageFile> o)
     {
-        //ThrowExceptions.Custom
+        //ThrowEx.Custom
         return FS.StorageFilePath<StorageFolder, StorageFile>( FS.GetStorageFile<StorageFolder, StorageFile>(_folder, o.fnwoe + _ext, ac), ac);
     }
     
@@ -49,7 +49,7 @@ static Type type = typeof(DateTimeFileIndex<StorageFolder,StorageFile>);
         }
         else
         {
-            ThrowExceptions.Custom(sess.i18n(XlfKeys.NotSupportedStrategyOfSavingFiles) + ".");
+            ThrowEx.Custom(sess.i18n(XlfKeys.NotSupportedStrategyOfSavingFiles) + ".");
         }
         mask += AllStrings.asterisk + ext;
         var files2 = FS.GetFilesInterop(_folder, mask, false, ac);

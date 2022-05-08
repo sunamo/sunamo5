@@ -145,7 +145,7 @@ public partial class WpfApp{
         ShowMb("IsSomethingNull " + handler);
 #endif
         WpfApp.cd = Application.Current.Dispatcher;
-ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
+ThrowEx.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
         WpfApp.cdp = System.Windows.Threading.DispatcherPriority.Normal;
 
         ShowMb(DesktopNotTranslateAble.EnteringIsSomethingNull);
@@ -244,8 +244,8 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
 
     private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
     {
-        reallyThrow = ThrowExceptions.reallyThrow2;
-        ThrowExceptions.reallyThrow2 = false;
+        reallyThrow = ThrowEx.reallyThrow2;
+        ThrowEx.reallyThrow2 = false;
 
         if (IsSomethingNull("TaskScheduler_UnobservedTaskException"))
         {
@@ -271,7 +271,7 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
             else { if (breakAt) { DebuggerIsAttached(); } }
         }
         );
-        ThrowExceptions.reallyThrow2 = reallyThrow;
+        ThrowEx.reallyThrow2 = reallyThrow;
     }
 
     static bool reallyThrow = false;
@@ -283,8 +283,8 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
     /// <param name="e"></param>
     private static void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
     {
-        reallyThrow = ThrowExceptions.reallyThrow2;
-        ThrowExceptions.reallyThrow2 = false;
+        reallyThrow = ThrowEx.reallyThrow2;
+        ThrowEx.reallyThrow2 = false;
         #region MyRegion
         // https://stackoverflow.com/a/13523188
         var comException = e.Exception as System.Runtime.InteropServices.COMException;
@@ -317,7 +317,7 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
 
         }
         );
-        ThrowExceptions.reallyThrow2 = reallyThrow;
+        ThrowEx.reallyThrow2 = reallyThrow;
     }
 
     /// <summary>
@@ -327,8 +327,8 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
     /// <param name="e"></param>
     private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
-        reallyThrow = ThrowExceptions.reallyThrow2;
-        ThrowExceptions.reallyThrow2 = false;
+        reallyThrow = ThrowEx.reallyThrow2;
+        ThrowEx.reallyThrow2 = false;
 
         if (IsSomethingNull("CurrentDomain_UnhandledException"))
         {
@@ -351,6 +351,6 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
             else { if (breakAt) { DebuggerIsAttached(); } }
         }
         );
-        ThrowExceptions.reallyThrow2 = reallyThrow;
+        ThrowEx.reallyThrow2 = reallyThrow;
     }
 }

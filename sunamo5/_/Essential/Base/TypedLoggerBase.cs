@@ -86,7 +86,7 @@ public TypedLoggerBase ()
                     Success(m);
                     break;
                 default:
-                    ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, "WriteLine", t);
+                    ThrowEx.NotImplementedCase(Exc.GetStackTrace(),type, "WriteLine", t);
                     break;
             }
         }

@@ -154,7 +154,7 @@ public partial class DTHelperCs
                             }
                             catch (Exception ex)
                             {
-                                ThrowExceptions.CannotCreateDateTime(year, month, day, 0, 0, 0, ex);
+                                ThrowEx.CannotCreateDateTime(year, month, day, 0, 0, 0, ex);
                             }
                         }
                     }
@@ -184,7 +184,7 @@ public partial class DTHelperCs
     {
         if (l != Langs.cs)
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, Exc.CallingMethod(), l);
+            ThrowEx.NotImplementedCase( l);
         }
 
         if (dateTime == dtMinVal)
@@ -344,7 +344,7 @@ public partial class DTHelperCs
             case DayOfWeek.Sunday:
                 return DTConstants.Nedele;
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Nezn\u00E1m\u00FD den v t\u00FDdnu");
+        ThrowEx.Custom("Nezn\u00E1m\u00FD den v t\u00FDdnu");
         return null;
     }
     #endregion

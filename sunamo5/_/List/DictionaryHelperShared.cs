@@ -82,7 +82,7 @@ public partial class DictionaryHelper
 
     public static Dictionary<Key, Value> GetDictionary<Key, Value>(List<Key> keys, List<Value> values)
     {
-        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(),type, "GetDictionary", "keys", keys.Count, "values", values.Count);
+        ThrowEx.DifferentCountInLists(Exc.GetStackTrace(),type, "GetDictionary", "keys", keys.Count, "values", values.Count);
         Dictionary<Key, Value> result = new Dictionary<Key, Value>();
         for (int i = 0; i < keys.Count; i++)
         {
@@ -158,7 +158,7 @@ public partial class DictionaryHelper
     public static Dictionary<T, T> GetDictionaryByKeyValueInString<T>(List<T> p)
     {
         var methodName = Exc.CallingMethod();
-        ThrowExceptions.IsOdd(Exc.GetStackTrace(),type, methodName, "p", p);
+        ThrowEx.IsOdd( "p", p);
 
         Dictionary<T, T> result = new Dictionary<T, T>();
         for (int i = 0; i < p.Count; i++)
@@ -183,7 +183,7 @@ public partial class DictionaryHelper
 
     public static Dictionary<T1, T2> GetDictionaryFromTwoList<T1, T2>(List<T1> t1, List<T2> t2, bool addRandomWhenKeyExists = false)
     {
-        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "GetDictionaryFromTwoList", "t1", t1, "t2", t2);
+        ThrowEx.DifferentCountInLists(Exc.GetStackTrace(), type, "GetDictionaryFromTwoList", "t1", t1, "t2", t2);
 
         List<KeyValuePair<T1, T2>> l = new List<KeyValuePair<T1, T2>>();
 

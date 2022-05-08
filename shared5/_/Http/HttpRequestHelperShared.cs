@@ -318,7 +318,7 @@ public static partial class HttpRequestHelper
         r = SharedAlgorithms.RepeatAfterTimeXTimes<WebResponse>(times, timeoutInMs, new Func<WebResponse>(request.GetResponse));
         if (EqualityComparer<WebResponse>.Default.Equals(r, default(WebResponse)))
         {
-            var before = ThrowExceptions.FullNameOfExecutedCode(type, Exc.CallingMethod());
+            var before = ThrowEx.FullNameOfExecutedCode(type, Exc.CallingMethod());
             ThisApp.SetStatus(TypeOfMessage.Warning, Exceptions.RepeatAfterTimeXTimesFailed(before, times, timeoutInMs, address));
             return new byte[0];
         }

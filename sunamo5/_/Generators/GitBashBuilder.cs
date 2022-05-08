@@ -77,7 +77,7 @@ namespace sunamo.Generators
         /// <param name="files"></param>
         public static string CheckoutWithExtension(string folder, string typedExt, List<string> files)
         {
-            ThrowExceptions.IsNull(Exc.GetStackTrace(),type, "EnterValueFormCheckoutAllWithExtension_Finished", "typedExt", typedExt);
+            ThrowEx.IsNull(Exc.GetStackTrace(),type, "EnterValueFormCheckoutAllWithExtension_Finished", "typedExt", typedExt);
 
             GitBashBuilder bashBuilder = new GitBashBuilder();
             bool anyError = false;

@@ -122,7 +122,7 @@ namespace desktop.Controls.Input
         //            }
         //            else if (gs == GridSize.Mine)
         //            {
-        //                ThrowExceptions.NotImplementedCase(gs);
+        //                ThrowEx.NotImplementedCase(gs);
         //            }
         //            else if (gs == GridSize.XamlDefined)
         //            {
@@ -248,7 +248,7 @@ namespace desktop.Controls.Input
         //                else
         //                {
         //                    allOk = false;
-        //                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, methodName, sess.i18n(XlfKeys.NotImplementedValidateForControl) + " " + item.GetType().FullName);
+        //                    ThrowEx.Custom(Exc.GetStackTrace(), type, methodName, sess.i18n(XlfKeys.NotImplementedValidateForControl) + " " + item.GetType().FullName);
         //                }
         //            }
         //            //txtEnteredText.Text = txtEnteredText.Text.Trim();
@@ -335,7 +335,7 @@ namespace desktop.Controls.Input
 
         //        public void uc_Loaded(object sender, RoutedEventArgs e)
         //        {
-        //            //ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        //            //ThrowEx.NotImplementedMethod();
         //        }
 
         //        public void RemoveWhichHaveNoItem()

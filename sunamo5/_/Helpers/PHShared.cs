@@ -160,7 +160,7 @@ public partial class PH
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            ThrowEx.CustomWithStackTrace(ex);
         }
     }
 
@@ -173,7 +173,7 @@ public partial class PH
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            ThrowEx.CustomWithStackTrace(ex);
         }
     }
 
@@ -195,7 +195,7 @@ public partial class PH
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            ThrowEx.CustomWithStackTrace(ex);
         }
     }
 
@@ -241,7 +241,7 @@ public partial class PH
         {
             if (!ex.Message.Contains("Access is denied"))
             {
-                ThrowExceptions.CustomWithStackTrace(ex);
+                ThrowEx.CustomWithStackTrace(ex);
             }
         }
     }

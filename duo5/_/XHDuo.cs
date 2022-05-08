@@ -51,7 +51,7 @@ public class XHDuo
 
 
             return ConstsDuo.Exception + path + nl+nl + ex.Message;
-            //ThrowExceptions.CustomWithStackTrace(ex);
+            //ThrowEx.CustomWithStackTrace(ex);
         }
 
         mStream.Close();

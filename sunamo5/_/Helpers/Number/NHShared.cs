@@ -129,7 +129,7 @@ public static string CalculateMedianAverage(List<double> list)
     {
         list.RemoveAll(d => d == 0);
 
-        ThrowExceptions.OnlyOneElement(Exc.GetStackTrace(),type, "CalculateMedianAverage", "list", list);
+        ThrowEx.OnlyOneElement(Exc.GetStackTrace(),type, "CalculateMedianAverage", "list", list);
 
         MedianAverage<double> medianAverage = new MedianAverage<double>();
         medianAverage.count = list.Count;

@@ -61,7 +61,7 @@ namespace desktop.Controls.Result
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(obj);
+        //        ThrowEx.NotImplementedCase(obj);
         //    }
         //}
 

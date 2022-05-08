@@ -37,7 +37,7 @@ public class XPathPart
         }
         else if (dexStartSquareBracket == -1 || dexEndSquareBracket == -1)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Neukon\u010Den\u00E1 z\u00E1vorka v metod\u011B XPathPart.ctor");
+            ThrowEx.Custom("Neukon\u010Den\u00E1 z\u00E1vorka v metod\u011B XPathPart.ctor");
         }
     }
 

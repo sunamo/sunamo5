@@ -84,7 +84,7 @@
 //                    else
 //                    {
 //                        // Have to raise exception. Because setting string.Empty just later won't passed with Validation
-//                        ThrowExceptions.DirectoryWasntFound(value);
+//                        ThrowEx.DirectoryWasntFound(value);
 //                        //txtFolder.Text = "";
 //                    }
 //                }

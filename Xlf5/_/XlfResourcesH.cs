@@ -33,7 +33,7 @@ public partial class XlfResourcesH
                 p += "en-US";
                 break;
             default:
-                ThrowExceptions.NotImplementedCase(l);
+                ThrowEx.NotImplementedCase(l);
                 break;
         }
 
@@ -248,7 +248,7 @@ public partial class XlfResourcesH
                 }
                 else
                 {
-                    //ThrowExceptions.Custom("Invalid file " + file + ", please delete it");
+                    //ThrowEx.Custom("Invalid file " + file + ", please delete it");
                 }
             }
         }
@@ -266,7 +266,7 @@ public partial class XlfResourcesH
                 fn = "sunamo_en_US_min";
                 break;
             default:
-                ThrowExceptions.NotImplementedCase(cs);
+                ThrowEx.NotImplementedCase(cs);
                 break;
         }
 

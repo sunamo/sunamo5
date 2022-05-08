@@ -109,12 +109,12 @@ public class HtmlGeneratorExtended : HtmlGenerator
             }
         }
         WriteRaw(html);
-        //ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        //ThrowEx.NotImplementedMethod();
     }
 
     public void BoilerplateEnd()
     {
         WriteRaw(Resources.ResourcesDuo.Html5BoilerplateEnd);
-        //ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        //ThrowEx.NotImplementedMethod();
     }
 }

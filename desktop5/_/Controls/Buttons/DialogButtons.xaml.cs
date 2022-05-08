@@ -102,7 +102,7 @@ namespace desktop.Controls
 
         //    public void Accept(object input)
         //    {
-        //        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.OnlyButtonsCanBeAcceptedBecauseItHasNoDataForAccept) + ".");
+        //        ThrowEx.Custom(sess.i18n(XlfKeys.OnlyButtonsCanBeAcceptedBecauseItHasNoDataForAccept) + ".");
         //    }
 
         //    static Type type = typeof(DialogButtons);

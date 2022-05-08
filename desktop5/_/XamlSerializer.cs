@@ -23,7 +23,7 @@ static Type type = typeof(XamlSerializer);
         public XamlSerializer( Window w)
         {
             var name = w.GetType().Name;
-            //ThrowExceptions.NameIsNotSetted(Exc.GetStackTrace(),type, "ctor", nameWindow, w.Name);
+            //ThrowEx.NameIsNotSetted(Exc.GetStackTrace(),type, "ctor", nameWindow, w.Name);
             this.w = w;
             path = AppData.ci.GetFile(AppFolders.Controls, name);
             w.Loaded += new RoutedEventHandler(MainWindow_Loaded);

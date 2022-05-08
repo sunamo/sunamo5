@@ -53,7 +53,7 @@
 //        {
 //            if (neededRows > rowsCount)
 //            {
-//                ThrowExceptions.BadMappedXaml(Exc.GetStackTrace(),type, "InputTwoColumnsUC", "InputTwoColumnsUC", sess.i18n(XlfKeys.ItNeedsMoreRowsThanItExists));
+//                ThrowEx.BadMappedXaml(Exc.GetStackTrace(),type, "InputTwoColumnsUC", "InputTwoColumnsUC", sess.i18n(XlfKeys.ItNeedsMoreRowsThanItExists));
 //            }
 //            else
 //            {

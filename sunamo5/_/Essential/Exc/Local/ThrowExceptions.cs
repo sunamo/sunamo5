@@ -6,19 +6,19 @@ using System.Diagnostics;
 using System.Net;
 using System.Reflection;
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
     
 
     #region Must be as first - newly created method fall into this
-    public static void BadMappedXaml(string stacktrace, object type, string methodName, string nameControl, string additionalInfo)
+    public static void BadMappedXaml( string nameControl, string additionalInfo)
     {
-        ThrowIsNotNull( stacktrace, Exceptions.BadMappedXaml(FullNameOfExecutedCode(type, methodName, true), nameControl, additionalInfo));
+        ThrowIsNotNull( stacktrace, Exceptions.BadMappedXaml(FullNameOfExecutedCode(t.Item1, t.Item2, true), nameControl, additionalInfo));
     }
 
-    public static void CannotCreateDateTime(string stacktrace, object type, string methodName, int year, int month, int day, int hour, int minute, int seconds, Exception ex)
+    public static void CannotCreateDateTime( int year, int month, int day, int hour, int minute, int seconds, Exception ex)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.CannotCreateDateTime(FullNameOfExecutedCode(type, methodName, true), year, month, day, hour, minute, seconds, ex));
+        ThrowIsNotNull(Exceptions.CannotCreateDateTime(FullNameOfExecutedCode(t.Item1, t.Item2, true), year, month, day, hour, minute, seconds, ex));
     }
 
     /// <summary>
@@ -28,19 +28,19 @@ public partial class ThrowExceptions
     /// <param name="type"></param>
     /// <param name="methodName"></param>
     /// <param name="fulLPath"></param>
-    public static void FileDoesntExists(string stacktrace, object type, string methodName, string fulLPath)
+    public static void FileDoesntExists( string fulLPath)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FileExists(FullNameOfExecutedCode(type, methodName, true), fulLPath));
+        ThrowIsNotNull(Exceptions.FileExists(FullNameOfExecutedCode(t.Item1, t.Item2, true), fulLPath));
     }
 
-    public static void UseRlc(string stacktrace, object type, string methodName)
+    public static void UseRlc()
     {
-        ThrowIsNotNull(stacktrace, Exceptions.UseRlc(FullNameOfExecutedCode(type, methodName, true)));
+        ThrowIsNotNull(Exceptions.UseRlc(FullNameOfExecutedCode(t.Item1, t.Item2, true)));
     }
    
-    public static bool OutOfRange(string stacktrace, object type, string methodName, string colName, IEnumerable col, string indexName, int index)
+    public static bool OutOfRange( string colName, IEnumerable col, string indexName, int index)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.OutOfRange(FullNameOfExecutedCode(type, methodName), colName, col, indexName, index));
+        return ThrowIsNotNull(Exceptions.OutOfRange(FullNameOfExecutedCode(t.Item1, t.Item2), colName, col, indexName, index));
     }
 
     public static void CustomWithStackTrace(Exception ex)
@@ -58,52 +58,52 @@ public partial class ThrowExceptions
     /// <param name="type"></param>
     /// <param name="v"></param>
     /// <param name="photosPath"></param>
-    public static bool DirectoryExists(string stacktrace, object type, string methodName, string path)
+    public static bool DirectoryExists( string path)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.DirectoryExists(FullNameOfExecutedCode(type, methodName, true), path));
+        return ThrowIsNotNull(Exceptions.DirectoryExists(FullNameOfExecutedCode(t.Item1, t.Item2, true), path));
     }
-    public static void IsWhitespaceOrNull(string stacktrace, object type, string methodName, string variable, object data)
+    public static void IsWhitespaceOrNull( string variable, object data)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsWhitespaceOrNull(FullNameOfExecutedCode(type, methodName, true), variable, data));
+        ThrowIsNotNull(Exceptions.IsWhitespaceOrNull(FullNameOfExecutedCode(t.Item1, t.Item2, true), variable, data));
     }
     
-    public static void HaveAllInnerSameCount(string stacktrace, object type, string methodName, List<List<string>> elements)
+    public static void HaveAllInnerSameCount( List<List<string>> elements)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.HaveAllInnerSameCount(FullNameOfExecutedCode(type, methodName, true), elements));
+        ThrowIsNotNull(Exceptions.HaveAllInnerSameCount(FullNameOfExecutedCode(t.Item1, t.Item2, true), elements));
     }
     /// <summary>
     /// Must be string due to in sunamo is not NamespaceElement
     /// </summary>
     /// <param name="name"></param>
-    public static void NameIsNotSetted(string stacktrace, object type, string methodName, string nameControl, string nameFromProperty)
+    public static void NameIsNotSetted( string nameControl, string nameFromProperty)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.NameIsNotSetted(FullNameOfExecutedCode(type, methodName, true), nameControl, nameFromProperty));
+        ThrowIsNotNull(Exceptions.NameIsNotSetted(FullNameOfExecutedCode(t.Item1, t.Item2, true), nameControl, nameFromProperty));
     }
 
-    public static void HasNotKeyDictionary<Key,Value>(string stacktrace, object type, string methodName, string nameDict, IDictionary<Key, Value> qsDict, Key remains)
+    public static void HasNotKeyDictionary<Key,Value>( string nameDict, IDictionary<Key, Value> qsDict, Key remains)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.HasNotKeyDictionary<Key, Value>(FullNameOfExecutedCode(type, methodName), nameDict,
+        ThrowIsNotNull(Exceptions.HasNotKeyDictionary<Key, Value>(FullNameOfExecutedCode(t.Item1, t.Item2), nameDict,
             qsDict, remains));
     }
 
     
     
 
-    public static void DoesntHaveRequiredType(string stacktrace, object type, string methodName, string variableName)
+    public static void DoesntHaveRequiredType( string variableName)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.DoesntHaveRequiredType(FullNameOfExecutedCode(type, methodName, true), variableName));
+        ThrowIsNotNull(Exceptions.DoesntHaveRequiredType(FullNameOfExecutedCode(t.Item1, t.Item2, true), variableName));
     }
     
 
     
-    public static void MoreThanOneElement(string stacktrace, object type, string methodName, string listName, int count, string moreInfo = Consts.se)
+    public static void MoreThanOneElement( string listName, int count, string moreInfo = Consts.se)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.MoreThanOneElement(FullNameOfExecutedCode(type, methodName, true), listName, count, moreInfo));
+        ThrowIsNotNull(Exceptions.MoreThanOneElement(FullNameOfExecutedCode(t.Item1, t.Item2, true), listName, count, moreInfo));
     }
 
-    public static bool NotInt(string stacktrace, object type, string methodName, string what, object value)
+    public static bool NotInt( string what, object value)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.NotInt(FullNameOfExecutedCode(type, methodName, true), what, value));
+        return ThrowIsNotNull(Exceptions.NotInt(FullNameOfExecutedCode(t.Item1, t.Item2, true), what, value));
     }
 
     
@@ -118,21 +118,21 @@ public partial class ThrowExceptions
     /// <param name="methodName"></param>
     /// <param name="variableName"></param>
     /// <param name="variable"></param>
-    public static void IsNotNull(string stacktrace, object type, string methodName, string variableName, object variable)
+    public static void IsNotNull( string variableName, object variable)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsNotNull(FullNameOfExecutedCode(type, methodName, true), variableName, variable));
+        ThrowIsNotNull(Exceptions.IsNotNull(FullNameOfExecutedCode(t.Item1, t.Item2, true), variableName, variable));
     }
-    public static void ArrayElementContainsUnallowedStrings(string stacktrace, object type, string methodName, string arrayName, int dex, string valueElement, params string[] unallowedStrings)
+    public static void ArrayElementContainsUnallowedStrings( string arrayName, int dex, string valueElement, params string[] unallowedStrings)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.ArrayElementContainsUnallowedStrings(FullNameOfExecutedCode(type, methodName, true), arrayName, dex, valueElement, unallowedStrings));
+        ThrowIsNotNull(Exceptions.ArrayElementContainsUnallowedStrings(FullNameOfExecutedCode(t.Item1, t.Item2, true), arrayName, dex, valueElement, unallowedStrings));
     }
-    public static void OnlyOneElement(string stacktrace, object type, string methodName, string colName, IEnumerable list)
+    public static void OnlyOneElement( string colName, IEnumerable list)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.OnlyOneElement(FullNameOfExecutedCode(type, methodName, true), colName, list));
+        ThrowIsNotNull(Exceptions.OnlyOneElement(FullNameOfExecutedCode(t.Item1, t.Item2, true), colName, list));
     }
-    public static void StringContainsUnallowedSubstrings(string stacktrace, object type, string methodName, string input, params string[] unallowedStrings)
+    public static void StringContainsUnallowedSubstrings( string input, params string[] unallowedStrings)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.StringContainsUnallowedSubstrings(FullNameOfExecutedCode(type, methodName, true), input, unallowedStrings));
+        ThrowIsNotNull(Exceptions.StringContainsUnallowedSubstrings(FullNameOfExecutedCode(t.Item1, t.Item2, true), input, unallowedStrings));
     }
     /// <summary>
     /// Is used when single (not list etc) bad arg is entered to method
@@ -142,13 +142,13 @@ public partial class ThrowExceptions
     /// <param name="methodName"></param>
     /// <param name="valueVar"></param>
     /// <param name="nameVar"></param>
-    public static void InvalidParameter(string stacktrace, object type, string methodName, string valueVar, string nameVar)
+    public static void InvalidParameter( string valueVar, string nameVar)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.InvalidParameter(FullNameOfExecutedCode(type, methodName, true), valueVar, nameVar));
+        ThrowIsNotNull(Exceptions.InvalidParameter(FullNameOfExecutedCode(t.Item1, t.Item2, true), valueVar, nameVar));
     }
-    public static void ElementCantBeFound(string stacktrace, object type, string methodName, string nameCollection, string element)
+    public static void ElementCantBeFound( string nameCollection, string element)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.ElementCantBeFound(FullNameOfExecutedCode(type, methodName, true), nameCollection, element));
+        ThrowIsNotNull(Exceptions.ElementCantBeFound(FullNameOfExecutedCode(t.Item1, t.Item2, true), nameCollection, element));
     }
     //IsNotWindowsPathFormat
     
@@ -158,40 +158,40 @@ public partial class ThrowExceptions
     #endregion
     #region Without parameters
    
-    public static void NotSupported(string stacktrace, object type, string methodName)
+    public static void NotSupported()
     {
-        ThrowIsNotNull(stacktrace, Exceptions.NotSupported(FullNameOfExecutedCode(type, methodName, true)));
+        ThrowIsNotNull(Exceptions.NotSupported(FullNameOfExecutedCode(t.Item1, t.Item2, true)));
     }
     #endregion
     #region Without locating executing code
     public static void CheckBackslashEnd(string stacktrace, string r)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.CheckBackslashEnd("", r));
+        ThrowIsNotNull(Exceptions.CheckBackslashEnd("", r));
     }
     #endregion
 
-    public static void WasNotKeysHandler(string stacktrace, object type, string methodName, string name, object keysHandler)
+    public static void WasNotKeysHandler( string name, object keysHandler)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.WasNotKeysHandler(FullNameOfExecutedCode(type, methodName), name, keysHandler));
+        ThrowIsNotNull(Exceptions.WasNotKeysHandler(FullNameOfExecutedCode(t.Item1, t.Item2), name, keysHandler));
     }
 
     
 
     #region Helpers
 
-    public static void IsEmpty(string stacktrace, object type, string methodName, IEnumerable folders, string colName, string additionalMessage)
+    public static void IsEmpty( IEnumerable folders, string colName, string additionalMessage)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.IsEmpty(FullNameOfExecutedCode(type, methodName, true), folders, colName, additionalMessage));
+        ThrowIsNotNull(Exceptions.IsEmpty(FullNameOfExecutedCode(t.Item1, t.Item2, true), folders, colName, additionalMessage));
     }
 
-    public static void NoPassedFolders(string stacktrace, object type, string methodName, IEnumerable folders)
+    public static void NoPassedFolders( IEnumerable folders)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.NoPassedFolders(FullNameOfExecutedCode(type, methodName, true), folders));
+        ThrowIsNotNull(Exceptions.NoPassedFolders(FullNameOfExecutedCode(t.Item1, t.Item2, true), folders));
     }
 
-    public static void RepeatAfterTimeXTimesFailed(string stacktrace, object type, string methodName, int times, int timeoutInMs, string address)
+    public static void RepeatAfterTimeXTimesFailed( int times, int timeoutInMs, string address)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.RepeatAfterTimeXTimesFailed(FullNameOfExecutedCode(type, methodName), times, timeoutInMs, address));
+        ThrowIsNotNull(Exceptions.RepeatAfterTimeXTimesFailed(FullNameOfExecutedCode(t.Item1, t.Item2), times, timeoutInMs, address));
     }
     
     /// <summary>
@@ -202,33 +202,33 @@ public partial class ThrowExceptions
     /// <param name="detailLocation"></param>
     /// <param name="before"></param>
     /// <param name="after"></param>
-    public static void ElementWasntRemoved(string stacktrace, object type, string methodName, string detailLocation, int before, int after)
+    public static void ElementWasntRemoved( string detailLocation, int before, int after)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.ElementWasntRemoved(FullNameOfExecutedCode(type, methodName, true), detailLocation, before, after));
+        ThrowIsNotNull(Exceptions.ElementWasntRemoved(FullNameOfExecutedCode(t.Item1, t.Item2, true), detailLocation, before, after));
     }
    
-    public static void FolderCantBeRemoved(string stacktrace, object type, string methodName, string folder)
+    public static void FolderCantBeRemoved( string folder)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FolderCantBeRemoved(FullNameOfExecutedCode(type, methodName, true), folder));
+        ThrowIsNotNull(Exceptions.FolderCantBeRemoved(FullNameOfExecutedCode(t.Item1, t.Item2, true), folder));
     }
-    public static void FileHasExtensionNotParseableToImageFormat(string stacktrace, object type, string methodName, string fnOri)
+    public static void FileHasExtensionNotParseableToImageFormat( string fnOri)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FileHasExtensionNotParseableToImageFormat(FullNameOfExecutedCode(type, methodName), fnOri));
+        ThrowIsNotNull(Exceptions.FileHasExtensionNotParseableToImageFormat(FullNameOfExecutedCode(t.Item1, t.Item2), fnOri));
     }
-    public static void FileSystemException(string stacktrace, object type, string methodName, Exception ex)
+    public static void FileSystemException( Exception ex)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FileSystemException(FullNameOfExecutedCode(type, methodName), ex));
+        ThrowIsNotNull(Exceptions.FileSystemException(FullNameOfExecutedCode(t.Item1, t.Item2), ex));
     }
-    public static void FuncionalityDenied(string stacktrace, object type, string methodName, string description)
+    public static void FuncionalityDenied( string description)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FuncionalityDenied(FullNameOfExecutedCode(type, methodName), description));
+        ThrowIsNotNull(Exceptions.FuncionalityDenied(FullNameOfExecutedCode(t.Item1, t.Item2), description));
     }
 
     
 
-    public static void CannotMoveFolder(string stacktrace, object type, string methodName, string item, string nova, Exception ex)
+    public static void CannotMoveFolder( string item, string nova, Exception ex)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.CannotMoveFolder(FullNameOfExecutedCode(type, methodName), item, nova, ex));
+        ThrowIsNotNull(Exceptions.CannotMoveFolder(FullNameOfExecutedCode(t.Item1, t.Item2), item, nova, ex));
 
     }
 

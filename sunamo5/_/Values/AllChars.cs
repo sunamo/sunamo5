@@ -104,7 +104,7 @@ equal->equals
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, "ReturnRightPredicate", generalChars);
+            ThrowEx.NotImplementedCase(Exc.GetStackTrace(),type, "ReturnRightPredicate", generalChars);
         }
 
         return predicate;

@@ -18,7 +18,7 @@ public partial class UtilsNonNetStandard
         m = Regex.Match(xml, AllStrings.lt + element + ">(?<Element>[^>]*)</" + element + AllStrings.gt, RegexOptions.IgnoreCase);
         if (m == null)
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.CouldNotFind) + " " + element + "></" + element + "  " + sess.i18n(XlfKeys.inProvidedPublicKeyXML) + ".");
+            ThrowEx.Custom(sess.i18n(XlfKeys.CouldNotFind) + " " + element + "></" + element + "  " + sess.i18n(XlfKeys.inProvidedPublicKeyXML) + ".");
         }
 
         return m.Groups["Element"].ToString();
@@ -35,7 +35,7 @@ public partial class UtilsNonNetStandard
         {
             if (isRequired)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"key " + key + "  is missing from .config file");
+                ThrowEx.Custom("key " + key + "  is missing from .config file");
                 return string.Empty;
             }
             else

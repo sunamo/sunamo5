@@ -16,7 +16,7 @@ public static partial class SF
         var p = SF.GetAllElementsLine(input);
         if (p.Count > requiredCount)
         {
-            ThrowExceptions.Custom($"p have {p.Count} elements, max is {requiredCount}");
+            ThrowEx.Custom($"p have {p.Count} elements, max is {requiredCount}");
         }
         else if (p.Count < requiredCount)
         {
@@ -58,7 +58,7 @@ public static partial class SF
 
             t1 = p1.Invoke(item[0]);
             t2 = p2.Invoke(item[1]);
-            dict.Add(t1, t2);
+            dict.Add(t.Item1, t.Item2);
         }
 
         foreach (var item in whereIsNotTwoEls)

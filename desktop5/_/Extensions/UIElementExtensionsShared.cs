@@ -94,7 +94,7 @@ public static partial class UIElementExtensions{
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, sess.i18n(XlfKeys.Validated), t);
+            ThrowEx.NotImplementedCase(t);
         }
 
         return null;
@@ -145,7 +145,7 @@ public static partial class UIElementExtensions{
             }
             else
             {
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, "SetValidated", t.FullName);
+                ThrowEx.NotImplementedCase(t.FullName);
             }
         }
 
@@ -199,7 +199,7 @@ public static partial class UIElementExtensions{
         }
         else
         {
-            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, null,t);
+            ThrowEx.NotImplementedCase(t);
         }
 
         return null;

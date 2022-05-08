@@ -71,7 +71,7 @@ public partial class ColorH
                 b += 127;
                 break;
             default:
-                ThrowExceptions.Custom(sess.i18n(XlfKeys.NotImplementedCaseInColorHelperAppsRandomBrush));
+                ThrowEx.Custom(sess.i18n(XlfKeys.NotImplementedCaseInColorHelperAppsRandomBrush));
                 return Brushes.Black;
         }
         return new SolidColorBrush(GetOpaqueColor(r, g, b));

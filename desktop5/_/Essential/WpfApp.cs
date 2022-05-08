@@ -23,8 +23,8 @@ public partial class WpfApp
 
     public static void ShowMb(string t)
     {
-        reallyThrow = ThrowExceptions.reallyThrow2;
-        ThrowExceptions.reallyThrow2 = false;
+        reallyThrow = ThrowEx.reallyThrow2;
+        ThrowEx.reallyThrow2 = false;
         if (false)
         {
             try
@@ -42,7 +42,7 @@ public partial class WpfApp
             WriteToStartupLogRelease(t);
         }
 
-        ThrowExceptions.reallyThrow2 = reallyThrow;
+        ThrowEx.reallyThrow2 = reallyThrow;
     }
 
     public static void Shutdown(object o, EventArgs eh)

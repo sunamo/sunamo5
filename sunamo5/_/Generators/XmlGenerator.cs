@@ -177,7 +177,7 @@ public class XmlGenerator
 
     public void WriteTagNamespaceManager(object rss, XmlNamespaceManager nsmgr, string v1, string v2)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
     }
 
     bool IsNulledOrEmpty(string s)

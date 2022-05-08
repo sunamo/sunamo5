@@ -50,7 +50,7 @@ namespace sunamo
                 if (!allowEmptyCity)
                 {
                     //input = CL.LoadFromClipboardOrConsole("2 rows from sheets");
-                    ThrowExceptions.IsNull(input);
+                    ThrowEx.IsNull(input);
                 }
             }
 
@@ -67,7 +67,7 @@ namespace sunamo
 
                 appendCity = ", " + appendCity;
 
-                ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "CreateForGoogleMyMapsFromAddressRow", "names", names, "addresses", addresses);
+                ThrowEx.DifferentCountInLists(Exc.GetStackTrace(), type, "CreateForGoogleMyMapsFromAddressRow", "names", names, "addresses", addresses);
 
                 for (int i = 0; i < names.Count; i++)
                 {

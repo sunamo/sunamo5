@@ -14,7 +14,7 @@ public class ConvertDayShortcutString
         {
             return dx;
         }
-        ThrowExceptions.IsNotAllowed(Exc.GetStackTrace(),type, Exc.CallingMethod(), s);
+        ThrowEx.IsNotAllowed( s);
         return -1;
     }
 
@@ -37,7 +37,7 @@ public class ConvertDayShortcutString
             case 6:
                 return "Sun";
             default:
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, Exc.CallingMethod(), number);
+                ThrowEx.NotImplementedCase( number);
                 break;
         }
         return null;

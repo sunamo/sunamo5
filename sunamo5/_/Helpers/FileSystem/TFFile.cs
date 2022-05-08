@@ -80,7 +80,7 @@ public partial class TF
     public static void WriteAllText(string path, string content)
     {
 #if MB
-        TranslateDictionary.ShowMb("WriteAllText ThrowExceptions.reallyThrow2: " + ThrowExceptions.reallyThrow2);
+        TranslateDictionary.ShowMb("WriteAllText ThrowEx.reallyThrow2: " + ThrowEx.reallyThrow2);
 #endif
 
         if (LockedByBitLocker(path))

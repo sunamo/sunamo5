@@ -188,7 +188,7 @@ namespace desktop.Controls.Buttons
         //            }
         //            else
         //            {
-        //                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, methodName, t);
+        //                ThrowEx.NotImplementedCase( t);
         //            }
         //        }
         //    }
@@ -206,7 +206,7 @@ namespace desktop.Controls.Buttons
         //        }
         //        else
         //        {
-        //            ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, methodName, t);
+        //            ThrowEx.NotImplementedCase( t);
         //        }
         //    }
 

@@ -193,7 +193,7 @@ namespace shared.Crypting
                 }
                 else
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.NoKeyWasProvidedForTheDecryptionOperation) + "!");
+                    ThrowEx.Custom(sess.i18n(XlfKeys.NoKeyWasProvidedForTheDecryptionOperation) + "!");
                 }
             }
             if (_iv.IsEmpty)
@@ -204,7 +204,7 @@ namespace shared.Crypting
                 }
                 else
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.NoInitializationVectorWasProvidedForTheDecryptionOperation) + "!");
+                    ThrowEx.Custom(sess.i18n(XlfKeys.NoInitializationVectorWasProvidedForTheDecryptionOperation) + "!");
                 }
             }
             _crypto.Key = _key.Bytes;
@@ -351,7 +351,7 @@ namespace shared.Crypting
             }
             catch (CryptographicException ex)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.UnableToDecryptDataTheProvidedKeyMayBeInvalid) + "." + Exceptions.TextOfExceptions(ex));
+                ThrowEx.Custom(sess.i18n(XlfKeys.UnableToDecryptDataTheProvidedKeyMayBeInvalid) + "." + Exceptions.TextOfExceptions(ex));
             }
             finally
             {

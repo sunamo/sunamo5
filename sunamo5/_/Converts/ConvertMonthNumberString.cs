@@ -34,7 +34,7 @@ public class ConvertMonthNumberString //: IConvertNumberString
             case XlfKeys.December:
                 return 12;
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"\u0160patn\u00FD anglick\u00FD n\u00E1zev m\u011Bs\u00EDce " + s + " metod\u011B ConvertMonthNumberString.ToNumber()");
+        ThrowEx.Custom("\u0160patn\u00FD anglick\u00FD n\u00E1zev m\u011Bs\u00EDce " + s + " metod\u011B ConvertMonthNumberString.ToNumber()");
         return 0;
     }
 

@@ -70,7 +70,7 @@ public partial class ApplicationDataContainer: ApplicationDataConsts
         }
         else
         {
-            ThrowExceptions.DoesntHaveRequiredType(Exc.GetStackTrace(),type, "SaveControl", "o");
+            ThrowEx.DoesntHaveRequiredType( "o");
         }
     }
    
@@ -183,7 +183,7 @@ public partial class ApplicationDataContainer: ApplicationDataConsts
     public void Set(object sender, string key, object v)
     {
         // Here must be AllStrings.verbar because in file it is in format name|type|value
-        ThrowExceptions.StringContainsUnallowedSubstrings(Exc.GetStackTrace(),type, "Set", v.ToString(), AllStrings.verbar);
+        ThrowEx.StringContainsUnallowedSubstrings( v.ToString(), AllStrings.verbar);
         var f = data[sender];
         f[key] = v;
     }

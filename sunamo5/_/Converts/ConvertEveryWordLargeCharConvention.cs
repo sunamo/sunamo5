@@ -10,7 +10,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
     /// <param name="p"></param>
     public static string FromConvention(string p)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return null;
     }
 

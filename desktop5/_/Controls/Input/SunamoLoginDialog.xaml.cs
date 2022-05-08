@@ -204,7 +204,7 @@ namespace desktop.Controls.Input
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(storageApplicationData);
+        //        ThrowEx.NotImplementedCase(storageApplicationData);
         //    }
 
         //    if (txtLogin.Text != "")
@@ -221,7 +221,7 @@ namespace desktop.Controls.Input
 
         //private static void ThrowExceptionConfigNotSupported()
         //{
-        //    ThrowExceptions.Custom(sess.i18n(XlfKeys.SavingSettingsToAppConfigOrWebConfigIsNotYetSupported));
+        //    ThrowEx.Custom(sess.i18n(XlfKeys.SavingSettingsToAppConfigOrWebConfigIsNotYetSupported));
         //}
 
         //private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -316,7 +316,7 @@ namespace desktop.Controls.Input
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), MethodBase.GetCurrentMethod(), "", storageApplicationData);
+        //        ThrowEx.NotImplementedCase(Exc.GetStackTrace(), MethodBase.GetCurrentMethod(), "", storageApplicationData);
         //    }
 
         //    // For sure set loginClicked for default value
@@ -344,7 +344,7 @@ namespace desktop.Controls.Input
         //    }
         //    else
         //    {
-        //        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), MethodBase.GetCurrentMethod(), "", storageApplicationData);
+        //        ThrowEx.NotImplementedCase(Exc.GetStackTrace(), MethodBase.GetCurrentMethod(), "", storageApplicationData);
         //    }
 
         //    // For sure set loginClicked for default value
@@ -358,7 +358,7 @@ namespace desktop.Controls.Input
 
         //public void Accept(object input)
         //{
-        //    ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+        //    ThrowEx.NotImplementedMethod();
         //}
 
         //public void FocusOnMainElement()

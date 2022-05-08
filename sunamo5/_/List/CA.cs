@@ -1,4 +1,4 @@
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 using sunamo;
 using sunamo.Collections;
 using sunamo.Data;
@@ -642,7 +642,7 @@ public static partial class CA
             }
             return vr;
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.InvalidRowIndexInMethodCAGetRowOfTwoDimensionalArray) + ";");
+        ThrowEx.Custom(sess.i18n(XlfKeys.InvalidRowIndexInMethodCAGetRowOfTwoDimensionalArray) + ";");
         return null;
     }
     
@@ -667,7 +667,7 @@ public static partial class CA
             }
             return vr;
         }
-        ThrowExceptions.ArgumentOutOfRangeException(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.InvalidRowIndexInMethodCAGetRowOfTwoDimensionalArray) + ";");
+        ThrowEx.ArgumentOutOfRangeException(sess.i18n(XlfKeys.InvalidRowIndexInMethodCAGetRowOfTwoDimensionalArray) + ";");
         return null;
     }
     /// <summary>

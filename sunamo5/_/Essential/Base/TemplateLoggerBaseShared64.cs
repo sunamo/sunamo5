@@ -28,7 +28,7 @@ namespace sunamo.Essential
         {
             if (args.Count() % 2 == 1)
             {
-                WriteLine(TypeOfMessage.Error, Exceptions.NotEvenNumberOfElements(FullNameOfExecutedCode(type, methodName), nameOfCollection));
+                WriteLine(TypeOfMessage.Error, Exceptions.NotEvenNumberOfElements(FullNameOfExecutedCode(t.Item1, t.Item2), nameOfCollection));
                 return false;
             }
             return true;
@@ -36,7 +36,7 @@ namespace sunamo.Essential
 
         private string FullNameOfExecutedCode(object type, string methodName)
         {
-            return ThrowExceptions.FullNameOfExecutedCode(type, methodName);
+            return ThrowEx.FullNameOfExecutedCode(t.Item1, t.Item2);
         }
 
         private void WriteLine(TypeOfMessage error, string v)
@@ -56,7 +56,7 @@ namespace sunamo.Essential
             List<int> nulled = CA.IndexesWithNull(args);
             if (nulled.Count > 0)
             {
-                WriteLine(TypeOfMessage.Information, Exceptions.AnyElementIsNullOrEmpty(FullNameOfExecutedCode(type, methodName), nameOfCollection, nulled));
+                WriteLine(TypeOfMessage.Information, Exceptions.AnyElementIsNullOrEmpty(FullNameOfExecutedCode(t.Item1, t.Item2), nameOfCollection, nulled));
                 return true;
             }
             return false;

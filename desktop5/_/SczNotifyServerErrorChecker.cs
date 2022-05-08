@@ -42,7 +42,7 @@ public class SczNotifyServerErrorChecker
 
             //MessageBox.Show(b1 + " " + b2);
 
-            //ThrowExceptions.Custom(Exc.GetStackTrace(),type, Exc.CallingMethod(), "SczNotifyServerError is not running, starting it");
+            //ThrowEx.Custom( "SczNotifyServerError is not running, starting it");
 
             if (b1)
             {
@@ -54,7 +54,7 @@ public class SczNotifyServerErrorChecker
             }
             else if (!b1 &&!b2)
             {
-                ThrowExceptions.Custom(f1 +" doesn't exists!");
+                ThrowEx.Custom(f1 +" doesn't exists!");
             }
             
            }

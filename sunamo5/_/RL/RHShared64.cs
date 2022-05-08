@@ -9,7 +9,7 @@ using System.Text;
 
 public partial class RH
 {
-    static Type type = typeof(ThrowExceptions);
+    static Type type = typeof(ThrowEx);
 
     public static string FullPathCodeEntity(Type t)
     {
@@ -469,7 +469,7 @@ public partial class RH
 
         if (children == null)
         {
-            ThrowExceptions.IsNull(Exc.GetStackTrace(), type, "IsOrIsDeriveFromBaseClass", "children", children);
+            ThrowEx.IsNull(Exc.GetStackTrace(), type, "IsOrIsDeriveFromBaseClass", "children", children);
         }
         while (true)
         {
@@ -520,7 +520,7 @@ public partial class RH
                 dump = SH.Join(a.onlyValues ? a.deli : Environment.NewLine, RH.GetValuesOfProperty2(a.o, a.onlyNames, a.onlyValues));
                 break;
             default:
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, "DumpAsString", a.d);
+                ThrowEx.NotImplementedCase(Exc.GetStackTrace(), type, "DumpAsString", a.d);
                 break;
         }
         }

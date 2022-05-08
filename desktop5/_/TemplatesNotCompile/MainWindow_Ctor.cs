@@ -120,7 +120,7 @@ public partial class MainWindow_Ctor : Window, IEssentialMainWindow, IHideToTray
 
         // Not Dispatcher od DispatcherObject but Application.Current.Dispatcher - only then is working in all cases
         WpfApp.cd = Application.Current.Dispatcher; 
-ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
+ThrowEx.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
 
         // Important to shut down app
         WpfApp.mp = this; WpfApp.htt = this; // delete htt when is not derived, its was mass replaced due to shutdown app after hide to tray
@@ -378,7 +378,7 @@ ThrowExceptions.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
         userControlWithSuMenuItems = actual as IUserControlWithSuMenuItemsList;
         userControlClosing = actual as IUserControlClosing;
         keysHandler = actual as IKeysHandler;
-        ThrowExceptions.WasNotKeysHandler(userControl.Title, keysHandler);
+        ThrowEx.WasNotKeysHandler(userControl.Title, keysHandler);
 
         #region On start I have to unregister
         previouslyRegisteredSuMenuItems.ForEach(SuMenuItem => miUC.Items.Remove(SuMenuItem));

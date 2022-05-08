@@ -38,7 +38,7 @@ namespace desktop
         {
             if (index >= VisualChildrenCount)
             {
-                ThrowExceptions.Custom("bla");
+                ThrowEx.Custom("bla");
             }
 
             int i = 0;
@@ -53,7 +53,7 @@ namespace desktop
                     i++;
                 }
             }
-            ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+            ThrowEx.NotImplementedMethod();
             return null;
         }
 

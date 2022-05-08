@@ -152,7 +152,7 @@ namespace sunamo.Xml
         {
             if (xml == null)
             {
-                ThrowExceptions.IsNull(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.AtributteXmlIsNull));
+                ThrowEx.IsNull(sess.i18n(XlfKeys.AtributteXmlIsNull));
             }
             //xml = xml.Replace("&", " and ");
             StringBuilder buffer = new StringBuilder(xml.Length);
@@ -206,7 +206,7 @@ namespace sunamo.Xml
             }
             catch (Exception ex)
             {
-                ThrowExceptions.CustomWithStackTrace(ex);
+                ThrowEx.CustomWithStackTrace(ex);
                 return null;
             }
             return xd;

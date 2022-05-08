@@ -222,7 +222,7 @@ public static partial class BTS
         {
             if (throwEx)
             {
-                ThrowExceptions.NotInt(entry, throwEx);
+                ThrowEx.NotInt(entry, throwEx);
             }
         }
         return def;
@@ -737,7 +737,7 @@ public static partial class BTS
         {
             return UInt64.MaxValue;
         }
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Nepovolen\u00FD nehodnotov\u00FD typ v metod\u011B GetMaxValueForType");
+        ThrowEx.Custom("Nepovolen\u00FD nehodnotov\u00FD typ v metod\u011B GetMaxValueForType");
         return 0;
     }
 

@@ -104,7 +104,7 @@ public partial class RuntimeHelper
         {
             if (throwException )
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(),type, Exc.CallingMethod(), SunamoPageHelperSunamo.i18n(XlfKeys.ChangeDialogResultHasAlredyRegisteredHandler));
+                ThrowEx.Custom( SunamoPageHelperSunamo.i18n(XlfKeys.ChangeDialogResultHasAlredyRegisteredHandler));
             }
             else
             {

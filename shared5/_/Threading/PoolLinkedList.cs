@@ -55,8 +55,8 @@ namespace SimpleThreadPool
         {
             lock (this._tasks)
             {
-                if (this._disallowAdd) { ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.ThisPoolInstanceIsInTheProcessOfBeingDisposedCanTAddAnymore)); }
-                if (this._disposed) { ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.ThisPoolInstanceHasAlreadyBeenDisposed)); }
+                if (this._disallowAdd) { ThrowEx.Custom(sess.i18n(XlfKeys.ThisPoolInstanceIsInTheProcessOfBeingDisposedCanTAddAnymore)); }
+                if (this._disposed) { ThrowEx.Custom(sess.i18n(XlfKeys.ThisPoolInstanceHasAlreadyBeenDisposed)); }
                 this._tasks.AddLast(task);
                 Monitor.PulseAll(this._tasks); // pulse because tasks count changed
             }

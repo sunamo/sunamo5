@@ -40,7 +40,7 @@ public class StartupHelper
             }
             else
             {
-                ThrowExceptions.IsNull("ftl.fn", ftl.fn);
+                ThrowEx.IsNull("ftl.fn", ftl.fn);
             }
         }
     }

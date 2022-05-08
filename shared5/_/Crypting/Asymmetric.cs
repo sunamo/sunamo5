@@ -324,7 +324,7 @@ namespace shared.Crypting
 
             public static string FromFile(string p)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.TheMethodOrOperationIsNotImplemented) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.TheMethodOrOperationIsNotImplemented) + ".");
                 return null;
             }
         }
@@ -501,7 +501,7 @@ namespace shared.Crypting
             {
                 if (ex.Message.ToLower().IndexOf("bad length") > -1)
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.YourDataIsTooLargeRSAEncryptionIsDesignedToEncryptRelativelySmallAmountsOfDataTheExactByteLimitDependsOnTheKeySizeToEncryptMoreDataUseSymmetricEncryptionAndThenEncryptThatSymmetricKeyWithAsymmetricRSAEncryption) + ".");
+                    ThrowEx.Custom(sess.i18n(XlfKeys.YourDataIsTooLargeRSAEncryptionIsDesignedToEncryptRelativelySmallAmountsOfDataTheExactByteLimitDependsOnTheKeySizeToEncryptMoreDataUseSymmetricEncryptionAndThenEncryptThatSymmetricKeyWithAsymmetricRSAEncryption) + ".");
                 }
                 else
                 {
@@ -568,7 +568,7 @@ namespace shared.Crypting
                 {
                     s = "public";
                 }
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),SH.Format2(sess.i18n(XlfKeys.TheProvided0EncryptionKeyXMLDoesNotAppearToBeValid)+".", s));
+                ThrowEx.Custom(SH.Format2(sess.i18n(XlfKeys.TheProvided0EncryptionKeyXMLDoesNotAppearToBeValid)+".", s));
                 
             }
         }
@@ -610,7 +610,7 @@ namespace shared.Crypting
             {
                 if (ex.Message.ToLower().IndexOf("csp for this implementation could not be acquired") > -1)
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.UnableToObtainCryptographicServiceProvider) + ". " + sess.i18n(XlfKeys.EitherThePermissionsAreIncorrectOnThe) + " 'C:\\Documents and Settings\\All Users\\Application DataCrypt\\Microsoft\\Crypto\\RSA\\MachineKeys' folder, or the current security context '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "' does not have access to this folder.");
+                    ThrowEx.Custom(sess.i18n(XlfKeys.UnableToObtainCryptographicServiceProvider) + ". " + sess.i18n(XlfKeys.EitherThePermissionsAreIncorrectOnThe) + " 'C:\\Documents and Settings\\All Users\\Application DataCrypt\\Microsoft\\Crypto\\RSA\\MachineKeys' folder, or the current security context '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "' does not have access to this folder.");
                 }
                 else
                 {

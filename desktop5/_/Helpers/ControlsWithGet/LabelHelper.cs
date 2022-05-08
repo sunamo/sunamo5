@@ -18,7 +18,7 @@ public class LabelHelper
         vr.Foreground = d.foreground;
         if (d.OnClick != null)
         {
-            ThrowExceptions.IsNotNull("d.OnClick", d.OnClick);
+            ThrowEx.IsNotNull("d.OnClick", d.OnClick);
             //vr.MouseDown += d.OnClick;
         }
         vr.Tag = d.tag;

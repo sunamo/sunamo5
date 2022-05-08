@@ -58,7 +58,7 @@ public static partial class NH
         {
             return NumConsts.zeroFloat;
         }
-        ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, "ReturnZero", t.FullName);
+        ThrowEx.NotImplementedCase(Exc.GetStackTrace(), type, "ReturnZero", t.FullName);
         return null;
     }
 

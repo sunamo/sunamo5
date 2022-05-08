@@ -56,7 +56,7 @@ public partial class PicturesSunamo
         }
         else 
         {
-            ThrowExceptions.NotImplementedCase(imf);
+            ThrowEx.NotImplementedCase(imf);
         }
         return null;
     }

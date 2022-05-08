@@ -563,7 +563,7 @@ public partial class FS
                 }
             }
 
-            ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "from2", from2, "to2", to2);
+            ThrowEx.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "from2", from2, "to2", to2);
             ReplaceInAllFiles(from2, to2, t.files, t.isMultilineWithVariousIndent, t.writeEveryReadedFileAsStatus, t.writeEveryWrittenFileAsStatus, t.fasterMethodForReplacing);
         }
         else
@@ -597,7 +597,7 @@ public partial class FS
     public static void ReplaceInAllFiles(string folder, string extension, IList<string> replaceFrom, IList<string> replaceTo, bool isMultilineWithVariousIndent)
     {
         var files = FS.GetFiles(folder, FS.MascFromExtension(extension), SearchOption.AllDirectories);
-        ThrowExceptions.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "replaceFrom", replaceFrom, "replaceTo", replaceTo);
+        ThrowEx.DifferentCountInLists(Exc.GetStackTrace(), type, "ReplaceInAllFiles", "replaceFrom", replaceFrom, "replaceTo", replaceTo);
         Func<StringBuilder, IList<string>, IList<string>, StringBuilder> fasterMethodForReplacing = null;
         ReplaceInAllFiles(replaceFrom, replaceTo, files, isMultilineWithVariousIndent, false, false, fasterMethodForReplacing);
     }
@@ -823,7 +823,7 @@ public partial class FS
                 }
                 catch (Exception ex)
                 {
-                    ThrowExceptions.DummyNotThrow(ex);
+                    ThrowEx.DummyNotThrow(ex);
                     File.Delete(item);
                     continue;
                 }
@@ -913,7 +913,7 @@ public partial class FS
             value = ConvertToSmallerComputerUnitSize(value, b, ComputerSizeUnits.B);
             if (to == ComputerSizeUnits.Auto)
             {
-                ThrowExceptions.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
+                ThrowEx.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
             }
             else if (to == ComputerSizeUnits.KB && b != ComputerSizeUnits.KB)
             {
@@ -1035,7 +1035,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CannotMoveFolder(item, nova, ex);
+            ThrowEx.CannotMoveFolder(item, nova, ex);
         }
         if (FS.IsDirectoryEmpty(item, true, true))
         {
@@ -1091,7 +1091,7 @@ public partial class FS
     /// <param name="files"></param>
     public static void DeleteDuplicatedImages(List<string> files)
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, "DeleteDuplicatedImages", sess.i18n(XlfKeys.OnlyForTestFilesForAnotherApps) + ". ");
+        ThrowEx.Custom(Exc.GetStackTrace(), type, "DeleteDuplicatedImages", sess.i18n(XlfKeys.OnlyForTestFilesForAnotherApps) + ". ");
     }
     public static void DeleteFilesWithSameContentWorking<T, ColType>(List<string> files, Func<string, T> readFunc)
     {
@@ -1300,7 +1300,7 @@ public partial class FS
     /// <param name="folders"></param>
     public static List<string> AllExtensionsInFolders(SearchOption so, params string[] folders)
     {
-        ThrowExceptions.NoPassedFolders(Exc.GetStackTrace(), type, "AllExtensionsInFolders", folders);
+        ThrowEx.NoPassedFolders(Exc.GetStackTrace(), type, "AllExtensionsInFolders", folders);
         List<string> vr = new List<string>();
         List<string> files = AllFilesInFolders(CA.ToListString(folders), CA.ToListString("*."), so);
         files = new List<string>(OnlyExtensionsToLower(files));

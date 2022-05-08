@@ -75,7 +75,7 @@
 //                p += "en-US";
 //                break;
 //            default:
-//                ThrowExceptions.NotImplementedCase(l);
+//                ThrowEx.NotImplementedCase(l);
 //                break;
 //        }
 
@@ -256,7 +256,7 @@
 //                }
 //                else
 //                {
-//                    ThrowExceptions.Custom(sess.i18n(XlfKeys.UnvalidFile) + " " + file + ", please delete it");
+//                    ThrowEx.Custom(sess.i18n(XlfKeys.UnvalidFile) + " " + file + ", please delete it");
 //                }
 //            }
 //        }

@@ -46,15 +46,15 @@ namespace sunamo
             }
             catch (Exception ex)
             {
-                ThrowExceptions.DummyNotThrow(ex);
+                ThrowEx.DummyNotThrow(ex);
                 if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
+                    ThrowEx.Custom("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
                     return null;
                 }
                 else
                 {
-                    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeHexEncoded) + ":" + hexEncoded);
+                    ThrowEx.Custom(sess.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeHexEncoded) + ":" + hexEncoded);
                     return null;
                 }
             }

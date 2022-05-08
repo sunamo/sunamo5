@@ -240,7 +240,7 @@ public partial class FS
         {
             if (!exf)
             {
-                ThrowExceptions.FileDoesntExists(path);
+                ThrowEx.FileDoesntExists(path);
             }
         }
         else
@@ -308,7 +308,7 @@ public partial class FS
         {
             return ac.fs.getDirectoryNameFolder.Invoke(rp2);
         }
-        //ThrowExceptions.Custom("GetDirectoryName");
+        //ThrowEx.Custom("GetDirectoryName");
         var rp = rp2.ToString();
         return (dynamic)GetDirectoryName(rp);
     }
@@ -341,7 +341,7 @@ public partial class FS
         folderWithProjectsFolders = SH.FirstCharUpper(folderWithProjectsFolders);
         folderWithTemporaryMovedContentWithoutBackslash = SH.FirstCharUpper(folderWithTemporaryMovedContentWithoutBackslash);
 
-        if (!ThrowExceptions.NotContains(Exc.GetStackTrace(), type, "ReplaceDirectoryThrowExceptionIfFromDoesntExists", p, folderWithProjectsFolders))
+        if (!ThrowEx.NotContains(Exc.GetStackTrace(), type, "ReplaceDirectoryThrowExceptionIfFromDoesntExists", p, folderWithProjectsFolders))
         {
             // Here can never accomplish when exc was throwed
             return p;
@@ -548,7 +548,7 @@ public partial class FS
             }
             else
             {
-                ThrowExceptions.Custom("SaveMemoryStream");
+                ThrowEx.Custom("SaveMemoryStream");
             }
         }
     }
@@ -701,7 +701,7 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            ThrowEx.CustomWithStackTrace(ex);
         }
 
         if (dirs == null)
@@ -864,7 +864,7 @@ public partial class FS
             }
             else
             {
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, "CreateDirectory", whenExists);
+                ThrowEx.NotImplementedCase(Exc.GetStackTrace(), type, "CreateDirectory", whenExists);
             }
         }
         else
@@ -943,9 +943,9 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.DummyNotThrow(ex);
+            ThrowEx.DummyNotThrow(ex);
             // Not throw exception, it's probably Access denied  on Documents and Settings etc
-            //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"GetFoldersEveryFolder with path: " + folder, ex);
+            //ThrowEx.Custom("GetFoldersEveryFolder with path: " + folder, ex);
         }
 
         if (folders != null)
@@ -978,9 +978,9 @@ public partial class FS
         }
         catch (Exception ex)
         {
-            ThrowExceptions.DummyNotThrow(ex);
+            ThrowEx.DummyNotThrow(ex);
             // Not throw exception, it's probably Access denied  on Documents and Settings etc
-            //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"GetFoldersEveryFolder with path: " + folder, ex);
+            //ThrowEx.Custom("GetFoldersEveryFolder with path: " + folder, ex);
         }
     }
 
@@ -1064,7 +1064,7 @@ public partial class FS
         //}
         //catch (Exception ex)
         //{
-        //    ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),SunamoPageHelperSunamo.i18n(XlfKeys.GetFilesWithPath)+": " + folder);
+        //    ThrowEx.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.GetFilesWithPath)+": " + folder);
         //} 
         #endregion
 
@@ -1099,9 +1099,9 @@ public partial class FS
             }
             catch (Exception ex)
             {
-                ThrowExceptions.DummyNotThrow(ex);
+                ThrowEx.DummyNotThrow(ex);
                 // Not throw exception, it's probably Access denied on Documents and Settings etc
-                //ThrowExceptions.FileSystemException(Exc.GetStackTrace(),type, Exc.CallingMethod(), ex);
+                //ThrowEx.FileSystemException( ex);
             }
 
             if (e.usePb)
@@ -1457,7 +1457,7 @@ public partial class FS
     {
         if (to == ComputerSizeUnits.Auto)
         {
-            ThrowExceptions.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
+            ThrowEx.Custom("Byl specifikov\u00E1n v\u00FDstupn\u00ED ComputerSizeUnit, nem\u016F\u017Eu toto nastaven\u00ED zm\u011Bnit");
         }
         else if (to == ComputerSizeUnits.KB && b != ComputerSizeUnits.KB)
         {

@@ -72,7 +72,7 @@ static Type type = typeof(SuMenuItemWithSubitemsHelper);
         {
             if (type.FullName != defVal.GetType().FullName)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum) + ".");
             }
         }
         T _def = (T)defVal;
@@ -94,7 +94,7 @@ static Type type = typeof(SuMenuItemWithSubitemsHelper);
         {
             if (type.FullName != defVal.GetType().FullName)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.ParameterDefValInSuMenuItemWithSubitemsHelperAddValuesOfEnumAsItemsWasNotTypeOfEnum) + ".");
             }
         }
         T _def = (T)defVal;

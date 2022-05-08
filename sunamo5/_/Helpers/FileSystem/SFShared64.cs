@@ -61,7 +61,7 @@ public static partial class SF
         var list = o.ToList();
         if (separator == replaceForSeparatorString)
         {
-            ThrowExceptions.Custom("replaceForSeparatorString is the same as separator");
+            ThrowEx.Custom("replaceForSeparatorString is the same as separator");
         }
         CA.Replace(list, separator, replaceForSeparatorString);
         CA.Replace(list, Environment.NewLine, AllStrings.space);

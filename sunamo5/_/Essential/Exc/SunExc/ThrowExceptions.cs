@@ -7,15 +7,15 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
-    #region For easy copy from ThrowExceptions.cs
+    #region For easy copy from ThrowEx.cs
 
 
     #region DifferentCountInLists
-    public static void FolderCannotBeDeleted(string stacktrace, object type, string methodName, string repairedBlogPostsFolder, Exception ex)
+    public static void FolderCannotBeDeleted( string repairedBlogPostsFolder, Exception ex)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.FolderCannotBeDeleted(FullNameOfExecutedCode(type, methodName, true), repairedBlogPostsFolder, ex));
+        ThrowIsNotNull(Exceptions.FolderCannotBeDeleted(FullNameOfExecutedCode(t.Item1, t.Item2, true), repairedBlogPostsFolder, ex));
     }
     #endregion
     #endregion

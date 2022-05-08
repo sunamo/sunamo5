@@ -105,7 +105,7 @@ public abstract partial class LoggerBase
         }
         catch (Exception ex)
         {
-            ThrowExceptions.CustomWithStackTrace(ex);
+            ThrowEx.CustomWithStackTrace(ex);
             return false;
         }
 

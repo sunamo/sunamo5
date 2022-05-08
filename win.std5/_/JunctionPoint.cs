@@ -24,7 +24,7 @@ public static class JunctionPoint
     {
         if (!FS.ExistsFile(target))
         {
-            ThrowExceptions.DirectoryExists(target);
+            ThrowEx.DirectoryExists(target);
         }
 
         string command = "cmd /c mklink /H " + SH.WrapWithQm(source) + AllStrings.space + SH.WrapWithQm(target);
@@ -64,7 +64,7 @@ public static class JunctionPoint
         if (!FS.ExistsDirectory(target))
         {
             var f = FS.ExistsFile(FS.Combine(target, "_.txt"));
-            ThrowExceptions.DirectoryExists(target);
+            ThrowEx.DirectoryExists(target);
         }
 
         string command = "cmd /c mklink /J " + SH.WrapWithQm(source) + AllStrings.space + SH.WrapWithQm(target);
@@ -82,7 +82,7 @@ public static class JunctionPoint
     {
         if (!FS.ExistsDirectory(target))
         {
-            ThrowExceptions.DirectoryExists(target);
+            ThrowEx.DirectoryExists(target);
         }
 
         string command = "cmd /c mklink /D " + SH.WrapWithQm(source) + AllStrings.space + SH.WrapWithQm(target);
@@ -283,12 +283,12 @@ public static class JunctionPoint
         targetDir = Path.GetFullPath(targetDir);
 
         if (!FS.ExistsDirectory(targetDir))
-            ThrowExceptions.Custom(sess.i18n(XlfKeys.TargetPathDoesNotExistOrIsNotADirectory) + ".");
+            ThrowEx.Custom(sess.i18n(XlfKeys.TargetPathDoesNotExistOrIsNotADirectory) + ".");
 
         if (FS.ExistsDirectory(junctionPoint))
         {
             if (!overwrite)
-                ThrowExceptions.Custom(sess.i18n(XlfKeys.DirectoryAlreadyExistsAndOverwriteParameterIsFalse) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.DirectoryAlreadyExistsAndOverwriteParameterIsFalse) + ".");
         }
         else
         {
@@ -349,7 +349,7 @@ public static class JunctionPoint
         if (!FS.ExistsDirectory(junctionPoint))
         {
             if (FS.ExistsFile(junctionPoint))
-                ThrowExceptions.Custom(sess.i18n(XlfKeys.PathIsNotAJunctionPoint) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.PathIsNotAJunctionPoint) + ".");
 
             return;
         }
@@ -386,7 +386,7 @@ public static class JunctionPoint
             }
             catch (IOException ex)
             {
-                ThrowExceptions.Custom(sess.i18n(XlfKeys.UnableToDeleteJunctionPoint) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.UnableToDeleteJunctionPoint) + ".");
             }
         }
     }
@@ -439,7 +439,7 @@ public static class JunctionPoint
         //{
         //    string target = InternalGetTarget(handle);
         //    if (target == null)
-        //        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.PathIsNotAJunctionPoint)+".");
+        //        ThrowEx.Custom(sess.i18n(XlfKeys.PathIsNotAJunctionPoint)+".");
 
         //    return target;
         //}
@@ -505,6 +505,6 @@ public static class JunctionPoint
 
     private static void ThrowLastWin32Error(string message)
     {
-        ThrowExceptions.Custom(message + Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error()));
+        ThrowEx.Custom(message + Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error()));
     }
 }

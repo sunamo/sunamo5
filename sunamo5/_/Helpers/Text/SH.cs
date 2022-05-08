@@ -638,7 +638,7 @@ public static partial class SH
             }
             else
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(),type, methodName, item + " hasn't from");
+                ThrowEx.Custom( item + " hasn't from");
             }
             if (p.Length() > 1)
             {
@@ -646,12 +646,12 @@ public static partial class SH
             }
             else
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(),type, methodName, item + " hasn't to");
+                ThrowEx.Custom( item + " hasn't to");
             }
             if (SH.IsWildcard(item))
             {
                 Wildcard wc = new Wildcard(from);
-                ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(), type, Exc.CallingMethod());
+                ThrowEx.NotImplementedMethod();
                 //var occurences = wc.Matches(input);
                 //foreach (Match m in occurences)
                 //{
@@ -814,7 +814,7 @@ public static partial class SH
         {
             if (zaCo.Contains(item))
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Nahrazovan\u00FD prvek " + item + " je prvkem j\u00EDm\u017E se nahrazuje  " + zaCo + AllStrings.dot);
+                ThrowEx.Custom("Nahrazovan\u00FD prvek " + item + " je prvkem j\u00EDm\u017E se nahrazuje  " + zaCo + AllStrings.dot);
             }
         }
         for (int i = 0; i < co.Length; i++)
@@ -838,7 +838,7 @@ public static partial class SH
         //return Regex.Replace(str, @"(\r\n)+", "\r\n\r\n", RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
         // Ódstranuje nám to 
         //return Regex.Replace(str, @"(\r\n){2,}", Environment.NewLine);
-        //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"NOT WORKING, IN FIRST DEBUG WITH UNIT TESTS AND THEN USE");
+        //ThrowEx.Custom("NOT WORKING, IN FIRST DEBUG WITH UNIT TESTS AND THEN USE");
         //List<int> toRemove = new List<int>();
         //List<bool> isWhitespace = new List<bool>(l.Count);
         ////l.Add(false)
@@ -1026,7 +1026,7 @@ public static partial class SH
     }
     public static bool IsAllUnique(List<string> c)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return false;
     }
     /// <summary>
@@ -1063,7 +1063,7 @@ public static partial class SH
         {
             if (typeDynamics.Count != tfd.Count)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.MismatchCountInInputArraysOfSHAllHaveRightFormat));
+                ThrowEx.Custom(sess.i18n(XlfKeys.MismatchCountInInputArraysOfSHAllHaveRightFormat));
             }
         }
         int lowerCount = Math.Min(typeDynamics.Count, tfd.Count);
@@ -1411,7 +1411,7 @@ public static partial class SH
         var s = SH.Split(what, deli);
         if (s.Count < parts)
         {
-            //ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"");
+            //ThrowEx.Custom("");
             if (s.Count > 0)
             {
                 List<string> vr2 = new List<string>();
@@ -1498,7 +1498,7 @@ public static partial class SH
             case UnicodeChars.Generic:
                 return CharHelper.IsGeneric(c);
             default:
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(),type, "IsUnicodeChar", generic);
+                ThrowEx.NotImplementedCase(Exc.GetStackTrace(),type, "IsUnicodeChar", generic);
                 return false;
         }
     }
@@ -1700,11 +1700,11 @@ public static partial class SH
         {
             if (s_cs)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),"Nebyl specifikov\u00E1n delimiter");
+                ThrowEx.Custom("Nebyl specifikov\u00E1n delimiter");
             }
             else
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.NoDelimiterDetermined));
+                ThrowEx.Custom(sess.i18n(XlfKeys.NoDelimiterDetermined));
             }
         }
         if (deli.Length == 1 && !SH.IsUnicodeChar(UnicodeChars.Generic, deli[0]))

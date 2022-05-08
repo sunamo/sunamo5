@@ -170,7 +170,7 @@ public class FromToT<T> : IParser where T : struct
             }
             else
             {
-                ThrowExceptions.NotImplementedCase(ftUse);
+                ThrowEx.NotImplementedCase(ftUse);
                 return string.Empty;
             }
         }

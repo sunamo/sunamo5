@@ -6,18 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
     /// <summary>
     /// Return false in case of exception, otherwise true
     /// In console app is needed put in into try-catch error due to there is no globally handler of errors
     /// </summary>
     /// <param name="v"></param>
-    private static bool ThrowIsNotNull(string stacktrace, object v)
+    private static bool ThrowIsNotNull( object v)
     {
         if (v != null)
         {
-            ThrowIsNotNull(stacktrace, v.ToString());
+            ThrowIsNotNull(v.ToString());
             return false;
         }
         return true;

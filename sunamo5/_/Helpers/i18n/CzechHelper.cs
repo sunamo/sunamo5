@@ -39,7 +39,7 @@ public class CzechHelper
         //}
         //else
         //{
-        //    ThrowExceptions.NotImplementedCase(ThisApp.l);
+        //    ThrowEx.NotImplementedCase(ThisApp.l);
         //}
 
         //f += AllStrings.space; 

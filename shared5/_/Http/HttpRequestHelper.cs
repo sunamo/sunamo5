@@ -74,7 +74,7 @@ public static partial class HttpRequestHelper
                     }
                     break;
                 default:
-                    ThrowExceptions.NotImplementedCase(co);
+                    ThrowEx.NotImplementedCase(co);
                     break;
             }
 

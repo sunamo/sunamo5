@@ -133,7 +133,7 @@ public partial class DTHelperGeneral
         catch (ArgumentOutOfRangeException ex)
         {
             // because can return null, wont throw excepiton there 
-            ThrowExceptions.DummyNotThrow(ex);
+            ThrowEx.DummyNotThrow(ex);
             return null;
         }
     }

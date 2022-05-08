@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-public partial class ThrowExceptions
+public partial class ThrowEx
 {
     /// <summary>
     /// A1 have to be Dictionary<T,U>, not IDictionary without generic
@@ -20,12 +20,12 @@ public partial class ThrowExceptions
     /// <param name="key"></param>
     public static void KeyNotFound<T, U>(string stacktrace, object type, string v, IDictionary<T, U> en, string dictName, T key)
     {
-        ThrowIsNotNull(stacktrace, Exceptions.KeyNotFound(FullNameOfExecutedCode(type, v), en, dictName, key));
+        ThrowIsNotNull(Exceptions.KeyNotFound(FullNameOfExecutedCode(type, v), en, dictName, key));
     }
 
-    public static void NotValidXml(string stacktrace, object type, string methodName, string path, Exception ex)
+    public static void NotValidXml( string path, Exception ex)
     {
-        bool v = ThrowIsNotNull(stacktrace, Exceptions.NotValidXml(FullNameOfExecutedCode(type, methodName), path, ex));
+        bool v = ThrowIsNotNull(Exceptions.NotValidXml(FullNameOfExecutedCode(t.Item1, t.Item2), path, ex));
     }
 
     #region For easy copy in SunamoException project
@@ -37,9 +37,9 @@ public partial class ThrowExceptions
     }
 #pragma warning enable
 
-    public static void NotImplementedMethod(string stacktrace, object type, string methodName)
+    public static void NotImplementedMethod()
     {
-        ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode(type, methodName)));
+        ThrowIsNotNull(Exceptions.NotImplementedMethod(FullNameOfExecutedCode(t.Item1, t.Item2)));
     }
 
    
@@ -56,7 +56,7 @@ public partial class ThrowExceptions
     /// <param name="after"></param>
     public static bool NotContains(string stacktrace, object type, string v, string p, params string[] after)
     {
-        return ThrowIsNotNull(stacktrace, Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
+        return ThrowIsNotNull(Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
     }
 
     
@@ -69,12 +69,12 @@ public partial class ThrowExceptions
     /// <param name="type"></param>
     /// <param name="methodName"></param>
     /// <param name="exception"></param>
-    //public static bool ThrowIsNotNull(string stacktrace, object type, string methodName, string exception)
+    //public static bool ThrowIsNotNull( string exception)
     //{
     //    if (exception != null)
     //    {
             
-    //        ThrowExceptions.Custom(exception, cm);
+    //        ThrowEx.Custom(exception, cm);
     //        return false;
     //    }
     //    return true;

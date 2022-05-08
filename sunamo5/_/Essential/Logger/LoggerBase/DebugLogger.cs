@@ -23,7 +23,7 @@ public class DebugLogger : LoggerBase
         {
             if (instance == null)
             {
-                ThrowExceptions.Custom("Dont use DebugLogger without #if DEBUG!!", false);
+                ThrowEx.Custom("Dont use DebugLogger without #if DEBUG!!", false);
                 return DummyLogger.Instance;
             }
             return instance;

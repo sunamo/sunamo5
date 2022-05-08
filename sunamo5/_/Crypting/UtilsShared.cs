@@ -42,7 +42,7 @@ public partial class Utils
         }
         catch (System.FormatException)
         {
-            ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeBase64Encoded) + ":" + Environment.NewLine + base64Encoded + Environment.NewLine);
+            ThrowEx.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeBase64Encoded) + ":" + Environment.NewLine + base64Encoded + Environment.NewLine);
         }
         return null;
     }
@@ -89,7 +89,7 @@ public partial class Utils
         }
         catch (Exception ex)
         {
-            ThrowExceptions.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeHexEncoded) + ":" + Environment.NewLine + hexEncoded + Environment.NewLine + Exceptions.TextOfExceptions(ex));
+            ThrowEx.Custom(SunamoPageHelperSunamo.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeHexEncoded) + ":" + Environment.NewLine + hexEncoded + Environment.NewLine + Exceptions.TextOfExceptions(ex));
             return null;
         }
     }

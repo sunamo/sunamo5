@@ -23,17 +23,17 @@ public partial class ThrowEx
 
     private static void ThrowIsNotNull(Func<string, string> f)
     {
-        ThrowExceptions.ThrowIsNotNullEx(f);
+        ThrowEx.ThrowIsNotNullEx(f);
     }
 
     private static void ThrowIsNotNull(Func<string, object, string> f, object o)
     {
-        ThrowExceptions.ThrowIsNotNullEx(f, o);
+        ThrowEx.ThrowIsNotNullEx(f, o);
     }
 
     private static void ThrowIsNotNull(Func<string, string, string> f, string a1)
     {
-        ThrowExceptions.ThrowIsNotNullEx(f, a1);
+        ThrowEx.ThrowIsNotNullEx(f, a1);
     }
 
     /// <summary>
@@ -47,17 +47,17 @@ public partial class ThrowEx
     /// <returns></returns>
     private static bool ThrowIsNotNull(Func<string, string, IEnumerable, string> f, string a1, IEnumerable a2)
     {
-        return ThrowExceptions.ThrowIsNotNullEx(f, a1, a2);
+        return ThrowEx.ThrowIsNotNullEx(f, a1, a2);
     }
 
     private static void ThrowIsNotNull<T>(Func<string, string, T[], string> f, string a1, params T[] a2)
     {
-        ThrowExceptions.ThrowIsNotNullEx(f, a1, a2);
+        ThrowEx.ThrowIsNotNullEx(f, a1, a2);
     }
 
     private static string FullNameOfExecutedCode()
     {
-        return ThrowExceptions.FullNameOfExecutedCode(t.Item1, t.Item2, true);
+        return ThrowEx.FullNameOfExecutedCode(t.Item1, t.Item2, true);
     }
 
     public static void NotImplementedMethod()

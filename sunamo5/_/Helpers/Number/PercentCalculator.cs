@@ -37,7 +37,7 @@ namespace sunamo.Helpers.Number
         {
             if (overallSum ==0)
             {
-                ThrowExceptions.DivideByZero(Exc.GetStackTrace(), type, Exc.CallingMethod());
+                ThrowEx.DivideByZero();
             }
 
             onePercent = _hundredPercent / overallSum;

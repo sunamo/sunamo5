@@ -100,7 +100,7 @@ namespace sunamo.Essential
             List<int> nulled = CA.IndexesWithNullOrEmpty(args);
             if (nulled.Count > 0)
             {
-                WriteLine(TypeOfMessage.Information, Exceptions.AnyElementIsNullOrEmpty(FullNameOfExecutedCode(type, methodName), nameOfCollection, nulled));
+                WriteLine(TypeOfMessage.Information, Exceptions.AnyElementIsNullOrEmpty(FullNameOfExecutedCode(t.Item1, t.Item2), nameOfCollection, nulled));
                 return true;
             }
             return false;

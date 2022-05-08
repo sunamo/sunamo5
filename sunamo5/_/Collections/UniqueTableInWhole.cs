@@ -65,7 +65,7 @@ namespace sunamo.Collections
         {
             if (!columns && !rows)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.BothColumnAndRowArgumentsInUniqueTableInWholeIsUniqueAsRowOrColumnWasFalse) + ".");
+                ThrowEx.Custom(sess.i18n(XlfKeys.BothColumnAndRowArgumentsInUniqueTableInWholeIsUniqueAsRowOrColumnWasFalse) + ".");
             }
 
             int rowsCount = _rows.GetLength(0);
@@ -101,7 +101,7 @@ namespace sunamo.Collections
         {
             if (c.Count != _cells)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(),sess.i18n(XlfKeys.DifferentCountInputElementsOfArrayInUniqueTableInWholeAddCells));
+                ThrowEx.Custom(sess.i18n(XlfKeys.DifferentCountInputElementsOfArrayInUniqueTableInWholeAddCells));
             }
 
             for (int i = 0; i < c.Count; i++)

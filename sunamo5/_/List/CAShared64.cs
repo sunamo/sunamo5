@@ -640,7 +640,7 @@ public static partial class CA
                 //}
                 //catch (Exception ex)
                 //{
-                //    // Insert Here ThrowExceptions
+                //    // Insert Here ThrowEx
                 //}
                 //}
             }

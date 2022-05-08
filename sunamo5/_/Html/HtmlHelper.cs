@@ -107,7 +107,7 @@ public static partial class HtmlHelper
     /// <param name="v3"></param>
     public static HtmlNode ReturnTagOfAtribute(HtmlNode item2, string v1, string v2, string v3)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return null;
     }
 
@@ -134,7 +134,7 @@ public static partial class HtmlHelper
     /// <param name="v"></param>
     public static string ReturnInnerTextOfTagsRek(HtmlNode dd2, string v)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return null;
     }
 
@@ -237,7 +237,7 @@ public static partial class HtmlHelper
 
     public static HtmlNode ReturnNextSibling(HtmlNode h4Callback, string v)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return null;
     }
 
@@ -274,7 +274,7 @@ public static partial class HtmlHelper
     /// <param name="dlOuter"></param>
     public static List<HtmlNode> ReturnTags(HtmlNode dlOuter)
     {
-        ThrowExceptions.NotImplementedMethod(Exc.GetStackTrace(),type, Exc.CallingMethod());
+        ThrowEx.NotImplementedMethod();
         return null;
     }
 

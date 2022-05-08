@@ -29,7 +29,7 @@ public partial class FS
             }
             catch (Exception ex)
             {
-                ThrowExceptions.FolderCannotBeDeleted(repairedBlogPostsFolder, ex);
+                ThrowEx.FolderCannotBeDeleted(repairedBlogPostsFolder, ex);
                 deleted = false;
             }
         }

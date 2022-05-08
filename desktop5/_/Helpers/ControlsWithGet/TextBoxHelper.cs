@@ -68,11 +68,11 @@ namespace desktop
 
             if (d.imagePath != null)
             {
-                ThrowExceptions.IsNotNull("d.imagePath", d.imagePath);
+                ThrowEx.IsNotNull("d.imagePath", d.imagePath);
             }
             if (d.OnClick != null)
             {
-                ThrowExceptions.IsNotNull("d.OnClick", d.OnClick);
+                ThrowEx.IsNotNull("d.OnClick", d.OnClick);
             }
 
             txt.Name = d.name;

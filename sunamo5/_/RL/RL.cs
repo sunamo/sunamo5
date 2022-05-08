@@ -66,7 +66,7 @@ public partial class RL
     /// <param name="cs"></param>
     public static string GetStringByLang(string v, Langs cs)
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(),type, "GetStringByLang", SunamoPageHelperSunamo.i18n(XlfKeys.InDesktopAppDontPassLangs));
+        ThrowEx.Custom(Exc.GetStackTrace(),type, "GetStringByLang", SunamoPageHelperSunamo.i18n(XlfKeys.InDesktopAppDontPassLangs));
         //if (l == Langs.en)
         //{
         //    return SunamoPageHelperSunamo.i18n(k];
