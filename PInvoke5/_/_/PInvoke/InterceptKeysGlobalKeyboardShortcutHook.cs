@@ -41,7 +41,7 @@ public class InterceptKeysGlobalKeyboardShortcutHook : W32Base
             int vkCode = Marshal.ReadInt32(lParam);
             var k = (Keys)vkCode;
             KeyPress(k);
-            //Console.WriteLine();
+            //CL.WriteLine();
         }
         return W32.CallNextHookEx(_hookID, nCode, wParam, lParam);
     }

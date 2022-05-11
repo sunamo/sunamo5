@@ -1,4 +1,5 @@
 ﻿//using cl;
+using cl;
 using sunamo.Essential;
 using System;
 using System.Collections.Generic;
@@ -37,14 +38,14 @@ using System.Threading.Tasks;
 
         public static void DeleteFileOrFolderMaybeLocked(string p)
         {
-            Console.WriteLine("DeleteFileOrFolderMaybeLocked: " + p);
+            CL.WriteLine("DeleteFileOrFolderMaybeLocked: " + p);
             if (FS.ExistsFile(p))
             {
                 DeleteFileMaybeLocked(p);
                 if (FS.ExistsFile(p))
                 {
                     ThisApp.SetStatus(TypeOfMessage.Error, p + " could not be deleted! Press enter to continue!");
-                    Console.ReadLine();
+                    CL.ReadLine();
                 }
                 else
                 {
@@ -72,7 +73,7 @@ using System.Threading.Tasks;
                 else
                 {
                     ThisApp.SetStatus(TypeOfMessage.Error, p + " could not be deleted completely! Press enter to continue!");
-                    Console.ReadLine();
+                    CL.ReadLine();
                 }
             }
             else
@@ -127,7 +128,7 @@ using System.Threading.Tasks;
             else
             {
                 ThisApp.SetStatus(TypeOfMessage.Error, "Not all files was moved! " + arg1);
-                Console.ReadLine();
+                CL.ReadLine();
             }
         }
     }

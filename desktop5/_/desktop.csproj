@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
@@ -10,6 +10,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Controls\Buttons\DialogButtons.xaml" />
+    <None Remove="Controls\Collections\RadioButtonsList.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoJson\SunamoJson.csproj"></ProjectReference>
     <ProjectReference Include="..\desktop.extensions\desktop.extensions.csproj" />
@@ -32,6 +36,10 @@
     <PackageReference Include="System.Security.Cryptography.Encoding" Version="4.3.0"></PackageReference>
     <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.3.0"></PackageReference>
     <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2"></PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Buttons\DialogButtons.xaml" />
+    <Page Include="Controls\Collections\RadioButtonsList.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
