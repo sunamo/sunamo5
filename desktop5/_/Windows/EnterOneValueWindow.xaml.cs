@@ -21,52 +21,52 @@ namespace desktop
     public partial class EnterOneValueWindow : Window
     {
         #region MyRegion
-        //public Func<string, bool> ValidatorBeforeAdding
-        //{
-        //    set
-        //    {
-        //        enterOneValueUC.ValidatorBeforeAdding = value;
-        //    }
-        //}
+        public Func<string, bool> ValidatorBeforeAdding
+        {
+            set
+            {
+                enterOneValueUC.ValidatorBeforeAdding = value;
+            }
+        }
 
-        //public string ValidatorBeforeAddingMessage
-        //{
-        //    set
-        //    {
-        //        enterOneValueUC.ValidatorBeforeAddingMessage = value;
-        //    }
-        //}
+        public string ValidatorBeforeAddingMessage
+        {
+            set
+            {
+                enterOneValueUC.ValidatorBeforeAddingMessage = value;
+            }
+        }
 
 
 
-        ///// <summary>
-        ///// access to everything via enterOneValueUC
-        ///// </summary>
-        ///// <param name="whatEnter"></param>
-        //public EnterOneValueWindow(string whatEnter)
-        //{
-        //    InitializeComponent();
-        //    enterOneValueUC.Init(whatEnter);
-        //    // TODO Replaced during repair 0xc0000374
-        //    //enterOneValueUC.ChangeDialogResult += EnterOneValueUC_ChangeDialogResult;
-        //}
+        /// <summary>
+        /// access to everything via enterOneValueUC
+        /// </summary>
+        /// <param name="whatEnter"></param>
+        public EnterOneValueWindow(string whatEnter)
+        {
+            InitializeComponent();
+            enterOneValueUC.Init(whatEnter);
+            // TODO Replaced during repair 0xc0000374
+            //enterOneValueUC.ChangeDialogResult += EnterOneValueUC_ChangeDialogResult;
+        }
 
-        //public bool IsMultiline
-        //{
-        //    set
-        //    {
-        //        if (value)
-        //        {
-        //            enterOneValueUC.IsMultiline = value;
-        //        }
-        //    }
-        //}
-        //private void EnterOneValueUC_ChangeDialogResult(bool? b)
-        //{
-        //    // Close() + DialogResult = b - Dialog result can be only set when is show as the dialog
-        //    // Only DialogResult = b - works rightly with attach ChangeDialogResult or ShowDialog()
-        //    DialogResult = b;
-        //} 
+        public bool IsMultiline
+        {
+            set
+            {
+                if (value)
+                {
+                    enterOneValueUC.IsMultiline = value;
+                }
+            }
+        }
+        private void EnterOneValueUC_ChangeDialogResult(bool? b)
+        {
+            // Close() + DialogResult = b - Dialog result can be only set when is show as the dialog
+            // Only DialogResult = b - works rightly with attach ChangeDialogResult or ShowDialog()
+            DialogResult = b;
+        }
         #endregion
     }
 }

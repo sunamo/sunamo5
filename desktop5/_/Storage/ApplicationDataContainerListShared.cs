@@ -36,9 +36,6 @@ public partial class ApplicationDataContainerList : IEnumerable
         Init(AppData.ci.GetFile(af, fn));
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="path"></param>
     public ApplicationDataContainerList(string path)
     {

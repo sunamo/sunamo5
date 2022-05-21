@@ -24,9 +24,6 @@ public class WikipediaHelper
         return CSharpHelperGetDictionaryValuesFromTwoList(names, chars);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="html"></param>
     /// <param name="columns"></param>
     /// <returns></returns>

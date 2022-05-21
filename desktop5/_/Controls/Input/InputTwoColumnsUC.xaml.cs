@@ -16,9 +16,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 namespace desktop.Controls
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class InputTwoColumnsUC : UserControl, IControlWithResult, IControlWithResultDebug, IUserControl
     {
         static Type type = typeof(InputTwoColumnsUC);

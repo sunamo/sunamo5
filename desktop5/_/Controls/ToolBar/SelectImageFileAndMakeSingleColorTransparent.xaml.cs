@@ -19,79 +19,76 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class SelectImageFileAndMakeSingleColorTransparent : UserControl
     {
         #region Rewrite to pure cs. With xaml is often problems without building
-        //    public int MinimalImageWidth { get; set; }
-        //    public int MinimalImageHeight { get; set; }
-        //    public bool Square { get; set; }
+        public int MinimalImageWidth { get; set; }
+        public int MinimalImageHeight { get; set; }
+        public bool Square { get; set; }
 
-        //    public SelectImageFileAndMakeSingleColorTransparent()
-        //    {
-        //        InitializeComponent();
-        //        SelectedFile = "";
-        //    }
+        public SelectImageFileAndMakeSingleColorTransparent()
+        {
+            InitializeComponent();
+            SelectedFile = "";
+        }
 
-        //    private void SetSelectedFile(string v)
-        //    {
-        //        if (v == "")
-        //        {
-        //            v = sess.i18n(XlfKeys.None);
-        //        }
-        //        selectedFile = v;
-        //        tbSelectedFile.Text = sess.i18n(XlfKeys.SelectedFile) + ": " + v;
-        //    }
+        private void SetSelectedFile(string v)
+        {
+            if (v == "")
+            {
+                v = sess.i18n(XlfKeys.None);
+            }
+            selectedFile = v;
+            tbSelectedFile.Text = sess.i18n(XlfKeys.SelectedFile) + ": " + v;
+        }
 
-        //    public event VoidStringBitmapBitmapSource FileSelected;
-        //    public BitmapImage bi = null;
-        //    public Bitmap bmp = null;
-        //    private void btnSelectFile_Click(object sender, RoutedEventArgs e)
-        //    {
-        //        string file = null;
-        //        file = DW.SelectOfFile(Environment.SpecialFolder.DesktopDirectory);
-        //        if (file != null)
-        //        {
-        //            if (FS.ExistsFile(file))
-        //            {
-        //                SelectedFile = file;
-        //                 bi = new BitmapImage(new Uri(file));
-        //                bmp = new Bitmap(file);
-        //                System.Drawing.Color first2 =  bmp.GetPixel(0, 0);
+        public event VoidStringBitmapBitmapSource FileSelected;
+        public BitmapImage bi = null;
+        public Bitmap bmp = null;
+        private void btnSelectFile_Click(object sender, RoutedEventArgs e)
+        {
+            string file = null;
+            file = DW.SelectOfFile(Environment.SpecialFolder.DesktopDirectory);
+            if (file != null)
+            {
+                if (FS.ExistsFile(file))
+                {
+                    SelectedFile = file;
+                    bi = new BitmapImage(new Uri(file));
+                    bmp = new Bitmap(file);
+                    System.Drawing.Color first2 = bmp.GetPixel(0, 0);
 
 
-        //                MemoryStream ms = new MemoryStream();
-        //                bmp.Save(ms, ImageFormat.Png);
-        //                var arr = ms.ToArray();
+                    MemoryStream ms = new MemoryStream();
+                    bmp.Save(ms, ImageFormat.Png);
+                    var arr = ms.ToArray();
 
-        //                bi = new BitmapImage();
+                    bi = new BitmapImage();
 
-        //                bi.BeginInit();
-        //                bi.StreamSource = ms;
-        //                bi.EndInit();
-        //                var bs = bi;
-        //                bmp = PicturesDesktop.BitmapImage2Bitmap(bs);
-        //                //bmp.MakeTransparent(System.Drawing.Color.FromArgb(pxs[0, 0].Alpha, pxs[0, 0].Red, pxs[0, 0].Green, pxs[0, 0].Blue));
-        //                FileSelected(file, bmp, bs);
-        //            }
-        //        }
-        //    }
+                    bi.BeginInit();
+                    bi.StreamSource = ms;
+                    bi.EndInit();
+                    var bs = bi;
+                    bmp = PicturesDesktop.BitmapImage2Bitmap(bs);
+                    //bmp.MakeTransparent(System.Drawing.Color.FromArgb(pxs[0, 0].Alpha, pxs[0, 0].Red, pxs[0, 0].Green, pxs[0, 0].Blue));
+                    FileSelected(file, bmp, bs);
+                }
+            }
+        }
 
-        //    string selectedFile = "";
+        string selectedFile = "";
 
-        //    public string SelectedFile
-        //    {
-        //        get
-        //        {
-        //            return selectedFile;
-        //        }
-        //        set
-        //        {
-        //            SetSelectedFile(value);
-        //        }
-        //    }
-        } 
-        #endregion
+        public string SelectedFile
+        {
+            get
+            {
+                return selectedFile;
+            }
+            set
+            {
+                SetSelectedFile(value);
+            }
+        }
     }
+    #endregion
+}

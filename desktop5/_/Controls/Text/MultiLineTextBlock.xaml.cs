@@ -15,29 +15,27 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public partial class MultiLineTextBlock : UserControl
     {
-        //public MultiLineTextBlock()
-        //{
-        //    InitializeComponent();
+        public MultiLineTextBlock()
+        {
+            InitializeComponent();
 
 
-        //}
+        }
 
-        //public void AddLines(Brush bg, Brush fg, params string[] lines)
-        //{
-        //    foreach (var item in lines)
-        //    {
-        //        TextBlock tb = new TextBlock();
-        //        tb.HorizontalAlignment = HorizontalAlignment.Stretch;
-        //        tb.Background = bg;
-        //        tb.Foreground = fg;
-        //        tb.Text = item;
-        //        spLines.Children.Add(tb);
-        //    }
-        //}
+        public void AddLines(Brush bg, Brush fg, params string[] lines)
+        {
+            foreach (var item in lines)
+            {
+                TextBlock tb = new TextBlock();
+                tb.HorizontalAlignment = HorizontalAlignment.Stretch;
+                tb.Background = bg;
+                tb.Foreground = fg;
+                tb.Text = item;
+                spLines.Children.Add(tb);
+            }
+        }
     }
 }

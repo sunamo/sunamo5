@@ -15,14 +15,11 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls.Result
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ShowCodeResultUC : UserControl
     {
-        //public ShowCodeResultUC()
-        //{
-        //    InitializeComponent();
-        //}
+        public ShowCodeResultUC()
+        {
+            InitializeComponent();
+        }
     }
 }

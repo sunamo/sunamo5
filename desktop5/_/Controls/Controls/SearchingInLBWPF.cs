@@ -21,9 +21,6 @@ public class SearchingInLbWPF
     public object[] oc = null;
     string searchOnlyFromLastOccurenceOf = null;
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="lb"></param>
     /// <param name="tstb"></param>
     public SearchingInLbWPF(ListBox lb, TextBox tstb, Button toolStripButton2, SuMenuItem tsmi, string searchOnlyFromLastOccurenceOf)
@@ -74,9 +71,6 @@ public class SearchingInLbWPF
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="zapnuto"></param>
     public void Searching(bool zapnuto)
     {

@@ -54,9 +54,6 @@ using sunamo.Helpers;
         OpenInBrowser(prohlizec, s, waitMs);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <returns></returns>
     public static List<string> BrowsersWhichDontHaveExeInDefinedPath()
     {

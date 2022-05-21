@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls.Collections
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class RadioButtonsList : UserControl, IUserControl, IControlWithResultDebug
     {
         public bool? DialogResult

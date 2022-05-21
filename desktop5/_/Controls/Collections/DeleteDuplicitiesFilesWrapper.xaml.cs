@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class DeleteDuplicitiesFilesWrapper : UserControl
     {
         #region MyRegion

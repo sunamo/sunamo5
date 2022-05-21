@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace desktop.Controls
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ResultButtons : UserControl
     {
         public event VoidVoid AllRightClick;

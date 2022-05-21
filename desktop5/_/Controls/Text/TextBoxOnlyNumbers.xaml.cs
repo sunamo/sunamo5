@@ -17,34 +17,31 @@ using System.Windows.Shapes;
 
 namespace desktop
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class TextBoxOnlyNumbers : UserControl
     {
         #region Rewrite to pure cs. With xaml is often problems without building
-        //public string Text
-        //{
-        //    set
-        //    {
-        //        txt.Text = CharHelper.OnlyDigits(value);
-        //    }
-        //    get
-        //    {
-        //        return txt.Text;
-        //    }
-        //}
+        public string Text
+        {
+            set
+            {
+                txt.Text = CharHelper.OnlyDigits(value);
+            }
+            get
+            {
+                return txt.Text;
+            }
+        }
 
-        //public TextBoxOnlyNumbers()
-        //{
-        //    InitializeComponent();
-        //    txt.TextChanged += Txt_TextChanged;
-        //}
+        public TextBoxOnlyNumbers()
+        {
+            InitializeComponent();
+            txt.TextChanged += Txt_TextChanged;
+        }
 
-        //private void Txt_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    txt.Text = CharHelper.OnlyDigits(txt.Text);
-        //} 
+        private void Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txt.Text = CharHelper.OnlyDigits(txt.Text);
+        }
         #endregion
     }
 }

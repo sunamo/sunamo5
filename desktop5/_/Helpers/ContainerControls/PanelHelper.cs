@@ -59,9 +59,6 @@ public partial class PanelHelper
         return new System.Collections.Generic.List<object>();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="f"></param>
     /// <param name="vr"></param>
     private static void GetThisAndRecursiveAllSubUIElements(UIElement f, List<UIElement> vr)

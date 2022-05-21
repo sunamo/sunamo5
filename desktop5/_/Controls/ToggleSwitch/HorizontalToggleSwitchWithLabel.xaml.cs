@@ -17,19 +17,16 @@ using System.Windows.Shapes;
 // desktopControlsToggleSwitch
 namespace desktop.Controls.ToggleSwitch
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class HorizontalToggleSwitchWithLabel : UserControl
     {
-        //public HorizontalToggleSwitchWithLabel()
-        //{
-        //     InitializeComponent();
-        //}
+        public HorizontalToggleSwitchWithLabel()
+        {
+            InitializeComponent();
+        }
 
-        //public string Label
-        //{
-        //    set => tb.Text = value;
-        //}
+        public string Label
+        {
+            set => tb.Text = value;
+        }
     }
 }

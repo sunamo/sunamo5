@@ -10,22 +10,22 @@ using System.Windows.Media;
 
 public class FoundedFileUC : FoundedResultUC
 {
-    //public FoundedFileUC(string filePath, TUList<string, Brush> p, int serie) : base(filePath, p, serie)
-    //{
+    public FoundedFileUC(string filePath, TUList<string, Brush> p, int serie) : base(filePath, p, serie)
+    {
 
-    //}
+    }
 
-    //public string fileFullPath
-    //{
-    //    get { return base.fileFullPath; }
-    //    set { base.fileFullPath = value; }
-    //}
+    public string fileFullPath
+    {
+        get { return base.fileFullPath; }
+        set { base.fileFullPath = value; }
+    }
 
-    //public string file
-    //{
-    //    get { return base.file; }
-    //    set { base.file = value; }
-    //}
+    public string file
+    {
+        get { return base.file; }
+        set { base.file = value; }
+    }
 
-    
+
 }

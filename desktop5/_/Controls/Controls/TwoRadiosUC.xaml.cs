@@ -20,7 +20,6 @@ namespace desktop.Controls.Controls
     /// </summary>
     public partial class TwoRadiosUC
     {
-        dynamic rb1, rb2;
 
                 public static Type type = typeof(TwoRadiosUC);
 
@@ -91,9 +90,6 @@ namespace desktop.Controls.Controls
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class TwoRadiosUC : UserControl
     {
         
