@@ -20,31 +20,31 @@ namespace desktop.Controls
     /// </summary>
     public partial class ResultButtons : UserControl
     {
-        //public event VoidVoid AllRightClick;
-        //// as event - useful when output will be editable
-        //public event VoidVoid CopyToClipboard;
+        public event VoidVoid AllRightClick;
+        // as event - useful when output will be editable
+        public event VoidVoid CopyToClipboard;
 
-        //public ResultButtons()
-        //{
-        //    InitializeComponent();
+        public ResultButtons()
+        {
+            InitializeComponent();
 
-        //    Loaded += ResultButtons_Loaded;
-        //}
+            Loaded += ResultButtons_Loaded;
+        }
 
-        //private void ResultButtons_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    btnAllRight.Content = sess.i18n(XlfKeys.AllRight) + AllStrings.excl;
-        //    btnCopyToClipboard.Content = sess.i18n(XlfKeys.CopyTextToClipboard);
-        //}
+        private void ResultButtons_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnAllRight.Content = sess.i18n(XlfKeys.AllRight) + AllStrings.excl;
+            btnCopyToClipboard.Content = sess.i18n(XlfKeys.CopyTextToClipboard);
+        }
 
-        //private void btnCopyToClipboard_Click(object sender, RoutedEventArgs e)
-        //{
-        //    CopyToClipboard();
-        //}
+        private void btnCopyToClipboard_Click(object sender, RoutedEventArgs e)
+        {
+            CopyToClipboard();
+        }
 
-        //private void btnAllRight_Click(object sender, RoutedEventArgs e)
-        //{
-        //    AllRightClick();
-        //}
+        private void btnAllRight_Click(object sender, RoutedEventArgs e)
+        {
+            AllRightClick();
+        }
     }
 }

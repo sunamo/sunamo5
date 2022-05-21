@@ -12,7 +12,19 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Controls\Buttons\DialogButtons.xaml" />
+    <None Remove="Controls\Buttons\ResultButtons.xaml" />
     <None Remove="Controls\Collections\RadioButtonsList.xaml" />
+    <None Remove="Controls\Input\InputTwoColumnsUC.xaml" />
+    <None Remove="Controls\Input\SelectFolder.xaml" />
+    <None Remove="Controls\Input\SelectTwoValuesUC.xaml" />
+    <None Remove="Controls\Result\ShowTextResult.xaml" />
+    <None Remove="Controls\Visualization\TwoWayTable.xaml" />
+    <None Remove="EnterOneValueUC.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Buttons\ResultButtons.xaml" />
+    <Page Include="Controls\Input\SelectFolder.xaml" />
+    <Page Include="Controls\Visualization\TwoWayTable.xaml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep\SunamoJson\SunamoJson.csproj"></ProjectReference>
@@ -23,7 +35,6 @@
     <ProjectReference Include="..\shared\shared.csproj"></ProjectReference>
     <ProjectReference Include="..\sunamo\sunamo.csproj"></ProjectReference>
     <ProjectReference Include="..\win.std\win.std.csproj" />
-    <ProjectReference Include="..\win\win.csproj" />
     <ProjectReference Include="..\Xlf\Xlf.csproj"></ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +51,10 @@
   <ItemGroup>
     <Page Include="Controls\Buttons\DialogButtons.xaml" />
     <Page Include="Controls\Collections\RadioButtonsList.xaml" />
+    <Page Include="Controls\Input\InputTwoColumnsUC.xaml" />
+    <Page Include="Controls\Input\SelectTwoValuesUC.xaml" />
+    <Page Include="Controls\Result\ShowTextResult.xaml" />
+    <Page Include="EnterOneValueUC.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
