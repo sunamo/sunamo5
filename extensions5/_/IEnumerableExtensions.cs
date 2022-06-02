@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 public static partial class IEnumerableExtensions
 {
-    
+    public static void SortAsc<T>(this List<T> c)
+    {
+        c.Sort();
+    }
+
+
 
     public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> source, int N)
     {

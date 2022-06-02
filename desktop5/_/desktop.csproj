@@ -14,6 +14,7 @@
     <None Remove="Controls\Collections\DeleteDuplicitiesFilesCheckBox.xaml" />
     <None Remove="Controls\Collections\DeleteDuplicitiesFilesRadioButton.xaml" />
     <None Remove="Controls\Collections\DeleteDuplicitiesFilesWrapper.xaml" />
+    <None Remove="Controls\Controls\DropDownButtonDictionary.xaml" />
     <None Remove="Controls\Controls\TwoRadiosUC.xaml" />
     <None Remove="Controls\Image\CyclingImageViewer.xaml" />
     <None Remove="Controls\Input\ColorPicker.xaml" />
@@ -43,6 +44,9 @@
     <None Remove="UserControls\ErrorListing.xaml" />
     <None Remove="Windows\EnterOneValueWindow.xaml" />
     <None Remove="Windows\NotificationWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Controls\DropDownButtonDictionary.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Buttons\ImageButtons.xaml" />

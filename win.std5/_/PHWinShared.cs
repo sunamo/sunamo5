@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 
         
-        static Browsers defBr = Browsers.Chrome;
+        static Browsers defBr = Browsers.EdgeStable;
         public static int opened = 0;
         /// <summary>
         /// Not contains Other
@@ -44,7 +44,7 @@ using System.Threading.Tasks;
                 var all = EnumHelper.GetValues<Browsers>();
                 foreach (var item in all)
                 {
-                    if (item != Browsers.None && item != Browsers.EdgeDev && item != Browsers.EdgeCanary && item != Browsers.EdgeStable)
+                    if (item != Browsers.None)
                     {
                         AddBrowser(item);
                     }

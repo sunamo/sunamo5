@@ -65,8 +65,7 @@ namespace desktop.Controls.Controls
 
         public TwoRadiosUC(TwoState addRemove)
         {
-            ThrowEx.UncommentNextRows();
-            //InitializeComponent();
+            InitializeComponent();
 
             switch (addRemove)
             {

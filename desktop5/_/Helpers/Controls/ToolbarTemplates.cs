@@ -15,8 +15,7 @@ namespace desktop.Helpers.Controls
             Button miShowControls = new Button();
             miShowControls.Click += delegate
             {
-                ThrowEx.UncommentNextRows();
-                //WindowWithUserControl.AvailableShortcut(dictionary2);
+                WindowWithUserControl.AvailableShortcut(dictionary2);
             };
             Image image = new Image();
             //image.Source =  BitmapSourceHelper.;

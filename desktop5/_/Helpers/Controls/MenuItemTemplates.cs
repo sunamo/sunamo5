@@ -14,8 +14,7 @@ namespace desktop.Helpers.Controls
             SuMenuItem miShowControls = new SuMenuItem();
             miShowControls.Click += delegate
             {
-                ThrowEx.UncommentNextRows();
-                //WindowWithUserControl.AvailableShortcut(dictionary2);
+                WindowWithUserControl.AvailableShortcut(dictionary2);
             };
             miShowControls.Header = sess.i18n(XlfKeys.AvailableShortcuts) + "...";
             return miShowControls;

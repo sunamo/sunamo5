@@ -12,10 +12,9 @@ public class ShowTextResultWindow : Window, IControlWithResult
 
     public ShowTextResultWindow(string text)
     {
-         s = new ShowTextResult(text);
+        s = new ShowTextResult(text);
         Content = s;
-        ThrowEx.UncommentNextRows();
-        //s.ChangeDialogResult += S_ChangeDialogResult;
+        s.ChangeDialogResult += S_ChangeDialogResult;
     }
 
     public event VoidBoolNullable ChangeDialogResult;

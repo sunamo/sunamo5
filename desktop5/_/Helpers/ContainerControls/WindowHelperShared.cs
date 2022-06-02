@@ -74,9 +74,8 @@ public partial class WindowHelper{
         sb.AppendLine(methodName);
         sb.Append(dump);
 
-        ThrowEx.UncommentNextRows();
         var result = new ShowTextResult(sb.ToString());
-        //result.ChangeDialogResult += Result_ChangeDialogResult;
+        result.ChangeDialogResult += Result_ChangeDialogResult;
 
         if (isTerminanting)
         {
