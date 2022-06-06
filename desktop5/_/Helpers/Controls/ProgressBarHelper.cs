@@ -1,15 +1,22 @@
 ﻿using sunamo.Helpers.Number;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
+
 namespace desktop
-{               
-    public class ProgressBarHelper : Window
+{
+    public class ProgressBarHelper : Window, IProgressBarHelper
     {
         ProgressBar pb = null;
         PercentCalculator percentCalculator;
         UIElement ui = null;
 
-        public ProgressBarHelper(ProgressBar pb, double overall, UIElement ui)
+        public IProgressBarHelper CreateInstance(ProgressBar pb, double overall, DispatcherObject ui)
+        {
+            return new ProgressBarHelper(pb, overall, ui);
+        }
+
+        public ProgressBarHelper(ProgressBar pb, double overall, DispatcherObject ui)
         {
             this.pb = pb;
             this.ui = pb;

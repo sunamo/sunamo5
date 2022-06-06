@@ -51,7 +51,6 @@ namespace desktop.Controls
                     // must have value because ResultButtons dont close window itself     
                     ChangeDialogResult(value);
                 }
-
             }
         }
 

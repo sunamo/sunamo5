@@ -316,7 +316,7 @@ public static partial class HttpRequestHelper
         if (EqualityComparer<WebResponse>.Default.Equals(r, default(WebResponse)))
         {
             var before = ThrowEx.FullNameOfExecutedCode(type, Exc.CallingMethod());
-            ThisApp.SetStatus(TypeOfMessage.Warning, Exceptions.RepeatAfterTimeXTimesFailed(before, times, timeoutInMs, address));
+            ThisApp.SetStatus(TypeOfMessage.Warning, Exceptions.RepeatAfterTimeXTimesFailed(before, times, timeoutInMs, address, SharedAlgorithms.lastError));
             return new byte[0];
         }
         else

@@ -29,7 +29,7 @@ public partial class WpfApp{
 #endif
         if (!initialized)
         {
-            CA.dCount = new Func<IEnumerable, int>(r => WpfApp.DispatcherAction<IEnumerable, int>(dCount, r));
+            CA.dCountSunExc = new Func<IEnumerable, int>(r => WpfApp.DispatcherAction<IEnumerable, int>(dCount, r));
             //CA.dFirstOrNull = new Func<IEnumerable, object>(r => WpfApp.DispatcherAction<IEnumerable, object>(dFirstOrNull, r));
 
 #if MB
@@ -145,7 +145,7 @@ public partial class WpfApp{
         ShowMb("IsSomethingNull " + handler);
 #endif
         WpfApp.cd = Application.Current.Dispatcher;
-ThrowEx.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
+        ThrowEx.showExceptionWindow = WindowHelper.ShowExceptionWindow2;
         WpfApp.cdp = System.Windows.Threading.DispatcherPriority.Normal;
 
         ShowMb(DesktopNotTranslateAble.EnteringIsSomethingNull);

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-public static class XmlNodeListExtensions
+public static class XmlNodeListExtensionsSunExc
 {
     #region For easy copy from XmlNodeListExtensions.cs
     public static XmlNode First(this XmlNodeList e, string n)

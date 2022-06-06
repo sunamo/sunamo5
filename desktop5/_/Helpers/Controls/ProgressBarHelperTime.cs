@@ -21,14 +21,11 @@ public class ProgressBarHelperTime
         pbh = new ProgressBarHelper(pb, allSeconds, ui);
         allSecondsMinusOne = allSeconds - 1;
 
-        //var t = new System.Threading.Timer();
         t2 = new Timer();
         t2.AutoReset = true;
         t2.Interval = 1000;
         t2.Elapsed += T2_Elapsed;
         t2.Start();
-
-        
     }
 
     private void T2_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
