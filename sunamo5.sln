@@ -16,29 +16,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "duo5", "duo5\duo5.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunamoExceptions5", "..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj", "{9F5D6B92-C62A-44B0-A70B-24EDC308F6CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "desktop5", "desktop5\desktop5.csproj", "{1B535BEE-65D1-4739-8C09-94B91084E31C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "desktop5", "desktop5\desktop5.csproj", "{1B535BEE-65D1-4739-8C09-94B91084E31C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunamoPS6", "SunamoPS6\SunamoPS6.csproj", "{0419DD25-01B2-4932-ABC0-E2566383C453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "win.std5", "win.std5\win.std5.csproj", "{AE72DD5D-D726-4EC0-9393-CC4DF7DA57E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "win.std5", "win.std5\win.std5.csproj", "{AE72DD5D-D726-4EC0-9393-CC4DF7DA57E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "extensions5", "extensions5\extensions5.csproj", "{46CEDEA8-8043-42D1-B4A9-A329118E21BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "extensions5", "extensions5\extensions5.csproj", "{46CEDEA8-8043-42D1-B4A9-A329118E21BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "desktop.extensions5", "desktop.extensions5\desktop.extensions5.csproj", "{56028A13-F585-4732-90BF-1E540BFA4456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "desktop.extensions5", "desktop.extensions5\desktop.extensions5.csproj", "{56028A13-F585-4732-90BF-1E540BFA4456}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fmdev.ResX5", "..\sunamo.notmine5\fmdev.ResX5\fmdev.ResX5.csproj", "{81D0F3CC-4217-4C6B-BC03-56CBEFFD76CF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XliffParser5", "..\sunamo.notmine5\XliffParser5\XliffParser5.csproj", "{BD788B6A-59F8-47DF-B6CF-89A27340855A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cl", "..\sunamoWithoutDep5\cl\cl.csproj", "{786ED130-FA42-4425-AD63-991B49062B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PInvoke5", "PInvoke5\PInvoke5.csproj", "{C17964F6-B746-4C20-99DF-BB3DC64A3606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PInvoke5", "PInvoke5\PInvoke5.csproj", "{C17964F6-B746-4C20-99DF-BB3DC64A3606}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "win.pi5", "win.pi5\win.pi5.csproj", "{D5078D8B-2DEB-4025-9ECB-987C20A03B3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "win.pi5", "win.pi5\win.pi5.csproj", "{D5078D8B-2DEB-4025-9ECB-987C20A03B3B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "win5", "win5\win5.csproj", "{6AC150E9-DFB2-479F-BC88-05FB4BE37913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "win5", "win5\win5.csproj", "{6AC150E9-DFB2-479F-BC88-05FB4BE37913}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunamoJson5", "..\sunamoWithoutDep5\SunamoJson5\SunamoJson5.csproj", "{603B8AEB-7220-4772-9D99-D8D043E3EB75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunamoSqlServer5", "SunamoSqlServer5\SunamoSqlServer5.csproj", "{E48C28AB-C172-4E0D-9E01-F57116FBA004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,10 +102,6 @@ Global
 		{BD788B6A-59F8-47DF-B6CF-89A27340855A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD788B6A-59F8-47DF-B6CF-89A27340855A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD788B6A-59F8-47DF-B6CF-89A27340855A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{786ED130-FA42-4425-AD63-991B49062B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{786ED130-FA42-4425-AD63-991B49062B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{786ED130-FA42-4425-AD63-991B49062B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{786ED130-FA42-4425-AD63-991B49062B92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C17964F6-B746-4C20-99DF-BB3DC64A3606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C17964F6-B746-4C20-99DF-BB3DC64A3606}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C17964F6-B746-4C20-99DF-BB3DC64A3606}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -122,6 +118,10 @@ Global
 		{603B8AEB-7220-4772-9D99-D8D043E3EB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603B8AEB-7220-4772-9D99-D8D043E3EB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603B8AEB-7220-4772-9D99-D8D043E3EB75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48C28AB-C172-4E0D-9E01-F57116FBA004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48C28AB-C172-4E0D-9E01-F57116FBA004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48C28AB-C172-4E0D-9E01-F57116FBA004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48C28AB-C172-4E0D-9E01-F57116FBA004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
