@@ -1,3 +1,0 @@
-﻿win.std:
-je ve stejné složce jako win
-nikde se nevyužívá, unload

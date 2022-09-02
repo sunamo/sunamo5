@@ -1,1 +1,0 @@
-﻿For code which use only PInvoke, no packages is allowed
