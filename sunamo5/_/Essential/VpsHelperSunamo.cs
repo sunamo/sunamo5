@@ -35,7 +35,7 @@ public partial class VpsHelperSunamo
         }
         else
         {
-            return @"E:\Documents\vs\Projects\sunamo\";
+            return @"E:\vs\Projects\sunamo\";
         }
     }
 
@@ -47,7 +47,7 @@ public partial class VpsHelperSunamo
         }
         else
         {
-            return @"E:\Documents\vs\Projects\sunamo.cz\";
+            return @"E:\vs\Projects\sunamo.cz\";
         }
     }
 

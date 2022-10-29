@@ -26,7 +26,7 @@ public class GetFilesEveryFolderBgWorker
 
     private void BgWorker_DoWork(object sender, DoWorkEventArgs ea)
     {
-        //result = Task.Run<List<string>>(async () => await FS.GetFilesEveryFolder(e.path, e.masc, e.searchOption, new GetFilesEveryFolderArgs { _trimA1 = e._trimA1 })).Result;
+        //result = Task.Run<List<string>>(async () => await FS.GetFilesEveryFolder(e.path, e.masc, e.searchOption, new GetFilesEveryFolderArgs { _trimA1AndBs = e._trimA1AndBs })).Result;
         
         // Automatically after process method call Completed
     }

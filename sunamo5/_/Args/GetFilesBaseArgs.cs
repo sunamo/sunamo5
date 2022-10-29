@@ -9,5 +9,5 @@ public class GetFilesBaseArgs
     /// <summary>
     /// Auto call WithEndSlash
     /// </summary>
-    public bool _trimA1 = false;
+    public bool _trimA1AndBs = false;
 }

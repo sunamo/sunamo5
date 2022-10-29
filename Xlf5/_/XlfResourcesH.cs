@@ -23,7 +23,7 @@ public partial class XlfResourcesH
 
     public static string PathToXlfSunamo(Langs l)
     {
-        var p = @"E:\Documents\vs\Projects\sunamo\sunamo\MultilingualResources\sunamo.";
+        var p = @"E:\vs\Projects\sunamo\sunamo\MultilingualResources\sunamo.";
         switch (l)
         {
             case Langs.cs:

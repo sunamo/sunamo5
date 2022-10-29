@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 public class GetFilesEveryFolder : GetFilesMoreMascArgs
 {
-    public bool _trimA1 = false;
+    public bool _trimA1AndBs = false;
 }

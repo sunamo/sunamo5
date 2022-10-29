@@ -42,7 +42,7 @@ namespace sunamo.Constants
 
         public const string cRepos = @"C:\repos";
 
-        public const string bpMb = @"E:\Documents\vs\";
+        public const string bpMb = @"E:\vs\";
         public const string bpQ = @"C:\repos\_\";
         public const string bpVps = @"C:\_\";
 
@@ -80,11 +80,11 @@ namespace sunamo.Constants
         /// </summary>
         public static string sunamoProject = null;
         /// <summary>
-        /// E:\Documents\vs\Projects\
+        /// E:\vs\Projects\
         /// </summary>
         public static string vsProjects = null;
         /// <summary>
-        /// E:\Documents\vs\Projects\
+        /// E:\vs\Projects\
         /// </summary>
         public static string vs = null;
         public static string KeysXlf = null;

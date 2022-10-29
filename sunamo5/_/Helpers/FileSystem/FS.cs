@@ -751,7 +751,7 @@ public partial class FS
     public static string ShrinkLongPath(string actualFilePath)
     {
         // .NET 4.7.1
-        // Originally - 265 chars, 254 also too long: E:\Documents\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs
+        // Originally - 265 chars, 254 also too long: E:\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs
         // 4+265 - OK: @"\\?\D:\_NewlyRecovered\Visual Studio 2020\Projects\vs\Projects\Recovered data 03-23 12_11_44\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\Facebook.cs"
         // 216 - OK: D:\Recovered data 03-23 12_11_44012345678901234567890123456\Deep Scan result\Lost Partition1(NTFS)\Other lost files\c# projects - před odstraněním stejných souborů z duplicitních projektů\vs\Projects\merge-obří temp\temp1\temp\
         // for many API is different limits: https://stackoverflow.com/questions/265769/maximum-filename-length-in-ntfs-windows-xp-and-windows-vista
@@ -1203,7 +1203,7 @@ public partial class FS
                 FS.TryDeleteDirectory(p);
             }
             // Commented due to NI
-            //FS.DeleteFoldersWhichNotContains(@"E:\Documents\vs\Projects\", "bin", CA.ToListString( "node_modules"));
+            //FS.DeleteFoldersWhichNotContains(@"E:\vs\Projects\", "bin", CA.ToListString( "node_modules"));
         }
     }
 
