@@ -5,9 +5,6 @@
   <ItemGroup>
     <PackageReference Include="FluentFTP" Version="37.0.2"></PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="FluentFTP" Version="37.0.2"></PackageReference>
-  </ItemGroup>
   <ItemGroup></ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamoWithoutDep5\SunamoExceptions5\SunamoExceptions5.csproj"></ProjectReference>

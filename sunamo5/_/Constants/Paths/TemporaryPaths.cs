@@ -21,7 +21,7 @@ namespace sunamo.Constants
         public const string easeUsExt = ".rsf";
         public const string _RecoveredPhotos = @"D:\_C\_RecoveredPhotos\";
         public const string _BadImages = @"D:\_C\_BadImages\";
-        public const string fileWithAllPhotos = @"E:\Sync\Todo\Restore photos\Restore photos-Drive\AllRestoredPhotoFiles.txt";
-        public const string fileWithAllPhotosLowerExt = @"E:\Sync\Todo\Restore photos\Restore photos-Drive\AllRestoredPhotoFiles-lowerExt.txt";
+        public const string fileWithAllPhotos = CloudProvidersHelper.GDriveFolder + @"Todo\Restore photos\Restore photos-Drive\AllRestoredPhotoFiles.txt";
+        public const string fileWithAllPhotosLowerExt = CloudProvidersHelper.GDriveFolder + @"Todo\Restore photos\Restore photos-Drive\AllRestoredPhotoFiles-lowerExt.txt";
     }
 }

@@ -1233,7 +1233,7 @@ public partial class FS
     /// </summary>
     /// <param name="orig"></param>
     /// <param name="whatInsert"></param>
-    public static string InsertBetweenFileNameAndExtension2(string orig, string whatInsert)
+    public static string InsertBetweenFileNameAndExtensionRemovePath(string orig, string whatInsert)
     {
         string fn = FS.GetFileNameWithoutExtension(orig);
         string e = FS.GetExtension(orig);

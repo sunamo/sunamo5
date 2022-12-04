@@ -6,7 +6,7 @@ namespace sunamo.Constants
 {
     public class DefaultPaths
     {
-        public const string BackupSunamosAppData = @"E:\Sync\Develop of Future\Backups\";
+        public const string BackupSunamosAppData = CloudProvidersHelper.GDriveFolder + @"Develop of Future\Backups\";
         public const string pathPa = @"D:\pa\";
         public const string pathPaSync = @"D:\paSync\";
         
