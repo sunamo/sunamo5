@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 public static partial class NormalizeNumbers
 {
     public static ulong NormalizeLong(long p)

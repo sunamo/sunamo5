@@ -1,4 +1,4 @@
-﻿public enum OpenInNewTab
+public enum OpenInNewTab
 {
     Never,
     Always,

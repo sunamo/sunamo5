@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 /// <summary>
 /// Use W3C datetime format 

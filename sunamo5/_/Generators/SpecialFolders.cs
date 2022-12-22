@@ -1,4 +1,4 @@
-﻿public static class SpecialFolders
+public static class SpecialFolders
 {
     public static string MyDocuments(string path)
     {

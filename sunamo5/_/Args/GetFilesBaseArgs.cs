@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +9,5 @@ public class GetFilesBaseArgs
     /// <summary>
     /// Auto call WithEndSlash
     /// </summary>
-    public bool _trimA1AndBs = false;
+    public bool _trimA1AndLeadingBs = false;
 }

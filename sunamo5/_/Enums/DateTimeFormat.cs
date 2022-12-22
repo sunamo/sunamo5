@@ -1,4 +1,4 @@
-﻿public enum DateTimeFormat
+public enum DateTimeFormat
 {
     Czech,
     USA

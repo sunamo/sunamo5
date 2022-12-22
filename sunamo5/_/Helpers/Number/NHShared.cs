@@ -1,4 +1,4 @@
-﻿using sunamo.Data;
+using sunamo.Data;
 
 using System;
 /// <summary>

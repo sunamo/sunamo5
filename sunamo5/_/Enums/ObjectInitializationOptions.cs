@@ -1,4 +1,4 @@
-﻿public enum ObjectInitializationOptions
+public enum ObjectInitializationOptions
 {
     Hyphens,
     Original,

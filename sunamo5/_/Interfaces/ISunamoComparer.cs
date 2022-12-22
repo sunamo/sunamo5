@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 public interface ISunamoComparer<T>
 {
     int Desc(T x, T y);

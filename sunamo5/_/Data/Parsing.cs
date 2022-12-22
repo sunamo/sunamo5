@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// 
 /// </summary>
 /// <typeparam name="T1"></typeparam>

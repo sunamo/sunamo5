@@ -1,4 +1,4 @@
-﻿
+
 /// <summary>
 /// Error/Warning are in tbLastErrorOrWarning, other in tbLastOtherMessage
 /// </summary>

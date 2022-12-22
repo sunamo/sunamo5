@@ -1,4 +1,4 @@
-﻿
+
     public enum HtmlTextWriterTag
     {
         Unknown = 0,

@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// M pro zakladni operace s registry.
 /// </summary>
 public interface IRegistry

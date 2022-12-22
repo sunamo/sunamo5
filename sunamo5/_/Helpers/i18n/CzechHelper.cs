@@ -1,4 +1,4 @@
-﻿using sunamo.Essential;
+using sunamo.Essential;
 using System;
 
 public class CzechHelper

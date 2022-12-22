@@ -1,4 +1,4 @@
-﻿public partial class ThrowEx
+public partial class ThrowEx
 {
     public static void NotSupportedExtension(string extension)
     {

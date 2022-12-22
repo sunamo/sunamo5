@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 /// <summary>
 /// InstantSB(can specify own delimiter, check whether dont exists)
 /// TextBuilder(implements Undo, save to Sb or List)

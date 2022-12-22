@@ -1,4 +1,4 @@
-﻿public interface ISerialization : ISave, ILoad
+public interface ISerialization : ISave, ILoad
 {
     
     

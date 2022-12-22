@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 public class SunamoDictionarySort<T, U> : Dictionary<T, U>
 {
     private DictionarySort<T, U> _ss = new DictionarySort<T, U>();

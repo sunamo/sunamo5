@@ -1,4 +1,4 @@
-﻿using sunamo.Enums;
+using sunamo.Enums;
 using System;
 
 public partial class DTHelperFormalized

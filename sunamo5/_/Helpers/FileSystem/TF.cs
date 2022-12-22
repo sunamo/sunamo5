@@ -1,4 +1,4 @@
-﻿using sunamo;
+using sunamo;
 using sunamo.Helpers;
 using System;
 using System.Collections.Generic;

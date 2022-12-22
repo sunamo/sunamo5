@@ -1,4 +1,4 @@
-﻿public interface IInstance<T>
+public interface IInstance<T>
 {
     T CreateInstance(object o);
 }

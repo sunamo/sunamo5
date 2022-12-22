@@ -1,4 +1,4 @@
-﻿using sunamo.Constants;
+using sunamo.Constants;
 using sunamo.Generators.Text;
 using System;
 using System.Collections;

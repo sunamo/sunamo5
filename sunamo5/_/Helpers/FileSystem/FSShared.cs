@@ -1,4 +1,4 @@
-﻿using sunamo;
+using sunamo;
 using sunamo.Constants;
 using sunamo.Data;
 using sunamo.Enums;
@@ -692,7 +692,7 @@ public partial class FS
     /// <param name="masc"></param>
     /// <param name="so"></param>
     /// <param name="_trimA1"></param>
-    public static List<string> GetFolders(string folder, string masc, SearchOption so, bool _trimA1AndBs = false)
+    public static List<string> GetFolders(string folder, string masc, SearchOption so, bool _trimA1AndLeadingBs = false)
     {
         List<string> dirs = null;
         try
@@ -984,11 +984,11 @@ public partial class FS
         }
     }
 
-    //public static List<string> GetFilesEveryFolder(string folder, string mask, SearchOption searchOption, bool _trimA1AndBs = false)
+    //public static List<string> GetFilesEveryFolder(string folder, string mask, SearchOption searchOption, bool _trimA1AndLeadingBs = false)
     //{
 
 
-    //    var d = Task.Run<List<string>>(async () => await GetFilesEveryFolderAsync(folder, mask, searchOption, new GetFilesEveryFolderArgs {_trimA1AndBs =  _trimA1AndBs })).Result;
+    //    var d = Task.Run<List<string>>(async () => await GetFilesEveryFolderAsync(folder, mask, searchOption, new GetFilesEveryFolderArgs {_trimA1AndLeadingBs =  _trimA1AndLeadingBs })).Result;
     //    return d;
     //}
 
@@ -1803,7 +1803,7 @@ public partial class FS
 
     public static List<string> DirectoryListing(string path, string mask, SearchOption so)
     {
-        var p = FS.GetFiles(path, mask, so, new GetFilesArgs { _trimA1AndBs = true });
+        var p = FS.GetFiles(path, mask, so, new GetFilesArgs { _trimA1AndLeadingBs = true });
 
         return p;
     }

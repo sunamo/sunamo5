@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
 using sunamo.Html;
 using System;
 using System.Collections.Generic;

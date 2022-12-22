@@ -1,4 +1,4 @@
-﻿
+
 
 /// <summary>
 /// Common for Cm + Gp

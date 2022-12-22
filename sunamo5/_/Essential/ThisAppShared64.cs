@@ -1,4 +1,4 @@
-﻿namespace sunamo.Essential
+namespace sunamo.Essential
 {
 
 

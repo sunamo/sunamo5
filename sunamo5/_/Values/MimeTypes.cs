@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 // Must be in NS due to another MimeTypes is in TurnerSoftware.SitemapTools.web

@@ -1,4 +1,4 @@
-﻿public class GuidHelper
+public class GuidHelper
 {
     public static string RemoveDashes(string e)
     {

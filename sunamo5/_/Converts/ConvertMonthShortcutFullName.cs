@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 public static class ConvertMonthShortcutFullName //: IConvertShortcutFullName
 {
 static Type type = typeof(ConvertMonthShortcutFullName);

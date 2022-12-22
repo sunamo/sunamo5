@@ -1,4 +1,4 @@
-﻿public enum SortBy
+public enum SortBy
 {
     Popularity,
     Date

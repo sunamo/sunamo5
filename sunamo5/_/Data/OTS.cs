@@ -1,4 +1,4 @@
-﻿public class OTS
+public class OTS
 {
     public object A = null;
     public object B = null;

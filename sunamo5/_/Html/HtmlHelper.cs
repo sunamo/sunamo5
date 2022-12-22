@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
 using sunamo.Constants;
 using sunamo.Html;
 using sunamo.Values;

@@ -1,4 +1,4 @@
-﻿public interface IProgressBar
+public interface IProgressBar
 {
     void Init();
     void Init(bool isNotUt);

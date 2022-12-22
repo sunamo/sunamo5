@@ -1,4 +1,4 @@
-﻿public enum CurrenciesISO4217
+public enum CurrenciesISO4217
 {
 	/// <summary>
 	/// Currency

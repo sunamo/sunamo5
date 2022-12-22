@@ -1,4 +1,4 @@
-﻿namespace sunamo.Enums
+namespace sunamo.Enums
 {
     public enum ComputerSizeUnits : byte
     {

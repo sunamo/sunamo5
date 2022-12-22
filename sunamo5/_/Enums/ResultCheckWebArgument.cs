@@ -1,4 +1,4 @@
-﻿public enum ResultCheckWebArgument
+public enum ResultCheckWebArgument
 {
     WrongRange,
     Empty,

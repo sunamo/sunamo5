@@ -1,4 +1,4 @@
-﻿using sunamo;
+using sunamo;
 using sunamo.Collections;
 using sunamo.Constants;
 using sunamo.Delegates;

@@ -1,4 +1,4 @@
-﻿public class TryParse
+public class TryParse
 {
     public class DateTime
     {

@@ -1,4 +1,4 @@
-﻿
+
 namespace sunamo
 {
     public enum WizardResult

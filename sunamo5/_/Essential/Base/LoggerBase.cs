@@ -1,4 +1,4 @@
-﻿
+
 using sunamo;
 using sunamo.Essential;
 using System;

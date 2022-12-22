@@ -1,4 +1,4 @@
-﻿public enum DirectoryMoveCollisionOption
+public enum DirectoryMoveCollisionOption
 {
     AddSerie,
     Overwrite,

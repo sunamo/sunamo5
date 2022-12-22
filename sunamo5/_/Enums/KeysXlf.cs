@@ -1,4 +1,4 @@
-﻿public enum KeysXlf {
+public enum KeysXlf {
 	ByUsingThisWebsiteYouAgreeToThis,
 	PrivacyPolicy,
 	ThisWebUseToServiceOfTheServicePersonalizationAndAnalysisOfVisits,

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 /// <summary>
 /// Methods which in string result have T as delimiter date and time

@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// Dont use, instead of this IControlWithResult
 /// Only for closing is 
 /// </summary>

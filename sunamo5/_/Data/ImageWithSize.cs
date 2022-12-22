@@ -1,4 +1,4 @@
-﻿public class ImageWithSize
+public class ImageWithSize
 {
     public string uri = "";
     public int width = 0;

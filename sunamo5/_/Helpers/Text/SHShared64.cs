@@ -1,4 +1,4 @@
-﻿using Diacritics.Extensions;
+using Diacritics.Extensions;
 using sunamo;
 using sunamo.Essential;
 using System;

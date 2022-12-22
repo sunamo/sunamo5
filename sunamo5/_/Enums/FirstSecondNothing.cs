@@ -1,4 +1,4 @@
-﻿public enum FirstSecondNothing
+public enum FirstSecondNothing
 {
     First,
     Second,

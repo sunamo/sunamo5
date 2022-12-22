@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// 
 /// </summary>
 public class StringInt : Parsing<string, int>

@@ -1,4 +1,4 @@
-﻿public enum CssNamedColors
+public enum CssNamedColors
 {
     darkgreen,
     red,

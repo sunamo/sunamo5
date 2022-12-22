@@ -1,4 +1,4 @@
-﻿using sunamo.Data;
+using sunamo.Data;
 using System.Collections.Generic;
 using System.Text;
 public static class ConvertRot12

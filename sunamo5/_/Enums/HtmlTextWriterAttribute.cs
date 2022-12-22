@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// Must be in sunamo, not System.Web.UI. HtmlTextWriterAttribute, because its not available in _UAp
 /// </summary>
 public enum HtmlTextWriterAttribute

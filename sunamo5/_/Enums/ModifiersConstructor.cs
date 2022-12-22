@@ -1,4 +1,4 @@
-﻿public enum ModifiersConstructor
+public enum ModifiersConstructor
 {
     Public,
     Private,

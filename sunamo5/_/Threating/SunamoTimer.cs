@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 public class SunamoTimer
 {
     protected System.Timers.Timer t = null;

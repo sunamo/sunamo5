@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// Base Types Static
 /// </summary>
 

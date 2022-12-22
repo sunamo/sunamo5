@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+using HtmlAgilityPack;
 using sunamo.Html;
 using System.IO;
 using System.Net;

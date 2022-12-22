@@ -1,4 +1,4 @@
-﻿public enum ViewTable : byte
+public enum ViewTable : byte
 {
     /// <summary>
     /// int
